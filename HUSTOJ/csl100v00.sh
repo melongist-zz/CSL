@@ -21,6 +21,12 @@ sudo rm js.php
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/js.php
 sudo chown www-data js.php
 
+#replace msg.txt
+cd /home/judge/src/web/admin/
+sudo rm msg.txt
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/msg.txt
+sudo chown www-data msg.txt
+
 #copy all images to server
 cd /home/judge/src/web/upload
 sudo rm -rf *
@@ -110,5 +116,5 @@ echo "$OJNAME   admin PW : computerscience"
 echo ""
 echo "Log in as admin and change PW!"
 echo ""
-echo "Scripted by melongist"
+echo "Made by melongist(what_is_computer@msn.com)"
 echo "Powered by CSL"
