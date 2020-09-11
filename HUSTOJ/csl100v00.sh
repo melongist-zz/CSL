@@ -31,9 +31,8 @@
 #clear
 #echo "HUSTOJ ver CSL100v00 completed!!"
 
-cd /home/judge/
-sed -i "s/DB_USER[[:space:]]*=[[:space:]]*\"root\"/DB_USER=\"$USER\"/g" src/web/include/db_info.inc.php
-sed -i "s/DB_PASS[[:space:]]*=[[:space:]]*\"root\"/DB_PASS=\"$PASSWORD\"/g" src/web/include/db_info.inc.php
+USER = $(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
+PASSWORD = $(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 
 echo "Remember your database account for HUST Online Judge:"
 echo "username:$USER"
