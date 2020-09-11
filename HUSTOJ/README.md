@@ -1,5 +1,11 @@
 #HUSTOJ 를 쉽고 빠르게 설치해서 운영할 수 있도록 하기 위한 스크립트 파일과 소스코드를 저장하고 배포하는 용도입니다.
 
+
+#설치 스크립트
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v00.sh
+
+
+
 #kindeditor 한글 팝업 메뉴로 수정한 파일
 - /home/judge/src/web/admin/kindeditor.php
 
