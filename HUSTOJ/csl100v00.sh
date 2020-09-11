@@ -31,8 +31,9 @@
 #clear
 #echo "HUSTOJ ver CSL100v00 completed!!"
 
-sed -i "s/DB_USER[[:space:]]*=[[:space:]]*\"root\"/DB_USER=\"$USER\"/g" /home/judge/src/web/include/db_info.inc.php
-sed -i "s/DB_PASS[[:space:]]*=[[:space:]]*\"root\"/DB_PASS=\"$PASSWORD\"/g" /home/judge/src/web/include/db_info.inc.php
+cd /home/judge/
+sed -i "s/DB_USER[[:space:]]*=[[:space:]]*\"root\"/DB_USER=\"$USER\"/g" src/web/include/db_info.inc.php
+sed -i "s/DB_PASS[[:space:]]*=[[:space:]]*\"root\"/DB_PASS=\"$PASSWORD\"/g" src/web/include/db_info.inc.php
 
 echo "Remember your database account for HUST Online Judge:"
 echo "username:$USER"
