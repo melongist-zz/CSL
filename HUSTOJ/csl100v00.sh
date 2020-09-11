@@ -22,7 +22,7 @@ sudo chown www-data js.php
 #copy all images to server
 cd /home/judge/src/web/upload
 sudo rm -rf *
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v00.tar.gz
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v00image.tar.gz
 sudo tar zxvf csl100v00image.tar.gz
 sudo rm csl100v00.tar.gz
 
@@ -53,7 +53,7 @@ mysqladmin -u $USER -p$PASSWORD create jol
 mysql -u $USER -p$PASSWORD jol < csl100v00jol.sql
 sudo rm csl100v00jol.sql
 
-chear
+clear
 echo "Ver 2020.09.11"
 echo "CSL basic 100 problems install completed!!"
 echo "HUSTOJ admin ID : admin"
