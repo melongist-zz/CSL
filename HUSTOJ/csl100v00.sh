@@ -34,6 +34,7 @@ sudo tar zxvf csl100v00data.tar.gz
 sudo rm csl100v00data.tar.gz
 
 #install phpmyadmin
+cd
 sudo apt install phpmyadmin
 sudo ln -f -s /usr/share/phpmyadmin /home/judge/src/web/phpmyadmin
 sudo mv /home/judge/src/web/phpmyadmin /home/judge/src/web/pma
