@@ -9,5 +9,9 @@
 #아래쪽 2개 큐알 코드 없애고 CSL 링크로 넣기
 - /home/judge/src/web/template/bs3/js.php
 
+#이미지 파일 경로
+- /home/judge/src/web/upload
+  - 현재 디렉토리에 압축 해제 sudo tar zxvf T.tar.gz 
+  - 현재 디렉토리 모든 파일 및 폴더 압축 sudo tar zcvf T.tar.gz *
 
 
