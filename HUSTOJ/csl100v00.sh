@@ -31,9 +31,23 @@
 #clear
 #echo "HUSTOJ ver CSL100v00 completed!!"
 
+#sql overwriting
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v00jol.sql
+
 USER=$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 
-echo "Remember your database account for HUST Online Judge:"
-echo "username:$USER"
-echo "password:$PASSWORD"
+#echo "Remember your database account for HUST Online Judge:"
+#echo "username:$USER"
+#echo "password:$PASSWORD"
+
+mysql - h localhost -u $USER -p$PASSWORD jol < csl100v00jol.sql
+quit
+
+
+echo "CSL basic 100 problems install completed!!"
+
+
+
+
+
