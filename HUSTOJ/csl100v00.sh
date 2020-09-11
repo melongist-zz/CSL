@@ -1,3 +1,6 @@
+sudo apt update
+sudo apt upgrade
+
 #kindeditor korean setting
 cd /home/judge/src/web/admin/
 sudo rm kindeditor.php
@@ -20,8 +23,15 @@ sudo chown www-data js.php
 cd /home/judge/src/web/upload
 sudo rm -rf *
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v00.tar.gz
-sudo tar zxvf csl100v00.tar.gz
+sudo tar zxvf csl100v00image.tar.gz
 sudo rm csl100v00.tar.gz
+
+#copy all data to server
+cd /home/judge/
+sudo rm -rf data
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v00data.tar.gz
+sudo tar zxvf csl100v00data.tar.gz
+sudo rm csl100v00data.tar.gz
 
 #install phpmyadmin
 sudo apt install phpmyadmin
@@ -40,7 +50,9 @@ PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 
 mysqladmin -u $USER -p$PASSWORD create jol
 mysql -u $USER -p$PASSWORD jol < csl100v00jol.sql
+sudo rm csl100v00jol.sql
 
+chear
 echo "Ver 2020.09.11"
 echo "CSL basic 100 problems install completed!!"
 echo "HUSTOJ admin ID : admin"
