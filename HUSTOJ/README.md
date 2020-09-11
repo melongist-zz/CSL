@@ -3,6 +3,7 @@
 
 #설치 스크립트 파일 다운로드 및 설치
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v00.sh
+
 sudo bash csl100v00.sh
 
 
