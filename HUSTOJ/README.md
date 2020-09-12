@@ -4,9 +4,11 @@
 
 #설치 스크립트 파일 다운로드 및 설치 명령어 실행
 
+<pre>
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v00.sh
 
 sudo bash csl100v00.sh
+</pre>
 
 ------
 #kindeditor 한글 설정
