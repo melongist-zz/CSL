@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo apt update
-sudo apt upgrade
+sudo apt -y upgrade
 
 #kindeditor korean setting
 cd /home/judge/src/web/admin/
@@ -43,7 +43,7 @@ sudo rm csl100v00data.tar.gz
 
 #install phpmyadmin
 cd
-sudo apt install phpmyadmin
+sudo apt -y install phpmyadmin
 sudo ln -f -s /usr/share/phpmyadmin /home/judge/src/web/phpmyadmin
 sudo mv /home/judge/src/web/phpmyadmin /home/judge/src/web/pma
 
