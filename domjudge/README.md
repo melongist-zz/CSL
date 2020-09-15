@@ -4,6 +4,8 @@
 
 #설치 스크립트 파일 다운로드 및 설치 명령어 실행
 
+<pre>
 wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/dj730.sh
 
 sudo bash dj730.sh
+</pre>
