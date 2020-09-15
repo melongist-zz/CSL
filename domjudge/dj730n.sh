@@ -16,8 +16,6 @@ sudo apt -y install mariadb-server mariadb-client
 
 sudo mysql_secure_installation
 
-
-#sudo apt -y install apache2
 sudo apt -y install nginx
 sudo apt -y install php
 sudo apt -y install php-fpm
@@ -51,17 +49,11 @@ PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 cd /opt/domjudge/domserver/bin
 sudo ./dj_setup_database -u root -p -r install
 
-sudo ln -s /opt/domjudge/domserver/etc/apache.conf /etc/apache2/conf-available/domjudge.conf
+sudo ln -s /opt/domjudge/domserver/etc/nginx-conf /etc/nginx/sites-enabled/domjudge
 sudo ln -s /opt/domjudge/domserver/etc/domjudge-fpm.conf /etc/php/7.4/fpm/pool.d/domjudge.conf
 
-sudo a2enmod proxy_fcgi setenvif rewrite
-sudo systemctl restart apache2
-
-sudo a2enconf php7.4-fpm domjudge
-sudo systemctl restart apache2
-
 sudo service php7.4-fpm reload
-sudo service apache2 reload
+sudo service ngix reload
 
 cd
 sudo rm -f /var/www/html/index.html
