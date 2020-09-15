@@ -107,8 +107,10 @@ sed -i "s#//date_default_timezone_set(\"PRC\")#date_default_timezone_set(\"Asia\
 sed -i "s#//pdo_query(\"SET time_zone ='+8:00'\")#pdo_query(\"SET time_zone ='+9:00'\")#" db_info.inc.php
 
 cd
-
 sudo apt -y autoremove
+
+clear
+
 echo "/home/judge/src/web/include/db_info.inc.php edited!!"
 echo "Edit /home/judge/src/web/include/db_info.inc.php for more options!!"
 echo ""

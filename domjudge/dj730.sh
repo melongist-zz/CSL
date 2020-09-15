@@ -62,7 +62,7 @@ sudo systemctl restart apache2
 sudo service php7.4-fpm reload
 sudo service apache2 reload
 
-sudo cd
+cd
 sudo rm -f /var/www/html/index.html
 echo "<script>document.location=\"./domjudge/\";</script>" > index.html
 sudo chmod 644 index.html
@@ -72,6 +72,7 @@ sudo mv index.html /var/www/html/
 sudo apt -y autoremove
 
 clear
+
 echo "domjudge 7.3.0 install completed!!"
 echo "Ver 2020.09.15"
 echo "Made by melongist(what_is_computer@msn.com)"
