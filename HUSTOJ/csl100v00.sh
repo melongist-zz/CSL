@@ -108,6 +108,7 @@ sed -i "s#//pdo_query(\"SET time_zone ='+8:00'\")#pdo_query(\"SET time_zone ='+9
 
 cd
 
+sudo apt -y autoremove
 echo "/home/judge/src/web/include/db_info.inc.php edited!!"
 echo "Edit /home/judge/src/web/include/db_info.inc.php for more options!!"
 echo ""

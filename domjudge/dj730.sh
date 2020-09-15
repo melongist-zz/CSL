@@ -16,6 +16,7 @@ sudo apt -y install mariadb-server mariadb-client
 
 sudo mysql_secure_installation
 
+
 sudo apt -y install apache2
 sudo apt -y install php
 sudo apt -y install php-fpm
@@ -68,8 +69,12 @@ sudo chmod 644 index.html
 sudo chown root:root index.html
 sudo mv index.html /var/www/html/
 
+sudo apt -y autoremove
+
+clear
+echo "domjudge 7.3.0 install completed!!"
 echo "Ver 2020.09.15"
-echo "domjudge install completed!!"
+echo "Made by melongist(what_is_computer@msn.com)"
 echo "admin ID : admin"
 echo "admin PW : $PASSWORD"
 
