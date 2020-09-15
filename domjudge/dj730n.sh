@@ -49,11 +49,11 @@ PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 cd /opt/domjudge/domserver/bin
 sudo ./dj_setup_database -u root -p -r install
 
-sudo ln -s /opt/domjudge/domserver/etc/nginx-conf /etc/nginx/sites-enabled/domjudge
+sudo ln -s /opt/domjudge/domserver/etc/nginx-conf-inner /etc/nginx/sites-enabled/domjudge
 sudo ln -s /opt/domjudge/domserver/etc/domjudge-fpm.conf /etc/php/7.4/fpm/pool.d/domjudge.conf
 
 sudo service php7.4-fpm reload
-sudo service ngix reload
+sudo service nginx reload
 
 cd
 sudo rm -f /var/www/html/index.html
