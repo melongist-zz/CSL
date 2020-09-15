@@ -82,8 +82,9 @@ sudo apt -y autoremove
 
 clear
 
+echo "apache2 based"
 echo "domjudge 7.3.0 install completed!!"
-echo "Ver 2020.09.15"
+echo "Ver 2020.09.16"
 echo "Made by melongist(what_is_computer@msn.com)"
 echo "admin ID : admin"
 echo "admin PW : $PASSWORD"

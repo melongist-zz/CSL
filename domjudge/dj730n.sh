@@ -16,6 +16,8 @@ sudo apt -y install mariadb-server mariadb-client
 
 sudo mysql_secure_installation
 
+
+
 sudo apt -y install nginx
 sudo apt -y install php
 sudo apt -y install php-fpm
@@ -56,18 +58,19 @@ sudo service php7.4-fpm reload
 sudo service nginx reload
 
 cd
-sudo rm -f /var/www/html/index.html
-echo "<script>document.location=\"./domjudge/\";</script>" > index.html
-sudo chmod 644 index.html
-sudo chown root:root index.html
-sudo mv index.html /var/www/html/
+#sudo rm -f /var/www/html/index.html
+#echo "<script>document.location=\"./domjudge/\";</script>" > index.html
+#sudo chmod 644 index.html
+#sudo chown root:root index.html
+#sudo mv index.html /var/www/html/
 
 sudo apt -y autoremove
 
 clear
 
+echo "nginx based"
 echo "domjudge 7.3.0 install completed!!"
-echo "Ver 2020.09.15"
+echo "Ver 2020.09.16"
 echo "Made by melongist(what_is_computer@msn.com)"
 echo "admin ID : admin"
 echo "admin PW : $PASSWORD"
