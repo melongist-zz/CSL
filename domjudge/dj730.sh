@@ -18,19 +18,28 @@ sudo mysql_secure_installation
 
 
 sudo apt -y install apache2
-sudo apt -y install php
-sudo apt -y install php-fpm
-sudo apt -y install php-gd
-sudo apt -y install php-cli
-sudo apt -y install php-intl
-sudo apt -y install php-mbstring
-sudo apt -y install php-mysql
-sudo apt -y install php-curl
-sudo apt -y install php-json
-sudo apt -y install php-xml
-sudo apt -y install php-zip
-sudo apt -y install composer
-sudo apt -y install ntp
+
+for pkgs in php php-fpm php-gd php-cli php-intl php-mbstring php-mysql php-curl php-json php-xml php-zip composer ntp
+do
+	while ! sudo apt -y install "$pkgs" 
+	do
+		echo "Network fail, retry... you might want to change another apt source for install"
+	done
+done
+
+#sudo apt -y install php
+#sudo apt -y install php-fpm
+#sudo apt -y install php-gd
+#sudo apt -y install php-cli
+#sudo apt -y install php-intl
+#sudo apt -y install php-mbstring
+#sudo apt -y install php-mysql
+#sudo apt -y install php-curl
+#sudo apt -y install php-json
+#sudo apt -y install php-xml
+#sudo apt -y install php-zip
+#sudo apt -y install composer
+#sudo apt -y install ntp
 
 wget https://www.domjudge.org/releases/domjudge-7.3.0.tar.gz
 sudo tar xvf domjudge-7.3.0.tar.gz
