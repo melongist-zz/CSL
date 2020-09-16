@@ -15,7 +15,10 @@ sudo apt -y upgrade
 
 sudo apt -y install mariadb-server mariadb-client
 
-#You must set new password for root
+clear
+echo "Mariadb의 root 패스워드를 반드시 바꿔야 합니다. 나중에 다시 사용합니다."
+
+#root 패스워드 반드시 설정해야함. #1
 sudo mysql_secure_installation
 
 sudo apt -y install apache2
@@ -41,7 +44,7 @@ sudo apt -y install php-zip
 sudo apt -y install composer
 sudo apt -y install ntp
 
-#sudo apt -y install build-essential
+sudo apt -y install build-essential
 sudo apt -y install libcgroup-dev
 sudo apt -y install libcurl4-openssl-dev
 sudo apt -y install libjsoncpp-dev
@@ -58,7 +61,11 @@ sudo make install-domserver
 PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
 cd /opt/domjudge/domserver/bin
-./dj_setup_database -u root -r install
+
+sudo ./dj_setup_database genpass
+echo "Mariadb의 root 패스워드를 입력하세요."
+# #1에서 설정한 root 패스워드 입력
+sudo ./dj_setup_database -u root -r install
 
 sudo ln -s /opt/domjudge/domserver/etc/apache.conf /etc/apache2/conf-available/domjudge.conf
 sudo ln -s /opt/domjudge/domserver/etc/domjudge-fpm.conf /etc/php/7.4/fpm/pool.d/domjudge.conf
