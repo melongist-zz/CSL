@@ -15,6 +15,7 @@ sudo apt -y upgrade
 
 sudo apt -y install mariadb-server mariadb-client
 
+#enter new password for root
 sudo mysql_secure_installation
 
 sudo apt -y install apache2
@@ -54,10 +55,10 @@ cd domjudge-7.3.0
 make domserver
 sudo make install-domserver
 
-#PASSWORD=$(sudo cat $HOME/domjudge/domserver/etc/initial_admin_password.secret)
+PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
-#cd $HOME/domjudge/domserver/bin
-#sudo ./dj_setup_database install
+cd /opt/domjudge/domserver/bin
+#./dj_setup_database -u root -r install
 
 #sudo ln -s $HOME/domjudge/domserver/etc/apache.conf /etc/apache2/conf-available/domjudge.conf
 #sudo ln -s $HOME/domjudge/domserver/etc/domjudge-fpm.conf /etc/php/7.4/fpm/pool.d/domjudge.conf
