@@ -9,5 +9,5 @@
 <pre>
 wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/dj730.sh
 
-sudo bash dj730.sh
+bash dj730.sh
 </pre>
