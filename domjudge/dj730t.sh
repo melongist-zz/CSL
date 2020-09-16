@@ -50,7 +50,7 @@ wget https://www.domjudge.org/releases/domjudge-7.3.0.tar.gz
 tar xvf domjudge-7.3.0.tar.gz
 
 cd domjudge-7.3.0
-./configure --prefix=$USER/domjudge --with-baseurl=BASEURL --with-domjudge-user=$USER
+./configure --with-domjudge-user=$USER --with-baseurl=BASEURL
 make domserver
 sudo make install-domserver
 
