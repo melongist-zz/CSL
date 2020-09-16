@@ -58,7 +58,7 @@ cd domjudge-7.3.0
 make domserver
 sudo make install-domserver
 
-PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
+PASSWORD=$(sudo cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
 cd /opt/domjudge/domserver/bin
 
