@@ -15,7 +15,6 @@ sudo apt -y upgrade
 
 sudo apt -y install mariadb-server mariadb-client
 
-
 sudo mysql_secure_installation
 
 sudo apt -y install apache2
@@ -50,11 +49,11 @@ sudo apt -y install libcurl4-openssl-dev
 sudo apt -y install libjsoncpp-dev
 
 cd domjudge-7.3.0
-./configure --prefix=$HOME/domjudge --with-baseurl=BASEURL
+sudo ./configure --prefix=$HOME/domjudge --with-baseurl=BASEURL --with-domjudge-user=root
 make domserver
 sudo make install-domserver
 
-PASSWORD=$(cat $HOME/domjudge/domserver/etc/initial_admin_password.secret)
+PASSWORD=$(sudo cat $HOME/domjudge/domserver/etc/initial_admin_password.secret)
 
 cd $HOME/domjudge/domserver/bin
 sudo ./dj_setup_database install
@@ -62,8 +61,8 @@ sudo ./dj_setup_database install
 sudo ln -s $HOME/domjudge/domserver/etc/apache.conf /etc/apache2/conf-available/domjudge.conf
 sudo ln -s $HOME/domjudge/domserver/etc/domjudge-fpm.conf /etc/php/7.4/fpm/pool.d/domjudge.conf
 
-a2enmod proxy_fcgi setenvif rewrite
-a2enconf php7.4-fpm domjudge
+sudo a2enmod proxy_fcgi setenvif rewrite
+sudo a2enconf php7.4-fpm domjudge
 sudo service php7.4-fpm reload
 sudo service apache2 reload
 
