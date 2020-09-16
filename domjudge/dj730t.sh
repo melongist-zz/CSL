@@ -40,16 +40,15 @@ sudo apt -y install php-zip
 sudo apt -y install composer
 sudo apt -y install ntp
 
-wget https://www.domjudge.org/releases/domjudge-7.3.0.tar.gz
-sudo tar xvf domjudge-7.3.0.tar.gz
-
 #sudo apt -y install build-essential
 sudo apt -y install libcgroup-dev
 sudo apt -y install libcurl4-openssl-dev
 sudo apt -y install libjsoncpp-dev
 
 
-cd $HOME/domjudge-7.3.0
+wget https://www.domjudge.org/releases/domjudge-7.3.0.tar.gz
+sudo tar xvf domjudge-7.3.0.tar.gz
+cd domjudge-7.3.0
 ##sudo smake domserver
 #sudo make install-domserver
 
