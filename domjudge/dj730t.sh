@@ -47,12 +47,12 @@ sudo apt -y install libjsoncpp-dev
 
 
 wget https://www.domjudge.org/releases/domjudge-7.3.0.tar.gz
-sudo tar xvf domjudge-7.3.0.tar.gz
+tar xvf domjudge-7.3.0.tar.gz
 
 cd domjudge-7.3.0
 
-##sudo make domserver
-#sudo make install-domserver
+make domserver
+sudo make install-domserver
 
 #PASSWORD=$(sudo cat $HOME/domjudge/domserver/etc/initial_admin_password.secret)
 
