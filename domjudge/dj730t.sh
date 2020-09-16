@@ -50,8 +50,7 @@ sudo apt -y install libjsoncpp-dev
 
 
 cd $HOME/domjudge-7.3.0
-#sudo ./configure --prefix=$HOME/domjudge --with-domjudge-user=$USER --with-baseurl=BASEURL
-#sudo smake domserver
+##sudo smake domserver
 #sudo make install-domserver
 
 #PASSWORD=$(sudo cat $HOME/domjudge/domserver/etc/initial_admin_password.secret)
