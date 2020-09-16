@@ -15,7 +15,7 @@ sudo apt -y upgrade
 
 sudo apt -y install mariadb-server mariadb-client
 
-#enter new password for root
+#You must set new password for root
 sudo mysql_secure_installation
 
 sudo apt -y install apache2
@@ -58,33 +58,36 @@ sudo make install-domserver
 PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
 cd /opt/domjudge/domserver/bin
-#./dj_setup_database -u root -r install
+./dj_setup_database -u root -r install
 
-#sudo ln -s $HOME/domjudge/domserver/etc/apache.conf /etc/apache2/conf-available/domjudge.conf
-#sudo ln -s $HOME/domjudge/domserver/etc/domjudge-fpm.conf /etc/php/7.4/fpm/pool.d/domjudge.conf
+sudo ln -s /opt/domjudge/domserver/etc/apache.conf /etc/apache2/conf-available/domjudge.conf
+sudo ln -s /opt/domjudge/domserver/etc/domjudge-fpm.conf /etc/php/7.4/fpm/pool.d/domjudge.conf
 
-#sudo a2enmod proxy_fcgi setenvif rewrite
-#sudo a2enconf php7.4-fpm domjudge
-#sudo service php7.4-fpm reload
-#sudo service apache2 reload
+sudo a2enmod proxy_fcgi setenvif rewrite
+sudo systemctl restart apache2
+sudo a2enconf php7.4-fpm domjudge
+sudo systemctl reload apache2
 
-#cd
-#sudo rm -f /var/www/html/index.html
-#echo "<script>document.location=\"./domjudge/\";</script>" > index.html
-#sudo chmod 644 index.html
-#sudo chown root:root index.html
-#sudo mv index.html /var/www/html/
+sudo service php7.4-fpm reload
+sudo service apache2 reload
 
-#sudo apt -y autoremove
+cd
+sudo rm -f /var/www/html/index.html
+echo "<script>document.location=\"./domjudge/\";</script>" > index.html
+sudo chmod 644 index.html
+sudo chown root:root index.html
+sudo mv index.html /var/www/html/
 
-#clear
+sudo apt -y autoremove
 
-#echo "apache2 based"
-#echo "domjudge 7.3.0 install completed!!"
-#echo "Ver 2020.09.16"
-#echo "Made by melongist(what_is_computer@msn.com)"
-#echo "admin ID : admin"
-#echo "admin PW : $PASSWORD"
+clear
+
+echo "apache2 based"
+echo "domjudge 7.3.0 install completed!!"
+echo "Ver 2020.09.17"
+echo "Made by melongist(what_is_computer@msn.com)"
+echo "admin ID : admin"
+echo "admin PW : $PASSWORD"
 
 
 
