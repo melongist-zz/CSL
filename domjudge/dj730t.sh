@@ -48,7 +48,9 @@ sudo apt -y install libcgroup-dev
 sudo apt -y install libcurl4-openssl-dev
 sudo apt -y install libjsoncpp-dev
 
-cd domjudge-7.3.0
+
+cd $HOME/domjudge-7.3.0
+<<COMMENT
 sudo ./configure --prefix=$HOME/domjudge --with-domjudge-user=$USER --with-baseurl=BASEURL
 sudo smake domserver
 sudo make install-domserver
@@ -83,6 +85,7 @@ echo "Ver 2020.09.16"
 echo "Made by melongist(what_is_computer@msn.com)"
 echo "admin ID : admin"
 echo "admin PW : $PASSWORD"
+COMMENT
 
 
 
