@@ -58,9 +58,9 @@ wget https://www.domjudge.org/releases/domjudge-7.3.0.tar.gz
 tar xvf domjudge-7.3.0.tar.gz
 
 cd domjudge-7.3.0
-./configure --with-domjudge-user=$USER --with-baseurl=BASEURL
+./configure --with-domjudge-user=root --with-baseurl=BASEURL
 make domserver
-make install-domserver
+sudo make install-domserver
 
 PASSWORD=$(sudo cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
@@ -88,10 +88,10 @@ service php7.4-fpm reload
 service apache2 reload
 
 cd
-#rm -f /var/www/html/index.html
-#chmod 644 index.html
-#chown root:root index.html
-#mv index.html /var/www/html/
+rm -f /var/www/html/index.html
+chmod 644 index.html
+chown root:root index.html
+mv index.html /var/www/html/
 
 apt -y autoremove
 
