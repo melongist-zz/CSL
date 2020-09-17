@@ -15,8 +15,12 @@ apt -y upgrade
 
 apt -y install mariadb-server mariadb-client
 
-clear
+echo ""
+echo "----------------------------------"
 echo "Change!! Mariadb's' root password!"
+echo "----------------------------------"
+echo ""
+
 
 #root 패스워드 반드시 설정해야함. #1
 mysql_secure_installation
@@ -63,7 +67,12 @@ PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 cd /opt/domjudge/domserver/bin
 
 ./dj_setup_database genpass
+
+echo ""
+echo "----------------------------------"
 echo "Submit!! Mariadb's' root password!"
+echo "----------------------------------"
+echo ""
 # #1에서 설정한 root 패스워드 입력
 ./dj_setup_database -u root -r install
 
