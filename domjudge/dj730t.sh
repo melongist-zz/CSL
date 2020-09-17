@@ -1,5 +1,5 @@
 #!/bin/bash
-#Ubuntu 20.04 LTS
+#for Ubuntu 20.04 LTS AWS Server and Desktop
 
 apt update
 apt -y upgrade
@@ -62,7 +62,7 @@ cd domjudge-7.3.0
 make domserver
 make install-domserver
 
-PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
+PASSWORD=$(sudo cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
 cd /opt/domjudge/domserver/bin
 
