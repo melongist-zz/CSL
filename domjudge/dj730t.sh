@@ -4,8 +4,8 @@
 apt update
 apt -y upgrade
 
-#sudo apt -y install acl
-#sudo apt -y install zip
+sudo apt -y install acl
+sudo apt -y install zip
 
 apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
 add-apt-repository 'deb [arch=amd64] http://mariadb.mirror.globo.tech/repo/10.5/ubuntu focal main'
@@ -51,9 +51,9 @@ apt -y install libcurl4-openssl-dev
 apt -y install libjsoncpp-dev
 
 cd domjudge-7.3.0
-./configure --with-domjudge-user=$USER --with-baseurl=BASEURL
-make domserver
-make install-domserver
+sudo ./configure --with-domjudge-user=$USER --with-baseurl=BASEURL
+sudo make domserver
+sudo make install-domserver
 
 cd /opt/domjudge/domserver/bin
 #./dj_setup_database genpass
@@ -64,26 +64,26 @@ echo "Submit!! Mariadb's' root password!"
 echo "----------------------------------"
 echo ""
 # #1에서 설정한 root 패스워드 입력
-./dj_setup_database -u root -p -r install
+sudo ./dj_setup_database -u root -p -r install
 
-ln -s /opt/domjudge/domserver/etc/apache.conf /etc/apache2/conf-available/domjudge.conf
-ln -s /opt/domjudge/domserver/etc/domjudge-fpm.conf /etc/php/7.4/fpm/pool.d/domjudge.conf
+sudo ln -s /opt/domjudge/domserver/etc/apache.conf /etc/apache2/conf-available/domjudge.conf
+sudo ln -s /opt/domjudge/domserver/etc/domjudge-fpm.conf /etc/php/7.4/fpm/pool.d/domjudge.conf
 
-a2enmod proxy_fcgi setenvif rewrite
-systemctl restart apache2
+sudo a2enmod proxy_fcgi setenvif rewrite
+sudo systemctl restart apache2
 
-a2enconf php7.4-fpm domjudge
-systemctl reload apache2
+sudo a2enconf php7.4-fpm domjudge
+sudo systemctl reload apache2
 
-service php7.4-fpm reload
-service apache2 reload
+sudo service php7.4-fpm reload
+sudo service apache2 reload
 
 cd
-rm -f /var/www/html/index.html
+sudo rm -f /var/www/html/index.html
 echo "<script>document.location=\"./domjudge/\";</script>" > index.html
-chmod 644 index.html
-chown root:root index.html
-mv index.html /var/www/html/
+sudo chmod 644 index.html
+sudo chown root:root index.html
+sudo mv index.html /var/www/html/
 
 apt -y autoremove
 
