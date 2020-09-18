@@ -30,12 +30,6 @@ apt -y install apache2
 apt -y install php
 apt -y install php-fpm
 
-a2enmod proxy_fcgi setenvif
-systemctl restart apache2
-
-a2enconf php7.4-fpm
-systemctl reload apache2
-
 apt -y install php-gd
 apt -y install php-cli
 apt -y install php-intl
@@ -48,14 +42,13 @@ apt -y install php-zip
 apt -y install composer
 apt -y install ntp
 
+wget https://www.domjudge.org/releases/domjudge-7.3.0.tar.gz
+tar xvf domjudge-7.3.0.tar.gz
+
 apt -y install build-essential
 apt -y install libcgroup-dev
 apt -y install libcurl4-openssl-dev
 apt -y install libjsoncpp-dev
-
-
-wget https://www.domjudge.org/releases/domjudge-7.3.0.tar.gz
-tar xvf domjudge-7.3.0.tar.gz
 
 cd domjudge-7.3.0
 ./configure --with-domjudge-user=$USER --with-baseurl=BASEURL
@@ -63,7 +56,7 @@ make domserver
 make install-domserver
 
 cd /opt/domjudge/domserver/bin
-./dj_setup_database genpass
+#./dj_setup_database genpass
 
 echo ""
 echo "----------------------------------"
@@ -71,13 +64,14 @@ echo "Submit!! Mariadb's' root password!"
 echo "----------------------------------"
 echo ""
 # #1에서 설정한 root 패스워드 입력
-./dj_setup_database -u root -r install
+./dj_setup_database -u root -p -r install
 
 ln -s /opt/domjudge/domserver/etc/apache.conf /etc/apache2/conf-available/domjudge.conf
 ln -s /opt/domjudge/domserver/etc/domjudge-fpm.conf /etc/php/7.4/fpm/pool.d/domjudge.conf
 
 a2enmod proxy_fcgi setenvif rewrite
 systemctl restart apache2
+
 a2enconf php7.4-fpm domjudge
 systemctl reload apache2
 
@@ -88,7 +82,7 @@ cd
 rm -f /var/www/html/index.html
 echo "<script>document.location=\"./domjudge/\";</script>" > index.html
 chmod 644 index.html
-chown www-data:www-data index.html
+chown root:root index.html
 mv index.html /var/www/html/
 
 apt -y autoremove
