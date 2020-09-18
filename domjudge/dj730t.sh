@@ -58,14 +58,13 @@ wget https://www.domjudge.org/releases/domjudge-7.3.0.tar.gz
 sudo tar xvf domjudge-7.3.0.tar.gz
 
 cd domjudge-7.3.0
-sudo ./configure --with-domjudge-user=root --with-baseurl=BASEURL
+sudo ./configure --with-domjudge-user=USER --with-baseurl=BASEURL
 sudo make domserver
 sudo make install-domserver
 
 PASSWORD=$(sudo cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
 cd /opt/domjudge/domserver/bin
-
 sudo ./dj_setup_database genpass
 
 echo ""
@@ -91,7 +90,7 @@ cd
 sudo rm -f /var/www/html/index.html
 echo "<script>document.location=\"./domjudge/\";</script>" > index.html
 sudo chmod 644 index.html
-sudo chown root:root index.html
+sudo chown www-data:www-data index.html
 sudo mv index.html /var/www/html/
 
 sudo apt -y autoremove
@@ -100,7 +99,7 @@ clear
 
 echo "apache2 based"
 echo "domjudge 7.3.0 install completed!!"
-echo "Ver 2020.09.17"
+echo "Ver 2020.09.19"
 echo "Made by melongist(what_is_computer@msn.com)"
 echo "admin ID : admin"
 echo "admin PW : $PASSWORD"
