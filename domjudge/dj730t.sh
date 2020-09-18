@@ -55,6 +55,8 @@ sudo ./configure --with-domjudge-user=$USER --with-baseurl=BASEURL
 sudo make domserver
 sudo make install-domserver
 
+PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
+
 cd /opt/domjudge/domserver/bin
 #./dj_setup_database genpass
 
