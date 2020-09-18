@@ -62,8 +62,6 @@ sudo ./configure --with-domjudge-user=USER --with-baseurl=BASEURL
 sudo make domserver
 sudo make install-domserver
 
-PASSWORD=$(sudo cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
-
 cd /opt/domjudge/domserver/bin
 sudo ./dj_setup_database genpass
 
@@ -94,6 +92,8 @@ sudo chown www-data:www-data index.html
 sudo mv index.html /var/www/html/
 
 sudo apt -y autoremove
+
+PASSWORD=$(sudo cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
 clear
 
