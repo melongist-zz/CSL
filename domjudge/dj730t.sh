@@ -1,19 +1,19 @@
 #!/bin/bash
 #for Ubuntu 20.04 LTS AWS Server and Desktop
 
-sudo apt update
-sudo apt -y upgrade
+apt update
+apt -y upgrade
 
 #sudo apt -y install acl
 #sudo apt -y install zip
 
-sudo apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
-sudo add-apt-repository 'deb [arch=amd64] http://mariadb.mirror.globo.tech/repo/10.5/ubuntu focal main'
+apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'
+add-apt-repository 'deb [arch=amd64] http://mariadb.mirror.globo.tech/repo/10.5/ubuntu focal main'
 
-sudo apt update
-sudo apt -y upgrade
+apt update
+apt -y upgrade
 
-sudo apt -y install mariadb-server mariadb-client
+apt -y install mariadb-server mariadb-client
 
 echo ""
 echo "----------------------------------"
@@ -23,47 +23,47 @@ echo ""
 
 
 #root 패스워드 반드시 설정해야함. #1
-sudo mysql_secure_installation
+mysql_secure_installation
 
-sudo apt -y install apache2
+apt -y install apache2
 
-sudo apt -y install php
-sudo apt -y install php-fpm
+apt -y install php
+apt -y install php-fpm
 
-sudo a2enmod proxy_fcgi setenvif
-sudo systemctl restart apache2
+a2enmod proxy_fcgi setenvif
+systemctl restart apache2
 
-sudo a2enconf php7.4-fpm
-sudo systemctl reload apache2
+a2enconf php7.4-fpm
+systemctl reload apache2
 
-sudo apt -y install php-gd
-sudo apt -y install php-cli
-sudo apt -y install php-intl
-sudo apt -y install php-mbstring
-sudo apt -y install php-mysql
-sudo apt -y install php-curl
-sudo apt -y install php-json
-sudo apt -y install php-xml
-sudo apt -y install php-zip
-sudo apt -y install composer
-sudo apt -y install ntp
+apt -y install php-gd
+apt -y install php-cli
+apt -y install php-intl
+apt -y install php-mbstring
+apt -y install php-mysql
+apt -y install php-curl
+apt -y install php-json
+apt -y install php-xml
+apt -y install php-zip
+apt -y install composer
+apt -y install ntp
 
-sudo apt -y install build-essential
-sudo apt -y install libcgroup-dev
-sudo apt -y install libcurl4-openssl-dev
-sudo apt -y install libjsoncpp-dev
+apt -y install build-essential
+apt -y install libcgroup-dev
+apt -y install libcurl4-openssl-dev
+apt -y install libjsoncpp-dev
 
 
 wget https://www.domjudge.org/releases/domjudge-7.3.0.tar.gz
-sudo tar xvf domjudge-7.3.0.tar.gz
+tar xvf domjudge-7.3.0.tar.gz
 
 cd domjudge-7.3.0
-sudo ./configure --with-domjudge-user=USER --with-baseurl=BASEURL
-sudo make domserver
-sudo make install-domserver
+./configure --with-domjudge-user=$USER --with-baseurl=BASEURL
+make domserver
+make install-domserver
 
 cd /opt/domjudge/domserver/bin
-sudo ./dj_setup_database genpass
+./dj_setup_database genpass
 
 echo ""
 echo "----------------------------------"
@@ -71,29 +71,29 @@ echo "Submit!! Mariadb's' root password!"
 echo "----------------------------------"
 echo ""
 # #1에서 설정한 root 패스워드 입력
-sudo ./dj_setup_database -u root -r install
+./dj_setup_database -u root -r install
 
-sudo ln -s /opt/domjudge/domserver/etc/apache.conf /etc/apache2/conf-available/domjudge.conf
-sudo ln -s /opt/domjudge/domserver/etc/domjudge-fpm.conf /etc/php/7.4/fpm/pool.d/domjudge.conf
+ln -s /opt/domjudge/domserver/etc/apache.conf /etc/apache2/conf-available/domjudge.conf
+ln -s /opt/domjudge/domserver/etc/domjudge-fpm.conf /etc/php/7.4/fpm/pool.d/domjudge.conf
 
-sudo a2enmod proxy_fcgi setenvif rewrite
-sudo systemctl restart apache2
-sudo a2enconf php7.4-fpm domjudge
-sudo systemctl reload apache2
+a2enmod proxy_fcgi setenvif rewrite
+systemctl restart apache2
+a2enconf php7.4-fpm domjudge
+systemctl reload apache2
 
-sudo service php7.4-fpm reload
-sudo service apache2 reload
+service php7.4-fpm reload
+service apache2 reload
 
 cd
-sudo rm -f /var/www/html/index.html
+rm -f /var/www/html/index.html
 echo "<script>document.location=\"./domjudge/\";</script>" > index.html
-sudo chmod 644 index.html
-sudo chown www-data:www-data index.html
-sudo mv index.html /var/www/html/
+chmod 644 index.html
+chown www-data:www-data index.html
+mv index.html /var/www/html/
 
-sudo apt -y autoremove
+apt -y autoremove
 
-PASSWORD=$(sudo cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
+PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
 clear
 
