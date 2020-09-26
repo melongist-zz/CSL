@@ -31,6 +31,9 @@ sudo chown www-data msg.txt
 cd /home/judge/src/web/upload
 sudo rm -rf *
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v00image.tar.gz
+#c.f. : how to backup images from HUSTOJ for CSL
+#directory : /home/judge/src/web/upload/
+#command   : sudo tar zcvf csl100v00image.tar.gz *
 sudo tar zxvf csl100v00image.tar.gz
 sudo rm csl100v00image.tar.gz
 
@@ -38,6 +41,9 @@ sudo rm csl100v00image.tar.gz
 cd /home/judge/
 sudo rm -rf data
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v00data.tar.gz
+#c.f. : how to backup images from HUSTOJ for CSL
+#directory : /home/judge/
+#command   : sudo tar zcvf csl100v00data.tar.gz data
 sudo tar zxvf csl100v00data.tar.gz
 sudo rm csl100v00data.tar.gz
 
@@ -58,11 +64,13 @@ PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 #echo "password:$PASSWORD"
 
 mysqladmin -u $USER -p$PASSWORD create jol
+
+#c.f. : how to backup from HUSTOJ for CSL :> mysqldump -u -p jol > csl100v00jol.sql
 mysql -u $USER -p$PASSWORD jol < csl100v00jol.sql
 sudo rm csl100v00jol.sql
 
 clear
-echo "Ver 2020.09.11"
+echo "Ver 2020.09.27"
 echo "CSL 100 problems install completed!!"
 
 
@@ -111,6 +119,7 @@ sudo apt -y autoremove
 
 clear
 
+echo "--- HUSTOJ for CSL install completed ---"
 echo "/home/judge/src/web/include/db_info.inc.php edited!!"
 echo "Edit /home/judge/src/web/include/db_info.inc.php for more options!!"
 echo ""
