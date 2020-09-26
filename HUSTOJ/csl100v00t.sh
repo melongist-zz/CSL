@@ -54,7 +54,7 @@ sudo ln -f -s /usr/share/phpmyadmin /home/judge/src/web/phpmyadmin
 sudo mv /home/judge/src/web/phpmyadmin /home/judge/src/web/pma
 
 #sql overwriting
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v00jol.sql
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v00tjol.sql
 
 USER=$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
