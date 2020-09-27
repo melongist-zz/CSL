@@ -1,4 +1,5 @@
 #!/bin/bash
+#2020.09.27
 
 sudo apt update
 sudo apt -y upgrade
