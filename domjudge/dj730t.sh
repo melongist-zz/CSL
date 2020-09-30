@@ -68,5 +68,38 @@ echo ""
 # #1에서 설정한 root 패스워드 입력
 sudo ./dj_setup_database -u root -r install
 
+sudo ln -s /opt/domjudge/domserver/etc/apache.conf /etc/apache2/conf-available/domjudge.conf
+sudo ln -s /opt/domjudge/domserver/etc/domjudge-fpm.conf /etc/php/7.4/fpm/pool.d/domjudge.conf
+
+sudo a2enmod proxy_fcgi setenvif rewrite
+systemctl restart apache2
+
+sudo a2enconf php7.4-fpm domjudge
+systemctl reload apache2
+
+service php7.4-fpm reload
+service apache2 reload
+
+cd
+sudo rm -f /var/www/html/index.html
+echo "<script>document.location=\"./domjudge/\";</script>" > index.html
+sudo chmod 644 index.html
+sudo chown root:root index.html
+sudo mv index.html /var/www/html/
+
+sudo apt -y autoremove
+
+PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
+
+clear
+
+echo "apache2 based"
+echo "domjudge 7.3.0 install completed!!"
+echo "Ver 2020.09.19"
+echo "Made by melongist(what_is_computer@msn.com)"
+echo "admin ID : admin"
+echo "admin PW : $PASSWORD"
+
+
 
 
