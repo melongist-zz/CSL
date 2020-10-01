@@ -43,7 +43,7 @@ sudo apt -y install composer
 sudo apt -y install ntp
 
 wget https://www.domjudge.org/releases/domjudge-7.2.1.tar.gz
-tar xvf domjudge-7.1.1.tar.gz
+tar xvf domjudge-7.2.1.tar.gz
 
 sudo apt -y install build-essential
 sudo apt -y install libcgroup-dev
@@ -89,7 +89,7 @@ sudo mv index.html /var/www/html/
 
 sudo apt -y autoremove
 
-PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
+PASSWORD=$(sudo cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
 clear
 
