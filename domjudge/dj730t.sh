@@ -72,13 +72,13 @@ sudo ln -s /opt/domjudge/domserver/etc/apache.conf /etc/apache2/conf-available/d
 sudo ln -s /opt/domjudge/domserver/etc/domjudge-fpm.conf /etc/php/7.4/fpm/pool.d/domjudge.conf
 
 sudo a2enmod proxy_fcgi setenvif rewrite
-systemctl restart apache2
+sudo systemctl restart apache2
 
 sudo a2enconf php7.4-fpm domjudge
-systemctl reload apache2
+sudo systemctl reload apache2
 
-service php7.4-fpm reload
-service apache2 reload
+sudo service php7.4-fpm reload
+sudo service apache2 reload
 
 cd
 sudo rm -f /var/www/html/index.html
@@ -89,7 +89,7 @@ sudo mv index.html /var/www/html/
 
 sudo apt -y autoremove
 
-PASSWORD=$(sudo cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
+PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
 clear
 
@@ -99,7 +99,3 @@ echo "Ver 2020.09.19"
 echo "Made by melongist(what_is_computer@msn.com)"
 echo "admin ID : admin"
 echo "admin PW : $PASSWORD"
-
-
-
-
