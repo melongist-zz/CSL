@@ -42,15 +42,15 @@ sudo apt -y install php-zip
 sudo apt -y install composer
 sudo apt -y install ntp
 
-wget https://www.domjudge.org/releases/domjudge-7.2.1.tar.gz
-tar xvf domjudge-7.2.1.tar.gz
+wget https://www.domjudge.org/releases/domjudge-7.3.0.tar.gz
+tar xvf domjudge-7.3.0.tar.gz
 
 sudo apt -y install build-essential
 sudo apt -y install libcgroup-dev
 sudo apt -y install libcurl4-openssl-dev
 sudo apt -y install libjsoncpp-dev
 
-cd domjudge-7.2.1
+cd domjudge-7.3.0
 ./configure --with-baseurl=BASEURL
 make domserver
 sudo make install-domserver
@@ -94,7 +94,7 @@ PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 clear
 
 echo "apache2 based"
-echo "domjudge 7.2.1 install completed!!"
+echo "domjudge 7.3.0 install completed!!"
 echo "Ver 2020.09.19"
 echo "Made by melongist(what_is_computer@msn.com)"
 echo "admin ID : admin"
