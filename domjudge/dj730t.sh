@@ -95,7 +95,7 @@ clear
 
 echo "apache2 based"
 echo "domjudge 7.3.0 install completed!!"
-echo "Ver 2020.09.19"
+echo "Ver 2020.10.02"
 echo "Made by melongist(what_is_computer@msn.com)"
 echo "admin ID : admin"
 echo "admin PW : $PASSWORD"
