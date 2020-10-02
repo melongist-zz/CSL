@@ -93,15 +93,19 @@ PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
 clear
 
+#domserver install completed!!
+
+#judgehost installation
 sudo apt -y install debootstrap
-sudo apt install default-jre-headless
-sudo apt install default-jdk-headless
-sudo apt install ghc
-sudo apt install fp-compiler
+sudo apt -y install default-jre-headless
+sudo apt -y install default-jdk-headless
+sudo apt -y install ghc
+sudo apt -y install fp-compiler
 
 cd domjudge-7.3.0
 ./configure --prefix=/opt/domjudge --with-baseurl=BASEURL
 
+#docs
 make docs
 sudo make install-docs
 
@@ -121,3 +125,12 @@ echo "Made by melongist(what_is_computer@msn.com)"
 echo "admin ID : admin"
 echo "admin PW : $PASSWORD"
 echo "login with admin IP with PW and sudo reboot"
+echo "After reboot"
+echo "run below"
+echo "cd /opt/domjudge/judgehost/bin/"
+echo "sudo ./dj_make_chroot -D Ubuntu -R bionic"
+echo "./judgedaemon"
+
+
+
+
