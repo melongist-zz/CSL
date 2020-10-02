@@ -93,9 +93,31 @@ PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
 clear
 
+sudo apt -y install debootstrap
+sudo apt install default-jre-headless
+sudo apt install default-jdk-headless
+sudo apt install ghc
+sudo apt install fp-compiler
+
+cd domjudge-7.3.0
+./configure --prefix=/opt/domjudge --with-baseurl=BASEURL
+
+make docs
+sudo make install-docs
+
+make judgehost
+sudo make install-judgehost
+
+sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run
+
+sudo sed -i "s#GRUB_CMDLINE_LINUX_DEFAULT=\"\"#GRUB_CMDLINE_LINUX_DEFAULT=\"quiet cgroup_enable=memory swapaccount=1\"#" /etc/default/grub
+
+sudo update-grub
+
 echo "apache2 based"
 echo "domjudge 7.3.0 install completed!!"
 echo "Ver 2020.10.02"
 echo "Made by melongist(what_is_computer@msn.com)"
 echo "admin ID : admin"
 echo "admin PW : $PASSWORD"
+echo "login with admin IP with PW and sudo reboot"
