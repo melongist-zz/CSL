@@ -18,9 +18,9 @@ sudo apt -y upgrade
 sudo apt -y install mariadb-server mariadb-client
 
 echo ""
-echo “- - - - - -“
-echo "Change!! Mariadb's root password to your own!!!“
-echo “- - - - - -“
+echo "------"
+echo "Change!! Mariadb's root password to your own!!!"
+echo "------"
 echo ""
 #root 패스워드를 반드시 설정 해야함 #1
 sudo mysql_secure_installation
@@ -65,9 +65,9 @@ cd /opt/domjudge/domserver/bin
 
 
 echo ""
-echo “- - - - - -“
-echo “Input!! Mariadb's root password with your own!!!“
-echo “- - - - - -“
+echo "------"
+echo "Input!! Mariadb's root password with your own!!!"
+echo "------"
 echo ""
 # 반드시 #1에서 설정한 root 패스워드를 입력 해야함
 sudo ./dj_setup_database -u root -r install
@@ -100,8 +100,9 @@ clear
 
 PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
-echo "domjudge 7.4.0.DEV judgedaemon installed!!”
+echo "domjudge 7.4.0.DEV judgedaemon installed!!"
 echo "Ver 2020.10.03"
 echo "Made by melongist(what_is_computer@msn.com)"
 echo "admin ID : admin"
 echo "admin PW : $PASSWORD"
+
