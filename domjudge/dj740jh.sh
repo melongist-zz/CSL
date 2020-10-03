@@ -4,10 +4,10 @@
 #judgehost 만들기
 
 sudo apt -y install debootstrap
-sudo apt install default-jre-headless
-sudo apt install default-jdk-headless
-sudo apt install ghc
-sudo apt install fp-compiler
+sudo apt -y install default-jre-headless
+sudo apt -y install default-jdk-headless
+sudo apt -y install ghc
+sudo apt -y install fp-compiler
 
 #cd domjudge-7.3.0
 cd domjudge-7.4.0.dev
@@ -26,10 +26,12 @@ sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run
 sudo sed -i "s#GRUB_CMDLINE_LINUX_DEFAULT=\"\"#GRUB_CMDLINE_LINUX_DEFAULT=\"quiet cgroup_enable=memory swapaccount=1\"#" /etc/default/grub
 
 #AWS 용 처리
-sudo sed -i "s#GRUB_CMDLINE_LINUX_DEFAULT=\"console=tty1 console=ttyS0 nvme_core.io_timeout=4294967295\"#GRUB_CMDLINE_LINUX_DEFAULT=\"quiet cgroup_enable=memory swapaccount=1\"#" /etc/default/grub.d/50-cloudimg-setting.cfg
+sudo sed -i "s#GRUB_CMDLINE_LINUX_DEFAULT=\"console=tty1 console=ttyS0 nvme_core.io_timeout=4294967295\"#GRUB_CMDLINE_LINUX_DEFAULT=\"quiet cgroup_enable=memory swapaccount=1\"#" /etc/default/grub.d/50-cloudimg-settings.cfg
 
 sudo update-grub
-echo "sudo reboot"
+echo "after : sudo reboot"
+echo "run   : sudo /opt/domjudge/judgehost/bin/dj_make_chroot"
+echo "run   : sudo /opt/domjudge/judgehost/bin/judgedaemon"
 
 #sudo reboot
 
@@ -37,7 +39,5 @@ echo "sudo reboot"
 
 #cd /opt/domjudge/judgehost/bin/
 #sudo ./dj_make_chroot
-#sudo ./dj_make_chroot -D Ubuntu -R bionic 
+#sudo ./dj_make_chroot -D Ubuntu -R bionic #이건 7.3.0 버전에서 dj_make_chroot 실행 안 될때...
 #./judgedaemon
-
-echo "/opt/domjudge/judgehost/bin/judgedaemon" > jd
