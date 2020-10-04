@@ -22,8 +22,8 @@ make judgehost
 sudo make install-judgehost
 
 sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run
-sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-0
-sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-1
+#sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-0
+#sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-1
 
 sudo sed -i "s#GRUB_CMDLINE_LINUX_DEFAULT=\"\"#GRUB_CMDLINE_LINUX_DEFAULT=\"quiet cgroup_enable=memory swapaccount=1\"#" /etc/default/grub
 
@@ -42,8 +42,8 @@ echo ""
 echo "---- after reboot ----"
 echo "run : sudo /opt/domjudge/judgehost/bin/dj_make_chroot"
 echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon"
-echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 0"
-echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 1"
+#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 0"
+#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 1"
 echo "if you want to kill judgedaemon process. ps -ef, check pid#, kill -15 pid#"
 
 #재부팅하고 나서 아래 명령어를 실행하면 저지호스트가 실행됨
