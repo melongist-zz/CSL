@@ -1,5 +1,5 @@
 #!/bin/bash
-#for domjudge7.4.0.dev + AWS Ubuntu 20.04 LTS Server
+#for domjudge7.4.0.dev + Ubuntu 20.04 LTS Server
 
 #judgedaemon 만들기
 
@@ -50,7 +50,7 @@ sudo apt -y install libjsoncpp-dev
 #cd domjudge-7.3.0
 
 #잘 안되어서 개발중인 7.4.0.dev 버전을 직접 받아서 깃허브에 저장함. 원래는 정식 안정 버전을 받아서 진행하면 됨.
-#정식 안정 버전을 어떻게 하면 되는지 알지만, 신버전에서 선공해서 스킵함.
+#정식 안정 버전을 어떻게 하면 되는지 알지만, 신버전에서 성공했기 때문에 스킵함.
 wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/domjudge.tar.gz
 tar xvf domjudge.tar.gz
 sudo mv domjudge-snapshot-20201002 domjudge-7.4.0.dev
@@ -101,7 +101,7 @@ clear
 PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
 echo "domjudge 7.4.0.DEV judgedaemon installed!!"
-echo "Ver 2020.10.03"
+echo "Ver 2020.10.04"
 echo "Made by melongist(what_is_computer@msn.com)"
 echo "admin ID : admin"
 echo "admin PW : $PASSWORD"

@@ -1,8 +1,8 @@
 #!/bin/bash
-#for domjudge7.4.0.dev + AWS Ubuntu 20.04 LTS Server
+#for domjudge7.4.0.dev + Ubuntu 20.04 LTS Server
 
 #judgehost 만들기
-#기본 judgehost 1개 버전
+#기본 judgehost 1개 버전... 이상하게 저지호스트 여러 개는 채점이 되지 않음.
 
 sudo apt -y install debootstrap
 sudo apt -y install default-jre-headless
@@ -23,11 +23,13 @@ sudo make install-judgehost
 
 sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run
 
-#PC 설치 버전에서는 아래 방법만으로 되지만, AWS에서는 안됨 추가로 더 작업을 해야함.
 sudo sed -i "s#GRUB_CMDLINE_LINUX_DEFAULT=\"\"#GRUB_CMDLINE_LINUX_DEFAULT=\"quiet cgroup_enable=memory swapaccount=1\"#" /etc/default/grub
 
 #AWS 용 처리
-sudo sed -i "s#GRUB_CMDLINE_LINUX_DEFAULT=\"console=tty1 console=ttyS0 nvme_core.io_timeout=4294967295\"#GRUB_CMDLINE_LINUX_DEFAULT=\"quiet cgroup_enable=memory swapaccount=1\"#" /etc/default/grub.d/50-cloudimg-settings.cfg
+if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]; then
+	echo "Editing /etc/default/grub.d/50-cloudimg-settings.cfg for AWS"
+  sudo sed -i "s#GRUB_CMDLINE_LINUX_DEFAULT=\"console=tty1 console=ttyS0 nvme_core.io_timeout=4294967295\"#GRUB_CMDLINE_LINUX_DEFAULT=\"quiet cgroup_enable=memory swapaccount=1\"#" /etc/default/grub.d/50-cloudimg-settings.cfg
+fi
 
 sudo update-grub
 
@@ -38,7 +40,7 @@ echo ""
 echo "---- after reboot ----"
 echo "run : sudo /opt/domjudge/judgehost/bin/dj_make_chroot"
 echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon"
-echo "if you want to kill judgedaemon process. ps -ef, check pid, kill -15 pidnumber"
+echo "if you want to kill judgedaemon process. ps -ef, check pid#, kill -15 pid#"
 
 #재부팅하고 나서 아래 명령어를 실행하면 저지호스트가 실행됨
 #sudo /opt/domjudge/judgehost/bin/dj_make_chroot    <- 이거는 한 번만 실행시키면 됨.
