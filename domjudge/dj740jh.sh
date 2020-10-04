@@ -2,6 +2,7 @@
 #for domjudge7.4.0.dev + AWS Ubuntu 20.04 LTS Server
 
 #judgehost 만들기
+#기본 judgehost 1개 버전
 
 sudo apt -y install debootstrap
 sudo apt -y install default-jre-headless
@@ -30,9 +31,14 @@ sudo sed -i "s#GRUB_CMDLINE_LINUX_DEFAULT=\"console=tty1 console=ttyS0 nvme_core
 
 sudo update-grub
 
+echo ""
+echo "---- judgehost install ready ----"
 echo "run : sudo reboot"
+echo ""
+echo "---- after reboot ----"
 echo "run : sudo /opt/domjudge/judgehost/bin/dj_make_chroot"
 echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon"
+echo "if you want to kill judgedaemon process. ps -ef, check pid, kill -15 pidnumber"
 
 #재부팅하고 나서 아래 명령어를 실행하면 저지호스트가 실행됨
 #sudo /opt/domjudge/judgehost/bin/dj_make_chroot    <- 이거는 한 번만 실행시키면 됨.
