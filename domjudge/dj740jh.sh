@@ -41,9 +41,9 @@ echo "run : sudo reboot"
 echo ""
 echo "---- after reboot ----"
 echo "run : sudo /opt/domjudge/judgehost/bin/dj_make_chroot"
-echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon"
-#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 0"
-#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 1"
+echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon &"
+#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 0 &"
+#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 1 &"
 echo "if you want to kill judgedaemon process. ps -ef, check pid#, kill -15 pid#"
 
 #재부팅하고 나서 아래 명령어를 실행하면 저지호스트가 실행됨
