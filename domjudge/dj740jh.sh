@@ -2,7 +2,7 @@
 #for domjudge7.4.0.dev + Ubuntu 20.04 LTS Server
 
 #judgehost 만들기
-#기본 judgehost 1개 버전... 이상하게 저지호스트 여러 개는 채점이 되지 않음.
+#기본 judgehost 3개 버전... 
 
 sudo apt -y install debootstrap
 sudo apt -y install default-jre-headless
@@ -25,6 +25,11 @@ sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run
 sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-0
 sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-1
 
+sudo cp /opt/domjudge/judgehost/etc/sudoers-domjudge /etc/sudoers.d/
+sudo chmod 0440 /etc/sudoers.d/sudoers-domjudge
+
+
+
 sudo sed -i "s#GRUB_CMDLINE_LINUX_DEFAULT=\"\"#GRUB_CMDLINE_LINUX_DEFAULT=\"quiet cgroup_enable=memory swapaccount=1\"#" /etc/default/grub
 
 #AWS 용 처리
@@ -35,12 +40,13 @@ fi
 
 sudo update-grub
 
+sudo /opt/domjudge/judgehost/dj_make_chroot
+
 echo ""
 echo "---- judgehost install ready ----"
 echo "run : sudo reboot"
 echo ""
 echo "---- after reboot ----"
-echo "run : sudo /opt/domjudge/judgehost/bin/dj_make_chroot"
 echo "run : sudo /opt/domjudge/judgehost/bin/create_cgroups"
 echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon &"
 echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 0 &"
