@@ -1,6 +1,12 @@
 #!/bin/bash
 #domjudge7.4.0.dev + Ubuntu 20.04 LTS Server
 
+#terminal commands to install
+#------
+#wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/dj740dj.sh
+#bash dj740dj.sh
+
+#------
 #DOMserver
 
 sudo apt update
