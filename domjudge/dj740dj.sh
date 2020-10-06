@@ -1,7 +1,7 @@
 #!/bin/bash
-#for domjudge7.4.0.dev + Ubuntu 20.04 LTS Server
+#domjudge7.4.0.dev + Ubuntu 20.04 LTS Server
 
-#judgedaemon 만들기
+#DOMserver
 
 sudo apt update
 sudo apt -y upgrade
@@ -22,7 +22,8 @@ echo "------"
 echo "Change!! Mariadb's root password to your own!!!"
 echo "------"
 echo ""
-#root 패스워드를 반드시 설정 해야함 #1
+
+#You must input mariadb's root account password! #1
 sudo mysql_secure_installation
 
 sudo apt -y install apache2
@@ -49,8 +50,7 @@ sudo apt -y install libjsoncpp-dev
 #tar xvf domjudge.tar.gz
 #cd domjudge-7.3.0
 
-#잘 안되어서 개발중인 7.4.0.dev 버전을 직접 받아서 깃허브에 저장함. 원래는 정식 안정 버전을 받아서 진행하면 됨.
-#정식 안정 버전을 어떻게 하면 되는지 알지만, 신버전에서 성공했기 때문에 스킵함.
+#for 7.4.0.dev
 wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/domjudge-snapshot-20201005.tar.gz
 tar xvf domjudge-snapshot-20201005.tar.gz
 sudo mv domjudge-snapshot-20201005 domjudge-7.4.0.dev
@@ -61,7 +61,7 @@ make domserver
 sudo make install-domserver
 
 cd /opt/domjudge/domserver/bin
-#./dj_setup_database genpass # 안해도 생성됨
+#./dj_setup_database genpass # it's not required..
 
 
 echo ""
@@ -69,7 +69,8 @@ echo "------"
 echo "Input!! Mariadb's root password with your own!!!"
 echo "------"
 echo ""
-# 반드시 #1에서 설정한 root 패스워드를 입력 해야함
+
+#Use mariadbs's root password above #1
 sudo ./dj_setup_database -u root -r install
 
 
@@ -85,7 +86,7 @@ sudo systemctl reload apache2
 sudo service php7.4-fpm reload
 sudo service apache2 reload
 
-#자동 페이지 변경 스크립트 파일 생성
+#making auto direction
 cd
 sudo rm -f /var/www/html/index.html
 echo "<script>document.location=\"./domjudge/\";</script>" > index.html
@@ -93,7 +94,6 @@ sudo chmod 644 index.html
 sudo chown root:root index.html
 sudo mv index.html /var/www/html/
 
-#필요 없는 패키지 삭제
 sudo apt -y autoremove
 
 clear
@@ -101,8 +101,7 @@ clear
 PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
 echo "domjudge 7.4.0.DEV judgedaemon installed!!"
-echo "Ver 2020.10.04"
-echo "Made by melongist(what_is_computer@msn.com)"
+echo "Ver 2020.10.06"
+echo "Remember below to access DOMserver's web interface!"
 echo "admin ID : admin"
 echo "admin PW : $PASSWORD"
-
