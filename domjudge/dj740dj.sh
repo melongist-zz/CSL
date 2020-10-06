@@ -20,6 +20,9 @@ sudo apt -y install mariadb-server mariadb-client
 echo ""
 echo "------"
 echo "Change!! Mariadb's root password to your own!!!"
+echo "..."
+echo "Change the root password? [Y/n] y     <------ !!"
+echo "..."
 echo "------"
 echo ""
 
@@ -102,6 +105,8 @@ PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
 echo "domjudge 7.4.0.DEV judgedaemon installed!!"
 echo "Ver 2020.10.06"
+echo ""
 echo "Remember below to access DOMserver's web interface!"
+echo "------"
 echo "admin ID : admin"
 echo "admin PW : $PASSWORD"

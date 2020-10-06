@@ -47,13 +47,16 @@ fi
 
 sudo update-grub
 
-sudo /opt/domjudge/judgehost/dj_make_chroot
+sudo /opt/domjudge/judgehost/bin/dj_make_chroot
 
+clear
 echo ""
-echo "---- judgehost installed ----"
+echo "domjudge 7.4.0.DEV judgehosts installed!!"
+echo "Ver 2020.10.06"
+echo ""
 echo "run : sudo reboot"
 echo ""
-echo "---- Every after reboot ----"
+echo "------ After every reboot ------"
 echo "run : sudo /opt/domjudge/judgehost/bin/create_cgroups"
 echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon &"
 echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 0 &"
@@ -62,7 +65,6 @@ echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 1 &"
 #echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 3 &"
 #echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 4 &"
 #echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 5 &"
-
-echo "If you want to kill judgedaemon processes?"
+echo ""
+echo "If you want to kill some judgedaemon processe?"
 echo "run : ps -ef, and check pid# of judgedaemons, run : kill -15 pid#"
-
