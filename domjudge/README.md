@@ -1,26 +1,19 @@
-#20.10.06
-
+#20.10.06   
 #Installation script for DOMjudge 7.4.0.DEV
-
-
-
-
+   
+***
 #Terminal commands. To install DOMserver
-<pre>
+<pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/dj740dj.sh
 
 bash dj740dj.sh
-</pre>
-
-
-
-
+</code></pre>
+***
 #Terminal commands. To install judgehosts at the same DOMserver
-
 #with default 1 judgehost + 2 more judgehosts
-<pre>
+<pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/dj740jh.sh
 
 bash dj740jh.sh
-</pre>
+</code></pre>
 
