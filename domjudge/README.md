@@ -15,7 +15,8 @@ bash dj740dj.sh
 
 
 
-#Terminal commands. To install judgehosts at the same DOMserver.
+#Terminal commands. To install judgehosts at the same DOMserver
+
 #with default 1 judgehost + 2 more judgehosts
 <pre>
 wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/dj740jh.sh
