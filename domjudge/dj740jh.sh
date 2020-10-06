@@ -1,6 +1,11 @@
 #!/bin/bash
 #domjudge7.4.0.dev + Ubuntu 20.04 LTS Server
 
+#terminal commands to install judgehosts
+#wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/dj740jh.sh
+#bash dj740jh.sh
+
+#------
 #judgehost
 
 sudo apt -y install debootstrap
