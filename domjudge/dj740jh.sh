@@ -41,7 +41,9 @@ sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-1
 sudo cp /opt/domjudge/judgehost/etc/sudoers-domjudge /etc/sudoers.d/
 sudo chmod 0440 /etc/sudoers.d/sudoers-domjudge
 
-
+#try #1 for Ubuntu Desktop?
+sudo sed -i "s#GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash\"#GRUB_CMDLINE_LINUX_DEFAULT=\"quiet cgroup_enable=memory swapaccount=1\"#" /etc/default/grub
+#try #2 for Ubuntu Server?
 sudo sed -i "s#GRUB_CMDLINE_LINUX_DEFAULT=\"\"#GRUB_CMDLINE_LINUX_DEFAULT=\"quiet cgroup_enable=memory swapaccount=1\"#" /etc/default/grub
 
 #for AWS Ubuntu 20.04 LTS Server
