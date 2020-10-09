@@ -8,6 +8,9 @@
 #------
 #judgehost
 
+sudo apt update
+sudo apt -y upgrade
+
 sudo apt -y install debootstrap
 sudo apt -y install default-jre-headless
 sudo apt -y install default-jdk-headless
@@ -57,21 +60,21 @@ sudo update-grub
 sudo /opt/domjudge/judgehost/bin/dj_make_chroot
 
 clear
-echo "" >> domjudge.txt
-echo "domjudge 7.4.0.DEV judgehosts installed!!" >> domjudge.txt
-echo "Ver 2020.10.06" >> domjudge.txt
-echo "" >> domjudge.txt
-echo "run : sudo reboot" >> domjudge.txt
-echo "" >> domjudge.txt
-echo "------ After every reboot ------" >> domjudge.txt
-echo "run : sudo /opt/domjudge/judgehost/bin/create_cgroups" >> domjudge.txt
-echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon &" >> domjudge.txt
-echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 0 &" >> domjudge.txt
-echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 1 &" >> domjudge.txt
-#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 2 &" >> domjudge.txt
-#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 3 &" >> domjudge.txt
-#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 4 &" >> domjudge.txt
-#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 5 &" >> domjudge.txt
-echo "" >> domjudge.txt
-echo "If you want to kill some judgedaemon processe?" >> domjudge.txt
-echo "run : ps -ef, and check pid# of judgedaemon, run : kill -15 pid#" >> domjudge.txt
+echo "" | tee -a domjudge.txt
+echo "domjudge 7.4.0.DEV judgehosts installed!!" | tee -a domjudge.txt
+echo "Ver 2020.10.06" | tee -a domjudge.txt
+echo "" | tee -a domjudge.txt
+echo "run : sudo reboot" | tee -a domjudge.txt
+echo "" | tee -a domjudge.txt
+echo "------ After every reboot ------" | tee -a domjudge.txt
+echo "run : sudo /opt/domjudge/judgehost/bin/create_cgroups" | tee -a domjudge.txt
+echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon &" | tee -a domjudge.txt
+echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 0 &" | tee -a domjudge.txt
+echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 1 &" | tee -a domjudge.txt
+#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 2 &" | tee -a domjudge.txt
+#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 3 &" | tee -a domjudge.txt
+#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 4 &" | tee -a domjudge.txt
+#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 5 &" | tee -a domjudge.txt
+echo "" | tee -a domjudge.txt
+echo "If you want to kill some judgedaemon processe?" | tee -a domjudge.txt
+echo "run : ps -ef, and check pid# of judgedaemon, run : kill -15 pid#" | tee -a domjudge.txt
