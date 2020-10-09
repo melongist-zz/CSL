@@ -114,6 +114,6 @@ echo "domjudge 7.4.0.DEV judgedaemon installed!!" | tee -a domjudge.txt
 echo "Ver 2020.10.06" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
 echo "Remember below to access DOMserver's web interface!" | tee -a domjudge.txt
-echo "------" >> | tee -a domjudge.txt
+echo "------" | tee -a domjudge.txt
 echo "admin ID : admin" | tee -a domjudge.txt
 echo "admin PW : $PASSWORD" | tee -a domjudge.txt
