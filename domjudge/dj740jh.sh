@@ -64,6 +64,7 @@ echo "" | tee -a domjudge.txt
 echo "domjudge 7.4.0.DEV judgehosts installed!!" | tee -a domjudge.txt
 echo "Ver 2020.10.09" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
+echo "Next step : reboot, create_cgroups and run judgedaemons"
 echo "run : sudo reboot" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
 echo "------ After every reboot ------" | tee -a domjudge.txt
@@ -77,7 +78,10 @@ echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 1 &" | tee -
 #echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 5 &" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
 echo "If you want to kill some judgedaemon processe?" | tee -a domjudge.txt
-echo "run : ps -ef, and check pid# of judgedaemon, run : kill -15 pid#" | tee -a domjudge.txt
+echo "ps -ef, and find pid# of judgedaemon, run : kill -15 pid#" | tee -a domjudge.txt
 echo ""
 echo "Saved as domjudge.txt"
+echo ""
+echo ""
+
 
