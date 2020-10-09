@@ -60,6 +60,8 @@ sudo update-grub
 sudo /opt/domjudge/judgehost/bin/dj_make_chroot
 
 clear
+
+cd
 echo "" | tee -a domjudge.txt
 echo "domjudge 7.4.0.DEV judgehosts installed!!" | tee -a domjudge.txt
 echo "Ver 2020.10.09" | tee -a domjudge.txt
