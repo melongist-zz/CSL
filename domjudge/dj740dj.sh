@@ -109,10 +109,11 @@ clear
 
 PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
-echo "domjudge 7.4.0.DEV judgedaemon installed!!"
-echo "Ver 2020.10.06"
-echo ""
-echo "Remember below to access DOMserver's web interface!"
-echo "------"
-echo "admin ID : admin"
-echo "admin PW : $PASSWORD"
+echo "" >> domjudge.txt
+echo "domjudge 7.4.0.DEV judgedaemon installed!!" >> domjudge.txt
+echo "Ver 2020.10.06" >> domjudge.txt
+echo "" >> domjudge.txt
+echo "Remember below to access DOMserver's web interface!" >> domjudge.txt
+echo "------" >> domjudge.txt
+echo "admin ID : admin" >> domjudge.txt
+echo "admin PW : $PASSWORD" >> domjudge.txt

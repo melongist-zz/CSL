@@ -55,21 +55,21 @@ sudo update-grub
 sudo /opt/domjudge/judgehost/bin/dj_make_chroot
 
 clear
-echo ""
-echo "domjudge 7.4.0.DEV judgehosts installed!!"
-echo "Ver 2020.10.06"
-echo ""
-echo "run : sudo reboot"
-echo ""
-echo "------ After every reboot ------"
-echo "run : sudo /opt/domjudge/judgehost/bin/create_cgroups"
-echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon &"
-echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 0 &"
-echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 1 &"
-#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 2 &"
-#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 3 &"
-#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 4 &"
-#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 5 &"
-echo ""
-echo "If you want to kill some judgedaemon processe?"
-echo "run : ps -ef, and check pid# of judgedaemon, run : kill -15 pid#"
+echo "" >> domjudge.txt
+echo "domjudge 7.4.0.DEV judgehosts installed!!" >> domjudge.txt
+echo "Ver 2020.10.06" >> domjudge.txt
+echo "" >> domjudge.txt
+echo "run : sudo reboot" >> domjudge.txt
+echo "" >> domjudge.txt
+echo "------ After every reboot ------" >> domjudge.txt
+echo "run : sudo /opt/domjudge/judgehost/bin/create_cgroups" >> domjudge.txt
+echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon &" >> domjudge.txt
+echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 0 &" >> domjudge.txt
+echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 1 &" >> domjudge.txt
+#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 2 &" >> domjudge.txt
+#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 3 &" >> domjudge.txt
+#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 4 &" >> domjudge.txt
+#echo "run : setsid nohup /opt/domjudge/judgehost/bin/judgedaemon -n 5 &" >> domjudge.txt
+echo "" >> domjudge.txt
+echo "If you want to kill some judgedaemon processe?" >> domjudge.txt
+echo "run : ps -ef, and check pid# of judgedaemon, run : kill -15 pid#" >> domjudge.txt
