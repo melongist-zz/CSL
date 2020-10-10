@@ -66,9 +66,6 @@ echo "" | tee -a domjudge.txt
 echo "domjudge-converter for domjudge installed!!" | tee -a domjudge.txt
 echo "Ver 2020.10.09" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
-echo "configuration for domjudge-converter" | tee -a domjudge.txt
-echo "check and edit ~/dcm/config.js" | tee -a domjudge.txt
-echo "" | tee -a domjudge.txt
 echo "Next step : npm start"
 echo "" | tee -a domjudge.txt
 echo "------ run npm start every reboot ------" | tee -a domjudge.txt
@@ -79,4 +76,6 @@ echo "" | tee -a domjudge.txt
 echo "------" | tee -a domjudge.txt
 echo "http:/localhost/spotboard/" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
-
+echo "configuration for domjudge-converter" | tee -a domjudge.txt
+echo "check and edit ~/dcm/config.js" | tee -a domjudge.txt
+echo ""
