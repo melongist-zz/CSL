@@ -1,6 +1,7 @@
 #20.10.06   
-#Installation script for DOMjudge 7.4.0.DEV
-   
+#Installation script for DOMjudge 7.4.0.DEV   
+<https://www.domjudge.org/>
+
 ---
 #Terminal commands. To install DOMserver
 <pre><code>
