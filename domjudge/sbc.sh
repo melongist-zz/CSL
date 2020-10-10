@@ -69,9 +69,10 @@ echo "" | tee -a domjudge.txt
 echo "Next step : npm start"
 echo "" | tee -a domjudge.txt
 echo "------ run npm start every reboot ------" | tee -a domjudge.txt
-echo "run : setsid ./dcm/npm start &" | tee -a domjudge.txt
-echo "" | tee -a domjudge.txt
+echo "run : cd dcm" | tee -a domjudge.txt
+echo "run : setsid npm start &" | tee -a domjudge.txt
 echo "Check spotboard!" | tee -a domjudge.txt
+echo "" | tee -a domjudge.txt
 echo "------" | tee -a domjudge.txt
 echo "http:/localhost/spotboard/" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
