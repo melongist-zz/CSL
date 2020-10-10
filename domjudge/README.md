@@ -5,7 +5,7 @@
 <https://www.domjudge.org/>   
 
 #Prerequisite
-- Ubuntu 20.04 LTS Server/Desktop (AWS OK)   
+- Ubuntu 20.04 LTS Server/Desktop (AWS OK) installed server   
 
 #Installation commands
 <pre><code>
@@ -59,7 +59,7 @@ Next step : install judgehosts
 <https://www.domjudge.org/>   
 
 #Prerequisite
-- DOMjudge server   
+- DOMjudge installed server   
 
 #Installation commands to install judgehosts at the same DOMserver   
 #with default 1 judgehost + 2 more judgehosts
@@ -90,13 +90,17 @@ Saved as domjudge.txt
 
 ---
 #spotboard for domjudge   
+<https://github.com/spotboard/spotboard>
 
 #Prerequisite
-- make spotboard account with domjudge web admin
-
+- DOMjudge(server + judgehost) installed server
+- DOMjudge account added with DOMjudge web interface
+    ex)
+    ID: spotboard
+    PW: spotboard
+    Roles: Jury User 
 
 <pre><code>
-???
 
 wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/dj740jh.sh
 bash dj740jh.sh
