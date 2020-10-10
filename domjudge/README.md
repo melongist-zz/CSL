@@ -57,22 +57,27 @@ bash dj740jh.sh
 </code></pre>
 
 <pre><code>
+domjudge 7.4.0.DEV DOMserver installed!!
+Ver 2020.10.09
+
+Check below to access DOMserver's web interface!
+------
+admin ID : admin
+admin PW : ????????????????
+
 domjudge 7.4.0.DEV judgehosts installed!!
 Ver 2020.10.09
 
-Next step : reboot, create_cgroups and run judgedaemons
-
------- Reboot ------
 run : sudo reboot
 
 ------ After every reboot ------
-run : sudo /opt/domjudge/judgehost/bin/create_cgroups
-run : setsid /opt/domjudge/judgehost/bin/judgedaemon &
-run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 0 &
-run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 1 &
+run : sudo /opt/domjudge/judgehost/bin/create_cgroups   
+run : setsid /opt/domjudge/judgehost/bin/judgedaemon &   
+run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 0 &   
+run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 1 &   
 
-If you want to kill some judgedaemon processe?
-ps -ef, and find pid# of judgedaemon, run : kill -15 pid#
+If you want to kill some judgedaemon processe?   
+ps -ef, and find pid# of judgedaemon, run : kill -15 pid#   
 
 Saved as domjudge.txt
 </code></pre>
