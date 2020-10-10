@@ -100,10 +100,11 @@ Saved as domjudge.txt
     PW: spotboard   
     Roles: Jury User    
 
-<pre><code>
+#Installation commands to install spotboard for domjudge   
 
-wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/dj740jh.sh
-bash dj740jh.sh
+<pre><code>
+wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/sb06.sh
+bash sb06.sh
 </code></pre>
 
 
