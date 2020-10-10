@@ -41,9 +41,6 @@ Enter password: // <- enter upper #1 password
 
 #After DOMserver installed.
 <pre><code>
-domjudge 7.4.0.DEV DOMserver installed!!    
-Ver 2020.10.09    
-
 Check below to access DOMserver's web interface!    
 ------    
 admin ID : admin    
@@ -70,9 +67,6 @@ bash dj740jh.sh
 
 #After judgehosts installed.
 <pre><code>
-domjudge 7.4.0.DEV judgehosts installed!!
-Ver 2020.10.09
-
 run : sudo reboot
 
 ------ After every reboot ------
@@ -94,7 +88,7 @@ Saved as domjudge.txt
 
 #Prerequisite   
 - DOMjudge(server + judgehost) installed server   
-- DOMjudge account added with DOMjudge web interface   
+- spotboard account : added with DOMjudge web interface   
     ex)   
     ID: spotboard   
     PW: spotboard   
@@ -107,16 +101,14 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/sb06.sh
 bash sb06.sh
 </code></pre>
 
+#After judgehosts installed.
 <pre><code>
-spotboard for domjudge installed!!
-Ver 2020.10.09
-
 Check spotboard!
 ------
 http:/localhost/spotboard/
 
 configuration for spotboard
-check /var/www/html/spotboard/config.js
+check & edit /var/www/html/spotboard/config.js
 
 Next step : install spotboard-converter
 
