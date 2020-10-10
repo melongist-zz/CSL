@@ -5,7 +5,7 @@
 <https://www.domjudge.org/>   
 
 #Prerequisite
-- Ubuntu 20.04 LTS Server/Desktop (AWS OK) installed server   
+- Ubuntu 20.04 LTS Server/Desktop installed (AWS OK)   
 
 #Installation commands
 <pre><code>
@@ -56,7 +56,7 @@ Next step : install judgehosts
 <https://www.domjudge.org/>   
 
 #Prerequisite
-- DOMjudge installed server   
+- DOMjudge(server) installed   
 
 #Installation commands to install judgehosts at the same DOMserver   
 #with default 1 judgehost + 2 more judgehosts
@@ -87,12 +87,7 @@ Saved as domjudge.txt
 <https://github.com/spotboard/spotboard>
 
 #Prerequisite   
-- DOMjudge(server + judgehost) installed server   
-- spotboard account : added with DOMjudge web interface   
-    ex)   
-    ID: spotboard   
-    PW: spotboard   
-    Roles: Jury User    
+- DOMjudge(server + judgehost) installed   
 
 #Installation commands to install spotboard for domjudge   
 
@@ -115,8 +110,38 @@ Next step : install spotboard-converter
 </code></pre>
 
 
+---
+#spotboard-converter for spotboard   
+<https://github.com/spotboard/domjudge-converter>
 
+#Prerequisite   
+- DOMjudge(server + judgehost) installed server   
+- spotboard installed   
+- spotboard account : added with DOMjudge web interface
+    ex)   
+    ID: spotboard   
+    PW: spotboard   
+    Roles: Jury User    
 
+#Installation commands to install spotboard-converter for domjudge   
 
+<pre><code>
+wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/sbc.sh
+bash sbc.sh
+</code></pre>
 
+#After judgehosts installed.
+<pre><code>
+
+...   
+Check spotboard!
+------
+http:/localhost/spotboard/
+
+configuration for spotboard
+check & edit /var/www/html/spotboard/config.js
+
+Next step : install spotboard-converter
+
+</code></pre>
 
