@@ -9,6 +9,8 @@
 #------
 #DOMserver
 
+cd
+
 sudo apt update
 sudo apt -y upgrade
 

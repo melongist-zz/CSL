@@ -1,17 +1,24 @@
 #!/bin/bash
-#domjudge7.4.0.dev + Ubuntu 20.04 LTS Server
+#spotboard 0.6.0 for domjudge7.4.0.dev + Ubuntu 20.04 LTS Server
 
-#terminal commands to install judgehosts
-#wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/dj740jh.sh
-#bash dj740jh.sh
+#terminal commands to install spotboard webapp
+#wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/sb06.sh
+#bash sb06.sh
 
 #------
-#judgehost
-
+#spotboard for domjudge
 cd
 
 sudo apt update
 sudo apt -y upgrade
+
+sudo apt -y install nodejs
+sudo apt -y install npm
+
+#https://github.com/spotboard/spotboard
+wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/spotboard-webapp-0.6.0.tar.gz
+bash dj740jh.sh
+
 
 sudo apt -y install debootstrap
 sudo apt -y install default-jre-headless

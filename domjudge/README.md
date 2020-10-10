@@ -1,9 +1,13 @@
 #20.10.06   
-#Installation script for DOMjudge 7.4.0.DEV   
-<https://www.domjudge.org/>
 
 ---
-#Terminal commands. To install DOMserver
+#DOMjudge 7.4.0.EDV installation   
+<https://www.domjudge.org/>   
+
+#Prerequisite
+- Ubuntu 20.04 LTS Server/Desktop (AWS OK)   
+
+#Installation commands
 <pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/dj740dj.sh
 bash dj740dj.sh
@@ -51,7 +55,13 @@ Next step : install judgehosts
 </code></pre>
 
 ---
-#Terminal commands. To install judgehosts at the same DOMserver   
+#DOMjudge judgehosts installation   
+<https://www.domjudge.org/>   
+
+#Prerequisite
+- DOMjudge server   
+
+#Installation commands to install judgehosts at the same DOMserver   
 #with default 1 judgehost + 2 more judgehosts
 <pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/dj740jh.sh
@@ -76,3 +86,25 @@ ps -ef, and find pid# of judgedaemon, run : kill -15 pid#
 
 Saved as domjudge.txt
 </code></pre>
+
+
+---
+#spotboard for domjudge   
+
+#Prerequisite
+- make spotboard account with domjudge web admin
+
+
+<pre><code>
+???
+
+wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/dj740jh.sh
+bash dj740jh.sh
+</code></pre>
+
+
+
+
+
+
+
