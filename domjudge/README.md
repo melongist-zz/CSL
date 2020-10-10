@@ -59,14 +59,6 @@ bash dj740jh.sh
 
 #After judgehosts installed!
 <pre><code>
-domjudge 7.4.0.DEV judgedaemons installed!!
-Ver 2020.10.09
-
-Check below to access DOMserver's web interface!
-------
-admin ID : admin
-admin PW : ????????????????
-
 domjudge 7.4.0.DEV judgehosts installed!!
 Ver 2020.10.09
 
