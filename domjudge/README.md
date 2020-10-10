@@ -116,8 +116,8 @@ Next step : install spotboard-converter
 
 #Prerequisite   
 - DOMjudge(server + judgehost) installed server   
-- spotboard installed   
-- spotboard account : added with DOMjudge web interface   
+- spotboard installed    
+- spotboard account with 'Jury User' Roles : added with DOMjudge web interface   
     ex)   
     ID: spotboard   
     PW: spotboard   
