@@ -130,18 +130,22 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/sbc.sh
 bash sbc.sh
 </code></pre>
 
-#After judgehosts installed.
+#After spotboard-converter installed.
 <pre><code>
+domjudge-converter for domjudge installed!!
+Ver 2020.10.09
 
-...   
+Next step : npm start
+
+------ run npm start every reboot ------
+run : cd dcm
+run : setsid npm start &
 Check spotboard!
+
 ------
 http:/localhost/spotboard/
 
-configuration for spotboard
-check & edit /var/www/html/spotboard/config.js
-
-Next step : install spotboard-converter
-
+configuration for domjudge-converter
+check and edit ~/dcm/config.js
 </code></pre>
 
