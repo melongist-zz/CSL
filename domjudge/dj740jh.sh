@@ -71,13 +71,13 @@ echo "run : sudo reboot" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
 echo "------ After every reboot ------" | tee -a domjudge.txt
 echo "run : sudo /opt/domjudge/judgehost/bin/create_cgroups" | tee -a domjudge.txt
-echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon" | tee -a domjudge.txt
-echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 0" | tee -a domjudge.txt
-echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 1" | tee -a domjudge.txt
-#echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 2" | tee -a domjudge.txt
-#echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 3" | tee -a domjudge.txt
-#echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 4" | tee -a domjudge.txt
-#echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 5" | tee -a domjudge.txt
+echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon &" | tee -a domjudge.txt
+echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 0 &" | tee -a domjudge.txt
+echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 1 &" | tee -a domjudge.txt
+#echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 2 &" | tee -a domjudge.txt
+#echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 3 &" | tee -a domjudge.txt
+#echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 4 &" | tee -a domjudge.txt
+#echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 5 &" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
 echo "If you want to kill some judgedaemon processe?" | tee -a domjudge.txt
 echo "ps -ef, and find pid# of judgedaemon, run : kill -15 pid#" | tee -a domjudge.txt
@@ -85,5 +85,3 @@ echo ""
 echo "Saved as domjudge.txt"
 echo ""
 echo ""
-
-
