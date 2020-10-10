@@ -18,6 +18,8 @@ unzip domjudge-converter-master.zip
 mv domjudge-converter-master dcm
 cd dcm
 
+echo ""
+
 #config.js
 INPUTS="n"
 SBACCOUNT=""
