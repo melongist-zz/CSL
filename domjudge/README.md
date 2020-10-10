@@ -35,7 +35,7 @@ Enter password: // <- enter upper #1 password
 ...   
 </code></pre>
 
-#After DOMserver installed!
+#After DOMserver installed.
 <pre><code>
 domjudge 7.4.0.DEV DOMserver installed!!    
 Ver 2020.10.09    
@@ -58,7 +58,7 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/dj740jh.sh
 bash dj740jh.sh
 </code></pre>
 
-#After judgehosts installed!
+#After judgehosts installed.
 <pre><code>
 domjudge 7.4.0.DEV judgehosts installed!!
 Ver 2020.10.09
