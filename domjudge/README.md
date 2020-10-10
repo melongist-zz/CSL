@@ -8,8 +8,8 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/dj740dj.sh
 bash dj740dj.sh
 </code></pre>
 
+#While installing...   
 <pre><code>
-#while installing...   
 ...   
 Enter current password for root (enter for none) : // <- enter   
 ...   
@@ -34,6 +34,7 @@ Enter password: // <- enter upper #1 password
 ...   
 </code></pre>
 
+#After DOMserver installed!
 <pre><code>
 domjudge 7.4.0.DEV DOMserver installed!!    
 Ver 2020.10.09    
@@ -56,8 +57,9 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/dj740jh.sh
 bash dj740jh.sh
 </code></pre>
 
+#After judgehosts installed!
 <pre><code>
-domjudge 7.4.0.DEV DOMserver installed!!
+domjudge 7.4.0.DEV judgedaemons installed!!
 Ver 2020.10.09
 
 Check below to access DOMserver's web interface!
