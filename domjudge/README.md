@@ -107,6 +107,21 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/sb06.sh
 bash sb06.sh
 </code></pre>
 
+<pre><code>
+spotboard for domjudge installed!!
+Ver 2020.10.09
+
+Check spotboard!
+------
+http:/localhost/spotboard/
+
+configuration for spotboard
+check /var/www/html/spotboard/config.js
+
+Next step : install spotboard-converter
+
+</code></pre>
+
 
 
 
