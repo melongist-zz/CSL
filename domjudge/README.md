@@ -92,8 +92,8 @@ Saved as domjudge.txt
 #Installation commands to install spotboard for domjudge   
 
 <pre><code>
-wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/sb06.sh
-bash sb06.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/sb060.sh
+bash sb060.sh
 </code></pre>
 
 #After judgehosts installed.
