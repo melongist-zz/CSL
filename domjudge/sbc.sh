@@ -24,7 +24,7 @@ SBACCOUNT=""
 while [ ${INPUTS} = "n" ]; do
   echo -n "spotboard jury account? : "
   read SBACCOUNT
-  echo -n "spotboard jury account : $SBACCOUNT     OK?[y/n] "
+  echo -n "spotboard jury account  : $SBACCOUNT     OK?[y/n] "
   read INPUTS
 done
 
@@ -33,7 +33,7 @@ SBACCOUNTPW=""
 while [ ${INPUTS} = "n" ]; do
   echo -n "spotboard jury account password? : "
   read SBACCOUNTPW
-  echo -n "spotboard jury account password : $SBACCOUNTPW     OK?[y/n] "
+  echo -n "spotboard jury account password  : $SBACCOUNTPW     OK?[y/n] "
   read INPUTS
 done
 
@@ -42,7 +42,7 @@ CID=""
 while [ ${INPUTS} = "n" ]; do
   echo -n "DOMjudge contest CID? : "
   read CID
-  echo -n "DOMjudge contest CID : $CID     OK?[y/n] "
+  echo -n "DOMjudge contest CID  : $CID     OK?[y/n] "
   read INPUTS
 done
 
@@ -50,6 +50,7 @@ sed -i "s#username: 'username'#username: '$SBACCOUNT'#" ./config.js
 sed -i "s#password: 'password'#password: '$SBACCOUNTPW'#" ./config.js
 sed -i "s#cid: 1#cid: $CID#" ./config.js
 
+sed -i "s#api: 'http://localhost/api'#api: 'http://localhost/domjudge/api'#" ./config.js
 sed -i "s#dest: '.'#dest: '/var/www/html/spotboard/'#" ./config.js
 
 
