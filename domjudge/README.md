@@ -92,13 +92,13 @@ Saved as domjudge.txt
 #spotboard for domjudge   
 <https://github.com/spotboard/spotboard>
 
-#Prerequisite
-- DOMjudge(server + judgehost) installed server
-- DOMjudge account added with DOMjudge web interface
-    ex)
-    ID: spotboard
-    PW: spotboard
-    Roles: Jury User 
+#Prerequisite   
+- DOMjudge(server + judgehost) installed server   
+- DOMjudge account added with DOMjudge web interface   
+    ex)   
+    ID: spotboard   
+    PW: spotboard   
+    Roles: Jury User    
 
 <pre><code>
 
