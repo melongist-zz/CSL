@@ -14,7 +14,7 @@ bash domkor.sh
 
 #Korena Sample Problems   
 #Upload with DOMjudge admin web interface   
-- hello_kor.pdf
-- fltcmp_kor.pdf
-- boolfind_kor.pdf
+- [hello_kor.pdf](https://github.com/melongist/CSL/blob/master/domjudge/kor/hello_kor.pdf)
+- [fltcmp_kor.pdf](https://github.com/melongist/CSL/blob/master/domjudge/kor/fltcmp_kor.pdf)
+- [boolfind_kor.pdf](https://github.com/melongist/CSL/blob/master/domjudge/kor/boolfind_kor.pdf)
 
