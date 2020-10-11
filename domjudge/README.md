@@ -1,7 +1,7 @@
 #20.10.06   
 
 ---
-#DOMjudge 7.4.0.EDV installation   
+#DOMjudge 7.4.0.DEV installation   
 <https://www.domjudge.org/>   
 
 #Prerequisite
