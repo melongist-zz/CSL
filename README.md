@@ -1,7 +1,7 @@
 # CSL(Computer Science teachers' Love) at South Korea
 
 
-"안녕하세요"
+"여기 이렇게 로컬에서 고칠 수 있습니다."
 
 
 #2020.09.11
