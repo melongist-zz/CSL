@@ -66,7 +66,7 @@ PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 
 mysqladmin -u $USER -p$PASSWORD create jol
 
-#c.f. : how to backup from HUSTOJ for CSL :> mysqldump -u -p jol > csl100v00jol.sql
+#c.f. : how to backup from HUSTOJ for CSL :> mysqldump -u debian-sys-maint -p jol > csl100v00jol.sql
 mysql -u $USER -p$PASSWORD jol < csl100v00jol.sql
 sudo rm csl100v00jol.sql
 
