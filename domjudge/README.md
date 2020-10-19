@@ -1,4 +1,4 @@
-#20.10.06   
+#20.10.19   
 
 ---
 #DOMjudge 7.4.0.DEV installation   
@@ -92,18 +92,18 @@ Saved as domjudge.txt
 #Installation commands to install spotboard for domjudge   
 
 <pre><code>
-wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/sb060.sh
-bash sb060.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/sb070.sh
+bash sb070.sh
 </code></pre>
 
 #After judgehosts installed.
 <pre><code>
 Check spotboard!
 ------
-http:/localhost/spotboard/
+http://localhost/spotboard/dist/
 
 configuration for spotboard
-check & edit /var/www/html/spotboard/config.js
+check & edit /var/www/html/spotboard/dist/config.js
 
 Next step : install spotboard-converter
 
