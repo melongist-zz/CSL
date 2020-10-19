@@ -11,7 +11,7 @@ cd
 sudo rm -rf /opt/domjuge/domserver/webapp/templates
 wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/kor/templates.tar.gz
 sudo tar -zxvf templates.tar.gz
-sudo mv templates /opt/domjudge/domserver/webapp/templates/
+sudo mv templates /opt/domjudge/domserver/webapp/
 sudo rm -rf /opt/domjudge/domserver/webapp/var/cache/prod/*
 
 echo ""
