@@ -99,11 +99,11 @@ sudo service apache2 reload
 
 #making auto direction
 cd
-sudo rm -f /var/www/html/index.html
-echo "<script>document.location=\"./domjudge/\";</script>" > index.html
-sudo chmod 644 index.html
-sudo chown root:root index.html
-sudo mv index.html /var/www/html/
+#sudo rm -f /var/www/html/index.html
+#echo "<script>document.location=\"./domjudge/\";</script>" > index.html
+#sudo chmod 644 index.html
+#sudo chown root:root index.html
+#sudo mv index.html /var/www/html/
 
 sudo apt -y autoremove
 
@@ -117,11 +117,12 @@ echo "Ver 2020.10.09" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
 echo "Check below to access DOMserver's web interface!" | tee -a domjudge.txt
 echo "------" | tee -a domjudge.txt
+echo "http://localhost/domjudge/" | tee -a domjudge.txt
 echo "admin ID : admin" | tee -a domjudge.txt
 echo "admin PW : $PASSWORD" | tee -a domjudge.txt
 echo ""
 echo "admin PW saved as domjudge.txt"
-echo "Next step : install judgehosts"
+echo "Next step : installing judgehosts"
 echo ""
 echo ""
 
