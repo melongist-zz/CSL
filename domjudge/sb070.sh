@@ -17,17 +17,17 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/spotboard-w
 tar -xvf spotboard-webapp-0.7.0.tar.gz
 mv spotboard-webapp-0.7.0 spotboard
 sudo mv spotboard /var/www/html/
-cd /var/www/html/spotboard/src/
+cd /var/www/html/spotboard/
 
 sudo apt -y install nodejs
 sudo apt -y install npm
 sudo npm install -g npm
 sudo npm install -g grunt-cli
-sudo npm run build
+npm install
+npm run build
 
-
-sed -i "s#feed_server_path = './src/'#feed_server_path = './'#" /var/www/html/spotboard/dist/config.js
-sed -i "s#'award_slide.json' :'./src/award_slide.json'#'award_slide.json' :'./award_slide.json'#" /var/www/html/spotboard/dist/config.js
+sed -i "s#feed_server_path = './sample/'#feed_server_path = './'#" /var/www/html/spotboard/dist/config.js
+sed -i "s#'award_slide.json' :'./sample/award_slide.json'#'award_slide.json' :'./award_slide.json'#" /var/www/html/spotboard/dist/config.js
 sed -i "s#animation          : false#animation          : true#" /var/www/html/spotboard/dist/config.js
 
 clear

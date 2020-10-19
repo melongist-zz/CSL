@@ -1,4 +1,4 @@
-#20.10.06   
+#20.10.19   
 
 ---
 #DOMjudge 7.4.0.DEV installation   
@@ -92,18 +92,18 @@ Saved as domjudge.txt
 #Installation commands to install spotboard for domjudge   
 
 <pre><code>
-wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/sb060.sh
-bash sb060.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/sb070.sh
+bash sb070.sh
 </code></pre>
 
 #After judgehosts installed.
 <pre><code>
 Check spotboard!
 ------
-http:/localhost/spotboard/
+http://localhost/spotboard/dist/
 
 configuration for spotboard
-check & edit /var/www/html/spotboard/config.js
+check & edit /var/www/html/spotboard/dist/config.js
 
 Next step : install spotboard-converter
 
@@ -126,16 +126,14 @@ Next step : install spotboard-converter
 #Installation commands to install spotboard-converter for domjudge   
 
 <pre><code>
-wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/sbc.sh
-bash sbc.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/sbc070.sh
+bash sbc070.sh
 </code></pre>
 
 #After spotboard-converter installed.
 <pre><code>
 domjudge-converter for domjudge installed!!
-Ver 2020.10.09
-
-Next step : npm start
+Ver 2020.10.19
 
 ------ run npm start every reboot ------
 run : cd dcm
@@ -143,7 +141,7 @@ run : setsid npm start &
 Check spotboard!
 
 ------
-http:/localhost/spotboard/
+http:/localhost/spotboard/dist/
 
 configuration for domjudge-converter
 check and edit ~/dcm/config.js
