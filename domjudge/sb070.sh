@@ -26,8 +26,8 @@ sudo npm install -g grunt-cli
 npm install
 npm run build
 
-sed -i "s#feed_server_path = './src/'#feed_server_path = './'#" /var/www/html/spotboard/dist/config.js
-sed -i "s#'award_slide.json' :'./src/award_slide.json'#'award_slide.json' :'./award_slide.json'#" /var/www/html/spotboard/dist/config.js
+sed -i "s#feed_server_path = './sample/'#feed_server_path = './'#" /var/www/html/spotboard/dist/config.js
+sed -i "s#'award_slide.json' :'./sample/award_slide.json'#'award_slide.json' :'./award_slide.json'#" /var/www/html/spotboard/dist/config.js
 sed -i "s#animation          : false#animation          : true#" /var/www/html/spotboard/dist/config.js
 
 clear
