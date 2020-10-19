@@ -38,7 +38,7 @@ echo "Ver 2020.10.19" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
 echo "Check spotboard!" | tee -a domjudge.txt
 echo "------" | tee -a domjudge.txt
-echo "http:/localhost/spotboard/dist/" | tee -a domjudge.txt
+echo "http://localhost/spotboard/dist/" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
 echo "configuration for spotboard" | tee -a domjudge.txt
 echo "check /var/www/html/spotboard/dist/config.js" | tee -a domjudge.txt
