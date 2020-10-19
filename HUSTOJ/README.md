@@ -1,6 +1,6 @@
 #20.10.19   
 #프로그래밍언어 기초100제 시리즈를 쉽고 빠르게 설치해서 운영할 수 있도록 하기 위한 스크립트 파일과 소스코드를 저장하고 배포하는 용도입니다.    
-
+***
 
 #Prerequisite  
 #아래와 같은 방법으로 Ubuntu 20.04 LTS Desktop/Server(AWS) 운영체제에 HUSTOJ를 먼저 설치해야 합니다.   
@@ -12,13 +12,11 @@ wget https://github.com/zhblue/hustoj/raw/master/trunk/install/install-ubuntu20.
 sudo bash install-ubuntu20.04.sh
 </code></pre>
 
-
-
+***
 #기초100제의 모든 내용들은 중고등학교 정보(컴퓨터) 선생님들에 의해서 만들어졌습니다.   
 #각종 사교육 및 협의되지 않은 영리 목적의 사용을 금지합니다.   
 #중고등학교 정보 선생님들은 정규수업, 방과후수업, 특별활동 등 학생들 교육을 위해 자유롭게 사용할 수 있습니다.   
 
-***
 #설치 스크립트 파일 다운로드 및 설치 명령어 실행
 <pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v00.sh
