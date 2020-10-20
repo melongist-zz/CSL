@@ -1,4 +1,4 @@
-#20.10.11   
+#20.10.20   
 
 ---
 #DOMjudge 7.4.0.DEV korean interface for beginner   
@@ -8,8 +8,8 @@
 
 #Korean interface installation commands
 <pre><code>
-wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/kor/domkor.sh
-bash domkor.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/kr/dj740kr.sh
+bash dj740kr.sh
 </code></pre>
 
 #Korena Sample Problems   
