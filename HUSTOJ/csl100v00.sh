@@ -1,5 +1,10 @@
 #!/bin/bash
-#2020.09.27
+#2020.10.20
+
+if [[ -z $SUDO_USER ]] ; then
+  echo "Use 'sudo bash csl100v00.sh'"
+  exit 1
+fi
 
 cd
 
