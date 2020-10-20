@@ -7,6 +7,12 @@
 
 #------
 #spotboard converter for spotboard
+
+if [[ $SUDO_USER ]] ; then
+  echo "Just use 'bash sbc070.sh'"
+  exit 1
+fi
+
 cd
 
 sudo apt update
