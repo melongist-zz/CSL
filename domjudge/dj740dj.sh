@@ -14,6 +14,8 @@ cd
 sudo apt update
 sudo apt -y upgrade
 
+sudo timedatectl set-timezone 'Asia/Seoul'
+
 sudo apt -y install acl
 sudo apt -y install zip
 
