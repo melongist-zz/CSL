@@ -41,7 +41,7 @@ sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-1
 #sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-3
 #sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-4
 #sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-5
-
+#sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-6
 
 sudo cp /opt/domjudge/judgehost/etc/sudoers-domjudge /etc/sudoers.d/
 sudo chmod 0440 /etc/sudoers.d/sudoers-domjudge
@@ -80,6 +80,8 @@ echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 1 &" | tee -a domj
 #echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 3 &" | tee -a domjudge.txt
 #echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 4 &" | tee -a domjudge.txt
 #echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 5 &" | tee -a domjudge.txt
+#echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 6 &" | tee -a domjudge.txt
+
 echo "" | tee -a domjudge.txt
 echo "If you want to kill some judgedaemon processe?" | tee -a domjudge.txt
 echo "ps -ef, and find pid# of judgedaemon, run : kill -15 pid#" | tee -a domjudge.txt
