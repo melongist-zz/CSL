@@ -142,7 +142,7 @@ run : setsid npm start &
 Check spotboard!
 
 ------
-http:/localhost/spotboard/dist/
+http://localhost/spotboard/dist/
 
 configuration for domjudge-converter
 check and edit ~/dcm/config.js
