@@ -2,20 +2,20 @@
 #domjudge korean interface for beginner
 
 #terminal commands to install domjudge korean interface
-#wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/kor/domkor.sh
-#bash domkor.sh
+#wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/kr/dj740kr.sh
+#bash dj740kr.sh
 
 #------
 #domjudge korean interface for beginner
 cd
 sudo rm -rf /opt/domjuge/domserver/webapp/templates
-wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/kor/templates.tar.gz
-sudo tar -zxvf templates.tar.gz
+wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/kr/20201019kortemplates.tar.gz
+sudo tar -zxvf 20201019kortemplates.tar.gz
 sudo mv templates /opt/domjudge/domserver/webapp/
 sudo rm -rf /opt/domjudge/domserver/webapp/var/cache/prod/*
 
 echo ""
-echo "domjudge korean interface for beginner installed!!"
+echo "domjudge 7.4.0 korean interface for beginner installed!!"
 echo ""
 echo "Check domjudge!"
 echo ""
