@@ -14,7 +14,7 @@ bash dj740kr.sh
 
 #Korena Sample Problems   
 #Upload with DOMjudge admin web interface   
-- [hello_kor.pdf](https://github.com/melongist/CSL/blob/master/domjudge/kor/hello_kor.pdf)
-- [fltcmp_kor.pdf](https://github.com/melongist/CSL/blob/master/domjudge/kor/fltcmp_kor.pdf)
-- [boolfind_kor.pdf](https://github.com/melongist/CSL/blob/master/domjudge/kor/boolfind_kor.pdf)
+- [hello_kr.pdf](https://github.com/melongist/CSL/blob/master/domjudge/kr/hello_kr.pdf)
+- [fltcmp_kr.pdf](https://github.com/melongist/CSL/blob/master/domjudge/kr/fltcmp_kr.pdf)
+- [boolfind_kr.pdf](https://github.com/melongist/CSL/blob/master/domjudge/kr/boolfind_kr.pdf)
 
