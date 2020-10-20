@@ -9,6 +9,11 @@
 #------
 #DOMserver
 
+if [[ $SUDO_USER ]] ; then
+  echo "Just use 'bash dj740dj.sh'"
+  exit 1
+fi
+
 cd
 
 #for South Korea's timezone
