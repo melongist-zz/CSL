@@ -8,6 +8,11 @@
 #------
 #judgehost
 
+if [[ $SUDO_USER ]] ; then
+  echo "Just use 'bash dj740jh.sh'"
+  exit 1
+fi
+
 cd
 
 #for South Korea's timezone
