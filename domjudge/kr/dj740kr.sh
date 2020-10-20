@@ -9,8 +9,8 @@
 #domjudge korean interface for beginner
 cd
 sudo rm -rf /opt/domjuge/domserver/webapp/templates
-wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/kr/20201019kortemplates.tar.gz
-sudo tar -zxvf 20201019kortemplates.tar.gz
+wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/kr/20201019krtemplates.tar.gz
+sudo tar -zxvf 20201019krtemplates.tar.gz
 sudo mv templates /opt/domjudge/domserver/webapp/
 sudo rm -rf /opt/domjudge/domserver/webapp/var/cache/prod/*
 
