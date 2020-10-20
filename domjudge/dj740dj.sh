@@ -14,6 +14,7 @@ cd
 sudo apt update
 sudo apt -y upgrade
 
+#for South Korea's timezone
 sudo timedatectl set-timezone 'Asia/Seoul'
 
 sudo apt -y install acl
