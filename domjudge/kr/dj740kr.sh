@@ -14,8 +14,13 @@ sudo tar -zxvf 20201019krtemplates.tar.gz
 sudo mv templates /opt/domjudge/domserver/webapp/
 sudo rm -rf /opt/domjudge/domserver/webapp/var/cache/prod/*
 
+cd
+
 echo ""
 echo "domjudge 7.4.0 korean interface for beginner installed!!"
 echo ""
 echo "Check domjudge!"
 echo ""
+
+sudo timedatectl set-timezone 'Asia/Seoul'
+date
