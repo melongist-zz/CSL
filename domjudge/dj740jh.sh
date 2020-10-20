@@ -10,6 +10,9 @@
 
 cd
 
+#for South Korea's timezone
+sudo timedatectl set-timezone 'Asia/Seoul'
+
 sudo apt update
 sudo apt -y upgrade
 
