@@ -74,7 +74,7 @@ echo "run : setsid npm start &" | tee -a domjudge.txt
 echo "Check spotboard!" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
 echo "------" | tee -a domjudge.txt
-echo "http:/localhost/spotboard/dist/" | tee -a domjudge.txt
+echo "http://localhost/spotboard/dist/" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
 echo "configuration for domjudge-converter" | tee -a domjudge.txt
 echo "check and edit ~/dcm/config.js" | tee -a domjudge.txt
