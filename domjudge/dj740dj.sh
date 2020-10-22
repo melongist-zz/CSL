@@ -1,4 +1,9 @@
 #!/bin/bash
+
+#https://www.domjudge.org/
+#https://github.com/DOMjudge/domjudge
+
+
 #domjudge7.4.0.dev + Ubuntu 20.04 LTS Server
 
 #terminal commands to install
