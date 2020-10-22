@@ -1,4 +1,9 @@
 #!/bin/bash
+
+#https://github.com/spotboard
+#https://github.com/spotboard/domjudge-converter
+
+
 #domjudge converter for spotboard 0.6.0 for domjudge7.4.0.dev + Ubuntu 20.04 LTS Server
 
 #terminal commands to install domjudge converter
