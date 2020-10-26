@@ -111,18 +111,15 @@ sudo service php7.4-fpm reload
 sudo service apache2 reload
 
 
+#For DOMjudge configuration check
 #MariaDB Max connections to 1000
 sudo sed -i "s/\#max_connections        = 100/max_connections        = 1000/" /etc/mysql/mariadb.conf.d/50-server.cnf
-
 #PHP upload_max_filesize to 128M
 sudo sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 128M/" /etc/php/7.4/apache2/php.ini
-
 #PHP max_file_uploads to 128
 sudo sed -i "s/max_file_uploads = 20/max_file_uploads = 128/" /etc/php/7.4/apache2/php.ini
-
 #PHP post_max_size to 128M
 sudo sed -i "s/post_max_size = 8M/post_max_size = 128M/" /etc/php/7.4/apache2/php.ini
-
 #PHP memory_limit to 2048M
 sudo sed -i "s/memory_limit = 128M/memory_limit = 2048M/" /etc/php/7.4/apache2/php.ini
 
