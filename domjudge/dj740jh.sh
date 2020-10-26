@@ -58,12 +58,12 @@ sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-1
 sudo cp /opt/domjudge/judgehost/etc/sudoers-domjudge /etc/sudoers.d/
 sudo chmod 0440 /etc/sudoers.d/sudoers-domjudge
 
-#try #1 for Ubuntu Desktop?
+#try #1 for Ubuntu Desktop
 sudo sed -i "s#GRUB_CMDLINE_LINUX_DEFAULT=\"quiet splash\"#GRUB_CMDLINE_LINUX_DEFAULT=\"quiet cgroup_enable=memory swapaccount=1\"#" /etc/default/grub
-#try #2 for Ubuntu Server?
+#try #2 for Ubuntu Server
 sudo sed -i "s#GRUB_CMDLINE_LINUX_DEFAULT=\"\"#GRUB_CMDLINE_LINUX_DEFAULT=\"quiet cgroup_enable=memory swapaccount=1\"#" /etc/default/grub
 
-#for AWS Ubuntu 20.04 LTS Server
+#try #3 AWS Ubuntu 20.04 LTS Server
 if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]; then
 	echo "Editing /etc/default/grub.d/50-cloudimg-settings.cfg for AWS"
   sudo sed -i "s#GRUB_CMDLINE_LINUX_DEFAULT=\"console=tty1 console=ttyS0 nvme_core.io_timeout=4294967295\"#GRUB_CMDLINE_LINUX_DEFAULT=\"quiet cgroup_enable=memory swapaccount=1\"#" /etc/default/grub.d/50-cloudimg-settings.cfg
