@@ -2,7 +2,8 @@
 
 
 #
-wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms-master-20201110.tar
-tar xvf cms-master-20201110.tar
+wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms150.sh
+bash cms150.sh
+
 
 
