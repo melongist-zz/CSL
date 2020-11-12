@@ -1,0 +1,64 @@
+#!/bin/bash
+
+#http://cms-dev.github.io/
+#https://github.com/cms-dev/cms
+
+
+#CMS1.5.0.dev + Ubuntu 20.04 LTS Server
+
+#terminal commands to install
+#------
+#wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms150.sh
+#bash cms150.sh
+
+#------
+#CMS
+
+if [[ $SUDO_USER ]] ; then
+  echo "Just use 'bash cms150.sh'"
+  exit 1
+fi
+
+cd
+
+#for South Korea's timezone
+sudo timedatectl set-timezone 'Asia/Seoul'
+
+sudo apt update
+sudo apt -y upgrade
+
+sudo apt -y install build-essential
+sudo apt -y install openjdk-11-jdk-headless
+sudo apt -y install fp-compiler
+sudo apt -y install postgresql
+sudo apt -y install postgresql-client
+sudo apt -y install python3.8
+sudo apt -y install cppreference-doc-en-html
+sudo apt -y install cgroup-lite
+sudo apt -y install libcap-dev
+sudo apt -y install zip
+
+sudo apt -y install nginx-full
+sudo apt -y install python2.7
+sudo apt -y install php7.4-cli
+sudo apt -y install php7.4-fpm
+sudo apt -y install phppgadmin
+sudo apt -y install texlive-latex-base
+sudo apt -y install a2ps
+sudo apt -y install haskell-platform
+sudo apt -y install rustc
+sudo apt -y install mono-mcs
+
+sudo apt -y install fp-units-base
+sudo apt -y install fp-units-fcl
+sudo apt -y install fp-units-misc
+sudo apt -y install fp-units-math
+sudo apt -y install fp-units-rtl
+
+wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms-master-20201110.tar
+
+tar xvf cms-master-20201110.tar
+
+
+
+
