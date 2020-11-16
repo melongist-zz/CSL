@@ -148,3 +148,31 @@ configuration for domjudge-converter
 check and edit ~/dcm/config.js
 </code></pre>
 
+
+
+---   
+
+#2020.11.16   
+#How to make spotboard's Awards Ceremony    
+<pre>
+0. After contest's End Time, stop "npm start" process   
+1. Find the submission ID number(#1) just after Freeze time, from admin's submissions menu    
+2. Set Freeze time to End time temporarily, and save contest   
+3. At spotboard domjudge-converter directory, run npm start, and make contest.json & runs.json to spotboard directory(.../dist/)
+4. Set Freeze time to original Freeze time, and save contest. It makes freezing scoreboard of domjudge.   
+5. Copy award_slide.json to .../dist/  from .../dist/sample  and edit award_slide.json to contest   
+6. From web browser ... .../spotboard/dist/?r=#1&award=true  and use "enter" & "esc" key to Ceremony   
+7. After Awards Ceremony ...   
+</pre>
+
+#spotboard index.html addon options    
+You need to clear web browser's cache to see it properly   
+<pre>
+../spotboard/dist/?r=#1            <— start from #1 submission     
+../spotboard/dist/?time=#2         <— start after #2 time(minutes)     
+../spotboard/dist/?award=true      <— start Awards Ceremony mode   
+../spotboard/dist/?award_rank_begin=#3     <— start Awards Ceremony mode from rank #3, must use with award=true   
+../spotboard/dist/?animation=true  <— animation enable   
+../spotboard/dist/?q               <- query ??
+../spotboard/dist/?t=#4            <— follow team number #4   
+</pre>
