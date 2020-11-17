@@ -82,9 +82,9 @@ sudo apt -y install python3-sphinx
 sudo apt -y install python3-cups
 sudo apt -y install python3-pypdf2
 
-wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms-master-20201110.tar
+wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms-master-20201117.tar
 
-tar xvf cms-master-20201110.tar
+tar xvf cms-master-20201117.tar
 
 
 
