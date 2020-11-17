@@ -26,6 +26,7 @@ sudo timedatectl set-timezone 'Asia/Seoul'
 
 sudo apt update
 sudo apt -y upgrade
+sudo apt autoremove
 
 sudo apt -y install build-essential
 sudo apt -y install openjdk-11-jdk-headless
@@ -87,7 +88,7 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms-master-20201
 
 tar xvf cms-master-20201117.tar
 
-rm cms-master-20201117.tar cms
+rm cms-master-20201117 cms
 
 
 
