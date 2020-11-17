@@ -88,7 +88,7 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms-master-20201
 
 tar xvf cms-master-20201117.tar
 
-rm cms-master-20201117 cms
+mv cms-master-20201117 cms
 
 
 
