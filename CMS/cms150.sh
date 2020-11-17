@@ -63,6 +63,7 @@ sudo apt -y install python3-psycopg2
 sudo apt -y install python3-sqlalchemy
 sudo apt -y install python3-psutil
 sudo apt -y install python3-netifaces
+sudo apt -y install python3-pycryptodome
 sudo apt -y install python3-crypto
 sudo apt -y install python3-six
 sudo apt -y install python3-bs4
