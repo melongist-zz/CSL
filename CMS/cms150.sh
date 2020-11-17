@@ -98,3 +98,10 @@ sudo python3 prerequisites.py install
 sudo reboot
 
 
+
+
+cd cms
+
+sudo python3 setup.py install
+
+
