@@ -32,7 +32,7 @@ sudo apt -y install openjdk-11-jdk-headless
 sudo apt -y install fp-compiler
 sudo apt -y install postgresql
 sudo apt -y install postgresql-client
-sudo apt -y install python3.8
+sudo apt -y install python3.6
 sudo apt -y install cppreference-doc-en-html
 sudo apt -y install cgroup-lite
 sudo apt -y install libcap-dev
