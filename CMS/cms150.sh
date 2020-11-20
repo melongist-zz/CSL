@@ -58,10 +58,10 @@ sudo apt -y install fp-units-misc
 sudo apt -y install fp-units-math
 sudo apt -y install fp-units-rtl
 
-sudo apt -y install python3-setuptools
 sudo apt -y install python3-tornado
-sudo apt -y install python3-psycopg2
 sudo apt -y install python3-sqlalchemy
+sudo apt -y install python3-psycopg2
+sudo apt -y install python3-setuptools
 sudo apt -y install python3-psutil
 sudo apt -y install python3-netifaces
 sudo apt -y install python3-pycryptodome
