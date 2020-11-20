@@ -95,23 +95,3 @@ mv cms-master-20201117 cms
 cd cms
 
 sudo python3 prerequisites.py install
-
-sudo reboot
-
-
-
-cd cms
-
-sudo python3 setup.py install
-
-createuser --username=postgres --pwprompt cmsuser
-<--  비밀번호 입력 두 번 함
-createdb --username=postgres --owner=cmsuser cmsdb
-psql --username=postgres --dbname=cmsdb --command='ALTER SCHEMA public OWNER TO cmsuser'
-psql --username=postgres --dbname=cmsdb --command='GRANT SELECT ON pg_largeobject TO cmsuser'
-
-....
-
-/usr/locale/etc/cms.conf 파일 먼저 수정하는 것이 필요함.
-
-
