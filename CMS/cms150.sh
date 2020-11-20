@@ -95,5 +95,3 @@ mv cms-master-20201117 cms
 cd cms
 
 sudo python3 prerequisites.py install
-
-sudo reboot
