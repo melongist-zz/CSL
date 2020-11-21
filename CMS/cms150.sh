@@ -27,7 +27,7 @@ sudo timedatectl set-timezone 'Asia/Seoul'
 
 sudo apt update
 sudo apt -y upgrade
-sudo apt autoremove
+sudo apt -y autoremove
 
 sudo apt -y install build-essential
 sudo apt -y install openjdk-11-jdk-headless
