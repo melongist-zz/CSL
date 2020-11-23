@@ -34,17 +34,13 @@ sudo apt -y install fp-compiler
 sudo apt -y install postgresql
 sudo apt -y install postgresql-contrib
 sudo apt -y install postgresql-client
-sudo apt -y install python3
 sudo apt -y install python3.8
-sudo apt -y install python3.9
 sudo apt -y install cppreference-doc-en-html
 sudo apt -y install cgroup-lite
 sudo apt -y install libcap-dev
 sudo apt -y install zip
 
-sudo apt -y install python3-dev
 sudo apt -y install python3.8-dev
-sudo apt -y install python3.9-dev
 sudo apt -y install libpq-dev
 sudo apt -y install libcups2-dev
 sudo apt -y install libyaml-dev
@@ -77,4 +73,3 @@ mv cms-master-20201123 cms
 cd cms
 
 sudo python3 prerequisites.py install
-
