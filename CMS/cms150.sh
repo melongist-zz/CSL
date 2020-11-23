@@ -34,14 +34,12 @@ sudo apt -y install fp-compiler
 sudo apt -y install postgresql
 sudo apt -y install postgresql-contrib
 sudo apt -y install postgresql-client
-sudo apt -y install python3
 sudo apt -y install python3.8
 sudo apt -y install cppreference-doc-en-html
 sudo apt -y install cgroup-lite
 sudo apt -y install libcap-dev
 sudo apt -y install zip
 
-sudo apt -y install python3-dev
 sudo apt -y install python3.8-dev
 sudo apt -y install libpq-dev
 sudo apt -y install libcups2-dev
