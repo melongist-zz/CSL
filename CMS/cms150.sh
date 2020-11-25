@@ -96,5 +96,6 @@ tar xvf cms-master-20201123.tar
 mv cms-master-20201123 cms
 
 cd cms
-sudo pip3 install -r requirements.txt
-sudo python3 setup.py install
+
+sudo python3 prerequisites.py install
+
