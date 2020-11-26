@@ -98,8 +98,8 @@ mv cms-master-20201123CSL cms
 cd cms
 #select 'Y' at the end...  
 sudo python3 prerequisites.py install
-su $USER
-id
+exec su -l $USER
+
 
 sudo pip3 install -r requirements.txt
 
@@ -114,7 +114,7 @@ while [ ${USERPW} != ${INPUTS} ]; do
   read INPUTS
 done
 
-sed -i "s#login password 'enternewpassword'#login password '$USERPW'#" ./db.txt
+sudo sed -i "s#login password 'enternewpassword'#login password '$USERPW'#" ./db.txt
 sudo su - postgres < db.txt
 cd
 
@@ -124,6 +124,8 @@ sudo chown cmsuser:cmsuser /usr/local/etc/cms.conf
 cd cms
 sudo python3 setup.py install
 cd
+
+
 
 cmsInitDB
 
