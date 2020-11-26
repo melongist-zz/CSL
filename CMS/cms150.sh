@@ -98,6 +98,8 @@ mv cms-master-20201123CSL cms
 cd cms
 #select 'Y' at the end...  
 sudo python3 prerequisites.py install
+su $USER
+id
 
 sudo pip3 install -r requirements.txt
 
