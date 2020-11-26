@@ -95,7 +95,3 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms-master-20201
 tar xvf cms-master-20201123.tar
 mv cms-master-20201123 cms
 
-cd cms
-
-sudo python3 prerequisites.py install
-
