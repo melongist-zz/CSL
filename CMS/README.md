@@ -3,7 +3,7 @@
 #IOI style CMS   
 #With Ubuntu 20.04 LTS Desktop...   
 
-#I finally got it!!!!!! after dozens of challenges  
+#I finally got it!!!!!! after a hundred of challenges  
 
 #With great help of one of our great students(https://github.com/junukwon7)   
 
