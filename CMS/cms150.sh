@@ -100,13 +100,20 @@ cd cms
 sudo python3 prerequisites.py install
 
 
+#Y를 눌러야 함...
 
 
 sudo pip3 install -r requirements.txt
 
 wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/db.txt
 
+
+# 비밀번호 입력 후 그 비밀번호를 아래 db.txt 의 내용에 sed 로 반영시키는 명령 작성 필요...
+
+
 sudo su - postgres < db.txt
 
 cd
+
+
 
