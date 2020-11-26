@@ -130,7 +130,7 @@ echo "" | tee -a cms.txt
 echo "Next step ..."
 echo "After reboot ..." | tee -a cms.txt
 echo "run once : cmsInitDB" | tee -a cms.txt
-echo "run once : cmsAddAdmin admin" | tee -a cms.txt
+echo "run once : cmsAddAdmin" | tee -a cms.txt
 echo "" | tee -a cms.txt
 echo "------ After ... every reboot ------" | tee -a cms.txt
 echo "For admin page(localhost:8889)" | tee -a cms.txt
