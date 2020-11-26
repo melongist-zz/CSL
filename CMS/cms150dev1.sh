@@ -99,9 +99,6 @@ sudo python3 prerequisites.py install
 
 cd
 
-wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms150dev2.sh
-
-echo "CMS1.5.0dev prerequisites installed!!" | tee -a cms.txt
-echo "------ After reboot ------" | tee -a cms.txt
-echo "run : bash cms150dev2.sh" | tee -a cms.txt
+echo "CMS1.5.0dev prerequisites installation completed!!" | tee -a cms.txt
+echo "------ reboot required ------" | tee -a cms.txt
 shutdown -r
