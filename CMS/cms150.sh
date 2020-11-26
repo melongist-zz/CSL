@@ -105,7 +105,7 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/db.txt
 
 USERPW="o"
 INPUTS="x"
-while [ ${USERPW} != INPUTS ]; do
+while [ ${USERPW} != ${INPUTS} ]; do
   echo -n "Enter  postgresql cmsuser password : "
   read USERPW
   echo -n "Repeat postgresql cmsuser password : "
