@@ -90,30 +90,33 @@ sudo apt install -y python3-cups
 sudo apt install -y python3-pypdf2
 
 
-wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms-master-20201123.tar
+wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms-master-20201123CSL.tar
 
-tar xvf cms-master-20201123.tar
-mv cms-master-20201123 cms
+tar xvf cms-master-20201123CSL.tar
+mv cms-master-20201123CSL cms
 
 cd cms
 
+#select 'Y' at the end...  
 sudo python3 prerequisites.py install
-
-
-#Y를 눌러야 함...
 
 
 sudo pip3 install -r requirements.txt
 
+
 wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/db.txt
 
-
-# 비밀번호 입력 후 그 비밀번호를 아래 db.txt 의 내용에 sed 로 반영시키는 명령 작성 필요...
+INPUTS="n"
+CMSACCOUNTPW=""
+while [ ${INPUTS} = "n" ]; do
+  echo -n "postgresql cmsuser account password? : "
+  read CMSACCOUNTPW
+  echo -n "postgresql cmsuser account password  : $CMSACCOUNTPW     OK?[y/n] "
+  read INPUTS
+done
 
 
 sudo su - postgres < db.txt
 
 cd
-
-
 
