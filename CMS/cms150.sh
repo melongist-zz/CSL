@@ -115,8 +115,33 @@ while [ ${INPUTS} = "n" ]; do
   read INPUTS
 done
 
+sed -i "s#login password 'enternewpassword'#login password '$CMSACCOUNTPW'#" ./db.txt
 
 sudo su - postgres < db.txt
 
 cd
 
+cd cms
+
+sudo python3 setup.py install
+
+cd
+
+echo "" | tee -a cms.txt
+echo "cms1.5.0dev installed!!" | tee -a cms.txt
+echo "Ver 2020.11.26" | tee -a cms.txt
+echo "" | tee -a cms.txt
+echo "Next step ..."
+echo "After reboot ..." | tee -a cms.txt
+echo "run once : cmsInitDB" | tee -a cms.txt
+echo "run once : cmsAddAdmin admin" | tee -a cms.txt
+echo "" | tee -a cms.txt
+echo "------ After ... every reboot ------" | tee -a cms.txt
+echo "For admin page(localhost:8889)" | tee -a domjudge.txt
+echo "run : cmsAdminWebServer" | tee -a domjudge.txt
+echo ""
+echo "For services monitoring" | tee -a domjudge.txt
+echo "run : cmsResourceService -a" | tee -a domjudge.txt
+echo ""
+echo "For contestent(localhost:8888)" | tee -a domjudge.txt
+echo ""
