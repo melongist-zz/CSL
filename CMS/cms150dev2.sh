@@ -8,6 +8,8 @@
 
 #------
 
+cd
+
 if [[ $SUDO_USER ]] ; then
   echo "Just use 'bash cms150dev2.sh'"
   exit 1
@@ -49,7 +51,7 @@ setsid cmsResourceService -a &
 echo "cms1.5.0dev installation completed!!" | tee -a cms.txt
 echo "Ver 2020.11.26 CSL" | tee -a cms.txt
 echo "" | tee -a cms.txt
-echo "------ After every boot ------" | tee -a cms.txt
+echo "------ After every reboot ------" | tee -a cms.txt
 echo "For CMS admin page" | tee -a cms.txt
 echo "run : cmsAdminWebServer" | tee -a cms.txt
 echo "      id : admin" | tee -a cms.txt
