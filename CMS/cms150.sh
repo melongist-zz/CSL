@@ -133,11 +133,11 @@ echo "run once : cmsInitDB" | tee -a cms.txt
 echo "run once : cmsAddAdmin admin" | tee -a cms.txt
 echo "" | tee -a cms.txt
 echo "------ After ... every reboot ------" | tee -a cms.txt
-echo "For admin page(localhost:8889)" | tee -a domjudge.txt
-echo "run : cmsAdminWebServer" | tee -a domjudge.txt
+echo "For admin page(localhost:8889)" | tee -a cms.txt
+echo "run : cmsAdminWebServer" | tee -a cms.txt
 echo ""
-echo "For services monitoring" | tee -a domjudge.txt
-echo "run : cmsResourceService -a" | tee -a domjudge.txt
+echo "For services monitoring" | tee -a cms.txt
+echo "run : cmsResourceService -a" | tee -a cms.txt
 echo ""
-echo "For contestent(localhost:8888)" | tee -a domjudge.txt
+echo "For contestent(localhost:8888)" | tee -a cms.txt
 echo ""
