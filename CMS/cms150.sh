@@ -117,7 +117,7 @@ sudo su - postgres < db.txt
 cd
 
 sudo sed -i "s#your_password_here#$CMSACCOUNTPW#" /usr/local/etc/cms.conf
-chown cmsuser:cmsuser /usr/local/etc/cms.conf
+sudo chown cmsuser:cmsuser /usr/local/etc/cms.conf
 
 cd cms
 sudo python3 setup.py install
