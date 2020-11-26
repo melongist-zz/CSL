@@ -12,13 +12,13 @@
 
 #Now ? for details...   
 
-#Prerequisites installation   
+#Prerequisites installation terminal command  
 <pre>
 wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms150dev1.sh   
 bash cms150dev1.sh
 </pre>
 
-#CMS 1.5.0 dev installation   
+#CMS 1.5.0 dev installation terminal command  
 <pre>
 wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms150dev2.sh   
 bash cms150dev2.sh
