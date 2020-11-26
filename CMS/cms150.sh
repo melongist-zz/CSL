@@ -96,13 +96,10 @@ tar xvf cms-master-20201123CSL.tar
 mv cms-master-20201123CSL cms
 
 cd cms
-
 #select 'Y' at the end...  
 sudo python3 prerequisites.py install
 
-
 sudo pip3 install -r requirements.txt
-
 
 wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/db.txt
 
@@ -116,15 +113,13 @@ while [ ${INPUTS} = "n" ]; do
 done
 
 sed -i "s#login password 'enternewpassword'#login password '$CMSACCOUNTPW'#" ./db.txt
-
 sudo su - postgres < db.txt
-
 cd
 
+sed -i "s#your_password_here#$CMSACCOUNTPW#" /usr/local/etc/cms.conf
+
 cd cms
-
 sudo python3 setup.py install
-
 cd
 
 echo "" | tee -a cms.txt
