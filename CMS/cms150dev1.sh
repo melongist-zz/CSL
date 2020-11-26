@@ -6,16 +6,14 @@
 #CMS1.5.0.dev + Ubuntu 20.04 LTS Server
 #prerequisites installation
 
-#terminal commands to prerequisites installation
+#terminal commands
 #------
-#wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms150pre.sh
-#bash cms150pre.sh
-
+#wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms150dev1.sh
+#bash cms150dev1.sh
 #------
-#CMS
 
 if [[ $SUDO_USER ]] ; then
-  echo "Just use 'bash cms150pre.sh'"
+  echo "Just use 'bash cms150dev.sh'"
   exit 1
 fi
 
@@ -101,9 +99,9 @@ sudo python3 prerequisites.py install
 
 cd
 
-wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms150install.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms150dev2.sh
 
 echo "CMS1.5.0dev prerequisites installed!!" | tee -a cms.txt
 echo "------ After reboot ------" | tee -a cms.txt
-echo "run : bash cms150install.sh" | tee -a cms.txt
+echo "run : bash cms150dev2.sh" | tee -a cms.txt
 shutdown -r
