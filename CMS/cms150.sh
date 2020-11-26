@@ -64,12 +64,34 @@ sudo apt -y install fp-units-misc
 sudo apt -y install fp-units-math
 sudo apt -y install fp-units-rtl
 
+sudo apt install -y python3-setuptools
+sudo apt install -y python3-tornado
+sudo apt install -y python3-psycopg2
+sudo apt install -y python3-crypto
+sudo apt install -y python3-sqlalchemy
+sudo apt install -y python3-psutil
+sudo apt install -y python3-netifaces
+sudo apt install -y python3-pycryptodome
+sudo apt install -y python3-bs4
+sudo apt install -y python3-coverage
+sudo apt install -y python3-requests
+sudo apt install -y python3-werkzeug
+sudo apt install -y python3-gevent
+sudo apt install -y python3-bcrypt
+sudo apt install -y python3-chardet
+sudo apt install -y patool
+sudo apt install -y python3-babel
+sudo apt install -y python3-xdg
+sudo apt install -y python3-jinja2
+
+sudo apt install -y python3-yaml
+sudo apt install -y python3-sphinx
+sudo apt install -y python3-cups
+sudo apt install -y python3-pypdf2
+
+
 wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms-master-20201123.tar
 
 tar xvf cms-master-20201123.tar
-
 mv cms-master-20201123 cms
 
-cd cms
-
-sudo python3 prerequisites.py install
