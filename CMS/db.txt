@@ -1,4 +1,4 @@
-sql --username=postgres -c "create role cmsuser with login password 'apfhdakstp';"
+psql --username=postgres -c "create role cmsuser with login password 'apfhdakstp';"
 createdb --username=postgres --owner=cmsuser cmsdb
 psql --username=postgres --dbname=cmsdb --command='ALTER SCHEMA public OWNER TO cmsuser'
 psql --username=postgres --dbname=cmsdb --command='GRANT SELECT ON pg_largeobject TO cmsuser'
