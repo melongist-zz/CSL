@@ -4,18 +4,18 @@
 #https://github.com/cms-dev/cms
 
 #CMS1.5.0.dev + Ubuntu 20.04 LTS Server
-#Installation
+#prerequisites installation
 
-#terminal commands to install
+#terminal commands to prerequisites installation
 #------
 #wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms150pre.sh
-#bash cms150.sh
+#bash cms150pre.sh
 
 #------
 #CMS
 
 if [[ $SUDO_USER ]] ; then
-  echo "Just use 'bash cms150.sh'"
+  echo "Just use 'bash cms150pre.sh'"
   exit 1
 fi
 
@@ -103,7 +103,7 @@ cd
 
 wget https://raw.githubusercontent.com/melongist/CSL/master/CMS/cms150install.sh
 
-echo "cms1.5.0dev prerequisites installed!!" | tee -a cms.txt
+echo "CMS1.5.0dev prerequisites installed!!" | tee -a cms.txt
 echo "------ After reboot ------" | tee -a cms.txt
 echo "run : bash cms150install.sh" | tee -a cms.txt
 shutdown -r
