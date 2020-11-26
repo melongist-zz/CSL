@@ -7,10 +7,9 @@
 #Installation
 
 #------
-#CMS
 
 if [[ $SUDO_USER ]] ; then
-  echo "Just use 'bash cms150install.sh'"
+  echo "Just use 'bash cms150dev2.sh'"
   exit 1
 fi
 
@@ -47,8 +46,8 @@ cmsAddAdmin admin -p $USERPW
 setsid cmsAdminWebServer &
 setsid cmsResourceService -a &
 
-echo "cms1.5.0dev installed!!" | tee -a cms.txt
-echo "Ver 2020.11.26" | tee -a cms.txt
+echo "cms1.5.0dev installation completed!!" | tee -a cms.txt
+echo "Ver 2020.11.26 CSL" | tee -a cms.txt
 echo "" | tee -a cms.txt
 echo "------ After every boot ------" | tee -a cms.txt
 echo "For CMS admin page" | tee -a cms.txt
