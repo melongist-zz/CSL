@@ -33,6 +33,7 @@ host1 should also be in ipv4(not localhost, not 127.0.0.1) in order to share the
 pg_hba.conf
 --------
 location: `/etc/postgresql/<ver>/main/pg_hba.conf`
+
 add all foreign servers to line 59~60(?), listen_addresses.
 ```
 listen_addresses = 'localhost, host2, host3, ...
@@ -48,4 +49,5 @@ host cmsdb cmsuser <IP address of servers>/32 md5
 Starting the contest
 --------
 You should install cms to all servers(stop right before making the database).
-Then using the same cms.conf, bash ```cmsResourceService -a #(ID)```
+Then using the same cms.conf, bash
+```cmsResourceService -a #(ID)```
