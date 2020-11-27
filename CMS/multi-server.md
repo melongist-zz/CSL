@@ -36,7 +36,7 @@ location: `/etc/postgresql/<ver>/main/pg_hba.conf`
 
 add all foreign servers to line 59~60(?), listen_addresses.
 ```
-listen_addresses = 'localhost, host2, host3, ...
+listen_addresses = 'localhost, host2, host3, ...'
 ```
 
 postgresql.conf
@@ -50,4 +50,6 @@ Starting the contest
 --------
 You should install cms to all servers(stop right before making the database).
 Then using the same cms.conf, bash
+
+
 ```cmsResourceService -a #(ID)```
