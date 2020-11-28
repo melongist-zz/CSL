@@ -45,8 +45,10 @@ cmsInitDB
 
 cmsAddAdmin admin -p $USERPW
 
-setsid cmsAdminWebServer &
-setsid cmsResourceService -a &
+cmsAdminWebServer
+
+#setsid cmsAdminWebServer &
+#setsid cmsResourceService -a &
 
 echo "cms1.5.0dev installation completed!!" | tee -a cms.txt
 echo "Ver 2020.11.26 CSL" | tee -a cms.txt
