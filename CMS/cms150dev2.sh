@@ -51,13 +51,21 @@ cmsAdminWebServer
 #setsid cmsResourceService -a &
 
 echo "cms1.5.0dev installation completed!!" | tee -a cms.txt
-echo "Ver 2020.11.26 CSL" | tee -a cms.txt
+echo "Ver 2020.11.28 CSL" | tee -a cms.txt
 echo "" | tee -a cms.txt
 echo "------ After every reboot ------" | tee -a cms.txt
 echo "For CMS admin page" | tee -a cms.txt
-echo "run : cmsAdminWebServer" | tee -a cms.txt
+echo "run   : cmsAdminWebServer" | tee -a cms.txt
 echo "      id : admin" | tee -a cms.txt
 echo "      pw : $USERPW" | tee -a cms.txt
-echo ""
+echo "" | tee -a cms.txt
+echo "make  : contest, user ... with contest admin menu" | tee -a cms.txt
+echo "      http://localhost:8889" | tee -a cms.txt
+echo "" | tee -a cms.txt
 echo "For service monitoring" | tee -a cms.txt
-echo "run : cmsResourceService -a" | tee -a cms.txt
+echo "run   : cmsResourceService -a" | tee -a cms.txt
+echo "and   select # to start contest!" | tee -a cms.txt
+echo "" | tee -a cms.txt
+echo "check : contest, user ... with user menu" | tee -a cms.txt
+echo "      http://localhost:8888" | tee -a cms.txt
+echo "" | tee -a cms.txt
