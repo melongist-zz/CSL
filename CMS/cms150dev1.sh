@@ -101,7 +101,7 @@ cd
 
 echo ""
 echo "CMS1.5.0dev prerequisites installation completed!!" | tee -a cms.txt
-echo "------ reboot ------" | tee -a cms.tx
+echo "------ reboot ------" | tee -a cms.txt
 echo ""
 shutdown -r
 echo ""
