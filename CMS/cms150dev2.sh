@@ -45,11 +45,6 @@ cmsInitDB
 
 cmsAddAdmin admin -p $USERPW
 
-cmsAdminWebServer
-
-#setsid cmsAdminWebServer &
-#setsid cmsResourceService -a &
-
 echo "cms1.5.0dev installation completed!!" | tee -a cms.txt
 echo "Ver 2020.11.28 CSL" | tee -a cms.txt
 echo "" | tee -a cms.txt
@@ -69,3 +64,8 @@ echo "" | tee -a cms.txt
 echo "check : contest, user ... with user menu" | tee -a cms.txt
 echo "      http://localhost:8888" | tee -a cms.txt
 echo "" | tee -a cms.txt
+
+cmsAdminWebServer
+
+#setsid cmsAdminWebServer &
+#setsid cmsResourceService -a &
