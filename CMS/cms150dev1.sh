@@ -99,6 +99,9 @@ sudo python3 prerequisites.py install
 
 cd
 
+echo ""
 echo "CMS1.5.0dev prerequisites installation completed!!" | tee -a cms.txt
-echo "------ reboot required ------" | tee -a cms.txt
+echo "------ reboot ------" | tee -a cms.tx
+echo ""
 shutdown -r
+echo ""
