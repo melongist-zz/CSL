@@ -8,9 +8,8 @@
 #With great help of one of our great students(https://github.com/junukwon7)   
 
 
+#2020.11.28 korean translation updated
 
-
-#Now ? for details...   
 
 #Prerequisites installation terminal command  
 <pre>
@@ -27,7 +26,4 @@ bash cms150dev2.sh
 
 
 
-#Next step is for ... with AWS Ubuntu 20.04 LTS Server...   
-
-#And the next step is with AWS... :)   
-
+#Next step is for ... 
