@@ -10,6 +10,7 @@
 #아래 스크립트를 이용해서 한글 환경으로 아주 빠르게 설치가 가능합니다.   
 <pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj201130.sh
+
 sudo bash hustoj201130.sh
 </code></pre>
 
@@ -23,5 +24,6 @@ sudo bash hustoj201130.sh
 #제대로된 교육이 이루어지지 못하고 있습니다.   
 <pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v10.sh
+
 sudo bash csl100v10.sh
 </code></pre>
