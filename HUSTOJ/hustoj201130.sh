@@ -177,12 +177,14 @@ cd
 clear
 
 echo ""
-echo "--- $OJNAME HUSTOJ install completed ---"
-echo "/home/judge/src/web/include/db_info.inc.php edited!!"
+echo "--- $OJNAME install completed ---"
 echo ""
-echo "Edit /home/judge/src/web/include/db_info.inc.php for more options!!"
+echo "check : http://localhost"
 echo ""
 echo "First of all! : Register admin!"
+echo ""
+echo "check for configurations"
+echo "/home/judge/src/web/include/db_info.inc.php"
 echo ""
 echo "Made by melongist(what_is_computer@msn.com)"
 echo "Powered by CSL"
