@@ -5,6 +5,12 @@ if [[ -z $SUDO_USER ]] ; then
   exit 1
 fi
 
+cd
+
+#for South Korea's timezone
+timedatectl set-timezone 'Asia/Seoul'
+
+
 apt-get update
 apt-get install -y subversion
 
@@ -123,10 +129,41 @@ systemctl enable php7.4-fpm
 mkdir /var/log/hustoj/
 chown www-data -R /var/log/hustoj/
 
+cd
+
 cls
 reset
 
-echo "Remember your database account for HUST Online Judge:"
-echo "username:$USER"
-echo "password:$PASSWORD"
+#db_info.inc.php edit
+cd /home/judge/src/web/include
 
+#for OJ NAME
+OJNAME="o"
+INPUTS="x"
+while [ ${OJNAME} != ${INPUTS} ]; do
+  echo -n "Enter  OJ NAME : "
+  read USERPW
+  echo -n "Repeat OJ NAME : "
+  read INPUTS
+done
+sed -i "s/OJ_NAME=\"HUSTOJ\"/OJ_NAME=\"${OJNAME}\"/" /home/judge/src/web/include/db_info.inc.php
+
+#for korean
+sed -i "s/OJ_LANG=\"en\"/OJ_LANG=\"ko\"/" /home/judge/src/web/include/db_info.inc.php
+sed -i "s/zh_CN.js/ko.js/" /home/judge/src/web/admin/kindeditor.php
+
+#for south korea timezone
+sed -i "s#//date_default_timezone_set(\"PRC\")#date_default_timezone_set(\"Asia\/Seoul\")#" /home/judge/src/web/include/db_info.inc.php
+sed -i "s#//pdo_query(\"SET time_zone ='+8:00'\")#pdo_query(\"SET time_zone ='+9:00'\")#" /home/judge/src/web/include/db_info.inc.php
+
+cd
+sudo apt -y autoremove
+
+echo "--- $OJNAME HUSTOJ install completed ---"
+echo "/home/judge/src/web/include/db_info.inc.php edited!!"
+echo "Edit /home/judge/src/web/include/db_info.inc.php for more options!!"
+echo ""
+echo "First of all! : Register admin!"
+echo ""
+echo "Made by melongist(what_is_computer@msn.com)"
+echo "Powered by CSL"
