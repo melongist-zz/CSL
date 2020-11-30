@@ -9,7 +9,7 @@
 
 #Installation commands
 <pre><code>
-wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/dj740dj.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/dj740dj.sh
 bash dj740dj.sh
 </code></pre>
 
@@ -62,7 +62,7 @@ Next step : installing judgehosts
 #Installation commands to install judgehosts at the same DOMserver   
 #with default 1 judgehost + 2 more judgehosts
 <pre><code>
-wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/dj740jh.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/dj740jh.sh
 bash dj740jh.sh
 </code></pre>
 
@@ -93,7 +93,7 @@ Saved as domjudge.txt
 #Installation commands to install spotboard for domjudge   
 
 <pre><code>
-wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/sb070.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/sb070.sh
 bash sb070.sh
 </code></pre>
 
@@ -127,7 +127,7 @@ Next step : install spotboard-converter
 #Installation commands to install spotboard-converter for domjudge   
 
 <pre><code>
-wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/sbc070.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/sbc070.sh
 bash sbc070.sh
 </code></pre>
 
