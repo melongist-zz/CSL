@@ -17,9 +17,9 @@ apt-get install -y subversion
 /usr/sbin/useradd -m -u 1536 judge
 cd /home/judge/ || exit
 
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj201130.tar.gz
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj201130.tar
 
-tar zxvf hustoj201130.tar.gz
+tar -xvf hustoj201130.tar
 
 for pkg in net-tools make flex g++ clang libmysqlclient-dev libmysql++-dev php-fpm nginx mysql-server php-mysql  php-common php-gd php-zip fp-compiler openjdk-11-jdk mono-devel php-mbstring php-xml php-curl php-intl php-xmlrpc php-soap
 do
