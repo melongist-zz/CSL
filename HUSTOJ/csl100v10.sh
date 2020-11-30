@@ -131,7 +131,7 @@ chown www-data -R /var/log/hustoj/
 
 cd
 
-reset
+clear
 
 #db_info.inc.php edit
 cd /home/judge/src/web/include
@@ -174,7 +174,8 @@ sudo mv msg1.txt msg.txt
 sudo chown www-data msg.txt
 cd
 
-cls
+clear
+
 echo ""
 echo "--- $OJNAME HUSTOJ install completed ---"
 echo "/home/judge/src/web/include/db_info.inc.php edited!!"
