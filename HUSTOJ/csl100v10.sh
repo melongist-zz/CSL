@@ -127,8 +127,11 @@ cd
 
 clear
 
+
 echo ""
 echo "--- CSL 300 problems installed ---"
+echo ""
+echo "check : http://localhost"
 echo ""
 echo "Made by melongist(what_is_computer@msn.com)"
 echo "Powered by CSL"
