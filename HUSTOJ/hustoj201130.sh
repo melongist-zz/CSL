@@ -11,15 +11,17 @@ cd
 timedatectl set-timezone 'Asia/Seoul'
 
 
-apt-get update
-apt-get install -y subversion
+apt update
+apt -y install subversion
+apt -y install zip
+apt -y install unzip
 
 /usr/sbin/useradd -m -u 1536 judge
 cd /home/judge/ || exit
 
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj201130.tar
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj201130.zip
 
-tar -xvf hustoj201130.tar
+unzip hustoj201130.zip
 
 for pkg in net-tools make flex g++ clang libmysqlclient-dev libmysql++-dev php-fpm nginx mysql-server php-mysql  php-common php-gd php-zip fp-compiler openjdk-11-jdk mono-devel php-mbstring php-xml php-curl php-intl php-xmlrpc php-soap
 do
