@@ -131,7 +131,6 @@ chown www-data -R /var/log/hustoj/
 
 cd
 
-cls
 reset
 
 #db_info.inc.php edit
@@ -159,8 +158,11 @@ sed -i "s#//pdo_query(\"SET time_zone ='+8:00'\")#pdo_query(\"SET time_zone ='+9
 cd
 sudo apt -y autoremove
 
+cls
+echo ""
 echo "--- $OJNAME HUSTOJ install completed ---"
 echo "/home/judge/src/web/include/db_info.inc.php edited!!"
+echo ""
 echo "Edit /home/judge/src/web/include/db_info.inc.php for more options!!"
 echo ""
 echo "First of all! : Register admin!"
