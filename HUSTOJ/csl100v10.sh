@@ -62,6 +62,11 @@ mysqladmin -u $USER -p$PASSWORD create jol
 mysql -u $USER -p$PASSWORD jol < csl100v00jol.sql
 sudo rm csl100v00jol.sql
 
+cd
+
+clear
+
+
 echo ""
 echo "--- db_info.inc.php options ---"
 echo ""
@@ -72,7 +77,7 @@ while [ ${INPUTS} = "n" ]; do
   echo -n "OJ_REGISTER=false    OK?[y/n] "
   read INPUTS
   if [ ${INPUTS} = "y" ]; then
-    sed -i "s/OJ_REGISTER=true/OJ_REGISTER=false/" db_info.inc.php
+    sed -i "s/OJ_REGISTER=true/OJ_REGISTER=false/" /home/judge/src/web/include/db_info.inc.php
   else  
     echo -n "OJ_REGISTER=true   OK?[y/n] "
     read INPUTS
@@ -85,7 +90,7 @@ while [ ${INPUTS} = "n" ]; do
   echo -n "OJ_VCODE=true    OK?[y/n] "
   read INPUTS
   if [ ${INPUTS} = "y" ]; then
-    sed -i "s/OJ_VCODE=false/OJ_VCODE=true/" db_info.inc.php
+    sed -i "s/OJ_VCODE=false/OJ_VCODE=true/" /home/judge/src/web/include/db_info.inc.php
   else  
     echo -n "OJ_VCODE=false   OK?[y/n] "
     read INPUTS
@@ -99,7 +104,7 @@ while [ ${INPUTS} = "n" ]; do
   echo -n "OJ_SHOW_DIFF=true    OK?[y/n] "
   read INPUTS
   if [ ${INPUTS} = "y" ]; then
-    sed -i "s/OJ_SHOW_DIFF=false/OJ_SHOW_DIFF=true/" db_info.inc.php
+    sed -i "s/OJ_SHOW_DIFF=false/OJ_SHOW_DIFF=true/" /home/judge/src/web/include/db_info.inc.php
   else  
     echo -n "OJ_SHOW_DIFF=false   OK?[y/n] "
     read INPUTS
