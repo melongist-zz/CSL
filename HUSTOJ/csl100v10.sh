@@ -158,6 +158,14 @@ sed -i "s#//pdo_query(\"SET time_zone ='+8:00'\")#pdo_query(\"SET time_zone ='+9
 cd
 sudo apt -y autoremove
 
+
+#QR codes removing + CSL link
+cd /home/judge/src/web/template/bs3/
+sudo rm js.php
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/js.php
+sudo chown www-data js.php
+
+
 cls
 echo ""
 echo "--- $OJNAME HUSTOJ install completed ---"
