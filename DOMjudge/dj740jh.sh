@@ -6,7 +6,7 @@
 
 
 #terminal commands to install judgehosts
-#wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/dj740jh.sh
+#wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/dj740jh.sh
 #bash dj740jh.sh
 
 #------
