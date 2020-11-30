@@ -6,7 +6,7 @@
 #Ubuntu 20.04 LTS Desktop/Server(AWS) 운영체제에 HUSTOJ를 먼저 설치해야 합니다.   
 <https://github.com/zhblue/hustoj>
 
-#원 hustoj 의 잦은? 갱신으로 인해 불안정해지기 때문에, 본 깃허브로 원 소스를 가져와 보관하면서 안정성을 유지하도록 바꿨습니다.   
+#하지만, 원래 hustoj 의 온라인 설치 명령어를 사용하면, 계속적인 코드 갱신으로 인해 불안정해지기 때문에, 본 깃허브로 원 소스를 가져와 보관하면서 안정성을 유지하도록 바꿨습니다.   
 #아래 스크립트를 이용해서 한글 환경으로 아주 빠르게 설치가 가능합니다.   
 <pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj201130.sh
