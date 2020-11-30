@@ -15,28 +15,28 @@ sudo apt update
 sudo apt -y upgrade
 
 #kindeditor korean setting
-cd /home/judge/src/web/admin/
-sudo rm kindeditor.php
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/kindeditor.php
-sudo chown www-data kindeditor.php
+#cd /home/judge/src/web/admin/
+#sudo rm kindeditor.php
+#wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/kindeditor.php
+#sudo chown www-data kindeditor.php
 
 #front, rear, bann setting
-cd /home/judge/src/web/
-sudo rm submit.php
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/submit.php
-sudo chown www-data submit.php
+#cd /home/judge/src/web/
+#sudo rm submit.php
+#wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/submit.php
+#sudo chown www-data submit.php
 
 #QR codes removing + CSL link
-cd /home/judge/src/web/template/bs3/
-sudo rm js.php
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/js.php
-sudo chown www-data js.php
+#cd /home/judge/src/web/template/bs3/
+#sudo rm js.php
+#wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/js.php
+#sudo chown www-data js.php
 
 #replace msg.txt
-cd /home/judge/src/web/admin/
-sudo rm msg.txt
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/msg.txt
-sudo chown www-data msg.txt
+#cd /home/judge/src/web/admin/
+#sudo rm msg.txt
+#wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/msg.txt
+#sudo chown www-data msg.txt
 
 #copy all images to server
 cd /home/judge/src/web/upload
@@ -81,7 +81,7 @@ mysql -u $USER -p$PASSWORD jol < csl100v00jol.sql
 sudo rm csl100v00jol.sql
 
 clear
-echo "Ver 2020.09.27"
+echo "Ver 2020.11.30"
 echo "CSL 100 problems install completed!!"
 
 
