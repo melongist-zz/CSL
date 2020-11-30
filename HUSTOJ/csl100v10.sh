@@ -142,7 +142,7 @@ OJNAME="o"
 INPUTS="x"
 while [ ${OJNAME} != ${INPUTS} ]; do
   echo -n "Enter  OJ NAME : "
-  read USERPW
+  read OJNAME
   echo -n "Repeat OJ NAME : "
   read INPUTS
 done
