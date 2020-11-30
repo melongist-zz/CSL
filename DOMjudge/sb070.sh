@@ -7,7 +7,7 @@
 #spotboard 0.7.0 for domjudge7.4.0.dev + Ubuntu 20.04 LTS Server
 
 #terminal commands to install spotboard webapp
-#wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/sb070.sh
+#wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/sb070.sh
 #bash sb070.sh
 
 #------
@@ -24,7 +24,7 @@ sudo apt update
 sudo apt -y upgrade
 
 #https://github.com/spotboard/spotboard
-wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/spotboard-webapp-0.7.0.tar.gz
+wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/spotboard-webapp-0.7.0.tar.gz
 tar -xvf spotboard-webapp-0.7.0.tar.gz
 mv spotboard-webapp-0.7.0 spotboard
 sudo mv spotboard /var/www/html/
