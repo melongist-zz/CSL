@@ -8,7 +8,7 @@
 
 #terminal commands to install
 #------
-#wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/dj740dj.sh
+#wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/dj740dj.sh
 #bash dj740dj.sh
 
 #------
@@ -75,7 +75,7 @@ sudo apt -y install libjsoncpp-dev
 #cd domjudge-7.3.0
 
 #for 7.4.0.dev
-wget https://raw.githubusercontent.com/melongist/CSL/master/domjudge/domjudge-snapshot-20201019.tar.gz
+wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/domjudge-snapshot-20201019.tar.gz
 tar xvf domjudge-snapshot-20201019.tar.gz
 sudo mv domjudge-snapshot-20201019 domjudge-7.4.0.dev
 cd domjudge-7.4.0.dev
