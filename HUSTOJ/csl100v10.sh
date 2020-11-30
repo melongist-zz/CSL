@@ -164,7 +164,15 @@ cd /home/judge/src/web/template/bs3/
 sudo rm js.php
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/js.php
 sudo chown www-data js.php
+cd
 
+#replace msg.txt
+cd /home/judge/src/web/admin/
+sudo rm msg.txt
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/msg1.txt
+sudo mv msg1.txt msg.txt
+sudo chown www-data msg.txt
+cd
 
 cls
 echo ""
