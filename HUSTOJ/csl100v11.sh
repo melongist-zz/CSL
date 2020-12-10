@@ -66,7 +66,6 @@ cd
 
 clear
 
-
 echo ""
 echo "--- db_info.inc.php options ---"
 echo ""
@@ -97,7 +96,6 @@ while [ ${INPUTS} = "n" ]; do
   fi
 done
 
-
 #for OJ_SHOW_DIFF
 INPUTS="n"
 while [ ${INPUTS} = "n" ]; do
@@ -114,8 +112,18 @@ done
 cd
 sudo apt -y autoremove
 
-clear
+SERVERTYPES=""
+IPADDRESS=""
+#check AWS Ubuntu 20.04 LTS
+if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]; then
+  SERVERTYPES="AWS SERVER"
+  IPADDRESS=$(curl http://checkip.amazonaws.com)
+else
+  SERVERTYPES="LOCAL SERVER"
+  IPADDRESS=$(hostname -i)
+fi
 
+clear
 
 #replace msg.txt
 cd /home/judge/src/web/admin/
@@ -127,11 +135,17 @@ cd
 
 clear
 
-
 echo ""
 echo "--- CSL 300 problems installed ---"
 echo ""
-echo "check : http://localhost"
+echo "First of all! : Change admin password!"
 echo ""
+echo "$SERVERTYPES"
+echo "http://$IPADDRESS"
+echo ""
+echo "Check & Edit HUSTOJ configurations"
+echo "sudo vi /home/judge/src/web/include/db_info.inc.php"
+echo ""
+echo "This Script is..."
 echo "Made by melongist(what_is_computer@msn.com)"
-echo "Powered by CSL"
+echo "And supported by CSL"
