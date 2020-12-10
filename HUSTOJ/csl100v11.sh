@@ -1,8 +1,8 @@
 #!/bin/bash
-#2020.12.01
+#2020.12.10
 
 if [[ -z $SUDO_USER ]] ; then
-  echo "Use 'sudo bash csl100v10.sh'"
+  echo "Use 'sudo bash csl100v11.sh'"
   exit 1
 fi
 
@@ -23,22 +23,22 @@ sudo chown www-data submit.php
 #copy all images to server
 cd /home/judge/src/web/upload
 sudo rm -rf *
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v00image.tar.gz
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v01image.tar.gz
 #c.f. : how to backup images from HUSTOJ for CSL
 #directory : /home/judge/src/web/upload/
-#command   : sudo tar zcvf csl100v00image.tar.gz *
-sudo tar zxvf csl100v00image.tar.gz
-sudo rm csl100v00image.tar.gz
+#command   : sudo tar zcvf csl100v01image.tar.gz *
+sudo tar zxvf csl100v01image.tar.gz
+sudo rm csl100v01image.tar.gz
 
 #copy all data to server
 cd /home/judge/
 sudo rm -rf data
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v00data.tar.gz
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v01data.tar.gz
 #c.f. : how to backup images from HUSTOJ for CSL
 #directory : /home/judge/
-#command   : sudo tar zcvf csl100v00data.tar.gz data
-sudo tar zxvf csl100v00data.tar.gz
-sudo rm csl100v00data.tar.gz
+#command   : sudo tar zcvf csl100v01data.tar.gz data
+sudo tar zxvf csl100v01data.tar.gz
+sudo rm csl100v01data.tar.gz
 
 #install phpmyadmin
 cd
@@ -47,7 +47,7 @@ sudo ln -f -s /usr/share/phpmyadmin /home/judge/src/web/phpmyadmin
 sudo mv /home/judge/src/web/phpmyadmin /home/judge/src/web/pma
 
 #sql overwriting
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v00jol.sql
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v01jol.sql
 
 USER=$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
@@ -58,9 +58,9 @@ PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 
 mysqladmin -u $USER -p$PASSWORD create jol
 
-#c.f. : how to backup from HUSTOJ for CSL :> mysqldump -u debian-sys-maint -p jol > csl100v00jol.sql
-mysql -u $USER -p$PASSWORD jol < csl100v00jol.sql
-sudo rm csl100v00jol.sql
+#c.f. : how to backup from HUSTOJ for CSL :> mysqldump -u debian-sys-maint -p jol > csl100v01jol.sql
+mysql -u $USER -p$PASSWORD jol < csl100v01jol.sql
+sudo rm csl100v01jol.sql
 
 cd
 
