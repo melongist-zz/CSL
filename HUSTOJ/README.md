@@ -8,7 +8,7 @@
 #Ubuntu 20.04 LTS Desktop/Server(AWS) 운영체제가 먼저 설치되어있어야 합니다.   
 
 
-#원래 설치 엔진은 HUSTOJ 입니다.  
+#원래의 채점 시스템 엔진은 중국 화중대학교에서 ACM 학회 회원이 처음에 만들었던 HUSTOJ 입니다.  
 <https://github.com/zhblue/hustoj>
 
 
