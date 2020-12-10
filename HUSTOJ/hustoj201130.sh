@@ -176,12 +176,20 @@ sudo mv msg1.txt msg.txt
 sudo chown www-data msg.txt
 cd
 
+IPADDRESS=""
+#check AWS Ubuntu 20.04 LTS
+if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]; then
+  IPADDRESS=$(curl http://checkip.amazonaws.com)
+else
+  IPADDRESS=$(hostname -i)
+fi
+
 clear
 
 echo ""
 echo "--- $OJNAME install completed ---"
 echo ""
-echo "check : http://localhost"
+echo "check : http://$IPADDRESS"
 echo ""
 echo "First of all! : Register admin!"
 echo ""
