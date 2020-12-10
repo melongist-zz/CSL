@@ -1,4 +1,4 @@
-#20.12.01   
+#20.12.10   
 
 #프로그래밍언어 기초100제 시리즈를 쉽고 빠르게 설치해서 운영할 수 있도록 하기 위한 스크립트 파일과 소스코드를 저장하고 배포하는 용도입니다.    
 
@@ -41,7 +41,7 @@ sudo bash hustoj201130.sh
 
 
 <pre><code>
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v10.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v11.sh
 
-sudo bash csl100v10.sh
+sudo bash csl100v11.sh
 </code></pre>
