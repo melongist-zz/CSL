@@ -1,7 +1,11 @@
-#2020.11.26   
+#2020.12.10   
 
 #IOI style CMS   
 #With Ubuntu 20.04 LTS Desktop... at PC
+#Official CMS http://cms-dev.github.io/   
+#Official CMS GitHub https://github.com/cms-dev/cms   
+#Official CMS DOCS https://cms.readthedocs.io/en/latest/index.html   
+
 
 #I finally got it!!!!!! after a hundred of challenges  
 
