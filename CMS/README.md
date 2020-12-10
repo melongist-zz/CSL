@@ -3,13 +3,16 @@
 #IOI style CMS   
 #With Ubuntu 20.04 LTS Desktop... at PC   
 
+#I finally got it!!!!!! after hundreds of challenges  
+
 
 #Official CMS http://cms-dev.github.io/   
 #Official CMS GitHub https://github.com/cms-dev/cms   
 #Official CMS DOCS https://cms.readthedocs.io/en/latest/index.html   
 
 
-#I finally got it!!!!!! after a hundred of challenges  
+
+#I finally got it!!!!!! after hundreds of challenges  
 
 #With great help of one of our great students(https://github.com/junukwon7)   
 
