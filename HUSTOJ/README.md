@@ -7,7 +7,11 @@
 ***
    
 #Prerequisite   
-#Ubuntu 20.04 LTS Desktop/Server(AWS) 운영체제가 먼저 설치되어있어야 합니다.   
+#Ubuntu 20.04 LTS 운영체제가 일반 컴퓨터나 AWS 에 먼저 설치되어있어야 합니다.   
+
+#Ubuntu 20.04 LTS 설치시에는 반드시 english 환경으로 설치해야 합니다.   
+#일반 컴퓨터에서는 일단 먼저 english 환경으로 설치 후 한글환경으로 바꾸되, 기본 폴더명을 영문 그대로 유지!
+#AWS 에서는 그냥 english 환경 그대로 사용하는 것을 추천합니다!   
    
 ***
    
