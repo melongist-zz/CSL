@@ -177,14 +177,14 @@ sudo chown www-data msg.txt
 cd
 
 SERVERTYPES=""
-IPADDRESS=""
+IPADDRESS[5]=""
 #check AWS Ubuntu 20.04 LTS
 if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]; then
   SERVERTYPES="AWS SERVER"
   IPADDRESS=$(curl http://checkip.amazonaws.com)
 else
   SERVERTYPES="LOCAL SERVER"
-  IPADDRESS=$(hostname -i)
+  IPADDRESS=$(hostname -I)
 fi
 
 clear
