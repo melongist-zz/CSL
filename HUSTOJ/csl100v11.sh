@@ -112,15 +112,13 @@ done
 cd
 sudo apt -y autoremove
 
-SERVERTYPES=""
-IPADDRESS=""
 #check AWS Ubuntu 20.04 LTS
 if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]; then
   SERVERTYPES="AWS SERVER"
-  IPADDRESS=$(curl http://checkip.amazonaws.com)
+  IPADDRESS=($(curl http://checkip.amazonaws.com))
 else
   SERVERTYPES="LOCAL SERVER"
-  IPADDRESS=$(hostname -i)
+  IPADDRESS=($(hostname -I))
 fi
 
 clear
@@ -141,7 +139,7 @@ echo ""
 echo "First of all! : Change admin password!"
 echo ""
 echo "$SERVERTYPES"
-echo "http://$IPADDRESS"
+echo "http://${IPADDRESS[0]}"
 echo ""
 echo "Check & Edit HUSTOJ configurations"
 echo "sudo vi /home/judge/src/web/include/db_info.inc.php"
