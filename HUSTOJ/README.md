@@ -9,10 +9,12 @@
 #Prerequisite   
 #Ubuntu 20.04 LTS Desktop/Server(AWS) 운영체제가 먼저 설치되어있어야 합니다.   
    
+***
    
 #원래의 채점 시스템 엔진은 중국 화중대학교에서 ACM 학회 회원이 처음에 만들었던 HUSTOJ 입니다.  
 <https://github.com/zhblue/hustoj>   
    
+***
    
 #하지만, 원래 hustoj 의 온라인 설치 명령어를 사용하면, 계속적인 코드 갱신으로 인해 불안정해지기 때문에,   
    
