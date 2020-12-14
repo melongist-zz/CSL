@@ -185,7 +185,6 @@ if (isset($_POST['input_text'])) {
   $input_text = $_POST['input_text'];
 }
 
-
 //함수 제출형, 코드 제한형 문제 처리
 $sql = "SELECT `front`, `rear`, `bann` FROM `problem` WHERE `problem_id`='$id' ";
 $res = mysql_query_cache($sql);
@@ -210,7 +209,6 @@ if($bann){
 if($front || $rear)
    $source = $front.$source.$rear; //front코드+제출코드+rear코드 결합
 //함수 제출형, 코드 제한형 문제 처리 여기까지 코드 삽입
-
 
 if (get_magic_quotes_gpc()) {
   $source = stripslashes($source);
