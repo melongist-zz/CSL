@@ -105,7 +105,7 @@ include_once("kindeditor.php") ;
       </p>
 
       <p align=left>
-        <?php echo "<h5>"."사용금지 단어(/로 구분하여 입력)"."</h5>"?>
+        <?php echo "<h5>"."사용금지 코드(/로 구분하여 입력)"."</h5>"?>
         <textarea name=bann style="width:100%;" rows=1><?php echo htmlentities($row['bann'],ENT_QUOTES,"UTF-8")?></textarea><br><br>
       </p>
       <!-- CSL -->
