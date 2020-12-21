@@ -286,49 +286,55 @@ foreach ($result as $row) {
     <rear><![CDATA[<?php echo fixcdata($row['rear'])?>]]></rear>
     <bann><![CDATA[<?php echo fixcdata($row['bann'])?>]]></bann>
     <!-- CSL -->
+    
 
-
+    <!-- CSL : removing solutions-->
     <?php
-    $pid = $row['problem_id'];
-    for ($lang=0; $lang<count($language_ext); $lang++) {
-      $solution = getSolution($pid,$lang);
+//    $pid = $row['problem_id'];
+//    for ($lang=0; $lang<count($language_ext); $lang++) {
+//      $solution = getSolution($pid,$lang);
 
-      if ($solution->language)
-    {?>
-        <solution language="<?php echo $solution->language?>"><![CDATA[<?php echo fixcdata($solution->source_code)?>]]></solution>
+//      if ($solution->language)
+//    {
+    ?>
+<!--        <solution language="<?php echo $solution->language?>"><![CDATA[<?php echo fixcdata($solution->source_code)?>]]></solution>  -->
     <?php 
-    }
+//    }
+
+//    $pta = array("prepend","template","append");
     
-    $pta = array("prepend","template","append");
-    
-    foreach ($pta as $pta_file) {
-      $append_file = "$OJ_DATA/$pid/$pta_file.".$language_ext[$lang];
+//    foreach ($pta as $pta_file) {
+//      $append_file = "$OJ_DATA/$pid/$pta_file.".$language_ext[$lang];
       //echo "<filename value=\"$lang  $append_file $language_ext[$lang]\"/>";
     
-      if (file_exists($append_file)) { ?>
+//      if (file_exists($append_file)) {
+    ?>
+        <!--
         <<?php echo $pta_file?> language="<?php echo $language_name[$lang]?>"><![CDATA[<?php echo fixcdata(file_get_contents($append_file))?>]]></<?php echo $pta_file?>>
+        -->
         <?php 
-      }
-    }
-  }
+//      }
+//    }
+}
+
 ?>
 
 <?php
-  if ($row['spj'] != 0) {
-    $filec = "$OJ_DATA/".$row['problem_id']."/spj.c";
-    $filecc = "$OJ_DATA/".$row['problem_id']."/spj.cc";
+if ($row['spj'] != 0) {
+  $filec = "$OJ_DATA/".$row['problem_id']."/spj.c";
+  $filecc = "$OJ_DATA/".$row['problem_id']."/spj.cc";
 
-    if (file_exists($filec)) {
-      echo "<spj language=\"C\"><![CDATA[";
-      echo fixcdata(file_get_contents($filec));
-      echo "]]></spj>";
-    }
-    else if (file_exists($filecc)) {
-      echo "<spj language=\"C++\"><![CDATA[";
-      echo fixcdata(file_get_contents ($filecc ));
-      echo "]]></spj>";
-    }
+  if (file_exists($filec)) {
+    echo "<spj language=\"C\"><![CDATA[";
+    echo fixcdata(file_get_contents($filec));
+    echo "]]></spj>";
   }
+  else if (file_exists($filecc)) {
+    echo "<spj language=\"C++\"><![CDATA[";
+    echo fixcdata(file_get_contents ($filecc ));
+    echo "]]></spj>";
+  }
+}
 ?>
 </item>
 

@@ -256,13 +256,15 @@ function import_fps($tempfile) {
         }
       }
 
+//CSL
       $solutions = $searchNode->children()->solution;
 
-      foreach ($solutions as $solution) {
-        $language = $solution->attributes()->language;
-        submitSolution($pid,$solution,$language);
-      }
+//      foreach ($solutions as $solution) {
+//        $language = $solution->attributes()->language;
+//        submitSolution($pid,$solution,$language);
+//      }
       unset($solutions);
+//CSL
 
       $prepends = $searchNode->children()->prepend;
       mkpta($pid,$prepends,"prepend");

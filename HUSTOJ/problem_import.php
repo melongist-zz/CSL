@@ -72,7 +72,7 @@
       <br><br><br>
       <center>
       <div class='form-group'>
-        <button class='btn btn-default btn-sm' type=submit>Upload to HUSTOJ</button>
+        <button class='btn btn-default btn-sm' type=submit>Upload problems only to HUSTOJ</button>
       </div>
       </center>
       <?php require_once("../include/set_post_key.php");?>
