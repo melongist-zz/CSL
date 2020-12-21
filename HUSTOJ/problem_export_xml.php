@@ -244,15 +244,15 @@ if (isset($_POST['submit']) && $_POST['submit']== "Export")
   header('Content-Type:text/xml');
 else {
   header("content-type:application/file");
-  header("content-disposition:attachment;filename=\"fps-".$_SESSION[$OJ_NAME.'_'.'user_id'].$filename.".xml\"");
+  header("content-disposition:attachment;filename=\"CSL-".$OJ_NAME."-".$_SESSION[$OJ_NAME.'_'.'user_id'].$filename.".xml\"");
 }
 ?>
 
-<!DOCTYPE fps PUBLIC
-  "-//CSL problemset//XML standard for CSL 100s Basic Problem Set//"
+<!DOCTYPE CSLfps PUBLIC
+  "-//CSL free-problemset//XML standard for CSL HUSTOJ//"
   "">
 
-<fps version="0.1" url="https://github.com/melongist/CSL/tree/master/HUSTOJ">
+<CSLfps version="0.1" url="https://github.com/melongist/CSL/tree/master/HUSTOJ">
 <generator name="CSL" url="https://github.com/melongist/CSL/tree/master/HUSTOJ"/>
 
 <?php
@@ -280,65 +280,31 @@ foreach ($result as $row) {
     <hint><![CDATA[<?php echo $row['hint']?>]]></hint>
     <source><![CDATA[<?php echo fixcdata($row['source'])?>]]></source>
 
-
-    <!-- CSL -->
     <front><![CDATA[<?php echo fixcdata($row['front'])?>]]></front>
     <rear><![CDATA[<?php echo fixcdata($row['rear'])?>]]></rear>
     <bann><![CDATA[<?php echo fixcdata($row['bann'])?>]]></bann>
-    <!-- CSL -->
-    
 
-    <!-- CSL : removing solutions-->
     <?php
-//    $pid = $row['problem_id'];
-//    for ($lang=0; $lang<count($language_ext); $lang++) {
-//      $solution = getSolution($pid,$lang);
+    if ($row['spj'] != 0) {
+      $filec = "$OJ_DATA/".$row['problem_id']."/spj.c";
+      $filecc = "$OJ_DATA/".$row['problem_id']."/spj.cc";
 
-//      if ($solution->language)
-//    {
+      if (file_exists($filec)) {
+        echo "<spj language=\"C\"><![CDATA[";
+        echo fixcdata(file_get_contents($filec));
+        echo "]]></spj>";
+      }
+      else if (file_exists($filecc)) {
+        echo "<spj language=\"C++\"><![CDATA[";
+        echo fixcdata(file_get_contents ($filecc ));
+        echo "]]></spj>";
+      }
+    }
     ?>
-<!--        <solution language="<?php echo $solution->language?>"><![CDATA[<?php echo fixcdata($solution->source_code)?>]]></solution>  -->
-    <?php 
-//    }
+    </item>
 
-//    $pta = array("prepend","template","append");
-    
-//    foreach ($pta as $pta_file) {
-//      $append_file = "$OJ_DATA/$pid/$pta_file.".$language_ext[$lang];
-      //echo "<filename value=\"$lang  $append_file $language_ext[$lang]\"/>";
-    
-//      if (file_exists($append_file)) {
-    ?>
-        <!--
-        <<?php echo $pta_file?> language="<?php echo $language_name[$lang]?>"><![CDATA[<?php echo fixcdata(file_get_contents($append_file))?>]]></<?php echo $pta_file?>>
-        -->
-        <?php 
-//      }
-//    }
-}
-
-?>
-
-<?php
-if ($row['spj'] != 0) {
-  $filec = "$OJ_DATA/".$row['problem_id']."/spj.c";
-  $filecc = "$OJ_DATA/".$row['problem_id']."/spj.cc";
-
-  if (file_exists($filec)) {
-    echo "<spj language=\"C\"><![CDATA[";
-    echo fixcdata(file_get_contents($filec));
-    echo "]]></spj>";
+<?php 
   }
-  else if (file_exists($filecc)) {
-    echo "<spj language=\"C++\"><![CDATA[";
-    echo fixcdata(file_get_contents ($filecc ));
-    echo "]]></spj>";
-  }
-}
-?>
-</item>
-
-<?php }
-echo "</fps>";
+  echo "</CSLfps>";
 }
 ?>

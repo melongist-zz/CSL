@@ -31,7 +31,7 @@ function getLang($language) {
 
   for ($i=0; $i<count($language_name); $i++) {
     //echo "$language=$language_name[$i]=".($language==$language_name[$i]);
-    // compatibility with other onlinejudge FPS implementation might using extension name as language 
+    //compatibility with other onlinejudge FPS implementation might using extension name as language 
 
     if ($language==$language_ext[$i]) {
       return $i;
@@ -51,7 +51,7 @@ function submitSolution($pid,$solution,$language) {
   $len = mb_strlen($solution,'utf-8');
 
   $sql = "INSERT INTO solution(problem_id,user_id,in_date,language,ip,code_length,result) VALUES(?,?,NOW(),?,'127.0.0.1',?,14)";
-  $insert_id = pdo_query($sql, $pid,$_SESSION[$OJ_NAME.'_'.'user_id'], $language, $len);
+  $insert_id = pdo_query($sql, $pid, $_SESSION[$OJ_NAME.'_'.'user_id'], $language, $len);
   //echo "submiting$language.....";
 
   $sql = "INSERT INTO `source_code`(`solution_id`,`source`) VALUES(?,?)";
@@ -74,7 +74,7 @@ function getValue($Node, $TagName) {
   return $Node->$TagName;
 }
 
-function getAttribute($Node, $TagName,$attribute) {
+function getAttribute($Node, $TagName, $attribute) {
   return $Node->children()->$TagName->attributes()->$attribute;
 }
 
@@ -110,7 +110,7 @@ function get_extension($file) {
 function import_fps($tempfile) {
   global $OJ_DATA,$OJ_SAE,$OJ_REDIS,$OJ_REDISSERVER,$OJ_REDISPORT,$OJ_REDISQNAME;
   $xmlDoc = simplexml_load_file($tempfile, 'SimpleXMLElement', LIBXML_PARSEHUGE);
-  $searchNodes = $xmlDoc->xpath("/fps/item");
+  $searchNodes = $xmlDoc->xpath("/CSLfps/item");
   $spid = 0;
   
   foreach ($searchNodes as $searchNode) {
@@ -138,10 +138,8 @@ function import_fps($tempfile) {
     $sample_output = getValue($searchNode,'sample_output');
     //$test_input = getValue($searchNode,'test_input');
     //$test_output = getValue($searchNode,'test_output');
-    $hint = getValue ($searchNode,'hint');
-    $source = getValue ($searchNode,'source');				
-    $spjcode = getValue ($searchNode,'spj');
-    $spj = trim($spjcode)?1:0;
+    $hint = getValue($searchNode,'hint');
+    $source = getValue($searchNode,'source');
 
 
     //CSL
@@ -149,6 +147,10 @@ function import_fps($tempfile) {
     $rear = getValue($searchNode, 'rear');
     $bann = getValue($searchNode, 'bann');
     //CSL
+
+
+    $spjcode = getValue($searchNode,'spj');
+    $spj = trim($spjcode)?1:0;
 
 
     //CSL
@@ -213,7 +215,7 @@ function import_fps($tempfile) {
 
           image_save_file($newpath,$base64);
 
-          $newpath = dirname($_SERVER['REQUEST_URI'] )."/../upload/pimg".$pid."_".$testno.".".$ext;
+          $newpath = dirname($_SERVER['REQUEST_URI'])."/../upload/pimg".$pid."_".$testno.".".$ext;
 
           if ($OJ_SAE)
             $newpath=$SAE_STORAGE_ROOT."upload/pimg".$pid."_".$testno.".".$ext;
@@ -257,13 +259,13 @@ function import_fps($tempfile) {
       }
 
 //CSL
-      $solutions = $searchNode->children()->solution;
+//      $solutions = $searchNode->children()->solution;
 
 //      foreach ($solutions as $solution) {
 //        $language = $solution->attributes()->language;
 //        submitSolution($pid,$solution,$language);
 //      }
-      unset($solutions);
+//      unset($solutions);
 //CSL
 
       $prepends = $searchNode->children()->prepend;
@@ -276,23 +278,24 @@ function import_fps($tempfile) {
       mkpta($pid,$prepends,"append");
     }
     else {
-      echo "<br>&nbsp;&nbsp;- <span class=red>$title is already in this OJ</span>";		
+      echo "&nbsp;&nbsp;- <span class=red>$title is already in this OJ</span><br>";		
     }
   }
 
   unlink($tempfile);
 
-  if (isset($OJ_REDIS) && $OJ_REDIS) {
-    $redis = new Redis();
-    $redis->connect($OJ_REDISSERVER, $OJ_REDISPORT);
-    $sql = "SELECT solution_id FROM solution WHERE result=0 AND problem_id>0";
-    $result = pdo_query($sql);
+//CSL
+//  if (isset($OJ_REDIS) && $OJ_REDIS) {
+//    $redis = new Redis();
+//    $redis->connect($OJ_REDISSERVER, $OJ_REDISPORT);
+//    $sql = "SELECT solution_id FROM solution WHERE result=0 AND problem_id>0";
+//    $result = pdo_query($sql);
 
-    foreach ($result as $row) {
-      echo $row['solution_id']."\n";
-      $redis->lpush($OJ_REDISQNAME,$row['solution_id']);
-    }
-  }
+//    foreach ($result as $row) {
+//      echo $row['solution_id']."\n";
+//      $redis->lpush($OJ_REDISQNAME,$row['solution_id']);
+//    }
+//  }
 
   if ($spid>0) {
     require_once("../include/set_get_key.php");
@@ -301,12 +304,12 @@ function import_fps($tempfile) {
 }
 
 
-if ($_FILES ["fps"] ["error"] > 0) {
-  echo "&nbsp;&nbsp;- Error: ".$_FILES ["fps"] ["error"]."File size is too big, change in PHP.ini<br />";
+if ($_FILES["fps"]["error"]>0) {
+  echo "&nbsp;&nbsp;- Error: ".$_FILES["fps"]["error"]."File size is too big, change in PHP.ini<br />";
 }
 else {
-  $tempfile = $_FILES ["fps"] ["tmp_name"];
-  if (get_extension( $_FILES ["fps"] ["name"])=="zip") {
+  $tempfile = $_FILES["fps"]["tmp_name"];
+  if (get_extension($_FILES["fps"]["name"])=="zip") {
     echo "&nbsp;&nbsp;- zip file, only fps/xml files in root dir are supported";
     $resource = zip_open($tempfile);
 
@@ -322,14 +325,14 @@ else {
           file_put_contents($tempfile,$file_content);
           import_fps($tempfile);
         }
-       zip_entry_close($dir_resource);
+        zip_entry_close($dir_resource);
       }
     }
     zip_close($resource);
-    unlink ( $_FILES ["fps"] ["tmp_name"] );
+    unlink($_FILES["fps"]["tmp_name"]);
   }
   else {
-  import_fps($tempfile);
+    import_fps($tempfile);
   }
   //	echo "Upload: " . $_FILES ["fps"] ["name"] . "<br />";
   //	echo "Type: " . $_FILES ["fps"] ["type"] . "<br />";
