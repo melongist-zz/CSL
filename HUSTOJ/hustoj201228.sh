@@ -28,7 +28,7 @@ cd /home/judge/ || exit
 #svn co https://github.com/zhblue/hustoj/trunk/trunk/  src
 
 #how to make src zip
-#zip -r hustoj201218.zip ./src
+#zip -r hustoj201228.zip ./src
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj201228.zip
 unzip hustoj201228.zip
 
