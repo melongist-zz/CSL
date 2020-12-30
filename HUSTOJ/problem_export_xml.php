@@ -62,9 +62,11 @@ function printTestCases($pid,$OJ_DATA) {
   }
   else {
     $ret = "";
-    $pdir = opendir("$OJ_DATA/$pid/");
+    //$pdir = opendir("$OJ_DATA/$pid/");
+    $files = scandir("$OJ_DATA/$pid/"); //sorting file names by ascending order with default scandir function
 
-    while ($file=readdir($pdir)) {
+    //while ($file=readdir($pdir)) {
+    foreach ($files as $file) {
       $pinfo = pathinfo($file);
       
       if (isset($pinfo['extension']) && $pinfo['extension']=="in" && $pinfo['basename']!="sample.in") {
@@ -74,17 +76,17 @@ function printTestCases($pid,$OJ_DATA) {
         $infile = "$OJ_DATA/$pid/".$ret.".in";
 
         if (file_exists($infile)) {
-          echo "<test_input><![CDATA[".fixcdata(file_get_contents($infile))."]]></test_input>\n";
+          echo "<test_input name=\"".$ret."\"><![CDATA[".fixcdata(file_get_contents($infile))."]]></test_input>\n";
         }
 
         if (file_exists($outfile)) {
-          echo "<test_output><![CDATA[".fixcdata(file_get_contents($outfile))."]]></test_output>\n";
+          echo "<test_output name=\"".$ret."\"><![CDATA[".fixcdata(file_get_contents($outfile))."]]></test_output>\n";
         }
         //break;
       }
     }
     
-    closedir($pdir);
+    //closedir($pdir);
     return $ret;
   }
 }
@@ -92,7 +94,7 @@ function printTestCases($pid,$OJ_DATA) {
 
 class Solution {
   var $language = "";
-  var $source_code = "";	
+  var $source_code = "";  
 }
 
 function getSolution($pid,$lang) {
@@ -181,7 +183,7 @@ function fixImageURL(&$html,&$did) {
       }
       array_push($did,$img);
     }
-  }   	
+  }     
 }
 
 
@@ -244,20 +246,21 @@ if (isset($_POST['submit']) && $_POST['submit']== "Export")
   header('Content-Type:text/xml');
 else {
   header("content-type:application/file");
-  header("content-disposition:attachment;filename=\"CSL-".$OJ_NAME."-".$_SESSION[$OJ_NAME.'_'.'user_id'].$filename.".xml\"");
+  header("content-disposition:attachment;filename=\"fps-".$_SESSION[$OJ_NAME.'_'.'user_id'].$filename.".xml\"");
 }
 ?>
 
-<!DOCTYPE CSLfps PUBLIC
+<!DOCTYPE CSLfps PUBLIC 
   "-//CSL free-problemset//XML standard for CSL HUSTOJ//"
   "">
 
 <CSLfps version="0.1" url="https://github.com/melongist/CSL/tree/master/HUSTOJ">
-<generator name="CSL" url="https://github.com/melongist/CSL/tree/master/HUSTOJ"/>
+  <generator name="CSL" url="https://github.com/melongist/CSL/tree/master/HUSTOJ"/>
 
-<?php
-foreach ($result as $row) {
-?>
+  <?php
+  foreach ($result as  $row) {
+  ?>
+
   <item>
     <title><![CDATA[<?php echo $row['title']?>]]></title>
     <time_limit unit="s"><![CDATA[<?php echo $row['time_limit']?>]]></time_limit>
@@ -303,7 +306,7 @@ foreach ($result as $row) {
     ?>
     </item>
 
-<?php 
+<?php
   }
   echo "</CSLfps>";
 }
