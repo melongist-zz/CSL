@@ -110,7 +110,7 @@ function get_extension($file) {
 function import_fps($tempfile) {
   global $OJ_DATA,$OJ_SAE,$OJ_REDIS,$OJ_REDISSERVER,$OJ_REDISPORT,$OJ_REDISQNAME;
   $xmlDoc = simplexml_load_file($tempfile, 'SimpleXMLElement', LIBXML_PARSEHUGE);
-  $searchNodes = $xmlDoc->xpath("/fps/item");
+  $searchNodes = $xmlDoc->xpath("/CSLfps/item");  //CSL
   $spid = 0;
   
   foreach ($searchNodes as $searchNode) {
