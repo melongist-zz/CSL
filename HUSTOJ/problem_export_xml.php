@@ -246,7 +246,9 @@ if (isset($_POST['submit']) && $_POST['submit']== "Export")
   header('Content-Type:text/xml');
 else {
   header("content-type:application/file");
-  header("content-disposition:attachment;filename=\"fps-".$_SESSION[$OJ_NAME.'_'.'user_id'].$filename.".xml\"");
+  //CSL
+  header("content-disposition:attachment;filename=\"CSLfps-".$_SESSION[$OJ_NAME.'_'.'user_id'].$filename.".xml\"");
+  //CSL
 }
 ?>
 
