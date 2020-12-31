@@ -64,7 +64,11 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v05data
 #command   : sudo zip -r csl100v05data.zip ./data
 unzip csl100v05data.zip
 sudo rm csl100v05data.zip
-
+sudo chmod 644 -R ./data
+sudo chown www-data:www-data -R ./data
+sudo chmod 755 ./data/*
+sudo chmod 711 ./data
+sudo chown www-data:judge ./data
 
 #problem_add_page.php customizing for front, rear, bann fields
 cd
