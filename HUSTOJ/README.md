@@ -1,4 +1,4 @@
-#Ver 20.12.31   
+#Ver 21.01.01   
 
 #HUSTOJ 온라인 채점시스템에 프로그래밍언어 기초100제 시리즈를 쉽고 빠르게 설치해서 운영할 수 있도록 하기 위한  
 #자동 설치 스크립트 파일과 소스코드를 저장하고 배포하는 용도입니다.    
@@ -29,9 +29,9 @@
 #일반적인 상황에서 HUSTOJ 채점 시스템을 설치하여 사용하려는 경우 아래의 명령어로 모든 설치 및 설정이 완료됩니다.   
    
 <pre><code>
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj201230.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj210101.sh
    
-sudo bash hustoj201230.sh
+sudo bash hustoj210101.sh
 </code></pre>
    
 ***   
@@ -54,9 +54,9 @@ sudo bash hustoj201230.sh
    
    
 <pre><code>
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100201231.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100210101.sh
    
-sudo bash csl100201231.sh
+sudo bash csl100210101.sh
 </code></pre>
    
 ***   
