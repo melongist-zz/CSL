@@ -1,5 +1,5 @@
 #!/bin/bash
-#2020.12.30
+#2021.01.01
 #Made by melongist(what_is_computer@msn.com)
 #for Korean
 
@@ -176,22 +176,22 @@ sed -i "s#//date_default_timezone_set(\"PRC\")#date_default_timezone_set(\"Asia\
 sed -i "s#//pdo_query(\"SET time_zone ='+8:00'\")#pdo_query(\"SET time_zone ='+9:00'\")#" /home/judge/src/web/include/db_info.inc.php
 
 cd
-sudo apt -y autoremove
+apt -y autoremove
 
 
 #Removing QR codes + CSL link
 cd /home/judge/src/web/template/bs3/
-sudo rm js.php
+rm js.php
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/js.php
-sudo chown www-data js.php
+chown www-data js.php
 cd
 
 #Replacing msg.txt
 cd /home/judge/src/web/admin/
-sudo rm msg.txt
+rm msg.txt
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/msg1.txt
-sudo mv msg1.txt msg.txt
-sudo chown www-data msg.txt
+mv msg1.txt msg.txt
+chown www-data msg.txt
 cd
 
 #Identifing AWS Ubuntu 20.04 LTS
