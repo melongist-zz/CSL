@@ -8,6 +8,9 @@ if [[ -z $SUDO_USER ]] ; then
   exit 1
 fi
 
+export http_proxy=http://proxy:+qPeY4@melong.synology.me:3128
+export https_proxy=$http_proxy
+
 cd
 
 #for South Korea's timezone
