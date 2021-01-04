@@ -288,8 +288,19 @@ else {
     <front><![CDATA[<?php echo fixcdata($row['front'])?>]]></front>
     <rear><![CDATA[<?php echo fixcdata($row['rear'])?>]]></rear>
     <bann><![CDATA[<?php echo fixcdata($row['bann'])?>]]></bann>
+    <?php
+    if ($row['credits']!="") {
+    ?>
     <credits><![CDATA[<?php echo fixcdata($row['credits'])?>]]></credits>
-
+    <?php
+    }
+    else {
+    $today = date("Y/m/d");
+    ?>
+    <credits><![CDATA[<?php echo fixcdata($OJ_NAME."-".$_SESSION[$OJ_NAME.'_'.'user_id']." ".$today)?>]]></credits>
+    <?php
+    }
+    ?>
     <?php
     if ($row['spj'] != 0) {
       $filec = "$OJ_DATA/".$row['problem_id']."/spj.c";
