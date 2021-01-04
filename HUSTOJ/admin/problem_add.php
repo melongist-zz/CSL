@@ -55,23 +55,9 @@ $spj = $_POST['spj'];
 
 //CSL
 $front = $_POST['front'];
-$front = str_replace("<p>", "", $front); 
-$front = str_replace("</p>", "<br />", $front); 
-$front = str_replace(",", "&#44;", $front);
-
 $rear = $_POST['rear'];
-$rear = str_replace("<p>", "", $rear); 
-$rear = str_replace("</p>", "<br />", $rear);
-$rear = str_replace(",", "&#44;", $rear); 
-
 $bann = $_POST['bann'];
-
 $credits = $_POST['credits'];
-$credits = str_replace("<p>", "", $credits); 
-$credits = str_replace("</p>", "", $credits);
-$credits = str_replace("<br>", "", $credits); 
-$credits = str_replace("<br />", "", $credits);
-$credits = str_replace(",", "&#44;", $credits); 
 //CSL
 
 

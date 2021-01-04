@@ -3,7 +3,7 @@
 function addproblem($title, $time_limit, $memory_limit, $description, $input, $output, $sample_input, $sample_output, $hint, $source, $spj, $front, $rear, $bann, $credits, $OJ_DATA) {
   //$spj=($spj);
   //CSL	
-  $sql = "INSERT INTO `problem` (`title`,`time_limit`,`memory_limit`,`description`,`input`,`output`,`sample_input`,`sample_output`,`hint`,`source`,`spj`,`front`,`rear`,`bann`,`in_date`,`defunct`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?, NOW(),'Y')";
+  $sql = "INSERT INTO `problem` (`title`,`time_limit`,`memory_limit`,`description`,`input`,`output`,`sample_input`,`sample_output`,`hint`,`source`,`spj`,`front`,`rear`,`bann`,`credits`,`in_date`,`defunct`) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW(),'Y')";
   //echo $sql;
 
   //CSL

@@ -288,7 +288,7 @@ else {
     <front><![CDATA[<?php echo fixcdata($row['front'])?>]]></front>
     <rear><![CDATA[<?php echo fixcdata($row['rear'])?>]]></rear>
     <bann><![CDATA[<?php echo fixcdata($row['bann'])?>]]></bann>
-    <bann><![CDATA[<?php echo fixcdata($row['credits'])?>]]></bann>
+    <credits><![CDATA[<?php echo fixcdata($row['credits'])?>]]></credits>
 
     <?php
     if ($row['spj'] != 0) {

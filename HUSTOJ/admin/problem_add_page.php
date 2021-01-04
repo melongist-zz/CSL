@@ -97,19 +97,19 @@
         <br><br>
         <p align=left>
           <?php echo "<h5>"."앞에 붙일 코드"."</h5>"?>
-          <textarea name=front style="width:100%;" rows=1></textarea><br>
+          <textarea name=front placeholder="제출한 코드의 앞에 붙일 코드" style="width:100%;" rows=1></textarea><br>
         </p>
         <p align=left>
           <?php echo "<h5>"."뒤에 붙일 코드"."</h5>"?>
-          <textarea name=rear style="width:100%;" rows=1></textarea><br>
+          <textarea name=rear placeholder="제출한 코드의 뒤에 붙일 코드" style="width:100%;" rows=1></textarea><br>
         </p>
         <p align=left>
-          <?php echo "<h5>"."사용금지 코드(/로 구분하여 입력)"."</h5>"?>
-          <textarea name=bann style="width:100%;" rows=1></textarea><br>
+          <?php echo "<h5>"."사용금지 코드"."</h5>"?>
+          <textarea name=bann placeholder="사용을 제한할 단어(/로 구분하여 입력)" style="width:100%;" rows=1></textarea><br>
         </p>
         <p align=left>
           <?php echo "<h5>"."만든사람"."</h5>"?>
-          <textarea name=credits placeholder="2000~ 한영일, 이일영(역할), ... 1줄" style="width:100%;" rows=1></textarea><br><br>
+          <textarea name=credits placeholder="한영일, 이일영(역할), ... (2000)" style="width:100%;" rows=1></textarea><br><br>
         </p>
         <!-- CSL -->
 
