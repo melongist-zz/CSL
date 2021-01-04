@@ -1,5 +1,5 @@
 #!/bin/bash
-#2021.01.01
+#2021.01.04
 #Made by melongist(what_is_computer@msn.com)
 #for Korean
 
