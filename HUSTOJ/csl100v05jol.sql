@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- 생성 시간: 21-01-04 22:24
+-- 생성 시간: 21-01-04 22:26
 -- 서버 버전: 8.0.22-0ubuntu0.20.04.3
 -- PHP 버전: 7.4.3
 
@@ -875,7 +875,7 @@ TRUNCATE TABLE `users`;
 --
 
 INSERT INTO `users` (`user_id`, `email`, `submit`, `solved`, `defunct`, `ip`, `accesstime`, `volume`, `language`, `password`, `reg_time`, `nick`, `school`) VALUES
-('admin', 'admin@admin.kr', 0, 0, 'N', '127.0.0.1', '2021-01-04 21:43:23', 5, 1, 'tZGmxFl3b9hcxtg5OJ/ZnG3bPQ9jNjc1', '2020-09-11 09:09:37', 'admin', 'admin');
+('admin', 'admin@admin.kr', 0, 0, 'N', '127.0.0.1', '2021-01-04 21:43:23', 1, 1, 'tZGmxFl3b9hcxtg5OJ/ZnG3bPQ9jNjc1', '2020-09-11 09:09:37', 'admin', 'admin');
 
 --
 -- 덤프된 테이블의 인덱스
