@@ -55,7 +55,6 @@ sudo bash hustoj210101.sh
    
 #기초100제 시리즈 문제의 일부 또는 전부의 내용과 관련한 모든 저작권 사항에 대해서 명확하게 지켜주시기 바랍니다.   
    
-   
 <pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100210104.sh
    
