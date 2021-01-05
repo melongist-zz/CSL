@@ -150,6 +150,13 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/bs3/problem.p
 chown www-data:root problem.php
 chmod 644 problem.php
 
+#problem.php customizing for front, rear, bann, credits fields
+cd
+cd /home/judge/src/web/template/bs3/
+rm problem.php
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/bs3/submitpage.php
+chown www-data:root submitpage.php
+chmod 644 submitpage.php
 
 #submit.php customizing for front, rear, bann, credits fields
 cd
