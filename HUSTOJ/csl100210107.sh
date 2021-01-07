@@ -32,6 +32,8 @@ while [ ${INPUTS} = "n" ]; do
   fi
 done
 
+echo ""
+echo ""
 
 cd
 
