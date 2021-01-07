@@ -8,6 +8,25 @@ if [[ -z $SUDO_USER ]] ; then
   exit 1
 fi
 
+#Confirm
+INPUTS="n"
+while [ ${INPUTS} = "n" ]; do
+  echo -n "All data and database will be overwritten. Are you sure?[y/n] "
+  read INPUTS
+  if [ ${INPUTS} = "y" ]; then
+    echo -n "CSL Basic 100s problems will be installed. Are you sure?[y/n] "
+    read INPUTS
+    if [ ${INPUTS} = "n" ]; then
+      echo "CSL Basic 100s problems installation canceled!!"
+      exit 1
+    fi
+  else  
+    echo "CSL Basic 100s problems installation canceled!!"
+    exit 1
+  fi
+done
+
+
 cd
 
 #for South Korea's timezone
