@@ -8,6 +8,12 @@ if [[ -z $SUDO_USER ]] ; then
   exit 1
 fi
 
+clear
+
+echo ""
+echo "---- CSL(Computer Science teachers's computer science Love) ----"
+echo ""
+
 #Confirm
 INPUTS="n"
 while [ ${INPUTS} = "n" ]; do
