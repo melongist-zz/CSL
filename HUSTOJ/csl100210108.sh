@@ -52,6 +52,7 @@ sudo mv /home/judge/src/web/phpmyadmin /home/judge/src/web/pma
 
 #backup name
 BACKUPS=$(echo `date '+%Y%m%d%H%M'`)
+mkdir $BACKUPS
 
 #jol database overwriting
 cd
@@ -61,7 +62,7 @@ DBUSER=$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 
 #current mysql backup
-mysqldump -u $DBUSER -p$PASSWORD jol > ${BACKUPS}jolbackup.sql
+mysqldump -u $DBUSER -p$PASSWORD jol > ~/${BACKUPS}/jolbackup.sql
 
 #echo "Remember your database account for HUST Online Judge:"
 #echo "username:$USER"
@@ -75,7 +76,7 @@ rm csl100v05jol.sql
 #Coping all problem images to server
 cd
 #current images backup
-sudo tar zcvf ./${BACKUPS}imagebackup.tar.gz /home/judge/src/web/upload/*
+sudo tar zcvf ./${BACKUPS}/imagebackup.tar.gz /home/judge/src/web/upload/*
 sudo rm -rf /home/judge/src/web/upload/*
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/upload/csl100v01image.tar.gz
 #cf. : how to backup images from HUSTOJ for CSL
@@ -88,7 +89,7 @@ rm csl100v01image.tar.gz
 #Coping all problem *.in & *.out data to server
 cd
 #current data backup
-sudo zip -r ./${BACKUPS}databackup.zip /home/judge/data
+sudo zip -r ./${BACKUPS}/databackup.zip /home/judge/data
 sudo rm -rf /home/judge/data
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v06data.zip
 #c.f. : how to backup test files from HUSTOJ for CSL
@@ -169,7 +170,7 @@ sudo chmod 664 /home/judge/src/web/admin/problem_import.php
 cd
 sudo rm /home/judge/src/web/include/problem.php
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/include/problem.php
-sudo mv ./probmem.php /home/judge/src/web/include/
+sudo mv ./problem.php /home/judge/src/web/include/
 sudo chown www-data:root /home/judge/src/web/include/problem.php
 sudo chmod 664 /home/judge/src/web/include/problem.php
 
