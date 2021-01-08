@@ -275,7 +275,7 @@ sudo rm /home/judge/src/web/admin/msg.txt
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/msg2.txt
 sudo mv ./msg2.txt /home/judge/src/web/admin/msg.txt
 sudo chown www-data:root /home/judge/src/web/admin/msg.txt
-sudo 644 /home/judge/src/web/admin/msg.txt
+sudo chmod 644 /home/judge/src/web/admin/msg.txt
 cd
 
 clear
