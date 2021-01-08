@@ -1,10 +1,18 @@
 #!/bin/bash
-#2021.01.08
 #Made by melongist(what_is_computer@msn.com)
 #for CSL Computer Science teacher
 
+VER_DATE="2021.01.08"
+
+THISFILE="csl100210108.sh"
+
+SQLFILE="csl100v05jol.sql"
+IMGFILE="csl100v01image.tar.gz"
+DATAFILE="csl100v06data.zip"
+
+
 if [[ $SUDO_USER ]] ; then
-  echo "Just use 'bash csl100210108.sh'"
+  echo "Just use 'bash ${THISFILE}'"
   exit 1
 fi
 
@@ -36,12 +44,6 @@ echo ""
 
 cd
 
-#for South Korea's timezone
-timedatectl set-timezone 'Asia/Seoul'
-
-sudo apt update
-sudo apt -y upgrade
-
 #phpmyadmin installation
 if [ -f /usr/share/phpmyadmin ]; then
   echo "phpmyadmin already installed!"
@@ -52,44 +54,46 @@ else
 fi
 
 #jol database overwriting
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v05jol.sql
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${SQLFILE}
 DBUSER=$(sudo grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 PASSWORD=$(sudo grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
-#backup directory name
+
 BACKUPS=$(echo `date '+%Y%m%d%H%M'`)
-mkdir $BACKUPS
+mkdir ${BACKUPS}
+
 #current mysql backup
-mysqldump -u $DBUSER -p$PASSWORD jol > ~/${BACKUPS}/jolbackup.sql
-#c.f. : how to backup from HUSTOJ for CSL :> mysqldump -u debian-sys-maint -p jol > csl100v05jol.sql
-mysql -u $DBUSER -p$PASSWORD jol < csl100v05jol.sql
-rm csl100v05jol.sql
+mysqldump -u ${DBUSER} -p$PASSWORD jol > ./${BACKUPS}/jol.sql
+#c.f. : how to backup from HUSTOJ for CSL :> mysqldump -u debian-sys-maint -p jol > jol.sql
+mysql -u ${DBUSER} -p${PASSWORD} jol < ${SQLFILE}
+rm ${SQLFILE}
 
 #Coping all problem images to server
 #current images backup
-sudo tar zcvf ./${BACKUPS}/imagebackup.tar.gz /home/judge/src/web/upload/*
+sudo tar zcvf ~/${BACKUPS}/images.tar.gz /home/judge/src/web/upload/*
 sudo rm -rf /home/judge/src/web/upload/*
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/upload/csl100v01image.tar.gz
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/upload/${IMGFILE}
 #cf. : how to backup images from HUSTOJ for CSL
 #directory : /home/judge/src/web/upload/
 #command   : sudo tar zcvf csl100v01image.tar.gz *
-sudo tar zxvf ./csl100v01image.tar.gz /home/judge/src/web/upload/
-rm csl100v01image.tar.gz
+sudo tar zxvf ${IMGFILE} /home/judge/src/web/upload/
+rm ${IMGFILE}
 
 #Coping all problem *.in & *.out data to server
 #current data backup
-sudo zip -r ./${BACKUPS}/databackup.zip /home/judge/data
+sudo zip -r ./${BACKUPS}/data.zip /home/judge/data
 sudo rm -rf /home/judge/data
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v06data.zip
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${DATAFILE}
 #c.f. : how to backup test files from HUSTOJ for CSL
 #directory : /home/judge/
-#command   : sudo zip -r csl100v06data.zip ./data
-sudo unzip ./csl100v06data.zip /home/judge/
-rm csl100v06data.zip
+#command   : sudo zip -r data.zip ./data
+sudo unzip ${DATAFILE} /home/judge/
+rm ${DATAFILE}
 sudo chmod 644 -R /home/judge/data
 sudo chown www-data:www-data -R /home/judge/data
 sudo chmod 755 /home/judge/data/*
 sudo chmod 711 /home/judge/data
 sudo chown www-data:judge /home/judge/data
+
 
 #problem_add_page.php customizing for front, rear, bann, credits fields
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/admin/problem_add_page.php
