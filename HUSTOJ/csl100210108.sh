@@ -46,11 +46,14 @@ sudo apt -y upgrade
 
 #phpmyadmin installation
 cd
-sudo apt -y install phpmyadmin
-sudo ln -f -s /usr/share/phpmyadmin /home/judge/src/web/phpmyadmin
-sudo mv /home/judge/src/web/phpmyadmin /home/judge/src/web/pma
+if [ -f /usr/share/phpmyadmin ]; then
+else
+  sudo apt -y install phpmyadmin
+  sudo ln -f -s /usr/share/phpmyadmin /home/judge/src/web/phpmyadmin
+  sudo mv /home/judge/src/web/phpmyadmin /home/judge/src/web/pma
+fi
 
-#backup name
+#backup directory name
 BACKUPS=$(echo `date '+%Y%m%d%H%M'`)
 mkdir $BACKUPS
 
@@ -97,11 +100,11 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v06data
 #command   : sudo zip -r csl100v06data.zip ./data
 sudo unzip ./csl100v06data.zip /home/judge/
 rm csl100v06data.zip
-chmod 644 -R /home/judge/data
-chown www-data:www-data -R /home/judge/data
-chmod 755 /home/judge/data/*
-chmod 711 /home/judge/data
-chown www-data:judge /home/judge/data
+sudo chmod 644 -R /home/judge/data
+sudo chown www-data:www-data -R /home/judge/data
+sudo chmod 755 /home/judge/data/*
+sudo chmod 711 /home/judge/data
+sudo chown www-data:judge /home/judge/data
 
 #problem_add_page.php customizing for front, rear, bann, credits fields
 cd
@@ -271,7 +274,8 @@ clear
 sudo rm /home/judge/src/web/admin/msg.txt
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/msg2.txt
 sudo mv ./msg2.txt /home/judge/src/web/admin/msg.txt
-chown www-data /home/judge/src/web/admin/msg.txt
+sudo chown www-data:root /home/judge/src/web/admin/msg.txt
+sudo 644 /home/judge/src/web/admin/msg.txt
 cd
 
 clear
