@@ -75,7 +75,7 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/upload/${IMGF
 #cf. : how to backup images from HUSTOJ for CSL
 #directory : /home/judge/src/web/upload/
 #command   : sudo tar zcvf csl100v01image.tar.gz *
-sudo tar zxvf ${IMGFILE} /home/judge/src/web/upload/
+sudo tar zxvf ${IMGFILE} -C /home/judge/src/web/upload/
 rm ${IMGFILE}
 
 #Coping all problem *.in & *.out data to server
