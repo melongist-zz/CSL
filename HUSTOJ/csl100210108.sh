@@ -64,9 +64,9 @@ PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 
 #current mysql backup
 mysqldump -u $USER -p$PASSWORD jol > ${BACKUPS}jolbackup.sql
-mv ${BACKUPS}jolbackup.sql /home/$OSUSER/
-chown $OSUSER /home/$OSUSER/${BACKUPS}jolbackup.sql
-chomod 600 /home/$OSUSER/${BACKUPS}jolbackup.sql
+sudo mv ${BACKUPS}jolbackup.sql /home/$OSUSER/
+sudo chown $OSUSER /home/$OSUSER/${BACKUPS}jolbackup.sql
+dudo chmod 600 /home/$OSUSER/${BACKUPS}jolbackup.sql
 
 #echo "Remember your database account for HUST Online Judge:"
 #echo "username:$USER"
@@ -82,9 +82,9 @@ cd
 cd /home/judge/src/web/upload
 #current images backup
 tar zcvf ${BACKUPS}imagebackup.tar.gz
-mv ${BACKUPS}imagebackup.tar.gz /home/$OSUSER/
-chown $OSUSER /home/$OSUSER/${BACKUPS}imagebackup.tar.gz
-chomod 600 /home/$OSUSER/${BACKUPS}imagebackup.tar.gz
+sudo mv ${BACKUPS}imagebackup.tar.gz /home/$OSUSER/
+sudo chown $OSUSER /home/$OSUSER/${BACKUPS}imagebackup.tar.gz
+sudo chmod 600 /home/$OSUSER/${BACKUPS}imagebackup.tar.gz
 rm -rf *
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/upload/csl100v01image.tar.gz
 #cf. : how to backup images from HUSTOJ for CSL
@@ -99,9 +99,9 @@ cd
 cd /home/judge/
 #current data backup
 zip -r ${BACKUPS}databackup.zip ./data
-mv ${BACKUPS}databackup.zip /home/$OSUSER/
-chown $OSUSER /home/$OSUSER/${BACKUPS}databackup.zip
-chomod 600 /home/$OSUSER/${BACKUPS}databackup.zip
+sudo mv ${BACKUPS}databackup.zip /home/$OSUSER/
+sudo chown $OSUSER /home/$OSUSER/${BACKUPS}databackup.zip
+sudo chmod 600 /home/$OSUSER/${BACKUPS}databackup.zip
 rm -rf data
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v06data.zip
 #c.f. : how to backup test files from HUSTOJ for CSL
