@@ -69,7 +69,7 @@ rm ${SQLFILE}
 
 #Coping all problem images to server
 #current images backup
-sudo tar zcvf ~/${BACKUPS}/images.tar.gz /home/judge/src/web/upload/*
+sudo tar zcvf ./${BACKUPS}/images.tar.gz /home/judge/src/web/upload/*
 sudo rm -rf /home/judge/src/web/upload/*
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/upload/${IMGFILE}
 #cf. : how to backup images from HUSTOJ for CSL
@@ -86,7 +86,7 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${DATAFILE}
 #c.f. : how to backup test files from HUSTOJ for CSL
 #directory : /home/judge/
 #command   : sudo zip -r data.zip ./data
-sudo unzip ${DATAFILE} /home/judge/
+sudo unzip ${DATAFILE} -d /home/judge/
 rm ${DATAFILE}
 sudo chmod 644 -R /home/judge/data
 sudo chown www-data:www-data -R /home/judge/data
