@@ -33,7 +33,6 @@ while [ ${INPUTS} = "n" ]; do
 done
 
 echo ""
-echo ""
 
 cd
 
@@ -43,9 +42,7 @@ timedatectl set-timezone 'Asia/Seoul'
 sudo apt update
 sudo apt -y upgrade
 
-
 #phpmyadmin installation
-cd
 if [ -f /usr/share/phpmyadmin ]; then
 else
   sudo apt -y install phpmyadmin
@@ -53,31 +50,20 @@ else
   sudo mv /home/judge/src/web/phpmyadmin /home/judge/src/web/pma
 fi
 
+#jol database overwriting
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v05jol.sql
+DBUSER=$(sudo grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
+PASSWORD=$(sudo grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 #backup directory name
 BACKUPS=$(echo `date '+%Y%m%d%H%M'`)
 mkdir $BACKUPS
-
-#jol database overwriting
-cd
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v05jol.sql
-
-DBUSER=$(sudo grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
-PASSWORD=$(sudo grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
-
 #current mysql backup
 mysqldump -u $DBUSER -p$PASSWORD jol > ~/${BACKUPS}/jolbackup.sql
-
-#echo "Remember your database account for HUST Online Judge:"
-#echo "username:$USER"
-#echo "password:$PASSWORD"
-#mysqladmin -u $USER -p$PASSWORD create jol
 #c.f. : how to backup from HUSTOJ for CSL :> mysqldump -u debian-sys-maint -p jol > csl100v05jol.sql
 mysql -u $DBUSER -p$PASSWORD jol < csl100v05jol.sql
 rm csl100v05jol.sql
 
-
 #Coping all problem images to server
-cd
 #current images backup
 sudo tar zcvf ./${BACKUPS}/imagebackup.tar.gz /home/judge/src/web/upload/*
 sudo rm -rf /home/judge/src/web/upload/*
@@ -88,9 +74,7 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/upload/csl100
 sudo tar zxvf ./csl100v01image.tar.gz /home/judge/src/web/upload/
 rm csl100v01image.tar.gz
 
-
 #Coping all problem *.in & *.out data to server
-cd
 #current data backup
 sudo zip -r ./${BACKUPS}/databackup.zip /home/judge/data
 sudo rm -rf /home/judge/data
@@ -107,110 +91,78 @@ sudo chmod 711 /home/judge/data
 sudo chown www-data:judge /home/judge/data
 
 #problem_add_page.php customizing for front, rear, bann, credits fields
-cd
-sudo rm /home/judge/src/web/admin/problem_add_page.php
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/admin/problem_add_page.php
-sudo mv ./problem_add_page.php /home/judge/src/web/admin/
+sudo mv -f ./problem_add_page.php /home/judge/src/web/admin/
 sudo chown www-data:root /home/judge/src/web/admin/problem_add_page.php
 sudo chmod 664 /home/judge/src/web/admin/problem_add_page.php
 
-
 #problem_add.php customizing for front, rear, bann, credits fields
-cd
-sudo rm /home/judge/src/web/admin/problem_add.php
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/admin/problem_add.php
-sudo mv ./problem_add.php /home/judge/src/web/admin/
+sudo mv -f ./problem_add.php /home/judge/src/web/admin/
 sudo chown www-data:root /home/judge/src/web/admin/problem_add.php
 sudo chmod 664 /home/judge/src/web/admin/problem_add.php
 
-
 #problem_edit.php customizing for front, rear, bann, credits fields
-cd
-sudo rm /home/judge/src/web/admin/problem_edit.php
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/admin/problem_edit.php
-sudo mv ./problem_edit.php /home/judge/src/web/admin/
+sudo mv -f ./problem_edit.php /home/judge/src/web/admin/
 sudo chown www-data:root /home/judge/src/web/admin/problem_edit.php
 sudo chmod 664 /home/judge/src/web/admin/problem_edit.php
 
-
 #problem_export_xml.php customizing for front, rear, bann, credits fields
-cd
-sudo rm /home/judge/src/web/admin/problem_export_xml.php
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/admin/problem_export_xml.php
-sudo mv ./problem_export_xml.php /home/judge/src/web/admin/
+sudo mv -f ./problem_export_xml.php /home/judge/src/web/admin/
 chown www-data:root /home/judge/src/web/admin/problem_export_xml.php
 chmod 664 /home/judge/src/web/admin/problem_export_xml.php
 
-
 #problem_export.php customizing for front, rear, bann, credits fields
-cd
-sudo rm /home/judge/src/web/admin/problem_export.php
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/admin/problem_export.php
-sudo mv ./problem_export.php /home/judge/src/web/admin/
+sudo mv -f ./problem_export.php /home/judge/src/web/admin/
 sudo chown www-data:root /home/judge/src/web/admin/problem_export.php
 sudo chmod 664 /home/judge/src/web/admin/problem_export.php
 
-
 #problem_import_xml.php customizing for front, rear, bann, credits fields
-cd
-sudo rm /home/judge/src/web/admin/problem_import_xml.php
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/admin/problem_import_xml.php
-sudo mv ./problem_import_xml.php /home/judge/src/web/admin/
+sudo mv -f ./problem_import_xml.php /home/judge/src/web/admin/
 sudo chown www-data:root /home/judge/src/web/admin/problem_import_xml.php
 sudo chmod 664 /home/judge/src/web/admin/problem_import_xml.php
 
-
 #problem_import.php customizing for front, rear, bann, credits fields
-cd
-sudo rm /home/judge/src/web/admin/problem_import.php
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/admin/problem_import.php
-sudo mv ./problem_import.php /home/judge/src/web/admin/
+sudo mv -f ./problem_import.php /home/judge/src/web/admin/
 sudo chown www-data:root /home/judge/src/web/admin/problem_import.php
 sudo chmod 664 /home/judge/src/web/admin/problem_import.php
 
-
 #problem.php customizing for front, rear, bann, credits fields
-cd
-sudo rm /home/judge/src/web/include/problem.php
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/include/problem.php
-sudo mv ./problem.php /home/judge/src/web/include/
+sudo mv -f ./problem.php /home/judge/src/web/include/
 sudo chown www-data:root /home/judge/src/web/include/problem.php
 sudo chmod 664 /home/judge/src/web/include/problem.php
 
-
 #problem.php customizing for front, rear, bann, credits fields
-cd
-sudo rm /home/judge/src/web/template/bs3/problem.php
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/bs3/problem.php
-sudo mv ./problem.php /home/judge/src/web/template/bs3/
+sudo mv -f ./problem.php /home/judge/src/web/template/bs3/
 sudo chown www-data:root /home/judge/src/web/template/bs3/problem.php
 sudo chmod 644 /home/judge/src/web/template/bs3/problem.php
 
 #problem.php customizing for front, rear, bann, credits fields
-cd
-sudo rm /home/judge/src/web/template/bs3/submitpage.php
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/bs3/submitpage.php
-sudo mv ./submitpage.php /home/judge/src/web/template/bs3/
+sudo mv -f ./submitpage.php /home/judge/src/web/template/bs3/
 sudo chown www-data:root /home/judge/src/web/template/bs3/submitpage.php
 sudo chmod 644 /home/judge/src/web/template/bs3/submitpage.php
 
 #submit.php customizing for front, rear, bann, credits fields
-cd
-sudo rm /home/judge/src/web/submit.php
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/submit.php
-sudo mv ./submit.php /home/judge/src/web/
+sudo mv -f ./submit.php /home/judge/src/web/
 chown www-data:root /home/judge/src/web/submit.php
 chmod 644 /home/judge/src/web/submit.php
 
-#HUSTOJ db_info.inc.php settings
-cd
-
 clear
 
+
+#HUSTOJ db_info.inc.php settings
 echo ""
 echo "--- db_info.inc.php options ---"
 echo ""
-
 #for able/unable to register
 INPUTS="n"
 while [ ${INPUTS} = "n" ]; do
@@ -223,7 +175,6 @@ while [ ${INPUTS} = "n" ]; do
     read INPUTS
   fi
 done
-
 #for able/unable VCODE
 INPUTS="n"
 while [ ${INPUTS} = "n" ]; do
@@ -236,7 +187,6 @@ while [ ${INPUTS} = "n" ]; do
     read INPUTS
   fi
 done
-
 #for OJ_SHOW_DIFF
 INPUTS="n"
 while [ ${INPUTS} = "n" ]; do
@@ -255,9 +205,9 @@ done
 cd
 sudo sed -i "s/OJ_USE_MAX_TIME=0/OJ_USE_MAX_TIME=1/" /home/judge/etc/judge.conf
 
-
 cd
 sudo apt -y autoremove
+
 
 #Identifing AWS Ubuntu 20.04 LTS
 if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]; then
@@ -271,12 +221,10 @@ fi
 clear
 
 #Replacing msg.txt
-sudo rm /home/judge/src/web/admin/msg.txt
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/msg2.txt
-sudo mv ./msg2.txt /home/judge/src/web/admin/msg.txt
+sudo mv -f ./msg2.txt /home/judge/src/web/admin/msg.txt
 sudo chown www-data:root /home/judge/src/web/admin/msg.txt
 sudo chmod 644 /home/judge/src/web/admin/msg.txt
-cd
 
 clear
 
