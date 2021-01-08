@@ -44,6 +44,7 @@ sudo apt -y upgrade
 
 #phpmyadmin installation
 if [ -f /usr/share/phpmyadmin ]; then
+  echo "phpmyadmin already installed!"
 else
   sudo apt -y install phpmyadmin
   sudo ln -f -s /usr/share/phpmyadmin /home/judge/src/web/phpmyadmin
