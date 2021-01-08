@@ -63,10 +63,9 @@ USER=$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 
 #current mysql backup
-mysqldump -u $USER -p$PASSWORD jol > ${BACKUPS}jolbackup.sql
-sudo mv ${BACKUPS}jolbackup.sql /home/$OSUSER/
+mysqldump -u $USER -p$PASSWORD jol > /home/$OSUSER/${BACKUPS}jolbackup.sql
 sudo chown $OSUSER /home/$OSUSER/${BACKUPS}jolbackup.sql
-dudo chmod 600 /home/$OSUSER/${BACKUPS}jolbackup.sql
+sudo chmod 600 /home/$OSUSER/${BACKUPS}jolbackup.sql
 
 #echo "Remember your database account for HUST Online Judge:"
 #echo "username:$USER"
@@ -81,8 +80,7 @@ rm csl100v05jol.sql
 cd
 cd /home/judge/src/web/upload
 #current images backup
-tar zcvf ${BACKUPS}imagebackup.tar.gz
-sudo mv ${BACKUPS}imagebackup.tar.gz /home/$OSUSER/
+tar zcvf /home/$OSUSER/${BACKUPS}imagebackup.tar.gz *
 sudo chown $OSUSER /home/$OSUSER/${BACKUPS}imagebackup.tar.gz
 sudo chmod 600 /home/$OSUSER/${BACKUPS}imagebackup.tar.gz
 rm -rf *
@@ -98,8 +96,7 @@ rm csl100v01image.tar.gz
 cd
 cd /home/judge/
 #current data backup
-zip -r ${BACKUPS}databackup.zip ./data
-sudo mv ${BACKUPS}databackup.zip /home/$OSUSER/
+zip -r /home/$OSUSER/${BACKUPS}databackup.zip ./data
 sudo chown $OSUSER /home/$OSUSER/${BACKUPS}databackup.zip
 sudo chmod 600 /home/$OSUSER/${BACKUPS}databackup.zip
 rm -rf data
