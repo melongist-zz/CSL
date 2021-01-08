@@ -42,6 +42,13 @@ done
 
 echo ""
 
+BACKUPS=$(echo `date '+%Y%m%d%H%M'`)
+mkdir ${BACKUPS}
+
+echo "Current jol DB(sql dump), image files, data(*.in, *.out) files will be backup..."
+echo "at ~/${BACKUPS}"
+echo ""
+
 cd
 
 #phpmyadmin installation
@@ -57,10 +64,6 @@ fi
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${SQLFILE}
 DBUSER=$(sudo grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 PASSWORD=$(sudo grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
-
-BACKUPS=$(echo `date '+%Y%m%d%H%M'`)
-mkdir ${BACKUPS}
-
 #current mysql backup
 mysqldump -u ${DBUSER} -p$PASSWORD jol > ./${BACKUPS}/jol.sql
 #c.f. : how to backup from HUSTOJ for CSL :> mysqldump -u debian-sys-maint -p jol > jol.sql
