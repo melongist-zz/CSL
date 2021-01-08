@@ -32,9 +32,9 @@
 #HUSTOJ 채점 시스템을 설치하여 한국어 환경으로 사용하려는 경우 아래의 명령어로 모든 설치 및 설정이 완료됩니다.   
    
 <pre><code>
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj210101.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj210107.sh
    
-sudo bash hustoj210101.sh
+sudo bash hustoj210107.sh
 </code></pre>
    
 ***   
