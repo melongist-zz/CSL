@@ -4,7 +4,7 @@
 #for CSL Computer Science teacher
 
 if [[ -z $SUDO_USER ]] ; then
-  echo "Use 'sudo bash csl100210107.sh'"
+  echo "Use 'sudo bash csl100210108.sh'"
   exit 1
 fi
 
@@ -50,10 +50,10 @@ apt -y install phpmyadmin
 ln -f -s /usr/share/phpmyadmin /home/judge/src/web/phpmyadmin
 mv /home/judge/src/web/phpmyadmin /home/judge/src/web/pma
 
-
-#make backup directory
-cd
+#backup name
 BACKUPS=$(echo `date '+%Y%m%d%H%M'`)
+OSUSER=$USER
+
 
 #jol database overwriting
 cd
@@ -64,7 +64,10 @@ PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 
 #current mysql backup
 mysqldump -u $USER -p$PASSWORD jol > ${BACKUPS}jolbackup.sql
-mv ./${BACKUPS}jolbackup.sql /home/$USER/
+chown $OSUSER ${BACKUPS}jolbackup.sql
+chomod 600 ${BACKUPS}jolbackup.sql
+mv ${BACKUPS}jolbackup.sql /home/$OSUSER/
+
 #echo "Remember your database account for HUST Online Judge:"
 #echo "username:$USER"
 #echo "password:$PASSWORD"
@@ -79,7 +82,9 @@ cd
 cd /home/judge/src/web/upload
 #current images backup
 tar zcvf ${BACKUPS}imagebackup.tar.gz
-mv ./${BACKUPS}imagebackup.tar.gz /home/$USER/
+chown $OSUSER ${BACKUPS}imagebackup.tar.gz
+chomod 600 ${BACKUPS}imagebackup.tar.gz
+mv ${BACKUPS}imagebackup.tar.gz /home/$OSUSER/
 rm -rf *
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/upload/csl100v01image.tar.gz
 #cf. : how to backup images from HUSTOJ for CSL
@@ -94,7 +99,9 @@ cd
 cd /home/judge/
 #current data backup
 zip -r ${BACKUPS}databackup.zip ./data
-mv ./${BACKUPS}databackup.zip /home/$USER/
+chown $OSUSER ${BACKUPS}databackup.zip
+chomod 600 ${BACKUPS}databackup.zip
+mv ${BACKUPS}databackup.zip /home/$OSUSER/
 rm -rf data
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v06data.zip
 #c.f. : how to backup test files from HUSTOJ for CSL
