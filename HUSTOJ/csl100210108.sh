@@ -58,8 +58,8 @@ mkdir $BACKUPS
 cd
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100v05jol.sql
 
-DBUSER=$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
-PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
+DBUSER=$(sudo grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
+PASSWORD=$(sudo grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 
 #current mysql backup
 mysqldump -u $DBUSER -p$PASSWORD jol > ~/${BACKUPS}/jolbackup.sql
