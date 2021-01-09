@@ -27,7 +27,8 @@ echo ""
 
 #Confirmation
 INPUTS="n"
-echo -n "Current jol DB(sql dump), image files, data(*.in, *.out) files will be backup. Are you sure?[y/n] "
+echo "Current jol DB(sql dump), image files, data(*.in, *.out) files will be backup."
+echo "Are you sure?[y/n] "
 read INPUTS
 if [ ${INPUTS} = "n" ]; then
   exit 1
