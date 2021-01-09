@@ -6,7 +6,7 @@
 VER_DATE="2021.01.09"
 
 THISFILE="backup00.sh"
-RESTOREFILE="backuprestore.sh"
+RESTOREFILE="restore.sh"
 
 cd
 

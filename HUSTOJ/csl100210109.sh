@@ -6,7 +6,7 @@
 VER_DATE="2021.01.09"
 
 THISFILE="csl100210109.sh"
-RESTOREFILE="csl100restore.sh"
+RESTOREFILE="restore.sh"
 
 SQLFILE="csl100v05jol.sql"
 IMGFILE="csl100v01image.tar.gz"
