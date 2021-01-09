@@ -322,9 +322,9 @@ sudo chown www-data:root /home/judge/src/web/admin/msg.txt
 sudo chmod 644 /home/judge/src/web/admin/msg.txt
 #for restoring
 echo "sudo cp -f ./admin/msg.txt /home/judge/src/web/admin/" >> ./${BACKUPS}/restore.sh
-
+echo "clear" >> ./${BACKUPS}/restore.sh
 echo "echo \"\"" >> ./${BACKUPS}/restore.sh
-echo "echo \"HUSTOJ \${BACKUPS} successfully restored!\"" >> ./${BACKUPS}/restore.sh 
+echo "echo \"HUSTOJ ${BACKUPS} successfully restored!\"" >> ./${BACKUPS}/restore.sh 
 echo "echo \"\"" >> ./${BACKUPS}/restore.sh
 
 
