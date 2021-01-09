@@ -5,7 +5,7 @@
 
 VER_DATE="2021.01.09"
 
-THISFILE="phadmin.sh"
+THISFILE="phadmin00.sh"
 
 clear
 

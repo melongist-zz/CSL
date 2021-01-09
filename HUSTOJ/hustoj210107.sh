@@ -204,6 +204,12 @@ mv msg1.txt msg.txt
 chown www-data msg.txt
 cd
 
+#phpmyadmin install script
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/phadmin00.sh
+#HUSTOJ backup script
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/backup00.sh
+
+
 #Identifing AWS Ubuntu 20.04 LTS
 if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]; then
   SERVERTYPES="AWS SERVER"

@@ -321,12 +321,6 @@ echo "echo \"\"" >> ./${BACKUPS}/${RESTOREFILE}
 echo "echo \"HUSTOJ ${BACKUPS} successfully restored!\"" >> ./${BACKUPS}/${RESTOREFILE} 
 echo "echo \"\"" >> ./${BACKUPS}/${RESTOREFILE}
 
-
-#phpmyadmin install script
-
-#HUSTOJ backup script
-
-
 clear
 
 echo ""
