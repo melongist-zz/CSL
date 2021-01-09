@@ -56,16 +56,20 @@ mkdir ${BACKUPS}/upload/
 
 cp ${THISFILE} ./${BACKUPS}/
 touch ./${BACKUPS}/restore.sh
-echo "if [[ $SUDO_USER ]] ; then" >> ./${BACKUPS}/restore.sh
+echo "if [[ \$SUDO_USER ]] ; then" >> ./${BACKUPS}/restore.sh
 echo "  echo \"Just use 'bash restore.sh'\"" >> ./${BACKUPS}/restore.sh
 echo "  exit 1" >> ./${BACKUPS}/restore.sh
 echo "fi" >> ./${BACKUPS}/restore.sh
 echo "" >> ./${BACKUPS}/restore.sh
+echo "echo \"---- CSL(Computer Science teachers's computer science Love) ----\"" >> ./${BACKUPS}/restore.sh
+echo "echo \"\"" >> ./${BACKUPS}/restore.sh
+echo "INPUTS=\"n\"" >> ./${BACKUPS}/restore.sh
+echo "echo -n \"This script will restore \${BACKUPS} backups. Are you sure?[y/n] \"" >> ./${BACKUPS}/restore.sh
+echo "read INPUTS" >> ./${BACKUPS}/restore.sh
+echo "if [ \${INPUTS} = \"n\" ]; then" >> ./${BACKUPS}/restore.sh
+echo "  exit 1" >> ./${BACKUPS}/restore.sh
+echo "fi" >> ./${BACKUPS}/restore.sh
 echo "" >> ./${BACKUPS}/restore.sh
-echo "" >> ./${BACKUPS}/restore.sh
-echo "" >> ./${BACKUPS}/restore.sh
-echo "" >> ./${BACKUPS}/restore.sh
-
 
 
 echo ""
@@ -85,9 +89,9 @@ mysqldump -u ${DBUSER} -p$PASSWORD jol >> ./${BACKUPS}/jol.sql
 mysql -u ${DBUSER} -p${PASSWORD} jol < ${SQLFILE}
 rm ${SQLFILE}
 #for restoring
-echo "DBUSER=$(sudo grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')" >> ./${BACKUPS}/restore.sh
-echo "PASSWORD=$(sudo grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')" >> ./${BACKUPS}/restore.sh
-echo "mysql -u ${DBUSER} -p${PASSWORD} jol < jol.sql" >> ./${BACKUPS}/restore.sh
+echo "DBUSER=\$(sudo grep user /etc/mysql/debian.cnf|head -1|awk  '{print \$3}')" >> ./${BACKUPS}/restore.sh
+echo "PASSWORD=\$(sudo grep password /etc/mysql/debian.cnf|head -1|awk  '{print \$3}')" >> ./${BACKUPS}/restore.sh
+echo "mysql -u \${DBUSER} -p\${PASSWORD} jol < jol.sql" >> ./${BACKUPS}/restore.sh
 
 #Coping all problem images to server
 #current images backup
@@ -317,7 +321,7 @@ sudo chown www-data:root /home/judge/src/web/admin/msg.txt
 sudo chmod 644 /home/judge/src/web/admin/msg.txt
 #for restoring
 echo "sudo cp -f ./admin/msg.txt /home/judge/src/web/admin/" >> ./${BACKUPS}/restore.sh
-echo "${BACKUPS} HUSTOJ restored!" >> ./${BACKUPS}/restore.sh 
+echo "echo \"HUSTOJ \${BACKUPS} restored!\"" >> ./${BACKUPS}/restore.sh 
 echo "" >> ./${BACKUPS}/restore.sh
 
 
