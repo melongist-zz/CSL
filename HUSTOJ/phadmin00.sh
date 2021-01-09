@@ -71,7 +71,7 @@ DBUSER=$(sudo grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 PASSWORD=$(sudo grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 
 echo ""
-echo "Check phpmyadmin!"
+echo "--- phpmyadmin for HUSTOJ installed ---"
 echo ""
 echo "$SERVERTYPES"
 echo "http://${IPADDRESS[0]}/${PANAME}"
