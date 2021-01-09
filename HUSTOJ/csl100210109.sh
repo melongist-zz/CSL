@@ -321,6 +321,12 @@ echo "echo \"\"" >> ./${BACKUPS}/${RESTOREFILE}
 echo "echo \"HUSTOJ ${BACKUPS} successfully restored!\"" >> ./${BACKUPS}/${RESTOREFILE} 
 echo "echo \"\"" >> ./${BACKUPS}/${RESTOREFILE}
 
+#phpmyadmin install script
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/phadmin00.sh
+
+#HUSTOJ backup script
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/backup00.sh
+
 clear
 
 echo ""
