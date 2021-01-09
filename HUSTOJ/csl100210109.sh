@@ -324,7 +324,7 @@ sudo chmod 644 /home/judge/src/web/admin/msg.txt
 echo "sudo cp -f ./admin/msg.txt /home/judge/src/web/admin/" >> ./${BACKUPS}/restore.sh
 
 echo "echo \"\"" >> ./${BACKUPS}/restore.sh
-echo "echo \"HUSTOJ \${BACKUPS} succesfully restored!\"" >> ./${BACKUPS}/restore.sh 
+echo "echo \"HUSTOJ \${BACKUPS} successfully restored!\"" >> ./${BACKUPS}/restore.sh 
 echo "echo \"\"" >> ./${BACKUPS}/restore.sh
 
 
