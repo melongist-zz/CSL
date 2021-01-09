@@ -47,8 +47,9 @@ done
 if [ -f /usr/share/phpmyadmin ]; then
   echo ""
   echo "phpmyadmin already installed!"
-  PANAME=$(find /home/judge/src/web/ -maxdepth 1 -type l -print | cut -d"/" -f6)
+  PANAME=$(sudo find /home/judge/src/web/ -maxdepth 1 -type l -print | cut -d"/" -f6)
 else
+  echo ""
   sudo apt -y install phpmyadmin
   sudo ln -f -s /usr/share/phpmyadmin /home/judge/src/web/phpmyadmin
   sudo mv /home/judge/src/web/phpmyadmin /home/judge/src/web/${PANAME}
@@ -76,3 +77,5 @@ echo "ID : ${DBUSER}"
 echo "PW : ${PASSWORD}"
 echo ""
 echo "This Script is supported by CSL(South Korea CSTA)"
+echo ""
+
