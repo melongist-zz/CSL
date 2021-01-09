@@ -6,6 +6,8 @@ VER_DATE="2021.01.09"
 
 THISFILE="phadmin.sh"
 
+clear
+
 cd
 
 if [[ $SUDO_USER ]] ; then
