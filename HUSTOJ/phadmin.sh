@@ -1,4 +1,5 @@
 #!/bin/bash
+#phpmyadmin installation script for HUSTOJ
 #Made by melongist(what_is_computer@msn.com)
 #for CSL Computer Science teacher
 

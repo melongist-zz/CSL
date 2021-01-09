@@ -1,4 +1,5 @@
 #!/bin/bash
+#Korean HUSTOJ installation script
 #2021.01.07
 #Made by melongist(what_is_computer@msn.com)
 #for Korean
