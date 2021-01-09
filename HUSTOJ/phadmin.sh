@@ -27,7 +27,7 @@ echo ""
 INPUTS="n"
 echo -n "phpmyadmin for HUSTOJ will be installed. Are you sure?[y/n] "
 read INPUTS
-if [ ${INPUTS} = "n" ]; do
+if [ ${INPUTS} = "n" ] ; then 
   exit 1
 fi
 
