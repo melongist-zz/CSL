@@ -290,15 +290,6 @@ sudo sed -i "s/OJ_USE_MAX_TIME=0/OJ_USE_MAX_TIME=1/" /home/judge/etc/judge.conf
 echo "sudo cp -f ./judge.conf /home/judge/etc/" >> ./${BACKUPS}/restore.sh
 
 
-#phpmyadmin installation
-if [ -f /usr/share/phpmyadmin ]; then
-  echo "phpmyadmin already installed!"
-else
-  sudo apt -y install phpmyadmin
-  sudo ln -f -s /usr/share/phpmyadmin /home/judge/src/web/phpmyadmin
-  sudo mv /home/judge/src/web/phpmyadmin /home/judge/src/web/pma
-fi
-
 #curl installation
 sudo apt -y install curl
 
