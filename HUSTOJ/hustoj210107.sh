@@ -1,11 +1,15 @@
 #!/bin/bash
 #Korean HUSTOJ installation script
-#2021.01.07
+#2021.01.09
 #Made by melongist(what_is_computer@msn.com)
 #for Korean
 
+VER_DATE="2021.01.09"
+
+THISFILE="hustoj210107.sh"
+
 if [[ -z $SUDO_USER ]] ; then
-  echo "Use 'sudo bash hustoj210107.sh'"
+  echo "Use 'sudo bash ${THISFILE}'"
   exit 1
 fi
 
