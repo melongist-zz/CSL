@@ -38,7 +38,7 @@ PANAME="o"
 INPUTS="x"
 while [ ${PANAME} != ${INPUTS} ]; do
   echo -n "Enter  phpmyadmin home directory NAME : "
-  read OJNAME
+  read PANAME
   echo -n "Repeat phpmyadmin home directory NAME : "
   read INPUTS
 done
