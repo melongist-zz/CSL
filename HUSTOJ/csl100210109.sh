@@ -6,6 +6,7 @@
 VER_DATE="2021.01.09"
 
 THISFILE="csl100210109.sh"
+RESTOREFILE="csl100restore.sh"
 
 SQLFILE="csl100v05jol.sql"
 IMGFILE="csl100v01image.tar.gz"
@@ -31,7 +32,7 @@ echo ""
 #Confirmation
 INPUTS="n"
 while [ ${INPUTS} = "n" ]; do
-  echo -n "All data and database will be overwritten. Are you sure?[y/n] "
+  echo -n "All HUSTOJ data and database will be overwritten. Are you sure?[y/n] "
   read INPUTS
   if [ ${INPUTS} = "y" ]; then
     echo -n "CSL Basic 100s problems will be installed. Are you sure?[y/n] "
@@ -49,6 +50,7 @@ done
 echo ""
 
 BACKUPS=$(echo `date '+%Y%m%d%H%M'`)
+BACKUPS+="c"
 mkdir ${BACKUPS}
 mkdir ${BACKUPS}/admin/
 mkdir ${BACKUPS}/bs3/
@@ -56,22 +58,22 @@ mkdir ${BACKUPS}/include/
 mkdir ${BACKUPS}/upload/
 
 cp ${THISFILE} ./${BACKUPS}/
-touch ./${BACKUPS}/restore.sh
-echo "clear" >> ./${BACKUPS}/restore.sh
-echo "if [[ \$SUDO_USER ]] ; then" >> ./${BACKUPS}/restore.sh
-echo "  echo \"Just use 'bash restore.sh'\"" >> ./${BACKUPS}/restore.sh
-echo "  exit 1" >> ./${BACKUPS}/restore.sh
-echo "fi" >> ./${BACKUPS}/restore.sh
-echo "echo \"\"" >> ./${BACKUPS}/restore.sh
-echo "echo \"---- CSL(Computer Science teachers's computer science Love) ----\"" >> ./${BACKUPS}/restore.sh
-echo "echo \"\"" >> ./${BACKUPS}/restore.sh
-echo "INPUTS=\"n\"" >> ./${BACKUPS}/restore.sh
-echo "echo -n \"This script will restore \${BACKUPS} backups. Are you sure?[y/n] \"" >> ./${BACKUPS}/restore.sh
-echo "read INPUTS" >> ./${BACKUPS}/restore.sh
-echo "if [ \${INPUTS} = \"n\" ]; then" >> ./${BACKUPS}/restore.sh
-echo "  exit 1" >> ./${BACKUPS}/restore.sh
-echo "fi" >> ./${BACKUPS}/restore.sh
-echo "echo \"\"" >> ./${BACKUPS}/restore.sh
+touch ./${BACKUPS}/${RESTOREFILE}
+echo "clear" >> ./${BACKUPS}/${RESTOREFILE}
+echo "if [[ \$SUDO_USER ]] ; then" >> ./${BACKUPS}/${RESTOREFILE}
+echo "  echo \"Just use 'bash ${RESTOREFILE}'\"" >> ./${BACKUPS}/${RESTOREFILE}
+echo "  exit 1" >> ./${BACKUPS}/${RESTOREFILE}
+echo "fi" >> ./${BACKUPS}/${RESTOREFILE}
+echo "echo \"\"" >> ./${BACKUPS}/${RESTOREFILE}
+echo "echo \"---- CSL(Computer Science teachers's computer science Love) ----\"" >> ./${BACKUPS}/${RESTOREFILE}
+echo "echo \"\"" >> ./${BACKUPS}/${RESTOREFILE}
+echo "INPUTS=\"n\"" >> ./${BACKUPS}/${RESTOREFILE}
+echo "echo -n \"This script will restore \${BACKUPS} backups. Are you sure?[y/n] \"" >> ./${BACKUPS}/${RESTOREFILE}
+echo "read INPUTS" >> ./${BACKUPS}/${RESTOREFILE}
+echo "if [ \${INPUTS} = \"n\" ]; then" >> ./${BACKUPS}/${RESTOREFILE}
+echo "  exit 1" >> ./${BACKUPS}/${RESTOREFILE}
+echo "fi" >> ./${BACKUPS}/${RESTOREFILE}
+echo "echo \"\"" >> ./${BACKUPS}/${RESTOREFILE}
 
 
 echo ""
@@ -91,9 +93,9 @@ mysqldump -u ${DBUSER} -p$PASSWORD jol >> ./${BACKUPS}/jol.sql
 mysql -u ${DBUSER} -p${PASSWORD} jol < ${SQLFILE}
 rm ${SQLFILE}
 #for restoring
-echo "DBUSER=\$(sudo grep user /etc/mysql/debian.cnf|head -1|awk  '{print \$3}')" >> ./${BACKUPS}/restore.sh
-echo "PASSWORD=\$(sudo grep password /etc/mysql/debian.cnf|head -1|awk  '{print \$3}')" >> ./${BACKUPS}/restore.sh
-echo "mysql -u \${DBUSER} -p\${PASSWORD} jol < jol.sql" >> ./${BACKUPS}/restore.sh
+echo "DBUSER=\$(sudo grep user /etc/mysql/debian.cnf|head -1|awk  '{print \$3}')" >> ./${BACKUPS}/${RESTOREFILE}
+echo "PASSWORD=\$(sudo grep password /etc/mysql/debian.cnf|head -1|awk  '{print \$3}')" >> ./${BACKUPS}/${RESTOREFILE}
+echo "mysql -u \${DBUSER} -p\${PASSWORD} jol < jol.sql" >> ./${BACKUPS}/${RESTOREFILE}
 
 #Coping all problem images to server
 #current images backup
@@ -112,8 +114,8 @@ sudo chmod 755 /home/judge/src/web/upload/image
 sudo chown www-data:root -R /home/judge/src/web/upload/index.html
 sudo chmod 664 /home/judge/src/web/upload/index.html
 #for restoring
-echo "sudo rm -rf /home/judge/src/web/upload/*" >> ./${BACKUPS}/restore.sh
-echo "sudo tar zxvf ./upload/images.tar.gz -C /home/judge/src/web/upload/" >> ./${BACKUPS}/restore.sh
+echo "sudo rm -rf /home/judge/src/web/upload/*" >> ./${BACKUPS}/${RESTOREFILE}
+echo "sudo tar zxvf ./upload/images.tar.gz -C /home/judge/src/web/upload/" >> ./${BACKUPS}/${RESTOREFILE}
 
 #Coping all problem *.in & *.out data to server
 #current data backup
@@ -132,8 +134,8 @@ sudo chmod 755 /home/judge/data/*
 sudo chmod 711 /home/judge/data
 sudo chown www-data:judge /home/judge/data
 #for restoring
-echo "sudo rm -rf /home/judge/data" >> ./${BACKUPS}/restore.sh
-echo "sudo unzip ./data.zip -d /home/judge/" >> ./${BACKUPS}/restore.sh
+echo "sudo rm -rf /home/judge/data" >> ./${BACKUPS}/${RESTOREFILE}
+echo "sudo unzip ./data.zip -d /home/judge/" >> ./${BACKUPS}/${RESTOREFILE}
 
 #problem_add_page.php customizing for front, rear, bann, credits fields
 sudo mv -f /home/judge/src/web/admin/problem_add_page.php ./${BACKUPS}/admin/
@@ -142,7 +144,7 @@ sudo mv -f ./problem_add_page.php /home/judge/src/web/admin/
 sudo chown www-data:root /home/judge/src/web/admin/problem_add_page.php
 sudo chmod 664 /home/judge/src/web/admin/problem_add_page.php
 #for restoring
-echo "sudo cp -f ./admin/problem_add_page.php /home/judge/src/web/admin/" >> ./${BACKUPS}/restore.sh
+echo "sudo cp -f ./admin/problem_add_page.php /home/judge/src/web/admin/" >> ./${BACKUPS}/${RESTOREFILE}
 
 #problem_add.php customizing for front, rear, bann, credits fields
 sudo mv -f /home/judge/src/web/admin/problem_add.php ./${BACKUPS}/admin/
@@ -151,7 +153,7 @@ sudo mv -f ./problem_add.php /home/judge/src/web/admin/
 sudo chown www-data:root /home/judge/src/web/admin/problem_add.php
 sudo chmod 664 /home/judge/src/web/admin/problem_add.php
 #for restoring
-echo "sudo cp -f ./admin/problem_add.php /home/judge/src/web/admin/" >> ./${BACKUPS}/restore.sh
+echo "sudo cp -f ./admin/problem_add.php /home/judge/src/web/admin/" >> ./${BACKUPS}/${RESTOREFILE}
 
 #problem_edit.php customizing for front, rear, bann, credits fields
 sudo mv -f /home/judge/src/web/admin/problem_edit.php ./${BACKUPS}/admin/
@@ -160,7 +162,7 @@ sudo mv -f ./problem_edit.php /home/judge/src/web/admin/
 sudo chown www-data:root /home/judge/src/web/admin/problem_edit.php
 sudo chmod 664 /home/judge/src/web/admin/problem_edit.php
 #for restoring
-echo "sudo cp -f ./admin/problem_edit.php /home/judge/src/web/admin/" >> ./${BACKUPS}/restore.sh
+echo "sudo cp -f ./admin/problem_edit.php /home/judge/src/web/admin/" >> ./${BACKUPS}/${RESTOREFILE}
 
 #problem_export_xml.php customizing for front, rear, bann, credits fields
 sudo mv -f /home/judge/src/web/admin/problem_export_xml.php ./${BACKUPS}/admin/
@@ -169,7 +171,7 @@ sudo mv -f ./problem_export_xml.php /home/judge/src/web/admin/
 sudo chown www-data:root /home/judge/src/web/admin/problem_export_xml.php
 sudo chmod 664 /home/judge/src/web/admin/problem_export_xml.php
 #for restoring
-echo "sudo cp -f ./admin/problem_export_xml.php /home/judge/src/web/admin/" >> ./${BACKUPS}/restore.sh
+echo "sudo cp -f ./admin/problem_export_xml.php /home/judge/src/web/admin/" >> ./${BACKUPS}/${RESTOREFILE}
 
 #problem_export.php customizing for front, rear, bann, credits fields
 sudo mv -f /home/judge/src/web/admin/problem_export.php ./${BACKUPS}/admin/
@@ -178,7 +180,7 @@ sudo mv -f ./problem_export.php /home/judge/src/web/admin/
 sudo chown www-data:root /home/judge/src/web/admin/problem_export.php
 sudo chmod 664 /home/judge/src/web/admin/problem_export.php
 #for restoring
-echo "sudo cp -f ./admin/problem_export.php /home/judge/src/web/admin/" >> ./${BACKUPS}/restore.sh
+echo "sudo cp -f ./admin/problem_export.php /home/judge/src/web/admin/" >> ./${BACKUPS}/${RESTOREFILE}
 
 #problem_import_xml.php customizing for front, rear, bann, credits fields
 sudo mv -f /home/judge/src/web/admin/problem_import_xml.php ./${BACKUPS}/admin/
@@ -187,7 +189,7 @@ sudo mv -f ./problem_import_xml.php /home/judge/src/web/admin/
 sudo chown www-data:root /home/judge/src/web/admin/problem_import_xml.php
 sudo chmod 664 /home/judge/src/web/admin/problem_import_xml.php
 #for restoring
-echo "sudo cp -f ./admin/problem_import_xml.php /home/judge/src/web/admin/" >> ./${BACKUPS}/restore.sh
+echo "sudo cp -f ./admin/problem_import_xml.php /home/judge/src/web/admin/" >> ./${BACKUPS}/${RESTOREFILE}
 
 #problem_import.php customizing for front, rear, bann, credits fields
 sudo mv -f /home/judge/src/web/admin/problem_import.php ./${BACKUPS}/admin/
@@ -196,7 +198,7 @@ sudo mv -f ./problem_import.php /home/judge/src/web/admin/
 sudo chown www-data:root /home/judge/src/web/admin/problem_import.php
 sudo chmod 664 /home/judge/src/web/admin/problem_import.php
 #for restoring
-echo "sudo cp -f ./admin/problem_import.php /home/judge/src/web/admin/" >> ./${BACKUPS}/restore.sh
+echo "sudo cp -f ./admin/problem_import.php /home/judge/src/web/admin/" >> ./${BACKUPS}/${RESTOREFILE}
 
 #problem.php customizing for front, rear, bann, credits fields
 sudo mv -f /home/judge/src/web/include/problem.php ./${BACKUPS}/include/
@@ -205,7 +207,7 @@ sudo mv -f ./problem.php /home/judge/src/web/include/
 sudo chown www-data:root /home/judge/src/web/include/problem.php
 sudo chmod 664 /home/judge/src/web/include/problem.php
 #for restoring
-echo "sudo cp -f ./include/problem.php /home/judge/src/web/include/" >> ./${BACKUPS}/restore.sh
+echo "sudo cp -f ./include/problem.php /home/judge/src/web/include/" >> ./${BACKUPS}/${RESTOREFILE}
 
 #problem.php customizing for front, rear, bann, credits fields
 sudo mv -f /home/judge/src/web/template/bs3/problem.php ./${BACKUPS}/bs3/
@@ -214,7 +216,7 @@ sudo mv -f ./problem.php /home/judge/src/web/template/bs3/
 sudo chown www-data:root /home/judge/src/web/template/bs3/problem.php
 sudo chmod 644 /home/judge/src/web/template/bs3/problem.php
 #for restoring
-echo "sudo cp -f ./bs3/problem.php /home/judge/src/web/template/bs3/" >> ./${BACKUPS}/restore.sh
+echo "sudo cp -f ./bs3/problem.php /home/judge/src/web/template/bs3/" >> ./${BACKUPS}/${RESTOREFILE}
 
 #problem.php customizing for front, rear, bann, credits fields
 sudo mv -f /home/judge/src/web/template/bs3/submitpage.php ./${BACKUPS}/bs3/
@@ -223,7 +225,7 @@ sudo mv -f ./submitpage.php /home/judge/src/web/template/bs3/
 sudo chown www-data:root /home/judge/src/web/template/bs3/submitpage.php
 sudo chmod 644 /home/judge/src/web/template/bs3/submitpage.php
 #for restoring
-echo "sudo cp -f ./bs3/submitpage.php /home/judge/src/web/template/bs3/" >> ./${BACKUPS}/restore.sh
+echo "sudo cp -f ./bs3/submitpage.php /home/judge/src/web/template/bs3/" >> ./${BACKUPS}/${RESTOREFILE}
 
 #submit.php customizing for front, rear, bann, credits fields
 sudo mv -f /home/judge/src/web/submit.php ./${BACKUPS}/
@@ -232,7 +234,7 @@ sudo mv -f ./submit.php /home/judge/src/web/
 sudo chown www-data:root /home/judge/src/web/submit.php
 sudo chmod 644 /home/judge/src/web/submit.php
 #for restoring
-echo "sudo cp -f ./submit.php /home/judge/src/web/" >> ./${BACKUPS}/restore.sh
+echo "sudo cp -f ./submit.php /home/judge/src/web/" >> ./${BACKUPS}/${RESTOREFILE}
 
 clear
 
@@ -240,7 +242,7 @@ clear
 #HUSTOJ db_info.inc.php settings
 sudo cp /home/judge/src/web/include/db_info.inc.php ./${BACKUPS}/include/
 #for restoring
-echo "sudo cp -f ./include/db_info.inc.php /home/judge/src/web/include/" >> ./${BACKUPS}/restore.sh
+echo "sudo cp -f ./include/db_info.inc.php /home/judge/src/web/include/" >> ./${BACKUPS}/${RESTOREFILE}
 
 
 echo ""
@@ -288,7 +290,7 @@ done
 sudo cp /home/judge/etc/judge.conf ./${BACKUPS}/
 sudo sed -i "s/OJ_USE_MAX_TIME=0/OJ_USE_MAX_TIME=1/" /home/judge/etc/judge.conf
 #for restoring
-echo "sudo cp -f ./judge.conf /home/judge/etc/" >> ./${BACKUPS}/restore.sh
+echo "sudo cp -f ./judge.conf /home/judge/etc/" >> ./${BACKUPS}/${RESTOREFILE}
 
 
 #curl installation
@@ -313,11 +315,16 @@ sudo mv -f ./msg2.txt /home/judge/src/web/admin/msg.txt
 sudo chown www-data:root /home/judge/src/web/admin/msg.txt
 sudo chmod 644 /home/judge/src/web/admin/msg.txt
 #for restoring
-echo "sudo cp -f ./admin/msg.txt /home/judge/src/web/admin/" >> ./${BACKUPS}/restore.sh
-echo "clear" >> ./${BACKUPS}/restore.sh
-echo "echo \"\"" >> ./${BACKUPS}/restore.sh
-echo "echo \"HUSTOJ ${BACKUPS} successfully restored!\"" >> ./${BACKUPS}/restore.sh 
-echo "echo \"\"" >> ./${BACKUPS}/restore.sh
+echo "sudo cp -f ./admin/msg.txt /home/judge/src/web/admin/" >> ./${BACKUPS}/${RESTOREFILE}
+echo "clear" >> ./${BACKUPS}/${RESTOREFILE}
+echo "echo \"\"" >> ./${BACKUPS}/${RESTOREFILE}
+echo "echo \"HUSTOJ ${BACKUPS} successfully restored!\"" >> ./${BACKUPS}/${RESTOREFILE} 
+echo "echo \"\"" >> ./${BACKUPS}/${RESTOREFILE}
+
+
+#phpmyadmin install script
+
+#HUSTOJ backup script
 
 
 clear
