@@ -56,11 +56,12 @@ mkdir ${BACKUPS}/upload/
 
 cp ${THISFILE} ./${BACKUPS}/
 touch ./${BACKUPS}/restore.sh
+echo "clear" >> ./${BACKUPS}/restore.sh
 echo "if [[ \$SUDO_USER ]] ; then" >> ./${BACKUPS}/restore.sh
 echo "  echo \"Just use 'bash restore.sh'\"" >> ./${BACKUPS}/restore.sh
 echo "  exit 1" >> ./${BACKUPS}/restore.sh
 echo "fi" >> ./${BACKUPS}/restore.sh
-echo "" >> ./${BACKUPS}/restore.sh
+echo "echo \"\"" >> ./${BACKUPS}/restore.sh
 echo "echo \"---- CSL(Computer Science teachers's computer science Love) ----\"" >> ./${BACKUPS}/restore.sh
 echo "echo \"\"" >> ./${BACKUPS}/restore.sh
 echo "INPUTS=\"n\"" >> ./${BACKUPS}/restore.sh
@@ -69,7 +70,7 @@ echo "read INPUTS" >> ./${BACKUPS}/restore.sh
 echo "if [ \${INPUTS} = \"n\" ]; then" >> ./${BACKUPS}/restore.sh
 echo "  exit 1" >> ./${BACKUPS}/restore.sh
 echo "fi" >> ./${BACKUPS}/restore.sh
-echo "" >> ./${BACKUPS}/restore.sh
+echo "echo \"\"" >> ./${BACKUPS}/restore.sh
 
 
 echo ""
@@ -321,9 +322,10 @@ sudo chown www-data:root /home/judge/src/web/admin/msg.txt
 sudo chmod 644 /home/judge/src/web/admin/msg.txt
 #for restoring
 echo "sudo cp -f ./admin/msg.txt /home/judge/src/web/admin/" >> ./${BACKUPS}/restore.sh
-echo "echo \"HUSTOJ \${BACKUPS} restored!\"" >> ./${BACKUPS}/restore.sh 
-echo "" >> ./${BACKUPS}/restore.sh
 
+echo "echo \"\"" >> ./${BACKUPS}/restore.sh
+echo "echo \"HUSTOJ \${BACKUPS} succesfully restored!\"" >> ./${BACKUPS}/restore.sh 
+echo "echo \"\"" >> ./${BACKUPS}/restore.sh
 
 
 clear
