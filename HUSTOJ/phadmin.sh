@@ -44,7 +44,7 @@ while [ ${PANAME} != ${INPUTS} ]; do
 done
 
 #phpmyadmin installation
-if [ -f /usr/share/phpmyadmin ]; then
+if [ -d "/usr/share/phpmyadmin" ]; then
   echo ""
   echo "phpmyadmin already installed!"
   PANAME=$(sudo find /home/judge/src/web/ -maxdepth 1 -type l -print | cut -d"/" -f6)
