@@ -53,7 +53,7 @@ bash restore.sh
 
 #HUSTOJ를 위한 phpmyadmin 설치   
 #필요한 경우(예시: DB 확인 및 수정, sql 입력 실행 등) phpmyadim 을 설치할 수 있습니다.   
-#아래명령을실행하면,   
+#아래 명령을 실행하면,   
 #HUSTOJ의 DB에 접근할 수 있는 phpmyadmin 을 설치합니다.   
 <pre><code>
 bash phadmin00.sh
