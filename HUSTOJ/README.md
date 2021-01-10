@@ -31,12 +31,13 @@
 #HUSTOJ 백업용 스크립트와 HUSTOJ를 위한 phpmyadmin 설치 스크립트도 함께 다운로드 됩니다.   
 <pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj210110.sh
+
 sudo bash hustoj210110.sh
 </code></pre>
 
 #HUSTOJ 백업   
 #아래 명령을 실행하면,   
-#사용자 계정의 디렉토리에 백업데이터 디렉토리를 생성하고, HUSTOJ 백업데이터와 복구스크립트를 생성합니다.
+#사용자 계정의 디렉토리에 백업데이터 디렉토리를 생성하고, HUSTOJ 백업데이터와 복구스크립트를 생성합니다.   
 #백업데이터 디렉토리 예시:202101100900b   
 <pre><code>
 bash backup00.sh
@@ -50,7 +51,7 @@ bash backup00.sh
 bash restore.sh
 </code></pre>
 
-#HUSTOJ를 위한 phpmyadmin 설치
+#HUSTOJ를 위한 phpmyadmin 설치   
 #필요한 경우(예시: DB 확인 및 수정, sql 입력 실행 등) phpmyadim 을 설치할 수 있습니다.   
 #아래명령을실행하면,   
 #HUSTOJ의 DB에 접근할 수 있는 phpmyadmin 을 설치합니다.   
