@@ -5,7 +5,7 @@
    
 ## Prerequisite   
 #### - 설치 전 필요 조건   
-#Ubuntu 20.04 LTS 운영체제가 AWS나 PC에 먼저 설치되어 있어야 합니다.   
+#Ubuntu 20.04 LTS 운영체제가 AWS 나 PC 에 먼저 설치되어 있어야 합니다.   
    
 #Ubuntu 20.04 LTS Server  에서는 english 환경으로 설치해서 그대로 사용!   
 #Ubuntu 20.04 LTS Desktop 에서는 english 환경으로 설치하고 필요한 경우 한글 환경으로 바꾸되, 기본 폴더명(바탕화면 등)들은 영문! 그대로 유지!   
@@ -13,7 +13,7 @@
 ***
    
 ## Origin   
-#### - 각종 연구를 위해서 HUSTOJ를 사용하는 경우에는 출처와 레퍼런스를 정확히 기록해 주세요.   
+#### - 각종 연구를 위해서 HUSTOJ 를 사용하는 경우에는 출처와 레퍼런스를 정확히 기록해 주세요.   
 #본 깃허브의 원본 자료는 zhblue 의 HUSTOJ 이며, 그 전에는 googlecode, svn 등을 거쳐왔습니다.   
    
 #zhblue 의 HUSTOJ      
@@ -29,7 +29,7 @@
 ## HUSTOJ 설치
 #### - HUSTOJ 한국어환경/시간 설치   
 #아래 명령을 실행하면,   
-#HUSTOJ 백업용 스크립트와 HUSTOJ를 위한 phpmyadmin 설치 스크립트도 함께 다운로드 됩니다.   
+#HUSTOJ 백업용 스크립트와 HUSTOJ 를 위한 phpmyadmin 설치 스크립트도 함께 다운로드 됩니다.   
 <pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj210110.sh
 
@@ -86,7 +86,7 @@ bash phadmin00.sh
 #하지만, 정보 교과 이외의 교사들에 대한 부전공/복수전공 자격 연수 등을 위한 사용은 절대로 원하지 않습니다.   
    
 #### - 이상의 내용에 대하여 모두 이해하고 동의하는 경우에는 ...   
-#### - 아래의 설치 스크립트를 사용해서 CSL 버전의 HUSTOJ를 설치할 수 있습니다.   
+#### - 아래의 설치 스크립트를 사용해서 CSL 버전의 HUSTOJ 를 설치할 수 있습니다.   
    
 <pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100210110.sh
