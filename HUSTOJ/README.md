@@ -8,8 +8,7 @@
 #Ubuntu 20.04 LTS 운영체제가 AWS나 PC에 먼저 설치되어 있어야 합니다.   
    
 #Ubuntu 20.04 LTS Server  에서는 english 환경으로 설치해서 그대로 사용!   
-#Ubuntu 20.04 LTS Desktop 에서는 english 환경으로 설치해서 ...   
-#필요한 경우 한글 환경으로 바꾸되, 기본 폴더명(바탕화면 등)들은 영문! 그대로 유지!   
+#Ubuntu 20.04 LTS Desktop 에서는 english 환경으로 설치하고 필요한 경우 한글 환경으로 바꾸되, 기본 폴더명(바탕화면 등)들은 영문! 그대로 유지!   
    
 ***
    
