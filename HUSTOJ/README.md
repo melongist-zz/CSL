@@ -26,7 +26,7 @@
    
 ***   
    
-## HUSTOJ 설치
+## HUSTOJ   
 #### - HUSTOJ 한국어환경/시간 설치   
 #아래 명령을 실행하면,   
 #HUSTOJ 백업용 스크립트와 HUSTOJ 를 위한 phpmyadmin 설치 스크립트도 함께 다운로드 됩니다.   
