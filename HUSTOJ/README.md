@@ -36,7 +36,7 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj210110.
 sudo bash hustoj210110.sh
 </code></pre>
 
-#HUSTOJ 백업   
+#### HUSTOJ 백업   
 #아래 명령을 실행하면,   
 #사용자 계정의 디렉토리에 백업데이터 디렉토리를 생성하고, HUSTOJ 백업데이터와 복구스크립트를 생성합니다.   
 #백업데이터 디렉토리 예시:202101100900b   
@@ -44,7 +44,7 @@ sudo bash hustoj210110.sh
 bash backup00.sh
 </code></pre>
    
-#HUSTOJ 복원   
+#### HUSTOJ 복원   
 #백업데이터 디렉토리 안에 생성되어 있는 스크립트에 대해서   
 #아래 명령을 실행하면,   
 #백업이 만들어진 시점으로 HUSTOJ를 복구합니다.   
@@ -52,7 +52,7 @@ bash backup00.sh
 bash restore.sh
 </code></pre>
 
-#HUSTOJ를 위한 phpmyadmin 설치   
+#### HUSTOJ 용 phpmyadmin 설치   
 #필요한 경우(예시: DB 확인 및 수정, sql 입력 실행 등) phpmyadim 을 설치할 수 있습니다.   
 #아래 명령을 실행하면,   
 #HUSTOJ의 DB에 접근할 수 있는 phpmyadmin 을 설치합니다.   
@@ -85,8 +85,8 @@ bash phadmin00.sh
 #단, 컴퓨터교육과 학부생/대학원생에 대한 수업과 정보 교과 교수학습 연구를 위해서는 자유롭게 사용할 수 있습니다.   
 #하지만, 정보 교과 이외의 교사들에 대한 부전공/복수전공 자격 연수 등을 위한 사용은 절대로 원하지 않습니다.   
    
-#이상의 내용에 대하여 모두 이해하고 동의하는 경우에는 ...   
-#아래의 설치 스크립트를 사용해서 CSL 버전의 HUSTOJ를 설치할 수 있습니다.      
+#### 이상의 내용에 대하여 모두 이해하고 동의하는 경우에는 ...   
+#### 아래의 설치 스크립트를 사용해서 CSL 버전의 HUSTOJ를 설치할 수 있습니다.   
    
 <pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100210110.sh
