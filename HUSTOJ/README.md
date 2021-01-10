@@ -4,7 +4,7 @@
 ***
    
 ## Prerequisite   
-#설치 전 필요 조건   
+#### 설치 전 필요 조건   
 #Ubuntu 20.04 LTS 운영체제가 AWS나 PC에 먼저 설치되어 있어야 합니다.   
    
 #Ubuntu 20.04 LTS Server  에서는 english 환경으로 설치해서 그대로 사용!   
@@ -15,7 +15,8 @@
    
 ## Origin   
 #### 각종 연구활동을 위해서 HUSTOJ를 사용하는 경우, 반드시 원래의 출처와 레퍼런스를 정확히 기록해 주세요.   
-#이 깃허브 자료의 이전 출처는 zhblue 의 HUSTOJ 이며, 그 전에는 googlecode, svn, 등을 거쳐왔습니다.   
+#이 깃허브 자료의 이전 출처는 zhblue 의 HUSTOJ 이며, 그 전에는 googlecode, svn 등을 거쳐왔습니다.   
+   
 #아래 링크를 참조해주세요.   
 <https://github.com/zhblue/hustoj>   
    
@@ -26,8 +27,9 @@
    
 ***
          
-## HUSTOJ 한국어 환경 설치
-#HUSTOJ 한국어/시간 설치   
+## HUSTOJ 설치
+#### HUSTOJ 한국어환경/시간 설치   
+#아래 명령을 실행하면,   
 #HUSTOJ 백업용 스크립트와 HUSTOJ를 위한 phpmyadmin 설치 스크립트도 함께 다운로드 됩니다.   
 <pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj210110.sh
