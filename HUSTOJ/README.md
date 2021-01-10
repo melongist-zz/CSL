@@ -52,7 +52,7 @@ bash backup00.sh
 bash restore.sh
 </code></pre>
 
-#### - HUSTOJ 용 phpmyadmin 설치 
+#### - HUSTOJ 용 phpmyadmin 설치   
 #필요한 경우(예시: DB 확인 및 수정, sql 입력 실행 등) phpmyadmin 을 설치할 수 있습니다.   
 #아래 명령을 실행하면,   
 #HUSTOJ 의 DB 에 접근할 수 있는 phpmyadmin 을 설치해서 사용할 수 있습니다.   
@@ -86,7 +86,7 @@ bash phadmin00.sh
    
 #### - 이상의 내용에 대하여 모두 이해하고 동의하는 경우에는 ...   
 #### - 아래의 설치 스크립트를 사용해서 CSL 버전의 HUSTOJ 를 설치할 수 있습니다.   
-   
+#설치시 백업도 함께 생성되고, 설치 이전 상태로 복구시킬 수도 있습니다.   
 <pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100210110.sh
    
