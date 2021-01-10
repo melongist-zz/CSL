@@ -47,7 +47,7 @@ bash backup00.sh
    
 #### - HUSTOJ 복원   
 #백업데이터 디렉토리 안에 생성되어 있는 아래 스크립트를 실행하면,   
-#백업이 만들어진 시점으로 HUSTOJ를 복구합니다.   
+#백업이 만들어진 시점으로 HUSTOJ 를 복구합니다.   
 <pre><code>
 bash restore.sh
 </code></pre>
