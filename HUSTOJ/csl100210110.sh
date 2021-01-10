@@ -311,7 +311,7 @@ clear
 #Removing QR codes + CSL link
 sudo mv -f /home/judge/src/web/template/bs3/js.php ./${BACKUPS}/bs3/
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/js2.php
-mv -f ./js2.php /home/judge/src/web/template/bs3/js.php
+sudo mv -f ./js2.php /home/judge/src/web/template/bs3/js.php
 chown www-data:${SUDO_USER} /home/judge/src/web/template/bs3/js.php
 chmod 664 /home/judge/src/web/template/bs3/js.php
 #for restoring
