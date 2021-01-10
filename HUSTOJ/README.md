@@ -89,7 +89,7 @@ bash phadmin00.sh
 <pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csl100210110.sh
    
-bash csl100210107.sh
+bash csl100210110.sh
 </code></pre>
    
 ***   
