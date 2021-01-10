@@ -182,8 +182,8 @@ sed -i "s/OJ_LANG=\"en\"/OJ_LANG=\"ko\"/" /home/judge/src/web/include/db_info.in
 sed -i "s/zh_CN.js/ko.js/" /home/judge/src/web/admin/kindeditor.php
 
 #Removing QR codes + CSL link
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/js.php
-mv -f ./js.php /home/judge/src/web/template/bs3/
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/js1.php
+mv -f ./js1.php /home/judge/src/web/template/bs3/js.php
 chown www-data:${SUDO_USER} /home/judge/src/web/template/bs3/js.php
 chmod 664 /home/judge/src/web/template/bs3/js.php
 

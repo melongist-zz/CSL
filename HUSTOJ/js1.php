@@ -40,7 +40,7 @@ $(document).ready(function(){
   $("#csrf").load("<?php echo $path_fix?>csrf.php");
 
 //CSL 추가
-  $("body").append("<div id=footer class=center >Supported by CSL "+(new Date()).getFullYear()+" </div>"); //추가
+  $("body").append("<div id=footer class=center ><h6>HUSTOJ <small>(release 21.01.07)</small></h6></div>"); //추가
   
   $("body").append("<div id=footer class=center >GPLv2 licensed by <a href='https://github.com/zhblue/hustoj' >HUSTOJ</a> "+(new Date()).getFullYear()+" </div>");
 //CSL 삭제
