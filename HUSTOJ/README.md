@@ -1,5 +1,5 @@
 ## Ver   
-#### - 최종 갱신 : Ver 21.01.10   
+#### - 최종 갱신 : Ver 21.01.12   
    
 ***   
    
@@ -37,7 +37,7 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj210110.
 sudo bash hustoj210110.sh
 </code></pre>
 
-#### - HUSTOJ 백업   
+#### - HUSTOJ 백업(기능 갱신중)   
 #아래 명령을 실행하면,   
 #백업데이터 디렉토리를 생성하고, HUSTOJ 백업데이터와 복구스크립트를 생성합니다.   
 #생성되는 백업데이터 디렉토리 예시:202101100900b   
@@ -45,7 +45,7 @@ sudo bash hustoj210110.sh
 bash backup00.sh
 </code></pre>
    
-#### - HUSTOJ 복원   
+#### - HUSTOJ 복원(기능 갱신중)   
 #백업데이터 디렉토리 안에 생성되어 있는 아래 스크립트를 실행하면,   
 #백업이 만들어진 시점으로 HUSTOJ 를 복구합니다.   
 <pre><code>
