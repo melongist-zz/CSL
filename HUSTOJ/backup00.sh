@@ -55,7 +55,7 @@ echo "echo \"\"" >> ./${BACKUPS}/${RESTOREFILE}
 echo "echo \"---- CSL(Computer Science teachers's computer science Love) ----\"" >> ./${BACKUPS}/${RESTOREFILE}
 echo "echo \"\"" >> ./${BACKUPS}/${RESTOREFILE}
 echo "INPUTS=\"n\"" >> ./${BACKUPS}/${RESTOREFILE}
-echo "echo -n \"This script will restore \${BACKUPS} backups. Are you sure?[y/n] \"" >> ./${BACKUPS}/${RESTOREFILE}
+echo "echo -n \"This script will restore ${BACKUPS} backups. Are you sure?[y/n] \"" >> ./${BACKUPS}/${RESTOREFILE}
 echo "read INPUTS" >> ./${BACKUPS}/${RESTOREFILE}
 echo "if [ \${INPUTS} = \"n\" ]; then" >> ./${BACKUPS}/${RESTOREFILE}
 echo "  exit 1" >> ./${BACKUPS}/${RESTOREFILE}
@@ -90,7 +90,7 @@ echo "sudo tar zxvf ./upload/images.tar.gz -C /home/judge/src/web/upload/" >> ./
 #c.f. : how to backup test files from HUSTOJ for CSL
 #directory : /home/judge/
 #command   : sudo zip -r data.zip ./data
-sudo zip -r ./${BACKUPS}/data.zip /home/judge/data
+sudo zip -r ./${BACKUPS}/data.zip /home/judge/data/*
 #for restoring
 echo "sudo rm -rf /home/judge/data" >> ./${BACKUPS}/${RESTOREFILE}
 echo "sudo unzip ./data.zip -d /home/judge/" >> ./${BACKUPS}/${RESTOREFILE}
