@@ -88,7 +88,7 @@ DBUSER=$(sudo grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 PASSWORD=$(sudo grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 #current mysql backup
 #c.f. : how to backup from HUSTOJ for CSL :> mysqldump -u debian-sys-maint -p jol > jol.sql
-mysqldump -u ${DBUSER} -p$PASSWORD jol >> ./${BACKUPS}/jol.sql
+mysqldump -u ${DBUSER} -p$PASSWORD jol > ./${BACKUPS}/jol.sql
 #overwrting
 mysql -u ${DBUSER} -p${PASSWORD} jol < ${SQLFILE}
 rm ${SQLFILE}
