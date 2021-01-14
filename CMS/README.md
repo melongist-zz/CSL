@@ -40,10 +40,13 @@ bash cms150dev2.sh
 (It takes about 1 hour ... with full problem data ... )   
    
 1. First of all   
-  1.1 start admin web server  
-    terminal command : cmsAdminWebServer.    
-  1.2 login admin/pw  
+  1.1 make admin  
+    `cmsAddAdmin -p <password> <username>`   
+  1.2 start admin web server  
+    `cmsAdminWebServer.`   
+  1.3 login admin/pw  
     web page : http://localhost:8889   
+    the port number can be configured in cms.conf  
    
 2. Make contest    
   2.0 with cmsAdminWebServer page   
@@ -58,9 +61,9 @@ bash cms150dev2.sh
    
 3. Run ResourceServices   
   3.1 start resource services ?? run with other terminal ...    
-    terminal command : cmsResourceService -a   
+    `cmsResourceService -a`   
    
 4. Run cmsRankingWebServer    
   4.1 start cmsRankingWebServer service ?? run with other terminal ...   
-    terminal command : cmsRankingWebServer     
+    `cmsRankingWebServer`     
    
