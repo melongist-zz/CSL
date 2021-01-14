@@ -1,11 +1,11 @@
 #!/bin/bash
-#CSL Basic 100s problems installation script for HUSTOJ
+#CSL HUSTOJ
 #Made by melongist(what_is_computer@msn.com)
 #for CSL Computer Science teacher
 
 VER_DATE="2021.01.14"
 
-THISFILE="csl100210114.sh"
+THISFILE="csloj210114.sh"
 SRCZIP="hustoj210107.zip"
 
 RESTOREFILE="restore.sh"
@@ -14,6 +14,16 @@ SQLFILE="csl100v05jol.sql"
 IMGFILE="csl100v01image.tar.gz"
 DATAFILE="csl100v06data.zip"
 
+
+clear
+
+#for South Korea's timezone
+timedatectl set-timezone 'Asia/Seoul'
+
+apt update
+apt -y install subversion
+apt -y install zip
+apt -y install unzip
 
 clear
 
@@ -29,13 +39,6 @@ fi
 
 cd
 
-#for South Korea's timezone
-timedatectl set-timezone 'Asia/Seoul'
-
-apt update
-apt -y install subversion
-apt -y install zip
-apt -y install unzip
 
 /usr/sbin/useradd -m -u 1536 judge
 cd /home/judge/ || exit
