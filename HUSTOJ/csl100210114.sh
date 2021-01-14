@@ -6,6 +6,8 @@
 VER_DATE="2021.01.14"
 
 THISFILE="csl100210114.sh"
+SRCZIP="hustoj210107.zip"
+
 RESTOREFILE="restore.sh"
 
 SQLFILE="csl100v05jol.sql"
