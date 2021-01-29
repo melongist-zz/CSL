@@ -29,13 +29,14 @@ apt -y install unzip
 #uninstall
 apt -y remove phpmyadmin
 apt -y purge phpmyadmin
-apt -y purge php7.* php-common
+apt -y purge php7.* php-*
 apt -y remove nginx
 apt -y purge nginx
 apt -y purge mysql-server mysql-common
 rm -rf /var/lib/mysql/
 rm -rf /etc/mysql/
 rm -rf /var/log/mysql
+rm -rf /etc/php
 deluser --remove-home mysql
 deluser --remove-home judge
 apt -y autoremove
