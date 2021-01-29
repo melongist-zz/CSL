@@ -29,7 +29,7 @@ apt -y install unzip
 #uninstall
 apt -y remove phpmyadmin
 apt -y purge phpmyadmin
-apt -y purge php php-common
+apt -y purge php7.* php-common
 apt -y remove nginx
 apt -y purge nginx
 apt -y purge mysql-server mysql-common
