@@ -32,7 +32,7 @@ apt -y purge phpmyadmin
 apt -y purge php7.* php-*
 apt -y remove nginx
 apt -y purge nginx
-apt -y purge mysql-server mysql-common
+apt -y purge mysql-*
 rm -rf /var/lib/mysql/
 rm -rf /etc/mysql/
 rm -rf /var/log/mysql
