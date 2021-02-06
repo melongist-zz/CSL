@@ -1,5 +1,5 @@
 ## Ver   
-#### - 최종 갱신 : Ver 21.02.05   
+#### - 최종 갱신 : Ver 21.02.06   
    
 ***   
    
@@ -32,9 +32,9 @@
 #아래 명령을 실행하면,   
 #한글 환경과 한국 시간으로 맞추어 HUSTOJ 를 설치합니다.   
 <pre><code>
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj210205.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj210206.sh
 
-sudo bash hustoj210205.sh
+sudo bash hustoj210206.sh
 </code></pre>
   
 ***   
@@ -64,9 +64,9 @@ sudo bash hustoj210205.sh
 #### - 아래의 설치 스크립트를 사용해서 CSL 버전의 HUSTOJ 를 설치할 수 있습니다.   
    
 <pre><code>
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csloj210205.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csloj210206.sh
    
-sudo bash csloj210205.sh
+sudo bash csloj210206.sh
 </code></pre>
    
 ***   
