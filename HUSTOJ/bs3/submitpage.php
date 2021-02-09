@@ -69,7 +69,7 @@
             </select>
           </span>
           <?php if($OJ_ACE_EDITOR){ ?>
-            <pre style="width:80%;height:600;font-size:13pt" cols=180 rows=20 id="source"><?php if ($view_src=="") { if ($language_name[$lastlang]=="C" || $language_name[$lastlang]=="C++") {echo " \n\n//제출할 프로그래밍언어 종류를 먼저 선택한 후\n//작성한 코드를 붙여넣고 아래에서 제출 버튼을 누르세요.\n\n//코드 복사하기: 코드 편집기 클릭 - 전체선택(Ctrl+a) - 복사하기(Ctrl+c)\n//코드 붙여넣기:   이 편집창 클릭 - 전체선택(Ctrl+a) - 붙여넣기(Ctrl+v)";} if ($language_name[$lastlang]=="Python") {echo " \n\n#제출할 프로그래밍언어 종류를 먼저 선택한 후\n#작성한 코드를 붙여넣고 아래에서 제출 버튼을 누르세요.\n\n#코드 복사하기: 코드 편집기 클릭 - 전체선택(Ctrl+a) - 복사하기(Ctrl+c)\n#코드 붙여넣기:   이 편집창 클릭 - 전체선택(Ctrl+a) - 붙여넣기(Ctrl+v)";} } else {echo htmlentities($view_src,ENT_QUOTES,"UTF-8");}?></pre>
+            <pre style="width:80%;height:600;font-size:13pt" cols=180 rows=20 id="source"><?php if ($view_src=="") { if ($language_name[$lastlang]=="C" || $language_name[$lastlang]=="C++") {echo "\n\n//제출할 프로그래밍언어 종류를 먼저 선택한 후\n//작성한 코드를 붙여넣고 아래에서 제출 버튼을 누르세요.\n\n//코드 복사하기: 코드 편집기 클릭 - 전체선택(Ctrl+a) - 복사하기(Ctrl+c)\n//코드 붙여넣기:   이 편집창 클릭 - 전체선택(Ctrl+a) - 붙여넣기(Ctrl+v)";} if ($language_name[$lastlang]=="Python") {echo "\n\n#제출할 프로그래밍언어 종류를 먼저 선택한 후\n#작성한 코드를 붙여넣고 아래에서 제출 버튼을 누르세요.\n\n#코드 복사하기: 코드 편집기 클릭 - 전체선택(Ctrl+a) - 복사하기(Ctrl+c)\n#코드 붙여넣기:   이 편집창 클릭 - 전체선택(Ctrl+a) - 붙여넣기(Ctrl+v)";} } else {echo htmlentities($view_src,ENT_QUOTES,"UTF-8");}?></pre>
             <input type=hidden id="hide_source" name="source" value=""/>
           <?php }else{ ?>
             <textarea style="width:80%;height:600" cols=180 rows=20 id="source" name="source"> <?php echo htmlentities($view_src,ENT_QUOTES,"UTF-8")?></textarea>
