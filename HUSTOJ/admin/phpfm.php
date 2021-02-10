@@ -431,7 +431,7 @@ function et($tag){
     $cn['RenderTime'] = '页面执行时间';
     $cn['Seconds'] = '秒';
     $cn['ErrorReport'] = '错误报告';
-    $en['Random-data'] = '随机测试数据生成器';
+    $cn['Random-data'] = '随机测试数据生成器';
 
     // Portuguese by - Fabricio Seger Kolling
     $pt['Version'] = 'Versão';
@@ -776,6 +776,8 @@ function et($tag){
     $ko['Timezone'] = '시간대';
     $ko['Stop'] = '정지';
     $ko['Login'] = '로그인';
+    $ko['Random-data'] = '랜덤 데이터 생성기';
+
 
     // German - by Guido Ogrzal
     $de1['Version'] = 'Version';
@@ -3443,7 +3445,6 @@ function dir_list_form() {
             <td bgcolor=\"#DDDDDD\" colspan=50><nobr>
             <input type=button onclick=\"test_prompt(2)\" value=\"".et('CreateArq')."\">
             <input type=button onclick=\"upload()\" value=\"".et('Upload')."\">
-            <b>$ip</b>
             <b><a href='https://muzea-demo.github.io/random-data/' target='_blank'>".et('Random-data')."</a></b>
             </nobr>";
         $uplink = "";
