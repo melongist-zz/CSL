@@ -44,7 +44,7 @@ sudo nginx -t
 sudo systemctl restart nginx
 
 
-sudo apt install php-common php-iconv php-curl php-mbstring php-xmlrpc php-soap php-zip php-gd php-xml php-intl php-json libpcre3 libpcre3-dev graphviz aspell ghostscript clamav
+sudo apt install -y php-common php-iconv php-curl php-mbstring php-xmlrpc php-soap php-zip php-gd php-xml php-intl php-json libpcre3 libpcre3-dev graphviz aspell ghostscript clamav
 
 wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodledb.sql
 sudo mysql -u root -p < moodledb.sql
@@ -62,7 +62,7 @@ sudo chown www-data:www-data -R  /var/moodledata
 
 
 #curl installation
-sudo apt -y install curl
+sudo apt install -y curl
 
 #Identifing AWS Ubuntu 20.04 LTS
 if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]; then
