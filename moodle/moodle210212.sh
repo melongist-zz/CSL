@@ -60,12 +60,26 @@ sudo mkdir -p /var/moodledata
 sudo chmod 775 -R /var/moodledata
 sudo chown www-data:www-data -R  /var/moodledata
 
+
+#curl installation
+sudo apt -y install curl
+
+#Identifing AWS Ubuntu 20.04 LTS
+if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]; then
+  SERVERTYPES="AWS SERVER"
+  IPADDRESS=($(curl http://checkip.amazonaws.com))
+else
+  SERVERTYPES="LOCAL SERVER"
+  IPADDRESS=($(hostname -I))
+fi
+
+
 sudo cp /var/www/html/moodle/config-dist.php /var/www/html/moodle/config.php
 
 sudo sed -i "s/$CFG->dbtype    = 'pgsql';/$CFG->dbtype    = 'mariadb';/" /var/www/html/moodle/config.php
 sudo sed -i "s/$CFG->dbuser    = 'username';/$CFG->dbuser    = 'moodleadmin';/" /var/www/html/moodle/config.php
 sudo sed -i "s/$CFG->dbpass    = 'password';/$CFG->dbpass    = 'Secur3P@zzwd';/" /var/www/html/moodle/config.php
-sudo sed -i "s/$CFG->wwwroot   = 'http:\/\/example.com\/moodle';/$CFG->wwwroot   = 'http:\/\/learning.codestart.kr\/moodle';/" /var/www/html/moodle/config.php
+sudo sed -i "s/$CFG->wwwroot   = 'http:\/\/example.com\/moodle';/$CFG->wwwroot   = 'http:\/\/${IPADDRESS[0]}\/moodle';/" /var/www/html/moodle/config.php
 sudo sed -i "s/$CFG->dataroot  = '\/home\/example\/moodledata';/$CFG->dataroot  = '\/var\/moodledata';/" /var/www/html/moodle/config.php
 
 wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle.conf
