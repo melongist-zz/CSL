@@ -30,11 +30,19 @@ sudo systemctl is-enabled mariadb
 
 sudo mysql_secure_installation
 
-#sudo mysql -u root -p
-
-
 sudo apt install -y php php-mysql php-fpm
 sudo systemctl is-enabled php7.4-fpm
+
+
+sudo sed -i "s:index index.html:index index.php index.html:g" /etc/nginx/sites-enabled/default
+sudo sed -i "s:#location ~ \\\.php\\$:location ~ \\\.php\\$:g" /etc/nginx/sites-enabled/default
+sudo sed -i "s:#\tinclude snippets:\tinclude snippets:g" /etc/nginx/sites-enabled/default
+sudo sed -i "s|#\tfastcgi_pass unix|\tfastcgi_pass unix|g" /etc/nginx/sites-enabled/default
+sudo sed -i "s|# deny access to .htaccess files|}\n\n\n\t# deny access to .htaccess files|g" /etc/nginx/sites-enabled/default
+
+sudo nginx -t
+sudo systemctl restart nginx
+
 
 sudo apt install php-common php-iconv php-curl php-mbstring php-xmlrpc php-soap php-zip php-gd php-xml php-intl php-json libpcre3 libpcre3-dev graphviz aspell ghostscript clamav
 
@@ -52,16 +60,14 @@ sudo mkdir -p /var/moodledata
 sudo chmod 775 -R /var/moodledata
 sudo chown www-data:www-data -R  /var/moodledata
 
-cd /var/www/html/moodle/
-sudo cp config-dist.php config.php
+sudo cp /var/www/html/moodle/config-dist.php /var/www/html/moodle/config.php
 
 sudo sed -i "s/$CFG->dbtype    = 'pgsql';/$CFG->dbtype    = 'mariadb';/" /var/www/html/moodle/config.php
 sudo sed -i "s/$CFG->dbuser    = 'username';/$CFG->dbuser    = 'moodleadmin';/" /var/www/html/moodle/config.php
 sudo sed -i "s/$CFG->dbpass    = 'password';/$CFG->dbpass    = 'Secur3P@zzwd';/" /var/www/html/moodle/config.php
-sudo sed -i "s/$CFG->wwwroot   = 'http:\/\/example.com\/moodle';/$CFG->wwwroot   = 'http:\/\/learning.testprojects.me';/" /var/www/html/moodle/config.php
+sudo sed -i "s/$CFG->wwwroot   = 'http:\/\/example.com\/moodle';/$CFG->wwwroot   = 'http:\/\/learning.codestart.kr\/moodle';/" /var/www/html/moodle/config.php
 sudo sed -i "s/$CFG->dataroot  = '\/home\/example\/moodledata';/$CFG->dataroot  = '\/var\/moodledata';/" /var/www/html/moodle/config.php
 
-cd
 wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle.conf
 sudo cp moodle.conf /etc/nginx/conf.d/moodle.conf
 sudo chown root:root /etc/nginx/conf.d/moodle.conf
@@ -70,6 +76,8 @@ sudo rm moodle.conf
 
 sudo nginx -t
 sudo systemctl reload nginx
+
+
 
 
 
