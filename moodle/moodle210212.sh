@@ -71,13 +71,13 @@ PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 
 
 wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodledb.sql
+
 sudo mysql -h localhost -u"$DBUSER" -p"$PASSWORD" < moodledb.sql
 sudo rm moodledb.sql
 
-
 sudo chmod -R 777 /var/www/html/moodle
 
-sudo chmod -R 0755 /var/www/html/moodle
+#sudo chmod -R 0755 /var/www/html/moodle
 
 
 
