@@ -49,11 +49,7 @@ unzip moodle-latest-310.zip -d /var/www/html/
 rm moodle-latest-310.zip
 
 
-
-
-
-
-sudo mkdir -p /var/moodledata
+mkdir -p /var/moodledata
 sudo chown -R www-data /var/moodledata
 sudo chmod -R 777 /var/moodledata
 sudo chmod -R 0755 /var/www/html/moodle
@@ -65,10 +61,13 @@ sudo sed -i "s/# pid-file/innodb_file_per_table = 1\n# pid-file/g" /etc/mysql/my
 sudo service mysql restart
 
 wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodledb.sql
-sudo mysql -u root -p < moodledb.sql
-sudo rm moodledb.sql
+mysql -u root -p < moodledb.sql
+rm moodledb.sql
 
 sudo chmod -R 777 /var/www/html/moodle
+
+
+
 
 #curl installation
 sudo apt install -y curl
