@@ -80,7 +80,7 @@ fi
 
 sudo cp /var/www/html/moodle/config-dist.php /var/www/html/moodle/config.php
 
-sudo sed -i "s/$CFG->dbtype    = 'pgsql';/$CFG->dbtype    = 'mysql';/" /var/www/html/moodle/config.php
+sudo sed -i "s/$CFG->dbtype    = 'pgsql';/$CFG->dbtype    = 'mysqli';/" /var/www/html/moodle/config.php
 sudo sed -i "s/$CFG->dbuser    = 'username';/$CFG->dbuser    = 'moodledude';/" /var/www/html/moodle/config.php
 sudo sed -i "s/$CFG->dbpass    = 'password';/$CFG->dbpass    = 'passwordformoodledude';/" /var/www/html/moodle/config.php
 sudo sed -i "s/$CFG->wwwroot   = 'http:\/\/example.com\/moodle';/$CFG->wwwroot   = 'http:\/\/${IPADDRESS[0]}\/moodle';/" /var/www/html/moodle/config.php
