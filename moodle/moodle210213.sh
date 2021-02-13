@@ -22,17 +22,17 @@ sudo apt update
 sudo apt -y upgrade
 
 
+#nginx + https://docs.moodle.org/310/en/Step-by-step_Installation_Guide_for_Ubuntu
 sudo apt install -y nginx
 sudo systemctl is-enabled nginx
 
-sudo apt install -y mariadb-server mariadb-client
-sudo systemctl is-enabled mariadb
+sudo apt install -y mysql-client mysql-server php
 
 sudo mysql_secure_installation
 
-sudo apt install -y php php-mysql php-fpm
-sudo systemctl is-enabled php7.4-fpm
 
+sudo apt install -y graphviz aspell ghostscript clamav php7.4-pspell php7.4-curl php7.4-gd php7.4-intl php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-ldap php7.4-zip php7.4-soap php7.4-mbstring php7.4-fpm
+sudo systemctl is-enabled php7.4-fpm
 
 sudo sed -i "s:index index.html:index index.php index.html:g" /etc/nginx/sites-enabled/default
 sudo sed -i "s:#location ~ \\\.php\\$:location ~ \\\.php\\$:g" /etc/nginx/sites-enabled/default
@@ -43,23 +43,27 @@ sudo sed -i "s|# deny access to .htaccess files|}\n\n\n\t# deny access to .htacc
 sudo nginx -t
 sudo systemctl restart nginx
 
-sudo apt install -y graphviz aspell ghostscript clamav php7.4-pspell php7.4-curl php7.4-gd php7.4-intl php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-ldap php7.4-zip php7.4-soap php7.4-mbstring
+
+wget -c https://download.moodle.org/download.php/direct/stable310/moodle-latest-310.zip
+sudo unzip moodle-latest-310.zip -d /var/www/html/
+sudo rm moodle-latest-310.zip
+
+sudo mkdir -p /var/moodledata
+sudo chown -R www-data /var/moodledata
+sudo chmod -R 777 /var/moodledata
+sudo chown -R 0755 /var/www/html/moodle
+
+sudo sed -i "s/# pid-file/default_storage_engine = innodb\n# pid-file/g" /etc/mysql/mysql.conf.d/mysqld.cnf
+sudo sed -i "s/# pid-file/innodb_file_per_table = 1\n# pid-file/g" /etc/mysql/mysql.conf.d/mysqld.cnf
+#sudo sed -i "s/# pid-file/innodb_file_format = Barracuda\n# pid-file/g" /etc/mysql/mysql.conf.d/mysqld.cnf
+
+sudo service mysql restart
 
 wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodledb.sql
 sudo mysql -u root -p < moodledb.sql
 sudo rm moodledb.sql
 
-wget -c https://download.moodle.org/download.php/direct/stable310/moodle-latest-310.zip
-sudo unzip moodle-latest-310.zip -d /var/www/html/
-suod rm moodle-latest-310.zip
-
-sudo chown www-data:www-data -R /var/www/html/moodle
-sudo chmod 775 -R /var/www/html/moodle
-
-sudo mkdir -p /var/moodledata
-sudo chmod 775 -R /var/moodledata
-sudo chown www-data:www-data -R  /var/moodledata
-
+sudo chmod -R 777 /var/www/html/moodle
 
 #curl installation
 sudo apt install -y curl
@@ -76,9 +80,9 @@ fi
 
 sudo cp /var/www/html/moodle/config-dist.php /var/www/html/moodle/config.php
 
-sudo sed -i "s/$CFG->dbtype    = 'pgsql';/$CFG->dbtype    = 'mariadb';/" /var/www/html/moodle/config.php
-sudo sed -i "s/$CFG->dbuser    = 'username';/$CFG->dbuser    = 'moodleadmin';/" /var/www/html/moodle/config.php
-sudo sed -i "s/$CFG->dbpass    = 'password';/$CFG->dbpass    = 'Secur3P@zzwd';/" /var/www/html/moodle/config.php
+sudo sed -i "s/$CFG->dbtype    = 'pgsql';/$CFG->dbtype    = 'mysql';/" /var/www/html/moodle/config.php
+sudo sed -i "s/$CFG->dbuser    = 'username';/$CFG->dbuser    = 'moodledude';/" /var/www/html/moodle/config.php
+sudo sed -i "s/$CFG->dbpass    = 'password';/$CFG->dbpass    = 'passwordformoodledude';/" /var/www/html/moodle/config.php
 sudo sed -i "s/$CFG->wwwroot   = 'http:\/\/example.com\/moodle';/$CFG->wwwroot   = 'http:\/\/${IPADDRESS[0]}\/moodle';/" /var/www/html/moodle/config.php
 sudo sed -i "s/$CFG->dataroot  = '\/home\/example\/moodledata';/$CFG->dataroot  = '\/var\/moodledata';/" /var/www/html/moodle/config.php
 
