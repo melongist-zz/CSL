@@ -50,9 +50,9 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodledb.sql
 sudo mysql -u root -p < moodledb.sql
 sudo rm moodledb.sql
 
-
-wget -c https://download.moodle.org/download.php/direct/stable310/moodle-3.10.1.zip
-sudo unzip moodle-3.10.1.zip -d /var/www/html/
+wget -c https://download.moodle.org/download.php/direct/stable39/moodle-3.9.4.zip
+sudo unzip moodle-3.9.4.zip -d /var/www/html/
+suod rm moodle-3.9.4.zip
 
 sudo chown www-data:www-data -R /var/www/html/moodle
 sudo chmod 775 -R /var/www/html/moodle
