@@ -43,16 +43,15 @@ sudo sed -i "s|# deny access to .htaccess files|}\n\n\n\t# deny access to .htacc
 sudo nginx -t
 sudo systemctl restart nginx
 
-
-sudo apt install -y php-common php-iconv php-curl php-mbstring php-xmlrpc php-soap php-zip php-gd php-xml php-intl php-json libpcre3 libpcre3-dev graphviz aspell ghostscript clamav
+sudo apt install -y graphviz aspell ghostscript clamav php7.4-pspell php7.4-curl php7.4-gd php7.4-intl php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-ldap php7.4-zip php7.4-soap php7.4-mbstring
 
 wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodledb.sql
 sudo mysql -u root -p < moodledb.sql
 sudo rm moodledb.sql
 
-wget -c https://download.moodle.org/download.php/direct/stable39/moodle-3.9.4.zip
-sudo unzip moodle-3.9.4.zip -d /var/www/html/
-suod rm moodle-3.9.4.zip
+wget -c https://download.moodle.org/download.php/direct/stable310/moodle-latest-310.zip
+sudo unzip moodle-latest-310.zip -d /var/www/html/
+suod rm moodle-latest-310.zip
 
 sudo chown www-data:www-data -R /var/www/html/moodle
 sudo chmod 775 -R /var/www/html/moodle
