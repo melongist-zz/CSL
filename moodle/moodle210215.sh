@@ -92,8 +92,11 @@ while [ ${DBPASS} != ${INPUTS} ]; do
 done
 sudo sed -i "s|passwordformoodleuser|${DBPASS}|g" ./moodledb.sql
 
+
+echo ""
+echo "- mysql root password -"
 sudo mysql -u root -p < moodledb.sql
-sudo rm moodledb.sql
+#sudo rm moodledb.sql
 
 sudo chmod -R 777 /var/www/html/moodle
 
@@ -121,6 +124,8 @@ echo "$SERVERTYPES"
 echo "http://${IPADDRESS[0]}"
 echo "moodle html home directory : /var/www/html/moodle/"
 echo "moodle data directory :      /var/moodledata/"
+echo "DBUSER : ${DBUSER}"
+echo "DBPASS : ${DBPASS}"
 echo ""
 echo "If you want to use domain name your own?"
 echo "- First of all! Connect you domain name to ${IPADDRESS[0]}."
