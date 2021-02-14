@@ -47,26 +47,31 @@ sudo systemctl restart nginx
 wget -c https://download.moodle.org/download.php/direct/stable310/moodle-latest-310.tgz
 sudo tar -xvzf moodle-latest-310.tgz
 sudo mv -f moodle /var/www/html/
-sudo chown -R www-data:www-data /var/www/html/moodle
+#sudo chown -R www-data:www-data /var/www/html/moodle
 rm moodle-latest-310.tgz
-
-
-sudo mkdir -p /var/moodledata
-sudo chown -R www-data:www-data /var/moodledata
-sudo chmod -R 777 /var/moodledata
 sudo chmod -R 0755 /var/www/html/moodle
 
-sudo sed -i "s/# pid-file/default_storage_engine = innodb\n# pid-file/g" /etc/mysql/mysql.conf.d/mysqld.cnf
+
 sudo sed -i "s/# pid-file/innodb_file_per_table = 1\n# pid-file/g" /etc/mysql/mysql.conf.d/mysqld.cnf
-#sudo sed -i "s/# pid-file/innodb_file_format = Barracuda\n# pid-file/g" /etc/mysql/mysql.conf.d/mysqld.cnf
-
-sudo service mysql restart
-
 wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodledb.sql
 sudo mysql -u root -p < moodledb.sql
 rm moodledb.sql
+sudo service mysql restart
 
-sudo chmod -R 777 /var/www/html/moodle
+
+sudo mkdir -p /var/moodledata
+sudo chown -R www-data /var/moodledata
+sudo chmod -R 0777 /var/moodledata
+
+
+sudo chown www-data /var/www/html/moodle
+cd /var/www/html/moodle/admin/cli
+sudo -u www-data /usr/bin/php install.php
+
+sudo chown -R root /var/www/html/moodle
+
+
+
 
 
 
