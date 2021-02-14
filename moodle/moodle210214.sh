@@ -44,12 +44,14 @@ sudo nginx -t
 sudo systemctl restart nginx
 
 
-wget -c https://download.moodle.org/download.php/direct/stable310/moodle-latest-310.zip
-unzip moodle-latest-310.zip -d /var/www/html/
-rm moodle-latest-310.zip
+wget -c https://download.moodle.org/download.php/direct/stable310/moodle-latest-310.tgz
+sudo tar -xvzf moodle-latest-310.tgz
+sudo mv -f moodle /var/www/html/
+sudo chown -R www-data:www-data /var/www/html/moodle
+rm moodle-latest-310.tgz
 
 
-mkdir -p /var/moodledata
+sudo mkdir -p /var/moodledata
 sudo chown -R www-data /var/moodledata
 sudo chmod -R 777 /var/moodledata
 sudo chmod -R 0755 /var/www/html/moodle
@@ -61,7 +63,7 @@ sudo sed -i "s/# pid-file/innodb_file_per_table = 1\n# pid-file/g" /etc/mysql/my
 sudo service mysql restart
 
 wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodledb.sql
-mysql -u root -p < moodledb.sql
+sudo mysql -u root -p < moodledb.sql
 rm moodledb.sql
 
 sudo chmod -R 777 /var/www/html/moodle
