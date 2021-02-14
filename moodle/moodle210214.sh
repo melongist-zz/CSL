@@ -3,9 +3,9 @@
 #Made by melongist(what_is_computer@msn.com)
 #for Korean
 
-VER_DATE="2021.02.12"
+VER_DATE="2021.02.14"
 
-THISFILE="moodle210212.sh"
+THISFILE="moodle210214.sh"
 SRCZIP="moodle210209.zip"
 
 if [[ $SUDO_USER ]] ; then
@@ -52,7 +52,7 @@ rm moodle-latest-310.tgz
 
 
 sudo mkdir -p /var/moodledata
-sudo chown -R www-data /var/moodledata
+sudo chown -R www-data:www-data /var/moodledata
 sudo chmod -R 777 /var/moodledata
 sudo chmod -R 0755 /var/www/html/moodle
 
@@ -68,38 +68,6 @@ rm moodledb.sql
 
 sudo chmod -R 777 /var/www/html/moodle
 
-
-
-
-#curl installation
-sudo apt install -y curl
-
-#Identifing AWS Ubuntu 20.04 LTS
-if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]; then
-  SERVERTYPES="AWS SERVER"
-  IPADDRESS=($(curl http://checkip.amazonaws.com))
-else
-  SERVERTYPES="LOCAL SERVER"
-  IPADDRESS=($(hostname -I))
-fi
-
-
-sudo cp /var/www/html/moodle/config-dist.php /var/www/html/moodle/config.php
-
-sudo sed -i "s/$CFG->dbtype    = 'pgsql';/$CFG->dbtype    = 'mysqli';/" /var/www/html/moodle/config.php
-sudo sed -i "s/$CFG->dbuser    = 'username';/$CFG->dbuser    = 'moodledude';/" /var/www/html/moodle/config.php
-sudo sed -i "s/$CFG->dbpass    = 'password';/$CFG->dbpass    = 'passwordformoodledude';/" /var/www/html/moodle/config.php
-sudo sed -i "s/$CFG->wwwroot   = 'http:\/\/example.com\/moodle';/$CFG->wwwroot   = 'http:\/\/${IPADDRESS[0]}\/moodle';/" /var/www/html/moodle/config.php
-sudo sed -i "s/$CFG->dataroot  = '\/home\/example\/moodledata';/$CFG->dataroot  = '\/var\/moodledata';/" /var/www/html/moodle/config.php
-
-wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle.conf
-sudo cp moodle.conf /etc/nginx/conf.d/moodle.conf
-sudo chown root:root /etc/nginx/conf.d/moodle.conf
-sudo chmod 644 /etc/nginx/conf.d/moodle.conf
-sudo rm moodle.conf
-
-sudo nginx -t
-sudo systemctl reload nginx
 
 
 
