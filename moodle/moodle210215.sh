@@ -48,6 +48,8 @@ sudo sed -i "s#server_name _;#server_name _;\n\n\tlocation ~ [^/]\\.php(/|$) {\n
 sudo systemctl restart nginx
 sudo systemctl restart php7.4-fpm.service
 
+#original git
+#------
 sudo apt install -y git
 cd /opt
 sudo git clone git://git.moodle.org/moodle.git
