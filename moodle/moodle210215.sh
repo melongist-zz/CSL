@@ -69,6 +69,9 @@ sudo wget -c https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodl
 sudo wget -c https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle310.zip.partaf
 sudo cat mooodle310.zip.part* > moodle310.zip
 sudo rm moodle310.zip.part*
+sudo unzip moodle310.zip
+sudo rm moodle310.zip
+
 
 
 cd
