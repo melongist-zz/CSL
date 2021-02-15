@@ -52,11 +52,24 @@ sudo systemctl restart php7.4-fpm.service
 #------
 sudo apt install -y git
 cd /opt
-sudo git clone git://git.moodle.org/moodle.git
-cd moodle
-sudo git branch --track MOODLE_310_STABLE origin/MOODLE_310_STABLE
-sudo git checkout MOODLE_310_STABLE
+#sudo git clone git://git.moodle.org/moodle.git
+#cd moodle
+#sudo git branch --track MOODLE_310_STABLE origin/MOODLE_310_STABLE
+#sudo git checkout MOODLE_310_STABLE
 #------
+
+#how to make moodle zip splits
+#sudo zip -r moodle310.zip ./moodle
+#sudo split -b 90M moodle310.zip "moodle310.zip.part"
+sudo wget -c https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle310.zip.partaa
+sudo wget -c https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle310.zip.partab
+sudo wget -c https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle310.zip.partac
+sudo wget -c https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle310.zip.partad
+sudo wget -c https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle310.zip.partae
+sudo wget -c https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle310.zip.partaf
+sudo cat mooodle310.zip.part* > moodle310.zip
+sudo rm moodle310.zip.part*
+
 
 cd
 sudo cp -R /opt/moodle /var/www/html/
