@@ -56,6 +56,7 @@ sudo git clone git://git.moodle.org/moodle.git
 cd moodle
 sudo git branch --track MOODLE_310_STABLE origin/MOODLE_310_STABLE
 sudo git checkout MOODLE_310_STABLE
+#------
 
 cd
 sudo cp -R /opt/moodle /var/www/html/
