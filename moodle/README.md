@@ -5,7 +5,8 @@
 ## Prerequisite   
 #### - 설치 전 필요 조건   
 #Ubuntu 20.04 LTS 운영체제가 AWS 에 먼저 설치되어 있어야 합니다.   
-   
+#PC + 사설네트워크(학내망, 가정 등) 환경에서는 연습만 추천합니다.    
+
 #Ubuntu 20.04 LTS Server english 환경으로 설치해서 그대로 사용!   
    
 ***   
