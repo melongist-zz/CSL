@@ -16,10 +16,9 @@ if [[ $SUDO_USER ]] ; then
   exit 1
 fi
 
-
 echo ""
 INPUTS="x"
-echo -n "Do you want to install moodle3.10? [y/n] : "
+echo -n "Do you want to install moodle 3.10 STABLE? [y/n] : "
 read INPUTS
 if [[ ${INPUTS} != "y" ]] ; then
   exit 1
@@ -77,7 +76,7 @@ sudo git checkout MOODLE_310_STABLE
 
 cd
 sudo cp -R /opt/moodle /var/www/html/
-sudm rm -rf /opt/moodle
+sudo rm -rf /opt/moodle
 sudo mkdir /var/moodledata
 sudo chown -R www-data /var/moodledata
 sudo chmod -R 777 /var/moodledata
