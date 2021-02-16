@@ -3,14 +3,31 @@
 #Made by melongist(what_is_computer@msn.com)
 #for Korean
 
-VER_DATE="2021.02.15"
+VER_DATE="2021.02.16"
 
-THISFILE="moodle210215.sh"
+THISFILE="moodle210216.sh"
+
+echo ""
+echo "---- CSL(Computer Science teachers's computer science Love) ----"
+echo ""
 
 if [[ $SUDO_USER ]] ; then
   echo "Just use 'bash ${THISFILE}'"
   exit 1
 fi
+
+
+echo ""
+INPUTS="x"
+echo -n "Do you want to install moodle3.10? [y/n] : "
+read INPUTS
+if [[ ${INPUTS} != "y" ]] ; then
+  exit 1
+fi
+
+echo ""
+echo "---- Moodle3.10 installation start ----"
+echo ""
 
 cd
 
@@ -58,24 +75,9 @@ sudo git branch --track MOODLE_310_STABLE origin/MOODLE_310_STABLE
 sudo git checkout MOODLE_310_STABLE
 #------
 
-#how to make moodle zip splits
-#sudo zip -r moodle310.zip ./moodle
-#sudo split -b 90M moodle310.zip "moodle310.zip.part"
-#sudo wget -c https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle310.zip.partaa
-#sudo wget -c https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle310.zip.partab
-#sudo wget -c https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle310.zip.partac
-#sudo wget -c https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle310.zip.partad
-#sudo wget -c https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle310.zip.partae
-#sudo wget -c https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle310.zip.partaf
-#sudo sh -c 'cat moodle310.zip.part* > moodle310.zip'
-#sudo rm moodle310.zip.part*
-#sudo unzip moodle310.zip
-#sudo rm moodle310.zip
-
-
-
 cd
 sudo cp -R /opt/moodle /var/www/html/
+sudm rm -rf /opt/moodle
 sudo mkdir /var/moodledata
 sudo chown -R www-data /var/moodledata
 sudo chmod -R 777 /var/moodledata
@@ -128,7 +130,7 @@ if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]; then
   SERVERTYPES="AWS SERVER"
   IPADDRESS=($(curl http://checkip.amazonaws.com))
 else
-  SERVERTYPES="LOCAL SERVER"
+  SERVERTYPES="LOCAL SERVER(Recommended for testing purposes only. Use public IP/Domain for real use)"
   IPADDRESS=($(hostname -I))
 fi
 
@@ -160,4 +162,7 @@ echo "After installation completed : "
 echo "You must change mod with :"
 echo "sudo chmod -R 755 /var/www/html/moodle"
 echo ""
+echo ""
+echo ""
+echo "This Script is supported by CSL(South Korea CSTA)"
 echo ""
