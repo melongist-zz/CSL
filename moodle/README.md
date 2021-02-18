@@ -1,4 +1,4 @@
-#### - 최종 갱신 : Ver 21.02.16   
+#### - 최종 갱신 : Ver 21.02.18   
    
 ***   
    
@@ -17,9 +17,9 @@
 #moodle 3.10 을 설치합니다.   
 
 <pre>
-wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle210216.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle210218.sh
 
-bash moodle210216.sh
+bash moodle210218.sh
 </pre>
 
 
