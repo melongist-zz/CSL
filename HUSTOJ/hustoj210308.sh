@@ -3,7 +3,7 @@
 #Made by melongist(what_is_computer@msn.com)
 #for Korean
 
-VER_DATE="2021.03.09"
+VER_DATE="21.03.08"
 
 THISFILE="hustoj210308.sh"
 SRCZIP="hustoj210308.zip"
@@ -38,7 +38,7 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${SRCZIP}
 unzip ${SRCZIP}
 rm ${SRCZIP}
 
-#------ original intallation scripts 2021.02.09 start
+#------ original intallation scripts start
 
 
 
@@ -157,7 +157,7 @@ reset
 
 
 
-#------ original intallation scripts 2021.02.09 end
+#------ original intallation scripts end
 
 cd
 
@@ -190,6 +190,8 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/js1.php
 mv -f ./js1.php /home/judge/src/web/template/bs3/js.php
 chown www-data:${SUDO_USER} /home/judge/src/web/template/bs3/js.php
 chmod 664 /home/judge/src/web/template/bs3/js.php
+sed -i "s/(release YYYY.MM.DD)/(release ${VER_DATE})/" /home/judge/src/web/template/bs3/js.php
+
 
 #Replacing msg.txt
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/msg1.txt
