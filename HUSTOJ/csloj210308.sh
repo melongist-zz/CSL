@@ -502,6 +502,12 @@ sed -i "s/release YY.MM.DD/release ${VER_DATE}/" /home/judge/src/web/admin/msg.t
 #echo "echo \"HUSTOJ ${BACKUPS} successfully restored!\"" >> ./${BACKUPS}/${RESTOREFILE} 
 #echo "echo \"\"" >> ./${BACKUPS}/${RESTOREFILE}
 
+
+#small fix for status.php
+sed -i "s#KB</div># KB</div>#" /home/judge/src/web/status.php
+sed -i "s#ms</div># ms</div>#" /home/judge/src/web/status.php
+
+
 clear
 
 echo ""
