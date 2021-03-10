@@ -190,7 +190,7 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/js1.php
 mv -f ./js1.php /home/judge/src/web/template/bs3/js.php
 chown www-data:${SUDO_USER} /home/judge/src/web/template/bs3/js.php
 chmod 664 /home/judge/src/web/template/bs3/js.php
-sed -i "s/(release YYYY.MM.DD)/(release ${VER_DATE})/" /home/judge/src/web/template/bs3/js.php
+sed -i "s/(release YY.MM.DD)/(release ${VER_DATE})/" /home/judge/src/web/template/bs3/js.php
 
 
 #Replacing msg.txt
@@ -198,6 +198,8 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/msg1.txt
 mv -f ./msg1.txt /home/judge/src/web/admin/msg.txt
 chown www-data:${SUDO_USER} /home/judge/src/web/admin/msg.txt
 chmod 664 /home/judge/src/web/admin/msg.txt
+sed -i "s/release YY.MM.DD/release ${VER_DATE}/" /home/judge/src/web/admin/msg.txt
+
 
 #Identifing AWS Ubuntu 20.04 LTS
 if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]; then

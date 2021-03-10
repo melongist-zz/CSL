@@ -39,7 +39,7 @@ $(document).ready(function(){
   $("form").append("<div id='csrf' />");
   $("#csrf").load("<?php echo $path_fix?>csrf.php");
 //CSL 추가
-  $("body").append("<div id=footer class=center ><h5>HUSTOJ <small><small>(release YYYY.MM.DD)</small></small></h5></div>"); //추가
+  $("body").append("<div id=footer class=center ><h5>HUSTOJ <small><small>(release YY.MM.DD)</small></small></h5></div>"); //추가
   $("body").append("<div id=footer class=center >GPLv2 licensed by <a href='https://github.com/zhblue/hustoj' >HUSTOJ</a> "+(new Date()).getFullYear()+" </div>");
 //CSL 삭제
 //  $("body").append("<center><?php echo $MSG_HELP_HUSTOJ?></center>");  
