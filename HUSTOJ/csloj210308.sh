@@ -471,6 +471,8 @@ sudo apt -y install curl
 if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]; then
   SERVERTYPES="AWS SERVER"
   IPADDRESS=($(curl http://checkip.amazonaws.com))
+  #for python juding error fix
+  sed -i "s/OJ_RUNNING=1/OJ_RUNNING=4/" /home/judge/etc/judge.conf
 else
   SERVERTYPES="LOCAL SERVER"
   IPADDRESS=($(hostname -I))

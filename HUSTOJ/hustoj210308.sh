@@ -190,7 +190,7 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/js1.php
 mv -f ./js1.php /home/judge/src/web/template/bs3/js.php
 chown www-data:${SUDO_USER} /home/judge/src/web/template/bs3/js.php
 chmod 664 /home/judge/src/web/template/bs3/js.php
-sed -i "s/(release YY.MM.DD)/(release ${VER_DATE})/" /home/judge/src/web/template/bs3/js.php
+sed -i "s/release YY.MM.DD/release ${VER_DATE}/" /home/judge/src/web/template/bs3/js.php
 
 
 #Replacing msg.txt
@@ -205,6 +205,8 @@ sed -i "s/release YY.MM.DD/release ${VER_DATE}/" /home/judge/src/web/admin/msg.t
 if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]; then
   SERVERTYPES="AWS SERVER"
   IPADDRESS=($(curl http://checkip.amazonaws.com))
+  #for python juding error fix
+  sed -i "s/OJ_RUNNING=1/OJ_RUNNING=4/" /home/judge/etc/judge.conf
 else
   SERVERTYPES="LOCAL SERVER"
   IPADDRESS=($(hostname -I))
