@@ -27,7 +27,6 @@ sed -i "s/OJ_RUNNING=1/OJ_RUNNING=4/" /home/judge/etc/judge.conf
 ​
 sed -i "s/OJ_PYTHON_FREE=0/OJ_PYTHON_FREE=1/" /home/judge/etc/judge.conf
 ​
-
 sed -i "s/318,17,41,42,72,99,217/318,17,41,42,49,72,99,217/" /home/judge/src/core/judge_client/okcalls64.h
 
 cd /home/judge/src/core/
