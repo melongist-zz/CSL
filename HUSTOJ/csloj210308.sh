@@ -457,6 +457,10 @@ while [ ${INPUTS} = "n" ]; do
 done
 
 
+#for C++ & python only judging...
+sed -i "s/$OJ_LANGMASK=1637684/$OJ_LANGMASK=2097085/" /home/judge/src/web/include/db_info.inc.php
+
+
 #result time fix ... use_max_time
 #sudo cp /home/judge/etc/judge.conf ./${BACKUPS}/
 sed -i "s/OJ_USE_MAX_TIME=0/OJ_USE_MAX_TIME=1/" /home/judge/etc/judge.conf
