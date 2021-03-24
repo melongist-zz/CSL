@@ -517,7 +517,10 @@ sed -i "s#ms</div># ms</div>#" /home/judge/src/web/status.php
 #for python judging error patch
 sed -i "s/OJ_PYTHON_FREE=0/OJ_PYTHON_FREE=1/" /home/judge/etc/judge.conf
 ​
+#temporary until next HUSTOJ release
 sed -i "s/318,17,41,42,72,99,217/318,17,41,42,49,72,99,217/" /home/judge/src/core/judge_client/okcalls64.h
+sed -i "s/99,158,231,275,292,511/99,158,231,268,275,292,511/" /home/judge/src/core/judge_client/okcalls64.h
+
 
 cd /home/judge/src/core/
 
