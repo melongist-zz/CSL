@@ -26,4 +26,5 @@ find /var/log/nginx -mtime +1 -type f -ls -exec rm -r {} \;
 #for maintenance
 apt update
 apt -y upgrade
+echo "---- rebooting ----"
 reboot
