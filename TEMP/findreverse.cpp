@@ -84,7 +84,6 @@ int main()
       f(s2, 2*i, k, 0);  //10진수 2*i를 s2 배열에 k 진법으로 바꾸어 채우고
       
       if(rcheck(s1, s2)==1)  //s1 과 s2 가 회문 관계가 되면
-      //if(strlen(s1)==3 && (s1[0]!=s1[1]) && (s1[1]!=s1[2])&& (s1[2]!=s1[0]) && (check(s1, s2)==1) &&(strlen(s1) == strlen(s2)))
       {
         //답을 출력해보자~~~~ ^^
         printf("decimal %d\n", i);
