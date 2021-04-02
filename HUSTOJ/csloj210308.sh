@@ -532,11 +532,17 @@ rm -f temp
 
 
 #temporary until next HUSTOJ release
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/web/lang/ko.php
+mv -f ./ko.php /home/judge/src/web/lang/ko.php
+chown www-data:root /home/judge/src/web/lang/ko.php
+chmod 644 /home/judge/src/web/lang/ko.php
+
 sed -i "s/318,17,41,42,72,99,217/318,17,41,42,49,72,99,217/" /home/judge/src/core/judge_client/okcalls64.h
 sed -i "s/99,158,231,275,292,511/99,158,186,231,234,268,275,292,511/" /home/judge/src/core/judge_client/okcalls64.h
 sed -i "s/11,12,20,21,59,63,89,99/11,12,14,20,21,39,59,63,89,99/" /home/judge/src/core/judge_client/okcalls64.h
 cd /home/judge/src/core/
 bash make.sh
+
 
 
 clear
