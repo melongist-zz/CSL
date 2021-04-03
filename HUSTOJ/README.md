@@ -71,7 +71,7 @@ sudo bash csloj210308.sh
    
 ***   
 
-#### - CSL 버전에 대한 업데이트 또는 패치는 아래 명령어로 설치할 수 있습니다. 복사해서 붙여넣기 방법으로 실행하시기를 권장합니다.   
+#### - CSL 버전에 대한 오류수정 업데이트는 아래 명령어로 설치할 수 있습니다. 복사해서 붙여넣기 방법으로 실행하시기를 권장합니다.   
    
 <pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csloj210308patch.sh -O /home/${USER}/csloj210308patch.sh
