@@ -212,6 +212,13 @@ else
   IPADDRESS=($(hostname -I))
 fi
 
+#temporary fix until next release
+sed -i "s/PasswordRest/PasswordReset/" /home/judge/src/web/admin/user_list.php
+
+
+
+
+
 clear
 
 echo ""
