@@ -1,5 +1,5 @@
 ## Ver   
-#### - 최종 갱신 : Ver 21.04.01   
+#### - 최종 갱신 : Ver 21.04.05   
    
 ***   
    
@@ -61,7 +61,8 @@ sudo bash hustoj210308.sh
 #하지만, 타 교사들을 위한 부전공/복수전공 자격 연수 등을 위한 사용은 절대로 원하지 않습니다.   
    
 #### - 위 내용에 대하여 모두 이해하고 동의하는 경우에는 ...   
-#### - 아래의 설치 스크립트를 사용해서 CSL 버전의 HUSTOJ 를 설치할 수 있습니다. 아래 명령어를 복사해서 붙여넣기 방법으로 실행하시기를 권장합니다.   
+#### - 아래의 설치 스크립트를 사용해서 CSL 버전의 HUSTOJ 를 설치할 수 있습니다.   
+#### - 아래 명령어를 복사해서 붙여넣기 방법으로 실행하시기를 권장합니다. 복사 후 붙여넣기가 잘 되지 않을 때는 마우스 오른쪽 클릭 후 붙여넣기로 시도해보세요.  
    
 <pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csloj210308.sh -O /home/${USER}/csloj210308.sh
@@ -72,7 +73,9 @@ sudo bash csloj210308.sh
 ***   
 
 #### - CSL 버전에 대한 오류수정 업데이트는 아래 명령어로 설치할 수 있습니다. 복사해서 붙여넣기 방법으로 실행하시기를 권장합니다.   
-   
+#### - 아래의 설치 스크립트를 사용해서 CSL 버전의 HUSTOJ 를 설치할 수 있습니다.   
+#### - 아래 명령어를 복사해서 붙여넣기 방법으로 실행하시기를 권장합니다. 복사 후 붙여넣기가 잘 되지 않을 때는 마우스 오른쪽 클릭 후 붙여넣기로 시도해보세요.   
+
 <pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csloj210308patch.sh -O /home/${USER}/csloj210308patch.sh
    
