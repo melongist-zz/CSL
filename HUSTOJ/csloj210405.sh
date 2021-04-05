@@ -12,7 +12,7 @@ SRCZIP="hustoj210405.zip"
 
 SQLFILE="csl100v05jol.sql"
 IMGFILE="csl100v01image.tar.gz"
-DATAFILE="csl100v06data.zip"
+DATAFILE="csl100v07data.zip"
 
 
 clear
