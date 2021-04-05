@@ -302,6 +302,9 @@
         if( handler_interval) window.clearInterval( handler_interval);
         
         if($("#vcode")!=null) $("#vcode").click();
+
+        $("#csrf").load("csrf.php?"+sid);
+        
       }else{
         s.value="<?php echo $MSG_SUBMIT?>("+count+")";
         
