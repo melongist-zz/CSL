@@ -513,10 +513,10 @@ sed -i "s#ms</div># ms</div>#" /home/judge/src/web/status.php
 #for python judging error patch
 sed -i "s/OJ_RUNNING=1/OJ_RUNNING=4/" /home/judge/etc/judge.conf
 sed -i "s/OJ_PYTHON_FREE=0/OJ_PYTHON_FREE=1/" /home/judge/etc/judge.conf
-​
+
 #for contest problem view fix
 sed -i "s#\`end_time\`>'\$now' or \`private\`='1'#\`start_time\`<'\$now' AND \`end_time\`>'\$now'#" /home/judge/src/web/problem.php
-​
+
 #for cslojmaintenance
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/cslojmaintenance.sh -O /home/${SUDO_USER}/cslojmaintenance.sh
 chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/cslojmaintenance.sh
