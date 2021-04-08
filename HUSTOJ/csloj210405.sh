@@ -15,13 +15,14 @@ echo "---- CSL HUSTOJ release ${VER_DATE} installation ----"
 echo ""
 
 INPUTS="n"
-echo -n "Do you want install/overwrite the CSL HUSTOJ?[y/n] "
+echo -n "Do you want to install/overwrite the CSL HUSTOJ?[y/n] "
 read INPUTS
 if [ ${INPUTS} = "y" ]; then
   echo ""
   echo "---- HUSTOJ release ${VER_DATE} installation started..."
   echo ""
 else
+  echo ""
   exit 1
 fi
 
