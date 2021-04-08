@@ -169,7 +169,7 @@ CREATE TABLE `loginlog` (
 
 LOCK TABLES `loginlog` WRITE;
 /*!40000 ALTER TABLE `loginlog` DISABLE KEYS */;
-INSERT INTO `loginlog` VALUES ('admin','login ok','10.211.55.2','2021-01-05 00:04:36'),('admin','login ok','10.211.55.2','2021-04-08 21:09:57');
+INSERT INTO `loginlog` VALUES ('admin','login ok','10.211.55.2','2021-01-05 00:04:36'),('admin','login ok','10.211.55.2','2021-04-08 21:09:57'),('admin','login ok','10.211.55.2','2021-04-08 21:33:02'),('admin','login ok','10.211.55.2','2021-04-08 21:46:24');
 /*!40000 ALTER TABLE `loginlog` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -636,7 +636,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('admin','',0,0,'N','127.0.0.1','2021-04-08 21:09:57',6,1,'tZGmxFl3b9hcxtg5OJ/ZnG3bPQ9jNjc1','2020-09-11 09:09:37','admin','admin');
+INSERT INTO `users` VALUES ('admin','',0,0,'N','127.0.0.1','2021-04-08 21:46:24',4,1,'jbpyEpPLqElb79EfPJtE13Zpy6wxMzg2','2020-09-11 09:09:37','admin','admin');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -649,4 +649,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-08 21:13:19
+-- Dump completed on 2021-04-08 21:50:54
