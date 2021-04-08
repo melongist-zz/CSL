@@ -467,7 +467,7 @@ if [ -e "/var/spool/cron/crontabs/root" ]; then
 fi
 
 crontab -l > temp
-echo "30 4 * * * sudo bash /home/'${SUDO_USER}'/\${MAINTENANCEFILE}" >> temp
+echo "30 4 * * * sudo bash /home/${SUDO_USER}/${MAINTENANCEFILE}" >> temp
 crontab temp
 rm -f temp
 
