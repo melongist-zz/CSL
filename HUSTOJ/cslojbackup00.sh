@@ -1,135 +1,88 @@
 #!/bin/bash
-#backup script for HUSTOJ
+#CSL HUSTOJ
 #Made by melongist(what_is_computer@msn.com)
-#for CSL Computer Science teacher
+#for CSL Computer Science teachers
 
-VER_DATE="2021.04.05"
+clear
+
+if [[ -z $SUDO_USER ]] ; then
+  echo "Use 'sudo bash ${THISFILE}'"
+  exit 1
+fi
+
+echo ""
+echo "---- CSL HUSTOJ backup ----"
+echo ""
+echo "Waiting 3 seconds..."
+
+
+sleep 3
+
+
+VER_DATE="21.04.08"
 
 THISFILE="cslojbackup00.sh"
 RESTOREFILE="restore.sh"
 
-cd
 
-if [[ $SUDO_USER ]] ; then
-  echo "Just use 'bash ${THISFILE}'"
-  exit 1
+if [ ! -d /home/${SUDO_USER}/cslojbackups ]; then
+  mkdir /home/${SUDO_USER}/cslojbackups
+  chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/cslojbackups  
 fi
 
-sudo apt update
-sudo apt -y upgrade
-sudo apt -y autoremove
-
-clear
-
-echo ""
-echo "---- CSL(Computer Science teachers's computer science Love) ----"
-echo "---- CSL HUSTOJ backup"
-echo ""
-
-
-
-#Confirmation
-INPUTS="n"
-echo "Current jol DB(sql dump), image files, data(*.in, *.out) files will be backup."
-echo -n "Are you sure?[y/n] "
-read INPUTS
-if [ ${INPUTS} = "n" ]; then
-  exit 1
-fi
-
-echo ""
 
 BACKUPS=$(echo `date '+%Y%m%d%H%M'`)
-BACKUPS+="b"
-mkdir ${BACKUPS}
-mkdir ${BACKUPS}/admin/
-mkdir ${BACKUPS}/bs3/
-mkdir ${BACKUPS}/include/
-mkdir ${BACKUPS}/upload/
+mkdir /home/${SUDO_USER}/cslojbackups/${BACKUPS}
 
-cp ${THISFILE} ./${BACKUPS}/
-touch ./${BACKUPS}/${RESTOREFILE}
-echo "clear" >> ./${BACKUPS}/${RESTOREFILE}
-echo "if [[ \$SUDO_USER ]] ; then" >> ./${BACKUPS}/${RESTOREFILE}
-echo "  echo \"Just use 'bash ${RESTOREFILE}'\"" >> ./${BACKUPS}/${RESTOREFILE}
-echo "  exit 1" >> ./${BACKUPS}/${RESTOREFILE}
-echo "fi" >> ./${BACKUPS}/${RESTOREFILE}
-echo "echo \"\"" >> ./${BACKUPS}/${RESTOREFILE}
-echo "echo \"---- CSL(Computer Science teachers's computer science Love) ----\"" >> ./${BACKUPS}/${RESTOREFILE}
-echo "echo \"\"" >> ./${BACKUPS}/${RESTOREFILE}
-echo "INPUTS=\"n\"" >> ./${BACKUPS}/${RESTOREFILE}
-echo "echo -n \"This script will restore ${BACKUPS} backups. Are you sure?[y/n] \"" >> ./${BACKUPS}/${RESTOREFILE}
-echo "read INPUTS" >> ./${BACKUPS}/${RESTOREFILE}
-echo "if [ \${INPUTS} = \"n\" ]; then" >> ./${BACKUPS}/${RESTOREFILE}
-echo "  exit 1" >> ./${BACKUPS}/${RESTOREFILE}
-echo "fi" >> ./${BACKUPS}/${RESTOREFILE}
-echo "echo \"\"" >> ./${BACKUPS}/${RESTOREFILE}
+cp ./${THISFILE} /home/${SUDO_USER}/cslojbackups/${BACKUPS}/
+mv /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${THISFILE} /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${THISFILE}.bak 
+
+touch /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "clear" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "if [[ -z \$SUDO_USER ]] ; then" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "  echo \"Use 'sudo bash ${RESTOREFILE}'\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "  exit 1" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "fi" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "echo \"\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "echo \"---- CSL HUSTOJ backup restore ----\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "echo \"\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "INPUTS=\"n\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "echo -n \"This script will restore ${BACKUPS} backup. Are you sure?[y/n] \"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "read INPUTS" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "if [ \${INPUTS} = \"n\" ]; then" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "  exit 1" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "fi" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "echo \"\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 
 
-echo ""
-echo "jol DB(sql dump), image files, data(*.in, *.out) files will be backup..."
-echo "~/${BACKUPS}"
-echo ""
-echo ""
-
-DBUSER=$(sudo grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
-PASSWORD=$(sudo grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
+DBUSER=$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
+PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 
 #current mysql backup
-#c.f. : how to backup from HUSTOJ for CSL :> mysqldump -u debian-sys-maint -p jol > jol.sql
-mysqldump -u ${DBUSER} -p$PASSWORD jol > ./${BACKUPS}/jol.sql
+#how to backup database : mysqldump -u debian-sys-maint -p jol > jol.sql
+mysqldump -u ${DBUSER} -p$PASSWORD jol > /home/${SUDO_USER}/cslojbackups/${BACKUPS}/jol.sql
 #for restoring
-echo "DBUSER=\$(sudo grep user /etc/mysql/debian.cnf|head -1|awk  '{print \$3}')" >> ./${BACKUPS}/${RESTOREFILE}
-echo "PASSWORD=\$(sudo grep password /etc/mysql/debian.cnf|head -1|awk  '{print \$3}')" >> ./${BACKUPS}/${RESTOREFILE}
-echo "mysql -u \${DBUSER} -p\${PASSWORD} jol < jol.sql" >> ./${BACKUPS}/${RESTOREFILE}
+echo "DBUSER=\$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print \$3}')" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "PASSWORD=\$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print \$3}')" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "mysql -u \${DBUSER} -p\${PASSWORD} jol < jol.sql" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 
-#current images backup
-#cf. : how to backup images from HUSTOJ for CSL
-#directory : /home/judge/src/wb/upload/
-#command   : sudo tar zcvf csl100v01image.tar.gz *
-sudo tar zcvf ./${BACKUPS}/upload/images.tar.gz /home/judge/src/web/upload/*
+#current /home/judge/ directory backup
+#how to backup /home/judge/ directory : sudo tar -zcvf ~/cslojjudge.tar.gz /home/judge/
+sed -i "s/$DB_PASS=\"${PASSWORD}\"/$DB_PASS=\"HUSTOJPASSWORD\"/" /home/judge/src/web/include/db_info.inc.php
+tar -zcvf /home/${SUDO_USER}/cslojbackups/${BACKUPS}/cslojjudge.tar.gz /home/judge
+sed -i "s/$DB_PASS=\"HUSTOJPASSWORD\"/$DB_PASS=\"${PASSWORD}\"/" /home/judge/src/web/include/db_info.inc.php
 #for restoring
-echo "sudo rm -rf /home/judge/src/web/upload/*" >> ./${BACKUPS}/${RESTOREFILE}
-echo "sudo tar zxvf ./upload/images.tar.gz -C /home/judge/src/web/upload/" >> ./${BACKUPS}/${RESTOREFILE}
-
-#current problem data(*.in & *.out) backup
-#c.f. : how to backup test files from HUSTOJ for CSL
-#directory : /home/judge/
-#command   : sudo zip -r data.zip ./data
-sudo zip -r ./${BACKUPS}/data.zip /home/judge/data/*
-#for restoring
-echo "sudo rm -rf /home/judge/data" >> ./${BACKUPS}/${RESTOREFILE}
-echo "sudo unzip ./data.zip -d /home/judge/" >> ./${BACKUPS}/${RESTOREFILE}
-
-#HUSTOJ db_info.inc.php settings
-sudo cp /home/judge/src/web/include/db_info.inc.php ./${BACKUPS}/include/
-sudo sed -i "s/${PASSWORD}/DBUSERTEMPPASSWORD/" ./${BACKUPS}/include/db_info.inc.php
-
-#for restoring
-echo "sudo cp -f ./include/db_info.inc.php /home/judge/src/web/include/" >> ./${BACKUPS}/${RESTOREFILE}
-echo "sudo sed -i \"s/DBUSERTEMPPASSWORD/\${PASSWORD}/\" /home/judge/src/web/include/db_info.inc.php" >> ./${BACKUPS}/${RESTOREFILE}
-
-#result time fix ... use_max_time
-sudo cp /home/judge/etc/judge.conf ./${BACKUPS}/
-#for restoring
-echo "sudo cp -f ./judge.conf /home/judge/etc/" >> ./${BACKUPS}/${RESTOREFILE}
-
-#Replacing msg.txt
-sudo cp -f /home/judge/src/web/admin/msg.txt ./${BACKUPS}/admin/
-#for restoring
-echo "sudo cp -f ./admin/msg.txt /home/judge/src/web/admin/" >> ./${BACKUPS}/${RESTOREFILE}
-echo "clear" >> ./${BACKUPS}/${RESTOREFILE}
-echo "echo \"\"" >> ./${BACKUPS}/${RESTOREFILE}
-echo "echo \"HUSTOJ ${BACKUPS} successfully restored!\"" >> ./${BACKUPS}/${RESTOREFILE}
-echo "echo \"\"" >> ./${BACKUPS}/${RESTOREFILE}
-
-clear
+echo "rm -rf /home/judge/" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "tar -zxvf ./cslojjudge.tar.gz -C /" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "sed -i \"s/\$DB_PASS=\\\"HUSTOJPASSWORD\\\"/\$DB_PASS=\\\"\${PASSWORD}\\\"/\" /home/judge/src/web/include/db_info.inc.php" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "echo \"\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "echo \"--- CSL HUSTOJ backup ${BACKUPS} restored!! ---\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "echo \"\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 
 echo ""
-echo "--- Current HUSTOJ successfully backuped at ${BACKUPS}! ---"
+echo "---- CSL HUSTOJ backuped successfully at ${BACKUPS} ----"
 echo ""
-echo "You can restore HUSTOJ ${BACKUPS} backups with below command ..."
-echo "$ bash ~/${BACKUPS}/${RESTOREFILE}"
+echo "You can restore HUSTOJ ${BACKUPS} backup with ..."
 echo ""
-echo "This Script is supported by CSL(South Korea CSTA)"
+echo "$ sudo bash ~/cslojbackups/${BACKUPS}/${RESTOREFILE}"
 echo ""
