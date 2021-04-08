@@ -13,6 +13,28 @@ fi
 echo ""
 echo "---- CSL HUSTOJ release ${VER_DATE} installation ----"
 echo ""
+
+INPUTS="n"
+echo -n "Do you want install/overwrite the CSL HUSTOJ?[y/n] "
+read INPUTS
+if [ ${INPUTS} = "y" ]; then
+  echo ""
+  echo "---- HUSTOJ release ${VER_DATE} installation started..."
+  echo ""
+else
+  exit 1
+fi
+
+#for OJ NAME
+OJNAME="o"
+INPUTS="x"
+while [ ${OJNAME} != ${INPUTS} ]; do
+  echo -n "Enter  the CSL HUSTOJ name you want : "
+  read OJNAME
+  echo -n "Repeat the CSL HUSTOJ name you want : "
+  read INPUTS
+done
+
 echo "Waiting 3 seconds..."
 
 sleep 3
@@ -190,15 +212,14 @@ reset
 
 #db_info.inc.php edit
 #for OJ NAME
-clear
-OJNAME="o"
-INPUTS="x"
-while [ ${OJNAME} != ${INPUTS} ]; do
-  echo -n "Enter  CSL HUSTOJ NAME : "
-  read OJNAME
-  echo -n "Repeat CSL HUSTOJ NAME : "
-  read INPUTS
-done
+#OJNAME="o"
+#INPUTS="x"
+#while [ ${OJNAME} != ${INPUTS} ]; do
+#  echo -n "Enter  the CSL HUSTOJ name you want : "
+#  read OJNAME
+#  echo -n "Repeat the CSL HUSTOJ name you want : "
+#  read INPUTS
+#done
 sed -i "s/OJ_NAME=\"HUSTOJ\"/OJ_NAME=\"${OJNAME}\"/" /home/judge/src/web/include/db_info.inc.php
 #for south korea timezone
 sed -i "s#//date_default_timezone_set(\"PRC\")#date_default_timezone_set(\"Asia\/Seoul\")#" /home/judge/src/web/include/db_info.inc.php
@@ -415,12 +436,12 @@ sed -i "s#\`end_time\`>'\$now' or \`private\`='1'#\`start_time\`<'\$now' AND \`e
 
 
 #for cslojmaintenance
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/cslojmaintenance.sh -O /home/${SUDO_USER}/cslojmaintenance.sh
-chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/cslojmaintenance.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/cslojmaintenance00.sh -O /home/${SUDO_USER}/cslojmaintenance00.sh
+chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/cslojmaintenance00.sh
 
 if [ -e "/var/spool/cron/crontabs/root" ]; then
-  if grep "cslojmaintenance.sh" /var/spool/cron/crontabs/root ; then
-    sed -i '/cslojmaintenance.sh/d' /var/spool/cron/crontabs/root
+  if grep "cslojmaintenance00.sh" /var/spool/cron/crontabs/root ; then
+    sed -i '/cslojmaintenance00.sh/d' /var/spool/cron/crontabs/root
   fi
 fi
 
