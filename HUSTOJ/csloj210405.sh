@@ -28,7 +28,7 @@ echo "---- CSL HUSTOJ release ${VER_DATE} installation ----"
 echo ""
 
 
-if [ ! -d /home/judge ]; then
+if [ -d /home/judge ]; then
   echo -n "Do you want to overwrite the CSL HUSTOJ?[y/n] "
 else
   echo -n "Do you want to install the CSL HUSTOJ?[y/n] "
@@ -63,7 +63,7 @@ echo ""
 sleep 3
 
 
-if [ ! -d /home/judge ]; then
+if [ -d /home/judge ]; then
   wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${BACKUPFILE} -O /home/${SUDO_USER}/${BACKUPFILE}
   chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${BACKUPFILE}
   sudo /home/${SUDO_USER}/${BACKUPFILE}
