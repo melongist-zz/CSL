@@ -19,6 +19,7 @@ echo -n "Do you want to install/overwrite the CSL HUSTOJ?[y/n] "
 read INPUTS
 if [ ${INPUTS} = "y" ]; then
   echo ""
+  echo ""
   echo "---- HUSTOJ release ${VER_DATE} installation started..."
   echo ""
 else
@@ -36,7 +37,9 @@ while [ ${OJNAME} != ${INPUTS} ]; do
   read INPUTS
 done
 
+echo ""
 echo "Waiting 3 seconds..."
+echo ""
 
 sleep 3
 

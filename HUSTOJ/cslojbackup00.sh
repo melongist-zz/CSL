@@ -14,6 +14,7 @@ echo ""
 echo "---- CSL HUSTOJ backup ----"
 echo ""
 echo "Waiting 3 seconds..."
+echo ""
 
 
 sleep 3
