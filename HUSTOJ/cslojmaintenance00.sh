@@ -5,6 +5,12 @@
 
 clear
 
+
+VER_DATE="21.04.09"
+
+THISFILE="cslojmaintenance00.sh"
+
+
 if [[ -z $SUDO_USER ]] ; then
   echo "Use 'sudo bash ${THISFILE}'"
   exit 1
@@ -18,11 +24,6 @@ echo ""
 
 
 sleep 3
-
-
-VER_DATE="21.04.08"
-
-THISFILE="cslojmaintenance00.sh"
 
 
 #deleting nginx log

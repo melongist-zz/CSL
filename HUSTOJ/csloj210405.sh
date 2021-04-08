@@ -5,6 +5,19 @@
 
 clear
 
+VER_DATE="21.04.05"
+
+THISFILE="csloj210405.sh"
+SRCZIP="hustoj210405.zip"
+
+SQLFILE="csl100v06jol.sql"
+IMGFILE="csl100v01image.tar.gz"
+DATAFILE="csl100v07data.zip"
+
+MAINTENANCEFILE="cslojmaintenance00.sh"
+BACKUPFILE="cslojbackup00.sh"
+
+
 if [[ -z $SUDO_USER ]] ; then
   echo "Use 'sudo bash ${THISFILE}'"
   exit 1
@@ -14,8 +27,14 @@ echo ""
 echo "---- CSL HUSTOJ release ${VER_DATE} installation ----"
 echo ""
 
+
+if [ ! -d /home/judge ]; then
+  echo -n "Do you want to overwrite the CSL HUSTOJ?[y/n] "
+else
+  echo -n "Do you want to install the CSL HUSTOJ?[y/n] "
+fi
+
 INPUTS="n"
-echo -n "Do you want to install/overwrite the CSL HUSTOJ?[y/n] "
 read INPUTS
 if [ ${INPUTS} = "y" ]; then
   echo ""
@@ -44,14 +63,12 @@ echo ""
 sleep 3
 
 
-VER_DATE="21.04.05"
+if [ ! -d /home/judge ]; then
+  wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${BACKUPFILE} -O /home/${SUDO_USER}/${BACKUPFILE}
+  chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${BACKUPFILE}
+  sudo /home/${SUDO_USER}/${BACKUPFILE}
+fi
 
-THISFILE="csloj210405.sh"
-SRCZIP="hustoj210405.zip"
-
-SQLFILE="csl100v06jol.sql"
-IMGFILE="csl100v01image.tar.gz"
-DATAFILE="csl100v07data.zip"
 
 #for South Korea's timezone
 timedatectl set-timezone 'Asia/Seoul'
@@ -440,24 +457,24 @@ sed -i "s#\`end_time\`>'\$now' or \`private\`='1'#\`start_time\`<'\$now' AND \`e
 
 
 #for cslojmaintenance
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/cslojmaintenance00.sh -O /home/${SUDO_USER}/cslojmaintenance00.sh
-chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/cslojmaintenance00.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${MAINTENANCEFILE} -O /home/${SUDO_USER}/${MAINTENANCEFILE}
+chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${MAINTENANCEFILE}
 
 if [ -e "/var/spool/cron/crontabs/root" ]; then
-  if grep "cslojmaintenance00.sh" /var/spool/cron/crontabs/root ; then
-    sed -i '/cslojmaintenance00.sh/d' /var/spool/cron/crontabs/root
+  if grep "\${MAINTENANCEFILE}" /var/spool/cron/crontabs/root ; then
+    sed -i "/\${MAINTENANCEFILE}/d" /var/spool/cron/crontabs/root
   fi
 fi
 
 crontab -l > temp
-echo '30 4 * * * sudo bash /home/'${SUDO_USER}'/cslojmaintenance00.sh' >> temp
+echo "30 4 * * * sudo bash /home/'${SUDO_USER}'/\${MAINTENANCEFILE}" >> temp
 crontab temp
 rm -f temp
 
 
 #for backup
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/cslojbackup00.sh -O /home/${SUDO_USER}/cslojbackup00.sh
-chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/cslojbackup00.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${BACKUPFILE} -O /home/${SUDO_USER}/${BACKUPFILE}
+chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${BACKUPFILE}
 
 
 

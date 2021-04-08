@@ -5,6 +5,12 @@
 
 clear
 
+VER_DATE="21.04.08"
+
+THISFILE="cslojbackup00.sh"
+RESTOREFILE="restore.sh"
+
+
 if [[ -z $SUDO_USER ]] ; then
   echo "Use 'sudo bash ${THISFILE}'"
   exit 1
@@ -18,12 +24,6 @@ echo ""
 
 
 sleep 3
-
-
-VER_DATE="21.04.08"
-
-THISFILE="cslojbackup00.sh"
-RESTOREFILE="restore.sh"
 
 
 if [ ! -d /home/${SUDO_USER}/cslojbackups ]; then
@@ -83,7 +83,7 @@ echo "echo \"\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo ""
 echo "---- CSL HUSTOJ backuped successfully at ${BACKUPS} ----"
 echo ""
-echo "You can restore HUSTOJ ${BACKUPS} backup with ..."
+echo "You can restore CSL HUSTOJ ${BACKUPS} backup with ..."
 echo ""
 echo "$ sudo bash ~/cslojbackups/${BACKUPS}/${RESTOREFILE}"
 echo ""
