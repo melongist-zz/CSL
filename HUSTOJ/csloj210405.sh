@@ -18,6 +18,8 @@ MAINTENANCEFILE="cslojmaintenance00.sh"
 BACKUPFILE="cslojbackup00.sh"
 
 
+
+
 if [[ -z $SUDO_USER ]] ; then
   echo "Use 'sudo bash ${THISFILE}'"
   exit 1
@@ -459,6 +461,7 @@ sed -i "s#\`end_time\`>'\$now' or \`private\`='1'#\`start_time\`<'\$now' AND \`e
 #for cslojmaintenance
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${MAINTENANCEFILE} -O /home/${SUDO_USER}/${MAINTENANCEFILE}
 chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${MAINTENANCEFILE}
+sed -i "s/USERACCOUNT/${SUDO_USER}/" /home/${SUDO_USER}/${MAINTENANCEFILE}
 
 if [ -e "/var/spool/cron/crontabs/root" ]; then
   if grep "\${MAINTENANCEFILE}" /var/spool/cron/crontabs/root ; then
@@ -475,6 +478,7 @@ rm -f temp
 #for backup
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${BACKUPFILE} -O /home/${SUDO_USER}/${BACKUPFILE}
 chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${BACKUPFILE}
+sed -i "s/USERACCOUNT/${SUDO_USER}/" /home/${SUDO_USER}/${BACKUPFILE}
 
 
 

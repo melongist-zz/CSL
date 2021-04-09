@@ -9,6 +9,9 @@ clear
 VER_DATE="21.04.09"
 
 THISFILE="cslojmaintenance00.sh"
+USER="USERACCOUNT"
+
+
 
 
 if [[ -z $SUDO_USER ]] ; then
@@ -30,10 +33,10 @@ sleep 3
 find /var/log/nginx -mtime +1 -type f -ls -exec rm -r {} \;
 
 #deleting old backups
-find /home/${SUDO_USER}/cslojbackups -mtime +10 -type f -ls -exec rm -rf {} \;
+find /home/${USER}/cslojbackups -mtime +10 -type f -ls -exec rm -rf {} \;
 
 #auto backup
-bash /home/${SUDO_USER}/cslojbackup00.sh
+bash /home/${USER}/cslojbackup00.sh
 
 
 #for maintenance
