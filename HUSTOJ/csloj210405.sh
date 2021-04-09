@@ -26,7 +26,7 @@ if [[ -z $SUDO_USER ]] ; then
 fi
 
 echo ""
-echo "---- CSL HUSTOJ release ${VER_DATE} installation ----"
+echo "---- CSL HUSTOJ release ${VER_DATE} ----"
 echo ""
 
 
@@ -41,7 +41,7 @@ read INPUTS
 if [ ${INPUTS} = "y" ]; then
   echo ""
   echo ""
-  echo "---- HUSTOJ release ${VER_DATE} installation started..."
+  echo "---- CSL HUSTOJ release ${VER_DATE} installation started..."
   echo ""
 else
   echo ""
@@ -68,7 +68,9 @@ sleep 3
 if [ -d /home/judge ]; then
   wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${BACKUPFILE} -O /home/${SUDO_USER}/${BACKUPFILE}
   chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${BACKUPFILE}
-  sudo /home/${SUDO_USER}/${BACKUPFILE}
+  sed -i "s/\${SUDO_USER}/${SUDO_USER}/g" /home/${SUDO_USER}/${BACKUPFILE}
+  echo "HUSTOJ backup before CSL HUSTOJ release ${VER_DATE} installation"
+  bash /home/${SUDO_USER}/${BACKUPFILE}
 fi
 
 
@@ -461,7 +463,7 @@ sed -i "s#\`end_time\`>'\$now' or \`private\`='1'#\`start_time\`<'\$now' AND \`e
 #for cslojmaintenance
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${MAINTENANCEFILE} -O /home/${SUDO_USER}/${MAINTENANCEFILE}
 chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${MAINTENANCEFILE}
-sed -i "s/USERACCOUNT/${SUDO_USER}/" /home/${SUDO_USER}/${MAINTENANCEFILE}
+sed -i "s/\${SUDO_USER}/${SUDO_USER}/g" /home/${SUDO_USER}/${MAINTENANCEFILE}
 
 if [ -e "/var/spool/cron/crontabs/root" ]; then
   if grep "\${MAINTENANCEFILE}" /var/spool/cron/crontabs/root ; then
@@ -470,23 +472,22 @@ if [ -e "/var/spool/cron/crontabs/root" ]; then
 fi
 
 crontab -l > temp
-echo "30 4 * * * sudo bash /home/${SUDO_USER}/${MAINTENANCEFILE}" >> temp
+echo "30 4 * * * bash /home/${SUDO_USER}/${MAINTENANCEFILE}" >> temp
 crontab temp
 rm -f temp
-
-
-#for backup
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${BACKUPFILE} -O /home/${SUDO_USER}/${BACKUPFILE}
-chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${BACKUPFILE}
-sed -i "s/USERACCOUNT/${SUDO_USER}/" /home/${SUDO_USER}/${BACKUPFILE}
-
-
 
 
 #temporary fix until next release
 sed -i "s/PasswordRest/PasswordReset/" /home/judge/src/web/admin/user_list.php
 sed -i "/@session_start();/d" /home/judge/src/web/include/db_info.inc.php
 sed -i "s/static  \$OJ_CE_PENALTY/@session_start();\nstatic  \$OJ_CE_PENALTY/" /home/judge/src/web/include/db_info.inc.php
+
+
+#for backup
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${BACKUPFILE} -O /home/${SUDO_USER}/${BACKUPFILE}
+chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${BACKUPFILE}
+sed -i "s/\${SUDO_USER}/${SUDO_USER}/g" /home/${SUDO_USER}/${BACKUPFILE}
+bash /home/${SUDO_USER}/${BACKUPFILE}
 
 
 echo ""

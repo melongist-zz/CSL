@@ -9,7 +9,6 @@ clear
 VER_DATE="21.04.09"
 
 THISFILE="cslojmaintenance00.sh"
-USER="USERACCOUNT"
 
 
 
@@ -29,14 +28,17 @@ echo ""
 sleep 3
 
 
+
+#---- You can edit below processes ----
+
 #deleting nginx log
 find /var/log/nginx -mtime +1 -type f -ls -exec rm -r {} \;
 
 #deleting old backups
-find /home/${USER}/cslojbackups -mtime +10 -type f -ls -exec rm -rf {} \;
+find /home/${SUDO_USER}/cslojbackups -mtime +10 -type d -ls -exec rmdir -rf {} \;
 
 #auto backup
-bash /home/${USER}/cslojbackup00.sh
+bash /home/${SUDO_USER}/cslojbackup00.sh -auto
 
 
 #for maintenance
@@ -44,6 +46,9 @@ apt update
 apt -y upgrade
 
 echo "---- system reboot ----"
+echo ""
+echo "Waiting 3 seconds..."
+
 
 sleep 3
 
