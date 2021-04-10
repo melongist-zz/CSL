@@ -5,7 +5,7 @@
 
 clear
 
-VER_DATE="21.04.08"
+VER_DATE="21.04.10"
 
 THISFILE="cslojbackup00.sh"
 RESTOREFILE="restore.sh"
@@ -23,8 +23,6 @@ echo "---- CSL HUSTOJ backup ----"
 echo ""
 echo "Waiting 3 seconds..."
 echo ""
-
-
 sleep 3
 
 
