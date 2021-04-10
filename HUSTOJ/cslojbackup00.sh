@@ -32,10 +32,10 @@ if [ ! -d /home/${SUDO_USER}/cslojbackups ]; then
 fi
 
 
-BACKUPS=$(echo `date '+%Y%m%d%H%M'`)
+BACKUPS=$(echo `date '+%y%m%d%H%M'`)
 
 if [ -z "$1" ] ; then
-  BACKUPS="${BACKUPS}"
+  BACKUPS="${BACKUPS}-manual"
 else
   BACKUPS="${BACKUPS}$1"
 fi
