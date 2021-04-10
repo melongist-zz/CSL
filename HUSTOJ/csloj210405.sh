@@ -466,10 +466,15 @@ chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${MAINTENANCEFILE}
 sed -i "s/\${SUDO_USER}/${SUDO_USER}/g" /home/${SUDO_USER}/${MAINTENANCEFILE}
 
 if [ -e "/var/spool/cron/crontabs/root" ]; then
-  if grep "\${MAINTENANCEFILE}" /var/spool/cron/crontabs/root ; then
-    sed -i "/\${MAINTENANCEFILE}/d" /var/spool/cron/crontabs/root
+  if grep "bak.sh" /var/spool/cron/crontabs/root ; then
+    sed -i "/bak.sh/d" /var/spool/cron/crontabs/root
+  fi
+
+  if grep "${MAINTENANCEFILE}" /var/spool/cron/crontabs/root ; then
+    sed -i "/${MAINTENANCEFILE}/d" /var/spool/cron/crontabs/root
   fi
 fi
+
 
 crontab -l > temp
 echo "30 4 * * * bash /home/${SUDO_USER}/${MAINTENANCEFILE}" >> temp
