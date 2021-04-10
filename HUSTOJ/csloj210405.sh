@@ -459,6 +459,11 @@ sed -i "s/OJ_PYTHON_FREE=0/OJ_PYTHON_FREE=1/" /home/judge/etc/judge.conf
 #for contest problem view fix
 sed -i "s#\`end_time\`>'\$now' or \`private\`='1'#\`start_time\`<'\$now' AND \`end_time\`>'\$now'#" /home/judge/src/web/problem.php
 
+#for SHOW_DIFF=true error fix in reinfo.php
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/web/reinfo.php
+mv -f ./reinfo.php /home/judge/src/web/reinfo.php
+chown www-data:root /home/judge/src/web/reinfo.php
+chmod 664 /home/judge/src/web/reinfo.php
 
 #for cslojmaintenance
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${MAINTENANCEFILE} -O /home/${SUDO_USER}/${MAINTENANCEFILE}
