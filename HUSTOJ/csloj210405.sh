@@ -487,7 +487,7 @@ sed -i "s/static  \$OJ_CE_PENALTY/@session_start();\nstatic  \$OJ_CE_PENALTY/" /
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${BACKUPFILE} -O /home/${SUDO_USER}/${BACKUPFILE}
 chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${BACKUPFILE}
 sed -i "s/\${SUDO_USER}/${SUDO_USER}/g" /home/${SUDO_USER}/${BACKUPFILE}
-bash /home/${SUDO_USER}/${BACKUPFILE} -${VER_DATE/./}-installed
+bash /home/${SUDO_USER}/${BACKUPFILE} -${VER_DATE}-installed
 
 
 echo ""
