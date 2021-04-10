@@ -42,7 +42,7 @@ fi
 
 mkdir /home/${SUDO_USER}/cslojbackups/${BACKUPS}
 
-cp ./${THISFILE} /home/${SUDO_USER}/cslojbackups/${BACKUPS}/
+cp /home/${SUDO_USER}/${THISFILE} /home/${SUDO_USER}/cslojbackups/${BACKUPS}/
 mv /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${THISFILE} /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${THISFILE}.bak 
 
 touch /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
