@@ -70,7 +70,7 @@ if [ -d /home/judge ]; then
   chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${BACKUPFILE}
   sed -i "s/\${SUDO_USER}/${SUDO_USER}/g" /home/${SUDO_USER}/${BACKUPFILE}
   echo "HUSTOJ backup before CSL HUSTOJ release ${VER_DATE} installation"
-  bash /home/${SUDO_USER}/${BACKUPFILE}
+  bash /home/${SUDO_USER}/${BACKUPFILE} -before
 fi
 
 
@@ -487,7 +487,7 @@ sed -i "s/static  \$OJ_CE_PENALTY/@session_start();\nstatic  \$OJ_CE_PENALTY/" /
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${BACKUPFILE} -O /home/${SUDO_USER}/${BACKUPFILE}
 chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${BACKUPFILE}
 sed -i "s/\${SUDO_USER}/${SUDO_USER}/g" /home/${SUDO_USER}/${BACKUPFILE}
-bash /home/${SUDO_USER}/${BACKUPFILE}
+bash /home/${SUDO_USER}/${BACKUPFILE} -installed
 
 
 echo ""

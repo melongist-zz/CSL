@@ -36,13 +36,11 @@ fi
 
 BACKUPS=$(echo `date '+%Y%m%d%H%M'`)
 
-if [ -z "$1" ]; then
-  BACKUPS="${BACKUPS}-manual"
+if [ -z "$1" ] ; then
+  BACKUPS="${BACKUPS}"
 else
-  case "$1" in
-    -auto) BACKUPS="${BACKUPS}-auto";;
-  esac
-if
+  BACKUPS="${BACKUPS}$1"
+fi
 
 mkdir /home/${SUDO_USER}/cslojbackups/${BACKUPS}
 

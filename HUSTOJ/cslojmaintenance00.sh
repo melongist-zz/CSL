@@ -35,7 +35,7 @@ sleep 3
 find /var/log/nginx -mtime +1 -type f -ls -exec rm -r {} \;
 
 #deleting old backups
-find /home/${SUDO_USER}/cslojbackups -mtime +10 -type d -ls -exec rmdir -rf {} \;
+find /home/${SUDO_USER}/cslojbackups -type d -name "*-auto" -mtime +10 -prune -exec rm -rf {} \;
 
 #auto backup
 bash /home/${SUDO_USER}/cslojbackup00.sh -auto
