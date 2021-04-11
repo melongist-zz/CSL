@@ -62,7 +62,7 @@ done
 if [ -d /home/judge ]; then
   INPUTS="n"
   UPGRADETYPE="0"
-  while [ ${INPUTS} != "y" ]; then
+  while [ ${INPUTS} != "y" ]; do
     echo "---- Select overwriting type"
     echo " 1: Upgrade PHPs only! Migration"
     echo " 2: New installation!  Reset"
