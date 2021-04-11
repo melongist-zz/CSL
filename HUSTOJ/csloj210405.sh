@@ -309,12 +309,12 @@ chmod 664 /home/judge/src/web/template/bs3/js.php
 
 #Replacing msg.txt
 if [ ${UPGRADETYPE} == "1" ]; then
-  tar -zxvf /home/${SUDO_USER}/oldmsg.tar.gz /
+  tar -zxvf /home/${SUDO_USER}/oldmsg.tar.gz -C /
   rm /home/${SUDO_USER}/oldmsg.tar.gz
 else
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/msg2.txt
-mv -f ./msg2.txt /home/judge/src/web/admin/msg.txt
-sed -i "s/release YY.MM.DD/release ${VER_DATE}/" /home/judge/src/web/admin/msg.txt
+  wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/msg2.txt
+  mv -f ./msg2.txt /home/judge/src/web/admin/msg.txt
+  sed -i "s/release YY.MM.DD/release ${VER_DATE}/" /home/judge/src/web/admin/msg.txt
 fi
 chown www-data:$root /home/judge/src/web/admin/msg.txt
 chmod 644 /home/judge/src/web/admin/msg.txt
@@ -338,8 +338,8 @@ else
   wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${SQLFILE}
   mysql -u ${DBUSER} -p${PASSWORD} jol < ${SQLFILE}
   rm ${SQLFILE}
+  echo "insert into jol.privilege values('admin','source_browser','true','N');"|mysql -h localhost -u"$USER" -p"$PASSWORD"
 fi
-echo "insert into jol.privilege values('admin','source_browser','true','N');"|mysql -h localhost -u"$USER" -p"$PASSWORD" 
 
 #Coping all uploads to server
 #current uploads backup
@@ -558,9 +558,15 @@ sed -i "s/\${SUDO_USER}/${SUDO_USER}/g" /home/${SUDO_USER}/${BACKUPFILE}
 bash /home/${SUDO_USER}/${BACKUPFILE} -${VER_DATE}
 
 
-echo ""
-echo "---- ${OJNAME}(CSL HUSTOJ release ${VER_DATE}) installed ----"
-echo ""
+if [ ${UPGRADETYPE} = "1" ]; then
+  echo ""
+  echo "---- ${OJNAME}(CSL HUSTOJ release ${VER_DATE}) upgraded! ----"
+  echo ""
+else
+  echo ""
+  echo "---- ${OJNAME}(CSL HUSTOJ release ${VER_DATE}) installed! ----"
+  echo ""
+fi
 echo "First of all! Change the default CSL HUSTOJ admin password!"
 echo ""
 echo "$SERVERTYPES"
