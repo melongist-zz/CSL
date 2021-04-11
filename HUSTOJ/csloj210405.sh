@@ -30,15 +30,8 @@ echo ""
 echo "---- CSL HUSTOJ release ${VER_DATE} ----"
 echo ""
 
-
-if [ -d /home/judge ]
-then
-  echo -n "Do you want to overwrite the CSL HUSTOJ?[y/n] : "
-else
-  echo -n "Do you want to install the CSL HUSTOJ?[y/n] : "
-fi
-
 INPUTS="n"
+echo -n "Do you want to install the CSL HUSTOJ release ${VER_DATE} ?[y/n] : "
 read INPUTS
 if [ ${INPUTS} = "y" ]
 then
@@ -51,6 +44,39 @@ else
   exit 1
 fi
 
+#if /home/judge exists. i.e. there is old HUSTOJ
+if [ -d /home/judge ]
+then
+  INPUTS="n"
+  UPGRADETYPE="0"
+  while [ ${INPUTS} != "y" ]; do
+    echo ""
+    echo "---- Select installation type"
+    echo " 1) Upgrade & Migration to ${VER_DATE} ..."
+    echo " 2) Reset & New installation ..."
+    echo " 3) Exit without installation ..."
+    echo -n "Select [1/2/3] : "
+    read UPGRADETYPE
+    echo ""
+    if [ ${UPGRADETYPE} = "1" ]
+    then
+      echo -n " 1) Upgrade & Migration to ${VER_DATE} ... selected. Are you sure? [y/n] : "
+      read INPUTS
+      echo ""
+    elif [ ${UPGRADETYPE} = "2" ]
+    then
+      echo -n " 2) Reset & New installation ... selected. Are you sure? [y/n] : "
+      read INPUTS
+      echo ""
+    else
+      echo -n " 3) Exit without installation ... selected. Are you sure? [y/n] : "
+      read INPUTS
+      echo ""
+      exit 1
+    fi
+  done
+fi
+
 #for OJ NAME
 OJNAME="o"
 INPUTS="x"
@@ -61,42 +87,15 @@ while [ ${OJNAME} != ${INPUTS} ]; do
   read INPUTS
 done
 
-echo ""
-echo ""
 
-
+#if /home/judge exists. i.e. there is old HUSTOJ
 if [ -d /home/judge ]
 then
-  INPUTS="n"
-  UPGRADETYPE="0"
-  while [ ${INPUTS} != "y" ]; do
-    echo "---- Select overwriting type"
-    echo " 1: Upgrade PHPs only! Migration"
-    echo " 2: New installation!  Reset"
-    echo -n "Select [1/2] : "
-    read UPGRADETYPE
-    echo ""
-    if [ ${UPGRADETYPE} = "1" ]
-    then
-      echo "You selected 1: Upgrade PHPs only!"
-      echo -n "Are you sure? [y/n] : "
-      read INPUTS
-      echo ""
-    else
-      echo "You selected 2: New installation!"
-      echo -n "Are you sure? [y/n] : "
-      read INPUTS
-      echo ""
-    fi
-  done
-
   #backup old hustoj
   wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${BACKUPFILE} -O /home/${SUDO_USER}/${BACKUPFILE}
   chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${BACKUPFILE}
   sed -i "s/\${SUDO_USER}/${SUDO_USER}/g" /home/${SUDO_USER}/${BACKUPFILE}
-  echo "HUSTOJ backup before CSL HUSTOJ release ${VER_DATE} installation"
   bash /home/${SUDO_USER}/${BACKUPFILE} -old
-
 
   DBUSER=$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
   PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
@@ -119,7 +118,7 @@ then
   cd /home/judge/
   wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${SRCZIP}
   unzip ${SRCZIP}
-  rm ${SRCZIP}  
+  rm ${SRCZIP}
 
   sed -i "s/DB_USER[[:space:]]*=[[:space:]]*\"root\"/DB_USER=\"$DBUSER\"/g" src/web/include/db_info.inc.php
   sed -i "s/DB_PASS[[:space:]]*=[[:space:]]*\"root\"/DB_PASS=\"$PASSWORD\"/g" src/web/include/db_info.inc.php
@@ -143,6 +142,8 @@ sleep 3
 timedatectl set-timezone 'Asia/Seoul'
 
 apt update
+apt -y upgrade
+
 apt -y install subversion
 apt -y install zip
 apt -y install unzip
