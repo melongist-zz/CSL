@@ -58,19 +58,54 @@ while [ ${OJNAME} != ${INPUTS} ]; do
   read INPUTS
 done
 
-echo ""
-echo "Waiting 3 seconds..."
-echo ""
-sleep 3
-
 
 if [ -d /home/judge ]; then
+  INPUTS="n"
+  UPGRADETYPE="0"
+  while [ ${INPUTS} != "y" ]; then
+    echo "---- Select overwriting type"
+    echo " 1: Upgrade PHPs only! Migration"
+    echo " 2: New installation!  Reset"
+    echo -n "Select [1/2] : "
+    read UPGRADETYPE
+    if [ ${UPGRADETYPE} == "1" ]; then
+      echo "You selected 1: Upgrade PHPs only!"
+      echo "Are you sure? [y/n] : "
+      read INPUTS
+    else
+      echo "You selected 2: New installation!"
+      echo "Are you sure? [y/n] : "
+      read INPUTS
+    fi
+  done
+
+  #backup old hustoj
   wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${BACKUPFILE} -O /home/${SUDO_USER}/${BACKUPFILE}
   chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${BACKUPFILE}
   sed -i "s/\${SUDO_USER}/${SUDO_USER}/g" /home/${SUDO_USER}/${BACKUPFILE}
   echo "HUSTOJ backup before CSL HUSTOJ release ${VER_DATE} installation"
   bash /home/${SUDO_USER}/${BACKUPFILE} -old
+
+  if [ ${UPGRADETYPE} == "1" ]; then
+    DBUSER=$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
+    PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
+    #backup old DB
+    mysqldump -u ${DBUSER} -p${PASSWORD} jol > /home/${SUDO_USER}/oldjol.sql
+    #backup old images
+    tar zcvf /home/${SUDO_USER}/oldimages.tar.gz /home/judge/src/web/upload/*
+    #backup old *.in/*.out data
+    zip -r /home/${SUDO_USER}/olddata.zip /home/judge/data
+    #backup msg.txt
+    cp /home/judge/src/web/admin/msg.txt /home/${SUDO_USER}/oldmsg.txt
+  fi
+
 fi
+
+
+echo ""
+echo "Waiting 3 seconds..."
+echo ""
+sleep 3
 
 
 #for South Korea's timezone
@@ -265,10 +300,15 @@ chown www-data:${SUDO_USER} /home/judge/src/web/template/bs3/js.php
 chmod 664 /home/judge/src/web/template/bs3/js.php
 
 #Replacing msg.txt
+if [ ${UPGRADETYPE} == "1" ]; then
+  mv -f /home/${SUDO_USER}/oldmsg.txt /home/judge/src/web/admin/msg.txt
+else
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/msg2.txt
 mv -f ./msg2.txt /home/judge/src/web/admin/msg.txt
-chown www-data:${SUDO_USER} /home/judge/src/web/admin/msg.txt
-chmod 664 /home/judge/src/web/admin/msg.txt
+sed -i "s/release YY.MM.DD/release ${VER_DATE}/" /home/judge/src/web/admin/msg.txt
+fi
+chown www-data:$root /home/judge/src/web/admin/msg.txt
+chmod 644 /home/judge/src/web/admin/msg.txt
 
 #phpmyadmin install script
 #wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/phadmin00.sh
@@ -277,14 +317,20 @@ chmod 664 /home/judge/src/web/admin/msg.txt
 #chmod 664 /home/${SUDO_USER}/phadmin00.sh
 
 #jol database overwriting
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${SQLFILE}
-DBUSER=$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
-PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 #current mysql backup
 #how to backup from HUSTOJ for CSL :> mysqldump -u debian-sys-maint -p jol > jol.sql
 #overwriting
-mysql -u ${DBUSER} -p${PASSWORD} jol < ${SQLFILE}
-rm ${SQLFILE}
+DBUSER=$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
+PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
+if [ ${UPGRADETYPE} = "1" ]; then
+  mysql -u ${DBUSER} -p${PASSWORD} jol < /home/${SUDO_USER}/oldjol.sql
+  rm /home/${SUDO_USER}/oldjol.sql
+else
+  wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${SQLFILE}
+  mysql -u ${DBUSER} -p${PASSWORD} jol < ${SQLFILE}
+  rm ${SQLFILE}
+fi
+
 
 #Coping all problem images to server
 #current images backup
@@ -294,9 +340,14 @@ rm ${SQLFILE}
 #tar zcvf ./${BACKUPS}/upload/images.tar.gz /home/judge/src/web/upload/*
 rm -rf /home/judge/src/web/upload/*
 #overwriting
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/upload/${IMGFILE}
-tar zxvf ${IMGFILE} -C /home/judge/src/web/upload/
-rm ${IMGFILE}
+if [ ${UPGRADETYPE} = "1" ]; then
+  tar zxvf /home/${SUDO_USER}/oldimages.tar.gz -C /home/judge/src/web/upload/
+  rm /home/${SUDO_USER}/oldimages.tar.gz
+else
+  wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/upload/${IMGFILE}
+  tar zxvf ${IMGFILE} -C /home/judge/src/web/upload/
+  rm ${IMGFILE}
+fi
 chown www-data:www-data -R /home/judge/src/web/upload/*
 chmod 644 /home/judge/src/web/upload/*
 chmod 755 /home/judge/src/web/upload/image
@@ -312,9 +363,14 @@ chmod 664 /home/judge/src/web/upload/index.html
 #zip -r ./${BACKUPS}/data.zip /home/judge/data
 rm -rf /home/judge/data
 #overwriting
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${DATAFILE}
-unzip ${DATAFILE} -d /home/judge/
-rm ${DATAFILE}
+if [ ${UPGRADETYPE} = "1" ]; then
+  unzip /home/${SUDO_USER}/olddata.zip -d /home/judge/
+  rm /home/${SUDO_USER}/olddata.zip
+else
+  wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${DATAFILE}
+  unzip ${DATAFILE} -d /home/judge/
+  rm ${DATAFILE}
+fi
 chmod 644 -R /home/judge/data
 chown www-data:www-data -R /home/judge/data
 chmod 755 /home/judge/data/*
@@ -406,19 +462,19 @@ chown www-data:root /home/judge/src/web/submit.php
 chmod 644 /home/judge/src/web/submit.php
 
 
-#unable to register
+#set OJ_REGISTER=false
 sed -i "s/OJ_REGISTER=true/OJ_REGISTER=false/" /home/judge/src/web/include/db_info.inc.php
 
-#enable VCODE
+#set OJ_VCODE=true
 sed -i "s/OJ_VCODE=false/OJ_VCODE=true/" /home/judge/src/web/include/db_info.inc.php
 
-#OJ_SHOW_DIFF=true
+#set OJ_SHOW_DIFF=true
 sed -i "s/OJ_SHOW_DIFF=false/OJ_SHOW_DIFF=true/" /home/judge/src/web/include/db_info.inc.php
 
-#C++ & python only judging...
+#set OJ_LANGMASK to  C++ & python only...
 sed -i "s/$OJ_LANGMASK=1637684/$OJ_LANGMASK=2097085/" /home/judge/src/web/include/db_info.inc.php
 
-#result time fix ... use_max_time
+#set OJ_USE_MAX_TIME=1 ... use_max_time
 sed -i "s/OJ_USE_MAX_TIME=0/OJ_USE_MAX_TIME=1/" /home/judge/etc/judge.conf
 
 
@@ -440,13 +496,6 @@ mv -f ./js2.php /home/judge/src/web/template/bs3/js.php
 chown www-data:${SUDO_USER} /home/judge/src/web/template/bs3/js.php
 chmod 664 /home/judge/src/web/template/bs3/js.php
 sed -i "s/release YY.MM.DD/release ${VER_DATE}/" /home/judge/src/web/template/bs3/js.php
-
-#Replacing msg.txt
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/msg2.txt
-mv -f ./msg2.txt /home/judge/src/web/admin/msg.txt
-chown www-data:root /home/judge/src/web/admin/msg.txt
-chmod 644 /home/judge/src/web/admin/msg.txt
-sed -i "s/release YY.MM.DD/release ${VER_DATE}/" /home/judge/src/web/admin/msg.txt
 
 #small fix for status.php
 sed -i "s#KB</div># KB</div>#" /home/judge/src/web/status.php
