@@ -100,11 +100,11 @@ if [ -d /home/judge ]; then
     #how to backup database : mysqldump -u debian-sys-maint -p jol > jol.sql
     mysqldump -u ${DBUSER} -p${PASSWORD} jol > /home/${SUDO_USER}/oldjol.sql
     #backup current old *.in/*.out data
-    tar -zcvf /home/${SUDO_USER}/olddata.tar.gz /home/judge/data
+    tar -czvpf /home/${SUDO_USER}/olddata.tar.gz /home/judge/data
     #backup old uploads (images included)
-    tar -zcvf /home/${SUDO_USER}/olduploads.tar.gz /home/judge/src/web/upload
+    tar -czvpf /home/${SUDO_USER}/olduploads.tar.gz /home/judge/src/web/upload
     #backup old msg.txt
-    tar -zcvf /home/${SUDO_USER}/oldmsg.tar.gz /home/judge/src/web/admin/msg.txt
+    tar -czvpf /home/${SUDO_USER}/oldmsg.tar.gz /home/judge/src/web/admin/msg.txt
   fi
 
 fi
@@ -309,7 +309,7 @@ chmod 664 /home/judge/src/web/template/bs3/js.php
 
 #Replacing msg.txt
 if [ ${UPGRADETYPE} == "1" ]; then
-  tar -zxvf /home/${SUDO_USER}/oldmsg.tar.gz -C /
+  tar -xzvpf /home/${SUDO_USER}/oldmsg.tar.gz -C /
   rm /home/${SUDO_USER}/oldmsg.tar.gz
 else
   wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/msg2.txt
@@ -345,15 +345,15 @@ fi
 #current uploads backup
 #how to backup uploads from CSL HUSTOJ
 #directory : /home/judge/src/wb/upload/
-#command   : sudo tar -zcvf ./${BACKUPS}/upload/olduploads.tar.gz /home/judge/src/web/upload
+#command   : sudo tar -czvpf ./${BACKUPS}/upload/olduploads.tar.gz /home/judge/src/web/upload
 rm -rf /home/judge/src/web/upload/*
 #overwriting
 if [ ${UPGRADETYPE} == "1" ]; then
-  tar -zxvf /home/${SUDO_USER}/olduploads.tar.gz -C /
+  tar -xzvpf /home/${SUDO_USER}/olduploads.tar.gz -C /
   rm /home/${SUDO_USER}/olduploads.tar.gz
 else
   wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/upload/${IMGFILE}
-  tar zxvf ${IMGFILE} -C /home/judge/src/web/upload/
+  tar -xzvpf ${IMGFILE} -C /home/judge/src/web/upload/
   rm ${IMGFILE}
 fi
 chown www-data:www-data -R /home/judge/src/web/upload/*
@@ -373,7 +373,7 @@ rm -rf /home/judge/data
 #overwriting
 if [ ${UPGRADETYPE} == "1" ]; then
   rm -rf /home/judge/data/*
-  tar -zxvf /home/${SUDO_USER}/olddata.tar.gz -C /
+  tar -xzvpf /home/${SUDO_USER}/olddata.tar.gz -C /
   rm /home/${SUDO_USER}/olddata.tar.gz
 else
   wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${DATAFILE}
