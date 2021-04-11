@@ -115,7 +115,7 @@ then
   fi
 
   rm -rf /home/judge/src/*
-  rm -rf /home/judge/src/.*
+  rm -rf /home/judge/src/.svn
   cd /home/judge/
   wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${SRCZIP}
   unzip ${SRCZIP}
