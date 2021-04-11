@@ -76,7 +76,7 @@ then
     echo -n "Select [1/2] : "
     read UPGRADETYPE
     echo ""
-    if [ ${UPGRADETYPE} == "1" ]
+    if [ ${UPGRADETYPE} = "1" ]
     then
       echo "You selected 1: Upgrade PHPs only!"
       echo -n "Are you sure? [y/n] : "
@@ -101,7 +101,7 @@ then
   DBUSER=$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
   PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 
-  if [ ${UPGRADETYPE} == "1" ]
+  if [ ${UPGRADETYPE} = "1" ]
   then
     #backup current old DB
     #how to backup database : mysqldump -u debian-sys-maint -p jol > jol.sql
