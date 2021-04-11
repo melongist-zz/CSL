@@ -20,7 +20,8 @@ BACKUPFILE="cslojbackup00.sh"
 
 
 
-if [[ -z $SUDO_USER ]] ; then
+if [[ -z $SUDO_USER ]]
+then
   echo "Use 'sudo bash ${THISFILE}'"
   exit 1
 fi
@@ -30,7 +31,8 @@ echo "---- CSL HUSTOJ release ${VER_DATE} ----"
 echo ""
 
 
-if [ -d /home/judge ]; then
+if [ -d /home/judge ]
+then
   echo -n "Do you want to overwrite the CSL HUSTOJ?[y/n] : "
 else
   echo -n "Do you want to install the CSL HUSTOJ?[y/n] : "
@@ -38,7 +40,8 @@ fi
 
 INPUTS="n"
 read INPUTS
-if [ ${INPUTS} = "y" ]; then
+if [ ${INPUTS} = "y" ]
+then
   echo ""
   echo ""
   echo "---- CSL HUSTOJ release ${VER_DATE} installation started..."
@@ -62,7 +65,8 @@ echo ""
 echo ""
 
 
-if [ -d /home/judge ]; then
+if [ -d /home/judge ]
+then
   INPUTS="n"
   UPGRADETYPE="0"
   while [ ${INPUTS} != "y" ]; do
@@ -72,7 +76,8 @@ if [ -d /home/judge ]; then
     echo -n "Select [1/2] : "
     read UPGRADETYPE
     echo ""
-    if [ ${UPGRADETYPE} == "1" ]; then
+    if [ ${UPGRADETYPE} == "1" ]
+    then
       echo "You selected 1: Upgrade PHPs only!"
       echo -n "Are you sure? [y/n] : "
       read INPUTS
@@ -92,7 +97,8 @@ if [ -d /home/judge ]; then
   echo "HUSTOJ backup before CSL HUSTOJ release ${VER_DATE} installation"
   bash /home/${SUDO_USER}/${BACKUPFILE} -old
 
-  if [ ${UPGRADETYPE} == "1" ]; then
+  if [ ${UPGRADETYPE} == "1" ]
+  then
     DBUSER=$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
     PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 
@@ -308,7 +314,8 @@ chown www-data:${SUDO_USER} /home/judge/src/web/template/bs3/js.php
 chmod 664 /home/judge/src/web/template/bs3/js.php
 
 #Replacing msg.txt
-if [ ${UPGRADETYPE} == "1" ]; then
+if [ ${UPGRADETYPE} = "1" ]
+then
   tar -xzvpf /home/${SUDO_USER}/oldmsg.tar.gz -C /
   rm /home/${SUDO_USER}/oldmsg.tar.gz
 else
@@ -331,7 +338,8 @@ chmod 644 /home/judge/src/web/admin/msg.txt
 #overwriting
 DBUSER=$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
-if [ ${UPGRADETYPE} == "1" ]; then
+if [ ${UPGRADETYPE} = "1" ]
+then
   mysql -u ${DBUSER} -p${PASSWORD} jol < /home/${SUDO_USER}/oldjol.sql
   rm /home/${SUDO_USER}/oldjol.sql
 else
@@ -348,7 +356,8 @@ fi
 #command   : sudo tar -czvpf ./${BACKUPS}/upload/olduploads.tar.gz /home/judge/src/web/upload
 rm -rf /home/judge/src/web/upload/*
 #overwriting
-if [ ${UPGRADETYPE} == "1" ]; then
+if [ ${UPGRADETYPE} = "1" ]
+then
   tar -xzvpf /home/${SUDO_USER}/olduploads.tar.gz -C /
   rm /home/${SUDO_USER}/olduploads.tar.gz
 else
@@ -371,7 +380,8 @@ chmod 664 /home/judge/src/web/upload/index.html
 #zip -r ./${BACKUPS}/data.zip /home/judge/data
 rm -rf /home/judge/data
 #overwriting
-if [ ${UPGRADETYPE} == "1" ]; then
+if [ ${UPGRADETYPE} = "1" ]
+then
   rm -rf /home/judge/data/*
   tar -xzvpf /home/${SUDO_USER}/olddata.tar.gz -C /
   rm /home/${SUDO_USER}/olddata.tar.gz
@@ -491,7 +501,8 @@ sed -i "s/OJ_USE_MAX_TIME=0/OJ_USE_MAX_TIME=1/" /home/judge/etc/judge.conf
 sudo apt -y install curl
 
 #Identifing AWS Ubuntu 20.04 LTS
-if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]; then
+if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]
+then
   SERVERTYPES="AWS SERVER"
   IPADDRESS=($(curl http://checkip.amazonaws.com))
 else
@@ -528,12 +539,15 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${MAINTENANCE
 chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${MAINTENANCEFILE}
 sed -i "s/\${SUDO_USER}/${SUDO_USER}/g" /home/${SUDO_USER}/${MAINTENANCEFILE}
 
-if [ -e "/var/spool/cron/crontabs/root" ]; then
-  if grep "bak.sh" /var/spool/cron/crontabs/root ; then
+if [ -e "/var/spool/cron/crontabs/root" ]
+then
+  if grep "bak.sh" /var/spool/cron/crontabs/root ;
+  then
     sed -i "/bak.sh/d" /var/spool/cron/crontabs/root
   fi
 
-  if grep "${MAINTENANCEFILE}" /var/spool/cron/crontabs/root ; then
+  if grep "${MAINTENANCEFILE}" /var/spool/cron/crontabs/root ;
+  then
     sed -i "/${MAINTENANCEFILE}/d" /var/spool/cron/crontabs/root
   fi
 fi
@@ -558,7 +572,8 @@ sed -i "s/\${SUDO_USER}/${SUDO_USER}/g" /home/${SUDO_USER}/${BACKUPFILE}
 bash /home/${SUDO_USER}/${BACKUPFILE} -${VER_DATE}
 
 
-if [ ${UPGRADETYPE} == "1" ]; then
+if [ ${UPGRADETYPE} = "1" ]
+then
   echo ""
   echo "---- ${OJNAME}(CSL HUSTOJ release ${VER_DATE}) upgraded! ----"
   echo ""

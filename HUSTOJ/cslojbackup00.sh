@@ -13,7 +13,8 @@ RESTOREFILE="restore.sh"
 
 
 
-if [[ -z $SUDO_USER ]] ; then
+if [[ -z $SUDO_USER ]]
+then
   echo "Use 'sudo bash ${THISFILE}'"
   exit 1
 fi
@@ -26,7 +27,8 @@ echo ""
 sleep 3
 
 
-if [ ! -d /home/${SUDO_USER}/cslojbackups ]; then
+if [ ! -d /home/${SUDO_USER}/cslojbackups ]
+then
   mkdir /home/${SUDO_USER}/cslojbackups
   chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/cslojbackups  
 fi
@@ -34,7 +36,8 @@ fi
 
 BACKUPS=$(echo `date '+%y%m%d%H%M'`)
 
-if [ -z "$1" ] ; then
+if [ -z "$1" ]
+then
   BACKUPS="${BACKUPS}-manual"
 else
   BACKUPS="${BACKUPS}$1"
@@ -47,7 +50,8 @@ mv /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${THISFILE} /home/${SUDO_USER}/csl
 
 touch /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "clear" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
-echo "if [[ -z \$USER ]] ; then" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "if [[ -z \$USER ]]" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "then" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "  echo \"Use 'sudo bash ${RESTOREFILE}'\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "  exit 1" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "fi" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
@@ -58,7 +62,8 @@ echo "INPUTS=\"n\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "echo \"This script will restore ${BACKUPS} backup.\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "echo -n \"Are you sure?[y/n] : \"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "read INPUTS" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
-echo "if [ \${INPUTS} = \"n\" ]; then" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "if [ \${INPUTS} = \"n\" ]" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "then" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "  exit 1" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "fi" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "echo \"\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
