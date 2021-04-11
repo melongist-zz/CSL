@@ -71,6 +71,7 @@ if [ -d /home/judge ]; then
     echo " 2: New installation!  Reset"
     echo -n "Select [1/2] : "
     read UPGRADETYPE
+    echo ""
     if [ ${UPGRADETYPE} == "1" ]; then
       echo "You selected 1: Upgrade PHPs only!"
       echo -n "Are you sure? [y/n] : "
