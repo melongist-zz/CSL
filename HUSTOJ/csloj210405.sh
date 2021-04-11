@@ -113,8 +113,8 @@ then
     tar -czvpf /home/${SUDO_USER}/oldmsg.tar.gz /home/judge/src/web/admin/msg.txt
   fi
 
-fi
-
+else
+#new installation block start
 
 echo ""
 echo "Waiting 3 seconds..."
@@ -129,22 +129,6 @@ apt update
 apt -y install subversion
 apt -y install zip
 apt -y install unzip
-
-#clear for reinstallation
-apt -y remove phpmyadmin
-apt -y purge phpmyadmin
-apt -y purge php7.* php-*
-apt -y remove nginx
-apt -y purge nginx
-apt -y purge mysql-*
-rm -rf /var/lib/mysql/
-rm -rf /etc/mysql/
-rm -rf /var/log/mysql
-rm -rf /etc/php
-deluser --remove-home mysql
-deluser --remove-home judge
-apt -y autoclean
-apt -y autoremove
 
 /usr/sbin/useradd -m -u 1536 judge
 cd /home/judge/ || exit
@@ -283,6 +267,10 @@ reset
 
 
 
+#new installation block end
+fi
+
+
 
 #db_info.inc.php edit
 #for OJ NAME
@@ -348,6 +336,8 @@ else
   rm ${SQLFILE}
   echo "insert into jol.privilege values('admin','source_browser','true','N');"|mysql -h localhost -u"$USER" -p"$PASSWORD"
 fi
+
+#add source_browser privilege to admin #from CSL HUSTOJ 21.04.05
 
 #Coping all uploads to server
 #current uploads backup
