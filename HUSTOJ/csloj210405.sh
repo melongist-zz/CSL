@@ -113,7 +113,7 @@ then
     tar -czvpf /home/${SUDO_USER}/oldmsg.tar.gz /home/judge/src/web/admin/msg.txt
   fi
 
-  rm /home/judge/src/*
+  rm -rf /home/judge/src/*
   cd /home/judge/
   wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${SRCZIP}
   unzip ${SRCZIP}
