@@ -95,14 +95,16 @@ if [ -d /home/judge ]; then
   if [ ${UPGRADETYPE} == "1" ]; then
     DBUSER=$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
     PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
-    #backup old DB
+
+    #backup current old DB
+    #how to backup database : mysqldump -u debian-sys-maint -p jol > jol.sql
     mysqldump -u ${DBUSER} -p${PASSWORD} jol > /home/${SUDO_USER}/oldjol.sql
-    #backup old images
-    tar zcvf /home/${SUDO_USER}/oldimages.tar.gz /home/judge/src/web/upload/*
-    #backup old *.in/*.out data
-    zip -r /home/${SUDO_USER}/olddata.zip /home/judge/data
-    #backup msg.txt
-    cp /home/judge/src/web/admin/msg.txt /home/${SUDO_USER}/oldmsg.txt
+    #backup current old *.in/*.out data
+    tar -zcvf /home/${SUDO_USER}/olddata.tar.gz /home/judge/data
+    #backup old uploads (images included)
+    tar -zcvf /home/${SUDO_USER}/olduploads.tar.gz /home/judge/src/web/upload
+    #backup old msg.txt
+    tar -zcvf /home/${SUDO_USER}/oldmsg.tar.gz /home/judge/src/web/admin/msg.txt
   fi
 
 fi
@@ -307,7 +309,8 @@ chmod 664 /home/judge/src/web/template/bs3/js.php
 
 #Replacing msg.txt
 if [ ${UPGRADETYPE} == "1" ]; then
-  mv -f /home/${SUDO_USER}/oldmsg.txt /home/judge/src/web/admin/msg.txt
+  tar -zxvf /home/${SUDO_USER}/oldmsg.tar.gz /
+  rm /home/${SUDO_USER}/oldmsg.tar.gz
 else
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/msg2.txt
 mv -f ./msg2.txt /home/judge/src/web/admin/msg.txt
@@ -338,17 +341,16 @@ else
 fi
 echo "insert into jol.privilege values('admin','source_browser','true','N');"|mysql -h localhost -u"$USER" -p"$PASSWORD" 
 
-#Coping all problem images to server
-#current images backup
-#how to backup images from CSL HUSTOJ
+#Coping all uploads to server
+#current uploads backup
+#how to backup uploads from CSL HUSTOJ
 #directory : /home/judge/src/wb/upload/
-#command   : sudo tar zcvf csl100v01image.tar.gz *
-#tar zcvf ./${BACKUPS}/upload/images.tar.gz /home/judge/src/web/upload/*
+#command   : sudo tar -zcvf ./${BACKUPS}/upload/olduploads.tar.gz /home/judge/src/web/upload
 rm -rf /home/judge/src/web/upload/*
 #overwriting
 if [ ${UPGRADETYPE} = "1" ]; then
-  tar zxvf /home/${SUDO_USER}/oldimages.tar.gz -C /home/judge/src/web/upload/
-  rm /home/${SUDO_USER}/oldimages.tar.gz
+  tar -zxvf /home/${SUDO_USER}/olduploads.tar.gz -C /
+  rm /home/${SUDO_USER}/olduploads.tar.gz
 else
   wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/upload/${IMGFILE}
   tar zxvf ${IMGFILE} -C /home/judge/src/web/upload/
@@ -370,8 +372,9 @@ chmod 664 /home/judge/src/web/upload/index.html
 rm -rf /home/judge/data
 #overwriting
 if [ ${UPGRADETYPE} = "1" ]; then
-  unzip /home/${SUDO_USER}/olddata.zip -d /home/judge/
-  rm /home/${SUDO_USER}/olddata.zip
+  rm -rf /home/judge/data/*
+  tar -zxvf /home/${SUDO_USER}/olddata.tar.gz -C /
+  rm /home/${SUDO_USER}/olddata.tar.gz
 else
   wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${DATAFILE}
   unzip ${DATAFILE} -d /home/judge/
