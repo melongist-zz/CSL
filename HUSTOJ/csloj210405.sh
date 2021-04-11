@@ -31,7 +31,7 @@ echo "---- CSL HUSTOJ release ${VER_DATE} ----"
 echo ""
 
 INPUTS="n"
-echo -n "Do you want to install the CSL HUSTOJ release ${VER_DATE} ?[y/n] : "
+echo -n "Do you want to install the CSL HUSTOJ release ${VER_DATE}? [y/n] : "
 read INPUTS
 if [ ${INPUTS} = "y" ]
 then
@@ -55,21 +55,25 @@ then
     echo " 1) Upgrade & Migration to ${VER_DATE} ..."
     echo " 2) Reset & New installation ..."
     echo " 3) Exit without installation ..."
-    echo -n "Select [1/2/3] : "
+    echo -n " Select [1/2/3] : "
     read UPGRADETYPE
     echo ""
     if [ ${UPGRADETYPE} = "1" ]
     then
-      echo -n " 1) Upgrade & Migration to ${VER_DATE} ... selected. Are you sure? [y/n] : "
+      echo " 1) Upgrade & Migration to ${VER_DATE} ... selected."
+      echo -n " Are you sure? [y/n] : "
       read INPUTS
       echo ""
     elif [ ${UPGRADETYPE} = "2" ]
     then
-      echo -n " 2) Reset & New installation ... selected. Are you sure? [y/n] : "
+      echo " 2) Reset & New installation ... selected."
+      echo -n " Are you sure? [y/n] : "
+      echo 
       read INPUTS
       echo ""
     else
-      echo -n " 3) Exit without installation ... selected. Are you sure? [y/n] : "
+      echo " 3) Exit without installation ... selected."
+      echo -n " Are you sure? [y/n] : "
       read INPUTS
       echo ""
       exit 1
