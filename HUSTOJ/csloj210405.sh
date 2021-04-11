@@ -58,6 +58,9 @@ while [ ${OJNAME} != ${INPUTS} ]; do
   read INPUTS
 done
 
+echo ""
+echo ""
+
 
 if [ -d /home/judge ]; then
   INPUTS="n"
@@ -70,11 +73,11 @@ if [ -d /home/judge ]; then
     read UPGRADETYPE
     if [ ${UPGRADETYPE} == "1" ]; then
       echo "You selected 1: Upgrade PHPs only!"
-      echo "Are you sure? [y/n] : "
+      echo -n "Are you sure? [y/n] : "
       read INPUTS
     else
       echo "You selected 2: New installation!"
-      echo "Are you sure? [y/n] : "
+      echo -n "Are you sure? [y/n] : "
       read INPUTS
     fi
   done

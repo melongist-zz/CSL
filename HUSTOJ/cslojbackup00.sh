@@ -83,6 +83,8 @@ sed -i "s/$DB_PASS=\"HUSTOJPASSWORD\"/$DB_PASS=\"${PASSWORD}\"/" /home/judge/src
 echo "rm -rf /home/judge/" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "tar -zxvf ./cslojjudge.tar.gz -C /" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "sed -i \"s/\$DB_PASS=\\\"HUSTOJPASSWORD\\\"/\$DB_PASS=\\\"\${PASSWORD}\\\"/\" /home/judge/src/web/include/db_info.inc.php" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "cd /home/judge/src/core/" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "sudo bash ./make.sh" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "echo \"\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "echo \"--- CSL HUSTOJ backup ${BACKUPS} restored!! ---\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "echo \"\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
