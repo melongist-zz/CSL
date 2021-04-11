@@ -121,7 +121,7 @@ then
   unzip ${SRCZIP}
   rm ${SRCZIP}  
 
-  sed -i "s/DB_USER[[:space:]]*=[[:space:]]*\"root\"/DB_USER=\"$USER\"/g" src/web/include/db_info.inc.php
+  sed -i "s/DB_USER[[:space:]]*=[[:space:]]*\"root\"/DB_USER=\"$DBUSER\"/g" src/web/include/db_info.inc.php
   sed -i "s/DB_PASS[[:space:]]*=[[:space:]]*\"root\"/DB_PASS=\"$PASSWORD\"/g" src/web/include/db_info.inc.php
   chmod 700 src/web/include/db_info.inc.php
   chown -R www-data src/web/
