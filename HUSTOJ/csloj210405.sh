@@ -336,7 +336,7 @@ else
   mysql -u ${DBUSER} -p${PASSWORD} jol < ${SQLFILE}
   rm ${SQLFILE}
 fi
-
+echo "insert into jol.privilege values('admin','source_browser','true','N');"|mysql -h localhost -u"$USER" -p"$PASSWORD" 
 
 #Coping all problem images to server
 #current images backup

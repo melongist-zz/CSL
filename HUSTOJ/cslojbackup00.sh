@@ -75,17 +75,23 @@ echo "DBUSER=\$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print \$3}')" >> 
 echo "PASSWORD=\$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print \$3}')" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "mysql -u \${DBUSER} -p\${PASSWORD} jol < jol.sql" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 
-#current /home/judge/ directory backup
-#how to backup /home/judge/ directory : sudo tar -zcvf ~/cslojjudge.tar.gz /home/judge/
+#current /home/judge/src/ directory backup
+#how to backup /home/judge/src/ directory : sudo tar -zcvf ~/cslojsrc.tar.gz /home/judge/src/
 sed -i "s/$DB_PASS=\"${PASSWORD}\"/$DB_PASS=\"HUSTOJPASSWORD\"/" /home/judge/src/web/include/db_info.inc.php
-tar -zcvf /home/${SUDO_USER}/cslojbackups/${BACKUPS}/cslojjudge.tar.gz /home/judge
+tar -zcvf /home/${SUDO_USER}/cslojbackups/${BACKUPS}/cslojsrc.tar.gz /home/judge/src
 sed -i "s/$DB_PASS=\"HUSTOJPASSWORD\"/$DB_PASS=\"${PASSWORD}\"/" /home/judge/src/web/include/db_info.inc.php
 #for restoring
-echo "rm -rf /home/judge/*" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
-echo "tar -zxvf ./cslojjudge.tar.gz -C /" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "rm -rf /home/judge/src/*" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "tar -zxvf ./cslojsrc.tar.gz -C /" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "sed -i \"s/\$DB_PASS=\\\"HUSTOJPASSWORD\\\"/\$DB_PASS=\\\"\${PASSWORD}\\\"/\" /home/judge/src/web/include/db_info.inc.php" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
-#echo "cd /home/judge/src/core/" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
-#echo "sudo bash ./make.sh" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+
+#current /home/judge/data/ directory backup
+#how to backup /home/judge/src/ directory : sudo tar -zcvf ~/cslojdata.tar.gz /home/judge/data/
+tar -zcvf /home/${SUDO_USER}/cslojbackups/${BACKUPS}/cslojdata.tar.gz /home/judge/data
+#for restoring
+echo "rm -rf /home/judge/data/*" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "tar -zxvf ./cslojdata.tar.gz -C /" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+
 echo "echo \"\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "echo \"--- CSL HUSTOJ backup ${BACKUPS} restored!! ---\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "echo \"\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
