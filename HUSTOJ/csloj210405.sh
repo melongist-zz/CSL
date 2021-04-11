@@ -31,9 +31,9 @@ echo ""
 
 
 if [ -d /home/judge ]; then
-  echo -n "Do you want to overwrite the CSL HUSTOJ?[y/n] "
+  echo -n "Do you want to overwrite the CSL HUSTOJ?[y/n] : "
 else
-  echo -n "Do you want to install the CSL HUSTOJ?[y/n] "
+  echo -n "Do you want to install the CSL HUSTOJ?[y/n] : "
 fi
 
 INPUTS="n"
@@ -75,10 +75,12 @@ if [ -d /home/judge ]; then
       echo "You selected 1: Upgrade PHPs only!"
       echo -n "Are you sure? [y/n] : "
       read INPUTS
+      echo ""
     else
       echo "You selected 2: New installation!"
       echo -n "Are you sure? [y/n] : "
       read INPUTS
+      echo ""
     fi
   done
 
@@ -549,7 +551,7 @@ sed -i "s/static  \$OJ_CE_PENALTY/@session_start();\nstatic  \$OJ_CE_PENALTY/" /
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${BACKUPFILE} -O /home/${SUDO_USER}/${BACKUPFILE}
 chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${BACKUPFILE}
 sed -i "s/\${SUDO_USER}/${SUDO_USER}/g" /home/${SUDO_USER}/${BACKUPFILE}
-bash /home/${SUDO_USER}/${BACKUPFILE} -${VER_DATE}-installed
+bash /home/${SUDO_USER}/${BACKUPFILE} -${VER_DATE}
 
 
 echo ""

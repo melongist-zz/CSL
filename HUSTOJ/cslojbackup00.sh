@@ -55,7 +55,8 @@ echo "echo \"\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "echo \"---- CSL HUSTOJ backup restore ----\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "echo \"\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "INPUTS=\"n\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
-echo "echo -n \"This script will restore ${BACKUPS} backup. Are you sure?[y/n] \"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "echo \"This script will restore ${BACKUPS} backup.\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "echo -n \"Are you sure?[y/n] : \"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "read INPUTS" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "if [ \${INPUTS} = \"n\" ]; then" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "  exit 1" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
