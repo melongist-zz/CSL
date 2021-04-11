@@ -97,11 +97,12 @@ then
   echo "HUSTOJ backup before CSL HUSTOJ release ${VER_DATE} installation"
   bash /home/${SUDO_USER}/${BACKUPFILE} -old
 
+
+  DBUSER=$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
+  PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
+
   if [ ${UPGRADETYPE} == "1" ]
   then
-    DBUSER=$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
-    PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
-
     #backup current old DB
     #how to backup database : mysqldump -u debian-sys-maint -p jol > jol.sql
     mysqldump -u ${DBUSER} -p${PASSWORD} jol > /home/${SUDO_USER}/oldjol.sql
@@ -114,10 +115,20 @@ then
   fi
 
   rm -rf /home/judge/src/*
+  rm -rf /home/judge/src/.*
   cd /home/judge/
   wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${SRCZIP}
   unzip ${SRCZIP}
   rm ${SRCZIP}  
+
+  sed -i "s/DB_USER[[:space:]]*=[[:space:]]*\"root\"/DB_USER=\"$USER\"/g" src/web/include/db_info.inc.php
+  sed -i "s/DB_PASS[[:space:]]*=[[:space:]]*\"root\"/DB_PASS=\"$PASSWORD\"/g" src/web/include/db_info.inc.php
+  chmod 700 src/web/include/db_info.inc.php
+  chown -R www-data src/web/
+
+  chown -R root:root src/web/.svn
+  chmod 750 -R src/web/.svn
+  chown www-data:judge src/web/upload
 
 else
 #new installation block start
