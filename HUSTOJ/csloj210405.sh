@@ -69,7 +69,6 @@ then
     then
       echo " 2) Reset & New installation ... selected."
       echo -n " Are you sure? [y/n] : "
-      echo 
       read INPUTS
       echo ""
     else
