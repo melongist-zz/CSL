@@ -55,6 +55,7 @@ then
     echo " 1) Upgrade & Migration to ${VER_DATE} ..."
     echo " 2) Reset & New installation ..."
     echo " 3) Exit without installation ..."
+    echo ""
     echo -n " Select [1/2/3] : "
     read UPGRADETYPE
     echo ""
@@ -73,8 +74,6 @@ then
       echo ""
     else
       echo " 3) Exit without installation ... selected."
-      echo -n " Are you sure? [y/n] : "
-      read INPUTS
       echo ""
       exit 1
     fi
