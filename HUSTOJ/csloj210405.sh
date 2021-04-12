@@ -49,7 +49,8 @@ if [ -d /home/judge ]
 then
   INPUTS="n"
   UPGRADETYPE="0"
-  while [ ${INPUTS} != "y" ]; do
+  while [ ${INPUTS} != "y" ]
+  do
     echo ""
     echo "---- Select installation type"
     echo " 1) Upgrade & Migration to ${VER_DATE} ..."
@@ -82,7 +83,8 @@ fi
 #for OJ NAME
 OJNAME="o"
 INPUTS="x"
-while [ ${OJNAME} != ${INPUTS} ]; do
+while [ ${OJNAME} != ${INPUTS} ]
+do
   echo -n "Enter  the CSL HUSTOJ name you want : "
   read OJNAME
   echo -n "Repeat the CSL HUSTOJ name you want : "
@@ -551,12 +553,12 @@ sed -i "s/\${SUDO_USER}/${SUDO_USER}/g" /home/${SUDO_USER}/${MAINTENANCEFILE}
 
 if [ -e "/var/spool/cron/crontabs/root" ]
 then
-  if grep "bak.sh" /var/spool/cron/crontabs/root ;
+  if [ grep "bak.sh" /var/spool/cron/crontabs/root ]
   then
     sed -i "/bak.sh/d" /var/spool/cron/crontabs/root
   fi
 
-  if grep "${MAINTENANCEFILE}" /var/spool/cron/crontabs/root ;
+  if [ grep "${MAINTENANCEFILE}" /var/spool/cron/crontabs/root ]
   then
     sed -i "/${MAINTENANCEFILE}/d" /var/spool/cron/crontabs/root
   fi

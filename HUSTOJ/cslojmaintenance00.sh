@@ -12,7 +12,8 @@ THISFILE="cslojmaintenance00.sh"
 
 
 
-if [[ -z $SUDO_USER ]] ; then
+if [[ -z $SUDO_USER ]]
+then
   echo "Use 'sudo bash ${THISFILE}'"
   exit 1
 fi
