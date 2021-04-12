@@ -1,5 +1,5 @@
 ## Ver   
-#### - 최종 갱신 : Ver 21.04.05   
+#### - 최종 갱신 : Ver 21.04.12   
    
 ***   
    
@@ -27,25 +27,35 @@
    
 ***   
    
-## HUSTOJ   
-#### - HUSTOJ 한글 환경, 한국 시간으로 설치   
+## 기본 HUSTOJ   
+#### - 기본 HUSTOJ 한글 환경, 한국 시간으로 설치   
 #아래 명령을 실행하면,   
 #한글 환경과 한국 시간으로 맞추어 HUSTOJ 를 설치합니다.   
 <pre><code>
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj210308.sh -O /home/${USER}/hustoj210308.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj210405.sh
 
-sudo bash hustoj210308.sh
+sudo bash hustoj210405.sh
 </code></pre>
   
 ***   
+|   
+|   
+|   
+|   
+|   
+|   
+|   
+|   
+|   
+|   
 ***   
    
-## 중고등학교 정보 수업 및 교수학습 활동을 위한 CSL 버전 HUSTOJ 설치
-#### - 주의0! 무단으로 사용시에는 저작권과 관련하여 분쟁이 발생할 수 있습니다.   
+## 중고등학교 정보 수업 및 교수학습 활동을 위한 CSL HUSTOJ 설치
+#### - 주의0! 무단으로 사용시에는 저작권과 관련한 분쟁이 발생할 수 있습니다.   
 #### - 주의1! 중고등학교 정보(컴퓨터) 선생님들은 편리하게 사용이 가능합니다.   
 #### - 주의2! 원래 HUSTOJ 의 데이터베이스와 구조가 다르기 때문에 서로 호환되지 않습니다.   
     
-#기초100제 시리즈의 모든 글과 내용들은 거의 10년 동안 현직 중고등학교 정보(컴퓨터) 선생님들의 노력과 협력으로 만들어지고 개선되어왔습니다.   
+#기초100제 시리즈의 모든 글과 내용들은 거의 10년 넘게 현직 중고등학교 정보(컴퓨터) 선생님들의 노력과 협력으로 만들어지고 개선되어왔습니다.   
 #중고등학교 정보 선생님들은 정규수업/방과후수업/특별활동/동아리활동 등 학교 내외의 교수학습활동 등을 위해 자유롭게 사용이 가능합니다!      
 #타교과 교사의 수업, 각종 사교육, 협의되지 않은 영리 목적의 사용 등은 원하지 않습니다.    
    
@@ -62,29 +72,11 @@ sudo bash hustoj210308.sh
    
 #### - 위 내용에 대하여 모두 이해하고 동의하는 경우에는 ...   
 #### - 아래의 설치 스크립트를 사용해서 CSL 버전의 HUSTOJ 를 설치할 수 있습니다.   
-#### - 아래 명령어를 복사해서 붙여넣기 방법으로 실행하시기를 권장합니다. 복사 후 붙여넣기가 잘 되지 않을 때는 마우스 오른쪽 클릭 후 붙여넣기로 시도해보세요.  
    
 <pre><code>
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csloj210308.sh -O /home/${USER}/csloj210308.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csloj210405.sh
    
-sudo bash csloj210308.sh
+sudo bash csloj210405.sh
 </code></pre>
    
 ***   
-
-#### - CSL 버전에 대한 오류수정 업데이트는 아래 명령어로 설치할 수 있습니다. 복사해서 붙여넣기 방법으로 실행하시기를 권장합니다.   
-#### - 아래의 설치 스크립트를 사용해서 CSL 버전 HUSTOJ 21.03.08 에 대한 패치를 설치할 수 있습니다.   
-#### - 아래 명령어를 복사해서 붙여넣기 방법으로 실행하시기를 권장합니다. 복사 후 붙여넣기가 잘 되지 않을 때는 마우스 오른쪽 클릭 후 붙여넣기로 시도해보세요.   
-
-<pre><code>
-wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csloj210308patch.sh -O /home/${USER}/csloj210308patch.sh
-   
-sudo bash csloj210308patch.sh
-</code></pre>
-   
-***   
-
-
-
-
-
