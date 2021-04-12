@@ -31,6 +31,7 @@
 #### - 기본 HUSTOJ 한글 환경, 한국 시간으로 설치   
 #아래 명령을 실행하면,   
 #한글 환경과 한국 시간으로 맞추어 HUSTOJ 를 설치합니다.   
+#hustoj210405.sh 파일이 있는 경우, 먼저 삭제(rm hustoj210405.sh) 후 다음 명령어를 실행해주세요.     
 <pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj210405.sh
 
@@ -72,6 +73,7 @@ sudo bash hustoj210405.sh
    
 #### - 위 내용에 대하여 모두 이해하고 동의하는 경우에는 ...   
 #### - 아래의 설치 스크립트를 사용해서 CSL 버전의 HUSTOJ 를 설치할 수 있습니다.   
+#hustoj210405.sh 파일이 있는 경우, 먼저 삭제(rm csloj210405.sh) 후 다음 명령어를 실행해주세요.   
    
 <pre><code>
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/csloj210405.sh
