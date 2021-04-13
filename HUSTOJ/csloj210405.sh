@@ -569,9 +569,9 @@ then
     sed -i "/bak.sh/d" /var/spool/cron/crontabs/root
   fi
 
-  if [ grep "${MAINTENANCEFILE}" /var/spool/cron/crontabs/root ]
+  if [ grep "cslojmaintenance" /var/spool/cron/crontabs/root ]
   then
-    sed -i "/cslojmaintenance00.sh/d" /var/spool/cron/crontabs/root
+    sed -i "/cslojmaintenance/d" /var/spool/cron/crontabs/root
   fi
 fi
 
