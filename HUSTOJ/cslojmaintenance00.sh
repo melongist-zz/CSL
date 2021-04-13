@@ -50,5 +50,5 @@ echo ""
 echo "Waiting 3 seconds..."
 sleep 3
 
-echo "rebooted"
+echo "Rebooted. Close this terminal and reconnect."
 reboot
