@@ -371,7 +371,6 @@ rm -rf /home/judge/src/web/upload/*
 if [ ${UPGRADETYPE} = "1" ]
 then
   tar -xzvpf /home/${SUDO_USER}/olduploads.tar.gz -C /
-  chmod 755 /home/judge/src/web/upload/file/
   rm /home/${SUDO_USER}/olduploads.tar.gz
 else
   wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/upload/${IMGFILE}
@@ -380,6 +379,7 @@ else
 fi
 chown www-data:www-data -R /home/judge/src/web/upload/*
 chmod 644 /home/judge/src/web/upload/*
+chmod 755 /home/judge/src/web/upload/file
 chmod 755 /home/judge/src/web/upload/image
 chown www-data:root -R /home/judge/src/web/upload/index.html
 chmod 664 /home/judge/src/web/upload/index.html
