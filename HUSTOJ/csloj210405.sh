@@ -10,8 +10,8 @@ VER_DATE="21.04.05"
 THISFILE="csloj210405.sh"
 SRCZIP="hustoj210405.zip"
 
-SQLFILE="csl100v06jol.sql"
-IMGFILE="csl100v01image.tar.gz"
+SQLFILE="csl100v07jol.sql"
+UPLOADFILE="csl100v02uploads.tar.gz"
 DATAFILE="csl100v07data.zip"
 
 MAINTENANCEFILE="cslojmaintenance00.sh"
@@ -359,10 +359,10 @@ else
   wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${SQLFILE}
   mysql -u ${DBUSER} -p${PASSWORD} jol < ${SQLFILE}
   rm ${SQLFILE}
+  #add source_browser privilege to admin #from CSL HUSTOJ 21.04.05
   echo "insert into jol.privilege values('admin','source_browser','true','N');"|mysql -h localhost -u"$USER" -p"$PASSWORD"
 fi
 
-#add source_browser privilege to admin #from CSL HUSTOJ 21.04.05
 
 #Coping all uploads to server
 #current uploads backup
@@ -376,9 +376,9 @@ then
   tar -xzvpf /home/${SUDO_USER}/olduploads.tar.gz -C /
   rm /home/${SUDO_USER}/olduploads.tar.gz
 else
-  wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/upload/${IMGFILE}
-  tar -xzvpf ${IMGFILE} -C /home/judge/src/web/upload/
-  rm ${IMGFILE}
+  wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/upload/${UPLOADFILE}
+  tar -xzvpf ${UPLOADFILE} -C /home/judge/src/web/upload/
+  rm ${UPLOADFILE}
 fi
 chown www-data:www-data -R /home/judge/src/web/upload/*
 chmod 644 /home/judge/src/web/upload/*
