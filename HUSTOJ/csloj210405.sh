@@ -33,7 +33,7 @@ echo ""
 INPUTS="n"
 echo -n "Do you want to install the CSL HUSTOJ release ${VER_DATE}? [y/n] : "
 read INPUTS
-if [ ${INPUTS} -eq "y" ]
+if [ ${INPUTS} = "y" ]
 then
   echo ""
   echo ""
@@ -49,7 +49,7 @@ if [ -d /home/judge ]
 then
   INPUTS="n"
   UPGRADETYPE="0"
-  while [ ${INPUTS} -ne "y" ]
+  while [ ${INPUTS} != "y" ]
   do
     echo ""
     echo "---- Select installation type"
@@ -60,14 +60,14 @@ then
     echo -n " Select [1/2/3] : "
     read UPGRADETYPE
     echo ""
-    if [ ${UPGRADETYPE} -eq "1" ]
+    if [ ${UPGRADETYPE} = "1" ]
     then
       echo " 1) Upgrade & Migration to ${VER_DATE} ... selected."
       echo ""
       echo -n " Are you sure? [y/n] : "
       read INPUTS
       echo ""
-    elif [ ${UPGRADETYPE} -eq "2" ]
+    elif [ ${UPGRADETYPE} = "2" ]
     then
       echo " 2) Reset & New installation ... selected."
       echo ""
@@ -85,7 +85,7 @@ fi
 #for OJ NAME
 OJNAME="o"
 INPUTS="x"
-while [ ${OJNAME} -ne ${INPUTS} ]
+while [ ${OJNAME} != ${INPUTS} ]
 do
   echo -n "Enter  the CSL HUSTOJ name you want : "
   read OJNAME
@@ -106,7 +106,7 @@ then
   DBUSER=$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
   PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 
-  if [ ${UPGRADETYPE} -eq "1" ]
+  if [ ${UPGRADETYPE} = "1" ]
   then
     #backup current old DB
     #how to backup database : mysqldump -u debian-sys-maint -p jol > jol.sql
@@ -326,7 +326,7 @@ chown www-data:${SUDO_USER} /home/judge/src/web/template/bs3/js.php
 chmod 664 /home/judge/src/web/template/bs3/js.php
 
 #Replacing msg.txt
-if [ ${UPGRADETYPE} -eq "1" ]
+if [ ${UPGRADETYPE} = "1" ]
 then
   tar -xzvpf /home/${SUDO_USER}/oldmsg.tar.gz -C /
   rm /home/${SUDO_USER}/oldmsg.tar.gz
@@ -350,7 +350,7 @@ chmod 644 /home/judge/src/web/admin/msg.txt
 #overwriting
 DBUSER=$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
-if [ ${UPGRADETYPE} -eq "1" ]
+if [ ${UPGRADETYPE} = "1" ]
 then
   mysql -u ${DBUSER} -p${PASSWORD} jol < /home/${SUDO_USER}/oldjol.sql
   rm /home/${SUDO_USER}/oldjol.sql
@@ -370,7 +370,7 @@ fi
 #command   : sudo tar -czvpf ./${BACKUPS}/upload/olduploads.tar.gz /home/judge/src/web/upload
 rm -rf /home/judge/src/web/upload/*
 #overwriting
-if [ ${UPGRADETYPE} -eq "1" ]
+if [ ${UPGRADETYPE} = "1" ]
 then
   tar -xzvpf /home/${SUDO_USER}/olduploads.tar.gz -C /
   rm /home/${SUDO_USER}/olduploads.tar.gz
@@ -395,7 +395,7 @@ chmod 664 /home/judge/src/web/upload/index.html
 #zip -r ./${BACKUPS}/data.zip /home/judge/data
 rm -rf /home/judge/data
 #overwriting
-if [ ${UPGRADETYPE} -eq "1" ]
+if [ ${UPGRADETYPE} = "1" ]
 then
   rm -rf /home/judge/data/*
   tar -xzvpf /home/${SUDO_USER}/olddata.tar.gz -C /
@@ -587,7 +587,7 @@ sed -i "s/\${SUDO_USER}/${SUDO_USER}/g" /home/${SUDO_USER}/${BACKUPFILE}
 bash /home/${SUDO_USER}/${BACKUPFILE} -${VER_DATE}
 
 
-if [ ${UPGRADETYPE} -eq "1" ]
+if [ ${UPGRADETYPE} = "1" ]
 then
   echo ""
   echo "---- ${OJNAME}(CSL HUSTOJ release ${VER_DATE}) upgraded! ----"
