@@ -63,12 +63,14 @@ then
     if [ ${UPGRADETYPE} = "1" ]
     then
       echo " 1) Upgrade & Migration to ${VER_DATE} ... selected."
+      echo ""
       echo -n " Are you sure? [y/n] : "
       read INPUTS
       echo ""
     elif [ ${UPGRADETYPE} = "2" ]
     then
       echo " 2) Reset & New installation ... selected."
+      echo ""
       echo -n " Are you sure? [y/n] : "
       read INPUTS
       echo ""
