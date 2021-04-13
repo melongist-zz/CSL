@@ -65,7 +65,7 @@ echo "echo -n \"Are you sure? [y/n] : \"" >> /home/${SUDO_USER}/cslojbackups/${B
 echo "read INPUTS" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "if [ \${INPUTS} = \"y\" ]" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "then" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
-echo "echo \"\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "  echo \"\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "else" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "  exit 1" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "fi" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
