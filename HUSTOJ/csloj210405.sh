@@ -326,7 +326,7 @@ chown www-data:${SUDO_USER} /home/judge/src/web/template/bs3/js.php
 chmod 664 /home/judge/src/web/template/bs3/js.php
 
 #Replacing msg.txt
-if [ ${UPGRADETYPE} = "1" ]
+if [ -d /home/judge ] && [ ${UPGRADETYPE} = "1" ]
 then
   tar -xzvpf /home/${SUDO_USER}/oldmsg.tar.gz -C /
   rm /home/${SUDO_USER}/oldmsg.tar.gz
@@ -350,7 +350,7 @@ chmod 644 /home/judge/src/web/admin/msg.txt
 #overwriting
 DBUSER=$(grep user /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
 PASSWORD=$(grep password /etc/mysql/debian.cnf|head -1|awk  '{print $3}')
-if [ ${UPGRADETYPE} = "1" ]
+if [ -d /home/judge ] && [ ${UPGRADETYPE} = "1" ]
 then
   mysql -u ${DBUSER} -p${PASSWORD} jol < /home/${SUDO_USER}/oldjol.sql
   rm /home/${SUDO_USER}/oldjol.sql
@@ -370,7 +370,7 @@ fi
 #command   : sudo tar -czvpf ./${BACKUPS}/upload/olduploads.tar.gz /home/judge/src/web/upload
 rm -rf /home/judge/src/web/upload/*
 #overwriting
-if [ ${UPGRADETYPE} = "1" ]
+if [ -d /home/judge ] && [ ${UPGRADETYPE} = "1" ]
 then
   tar -xzvpf /home/${SUDO_USER}/olduploads.tar.gz -C /
   rm /home/${SUDO_USER}/olduploads.tar.gz
@@ -395,7 +395,7 @@ chmod 664 /home/judge/src/web/upload/index.html
 #zip -r ./${BACKUPS}/data.zip /home/judge/data
 rm -rf /home/judge/data
 #overwriting
-if [ ${UPGRADETYPE} = "1" ]
+if [ -d /home/judge ] && [ ${UPGRADETYPE} = "1" ]
 then
   rm -rf /home/judge/data/*
   tar -xzvpf /home/${SUDO_USER}/olddata.tar.gz -C /
@@ -587,7 +587,7 @@ sed -i "s/\${SUDO_USER}/${SUDO_USER}/g" /home/${SUDO_USER}/${BACKUPFILE}
 bash /home/${SUDO_USER}/${BACKUPFILE} -${VER_DATE}
 
 
-if [ ${UPGRADETYPE} = "1" ]
+if [ -d /home/judge ] && [ ${UPGRADETYPE} = "1" ]
 then
   echo ""
   echo "---- ${OJNAME}(CSL HUSTOJ release ${VER_DATE}) upgraded! ----"
