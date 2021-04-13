@@ -5,7 +5,7 @@
 
 clear
 
-VER_DATE="21.04.11"
+VER_DATE="21.04.13"
 
 THISFILE="cslojmaintenance00.sh"
 
