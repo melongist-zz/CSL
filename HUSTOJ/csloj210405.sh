@@ -377,7 +377,7 @@ then
   rm /home/${SUDO_USER}/olduploads.tar.gz
 else
   wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/upload/${UPLOADFILE}
-  tar -xzvpf ${UPLOADFILE} -C /home/judge/src/web/upload/
+  tar -xzvpf /home/${SUDO_USER}/${UPLOADFILE} -C /
   rm ${UPLOADFILE}
 fi
 chown www-data:www-data -R /home/judge/src/web/upload/*
