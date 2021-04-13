@@ -571,7 +571,7 @@ then
 
   if [ grep "${MAINTENANCEFILE}" /var/spool/cron/crontabs/root ]
   then
-    sed -i "/${MAINTENANCEFILE}/d" /var/spool/cron/crontabs/root
+    sed -i "/cslojmaintenance00.sh/d" /var/spool/cron/crontabs/root
   fi
 fi
 
