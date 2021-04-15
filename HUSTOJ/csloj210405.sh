@@ -610,3 +610,12 @@ echo ""
 echo "$SERVERTYPES"
 echo "http://${IPADDRESS[0]}"
 echo ""
+echo ""
+echo ""
+echo "---- system reboot ----"
+echo ""
+echo "Waiting 3 seconds..."
+sleep 3
+
+echo "Rebooted. Close this terminal and reconnect."
+reboot
