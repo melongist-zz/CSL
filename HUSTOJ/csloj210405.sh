@@ -614,8 +614,7 @@ echo ""
 echo ""
 echo "---- system reboot ----"
 echo ""
-echo "Waiting 3 seconds..."
-sleep 3
-
-echo "Rebooted. Close this terminal and reconnect."
+echo "Waiting 10 seconds..."
+sleep 10
+echo "Rebooted"
 reboot
