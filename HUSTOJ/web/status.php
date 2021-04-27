@@ -508,6 +508,7 @@ for ($i=0; $i<$rows_cnt; $i++) {
 
   if(($hide==true) && (!isset($cid)))
   {
+    $view_status[$i][1] = "----";
     $view_status[$i][2] = "----";
     $view_status[$i][3] = "----";
     $view_status[$i][6] = "----";    
