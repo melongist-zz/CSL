@@ -541,8 +541,12 @@ sed -i "s#<?php echo \$MSG_HELP_ADD_FAQS?>#<?php echo \$MSG_HELP_ADD_FAQS?><br>\
 
 
 #small fix for status.php
-sed -i "s#KB</div># KB</div>#" /home/judge/src/web/status.php
-sed -i "s#ms</div># ms</div>#" /home/judge/src/web/status.php
+#sed -i "s#KB</div># KB</div>#" /home/judge/src/web/status.php
+#sed -i "s#ms</div># ms</div>#" /home/judge/src/web/status.php
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/web/status.php
+mv -f ./status.php /home/judge/src/web/status.php
+chmod 644 /home/judge/src/web/status.php
+chown www-data:root /home/judge/src/web/status.php
 
 #for python judging error patch
 sed -i "s/OJ_RUNNING=1/OJ_RUNNING=4/" /home/judge/etc/judge.conf
