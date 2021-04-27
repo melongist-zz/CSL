@@ -506,7 +506,7 @@ for ($i=0; $i<$rows_cnt; $i++) {
     $view_status[$i][8]= $row['in_date'];
 
 
-  if($hide == true)
+  if(($hide==true) && (!isset($cid)))
   {
     $view_status[$i][2] = "----";
     $view_status[$i][3] = "----";
