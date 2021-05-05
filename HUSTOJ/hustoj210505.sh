@@ -15,6 +15,17 @@ fi
 
 cd
 
+#for OJ NAME
+clear
+OJNAME="o"
+INPUTS="x"
+while [ ${OJNAME} != ${INPUTS} ]; do
+  echo -n "Enter  OJ NAME : "
+  read OJNAME
+  echo -n "Repeat OJ NAME : "
+  read INPUTS
+done
+
 #for South Korea's timezone
 timedatectl set-timezone 'Asia/Seoul'
 
@@ -166,16 +177,6 @@ cd
 sed -i "s/OJ_USE_MAX_TIME=0/OJ_USE_MAX_TIME=1/" /home/judge/etc/judge.conf
 
 #db_info.inc.php edit
-#for OJ NAME
-clear
-OJNAME="o"
-INPUTS="x"
-while [ ${OJNAME} != ${INPUTS} ]; do
-  echo -n "Enter  OJ NAME : "
-  read OJNAME
-  echo -n "Repeat OJ NAME : "
-  read INPUTS
-done
 sed -i "s/OJ_NAME=\"HUSTOJ\"/OJ_NAME=\"${OJNAME}\"/" /home/judge/src/web/include/db_info.inc.php
 #for south korea timezone
 sed -i "s#//date_default_timezone_set(\"PRC\")#date_default_timezone_set(\"Asia\/Seoul\")#" /home/judge/src/web/include/db_info.inc.php
