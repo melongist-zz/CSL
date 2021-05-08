@@ -73,7 +73,7 @@ sudo mysql_secure_installation
 
 sudo sed -i "s|\[mysqld\]|\[client\]\ndefault-character-set = utf8mb4\n\n\[mysqld\]|g" /etc/mysql/mysql.conf.d/mysqld.cnf
 sudo sed -i "s|# pid-file|innodb_file_per_table = 1\ncharacter-set-server = utf8mb4\ncollation-server = utf8mb4_unicode_ci\nskip-character-set-client-handshake\n# pid-file|g" /etc/mysql/mysql.conf.d/mysqld.cnf
-sudo sed -i "s|# If MySQL is running as|\[mysql\]\ndefault-character-set = utf8mb4\n\n# If MySQL is running as|g" /etc/mysql/mysql.conf.d/mysqld.cnf
+#sudo sed -i "s|# If MySQL is running as|\[mysql\]\ndefault-character-set = utf8mb4\n\n# If MySQL is running as|g" /etc/mysql/mysql.conf.d/mysqld.cnf
 sudo systemctl restart mysql
 
 #php
@@ -139,8 +139,8 @@ sudo sed -i "s|moodleuserpw|${DBPASS}|g" ./moodledb.sql
 
 
 echo ""
-echo "- mysql root password -"
-sudo mysql -u root -p < moodledb.sql
+echo "- use mysql root password -"
+mysql -u root -p < ./moodledb.sql
 #sudo rm moodledb.sql
 
 sudo chmod -R 777 /var/www/html/moodle
@@ -158,7 +158,7 @@ else
   IPADDRESS=($(hostname -I))
 fi
 
-clear
+#clear
 
 echo ""
 echo "--- MOODLE_310_STABLE installed ---"
