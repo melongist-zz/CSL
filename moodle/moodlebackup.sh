@@ -76,11 +76,11 @@ DBUSER="moodledbuser"
 DBPASS="moodledbpw"
 
 #current mysql backup
-mysqldump --no-tablespaces --single-transaction --add-drop-database -u ${DBUSER} -p${DBPASS} moodle > /home/${SUDO_USER}/moodlebackups/${BACKUPS}/moodledb.sql
+mysqldump --no-tablespaces --single-transaction --add-drop-database -u ${DBUSER} -p${DBPASS} moodle > /home/${SUDO_USER}/moodlebackups/${BACKUPS}/moodledbdump.sql
 #for restoring
 echo "DBUSER=\"${DBUSER}\"" >> /home/${SUDO_USER}/moodlebackups/${BACKUPS}/${RESTOREFILE}
 echo "DBPASS=\"${DBPASS}\"" >> /home/${SUDO_USER}/moodlebackups/${BACKUPS}/${RESTOREFILE}
-echo "mysql -u \${DBUSER} -p\${DBPASS} moodle < moodledb.sql" >> /home/${SUDO_USER}/moodlebackups/${BACKUPS}/${RESTOREFILE}
+echo "mysql -u \${DBUSER} -p\${DBPASS} moodle < moodledbdump.sql" >> /home/${SUDO_USER}/moodlebackups/${BACKUPS}/${RESTOREFILE}
 
 #current /home/judge/src/ directory backup
 tar -czvpf /home/${SUDO_USER}/moodlebackups/${BACKUPS}/moodlesrc.tar.gz /var/www/html
