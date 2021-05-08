@@ -16,7 +16,6 @@ if [[ $SUDO_USER ]] ; then
   exit 1
 fi
 
-echo ""
 INPUTS="x"
 echo -n "Do you want to install moodle 3.10 STABLE? [y/n] : "
 read INPUTS
@@ -24,6 +23,7 @@ if [[ ${INPUTS} != "y" ]] ; then
   exit 1
 fi
 
+echo ""
 echo "- moodle DB user/password set - "
 
 DBUSER="o"
@@ -45,7 +45,7 @@ while [ ${DBPASS} != ${INPUTS} ]; do
 done
 
 echo ""
-echo "---- Moodle3.10 installation start ----"
+echo "---- Moodle3.10 installation started ----"
 echo ""
 
 cd
