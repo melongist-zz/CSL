@@ -1,4 +1,4 @@
-#### - 최종 갱신 : Ver 21.02.18   
+#### - 최종 갱신 : Ver 21.05.08   
    
 ***   
    
@@ -11,17 +11,13 @@
    
 ***   
 #
-## moodle 3.10   
-#### - moodle 3.10, nginx + mysql + php 환경으로 설치   
+## MOODLE_310_STABLE   
+#### - MOODLE_310_STABLE, nginx + mysql + php 환경으로 설치   
 #아래 명령을 실행하면,   
 #moodle 3.10 을 설치합니다.   
 
 <pre>
-wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle210218.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle210508.sh
 
-bash moodle210218.sh
+bash moodle210508.sh
 </pre>
-
-
-
-
