@@ -3,7 +3,7 @@
 #Made by melongist(what_is_computer@msn.com)
 #for CSL Computer Science teachers
 
-clear
+#clear
 
 VER_DATE="21.05.08"
 
@@ -76,10 +76,10 @@ DBUSER="moodledbuser"
 DBPASS="moodledbuserpw"
 
 #current mysql backup
-mysqldump --no-tablespaces --single-transaction -u ${DBUSER} -p${DBPASS} moodle > /home/${SUDO_USER}/moodlebackups/${BACKUPS}/moodledb.sql
+mysqldump --no-tablespaces --single-transaction --add-drop-database -u ${DBUSER} -p${DBPASS} moodle > /home/${SUDO_USER}/moodlebackups/${BACKUPS}/moodledb.sql
 #for restoring
-echo "DBUSER=\"\${DBUSER}\"" >> /home/${SUDO_USER}/moodlebackups/${BACKUPS}/${RESTOREFILE}
-echo "DBPASS=\"\${DBPASS}\"" >> /home/${SUDO_USER}/moodlebackups/${BACKUPS}/${RESTOREFILE}
+echo "DBUSER=\"${DBUSER}\"" >> /home/${SUDO_USER}/moodlebackups/${BACKUPS}/${RESTOREFILE}
+echo "DBPASS=\"${DBPASS}\"" >> /home/${SUDO_USER}/moodlebackups/${BACKUPS}/${RESTOREFILE}
 echo "mysql -u \${DBUSER} -p\${DBPASS} moodle < moodledb.sql" >> /home/${SUDO_USER}/moodlebackups/${BACKUPS}/${RESTOREFILE}
 
 #current /home/judge/src/ directory backup
