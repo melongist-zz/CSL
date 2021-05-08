@@ -1,11 +1,14 @@
 #!/bin/bash
-#Korean HUSTOJ installation script
+#moodle installation script
 #Made by melongist(what_is_computer@msn.com)
 #for Korean
 
-VER_DATE="2021.05.08"
+VER_DATE="21.05.08"
 
 THISFILE="moodle210508.sh"
+
+MAINTENANCEFILE="moodlemaintenance.sh"
+BACKUPFILE="moodlebackup.sh"
 
 clear
 
@@ -106,6 +109,10 @@ sudo sed -i "s|# pid-file|innodb_file_per_table = 1\ncharacter-set-server = utf8
 wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodledb.sql
 sudo sed -i "s#moodledbuser#${DBUSER}#g" ./moodledb.sql
 sudo sed -i "s#moodledbuserpw#${DBPASS}#g" ./moodledb.sql
+#for moodlebackup.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodlebackup.sh
+sudo sed -i "s#moodledbuser#${DBUSER}#g" ./moodlebackup.sh
+sudo sed -i "s#moodledbuserpw#${DBPASS}#g" ./moodlebackup.sh
 
 echo ""
 echo "- Enter mysql root password below -"
@@ -148,9 +155,8 @@ sudo rm -rf /opt/moodle
 sudo mkdir /var/moodledata
 sudo chown -R www-data /var/moodledata
 sudo chmod -R 777 /var/moodledata
-sudo chmod -R 0755 /var/www/html/moodle
-
 sudo chmod -R 777 /var/www/html/moodle
+#sudo chmod -R 755 /var/www/html/moodle
 
 
 #curl installation
@@ -164,6 +170,34 @@ else
   SERVERTYPES="LOCAL SERVER(Recommended for testing purposes only. Use public IP/Domain for real use)"
   IPADDRESS=($(hostname -I))
 fi
+
+
+#for moodlemaintenance
+wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/${MAINTENANCEFILE} -O /home/${SUDO_USER}/${MAINTENANCEFILE}
+sudo chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${MAINTENANCEFILE}
+sed -i "s/\${SUDO_USER}/${SUDO_USER}/g" /home/${SUDO_USER}/${MAINTENANCEFILE}
+
+if [ -e "/var/spool/cron/crontabs/root" ]
+then
+  if [ sudo grep "moodlemaintenance" /var/spool/cron/crontabs/root ]
+  then
+    sudo sed -i "/moodlemaintenance/d" /var/spool/cron/crontabs/root
+  fi
+fi
+
+
+sudo crontab -l > temp
+sudo echo "30 4 * * * sudo bash /home/${SUDO_USER}/${MAINTENANCEFILE}" >> temp
+sudo crontab temp
+sudo rm -f temp
+
+
+#for backup
+wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/${BACKUPFILE} -O /home/${SUDO_USER}/${BACKUPFILE}
+sudo chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${BACKUPFILE}
+sed -i "s/\${SUDO_USER}/${SUDO_USER}/g" /home/${SUDO_USER}/${BACKUPFILE}
+sudo bash /home/${SUDO_USER}/${BACKUPFILE} -${VER_DATE}
+
 
 #clear
 
