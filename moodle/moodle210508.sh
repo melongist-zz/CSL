@@ -125,7 +125,7 @@ while [ ${DBUSER} != ${INPUTS} ]; do
   echo -n "Repeat DBUSER name : "
   read INPUTS
 done
-sudo sed -i "s|moodledbuser|${DBUSER}|g" ./moodledb.sql
+sudo sed -i "s|moodleuser|${DBUSER}|g" ./moodledb.sql
 
 DBPASS="o"
 INPUTS="x"
@@ -135,7 +135,7 @@ while [ ${DBPASS} != ${INPUTS} ]; do
   echo -n "Repeat DBUSER password : "
   read INPUTS
 done
-sudo sed -i "s|moodledbuserpw|${DBPASS}|g" ./moodledb.sql
+sudo sed -i "s|moodleuserpw|${DBPASS}|g" ./moodledb.sql
 
 
 echo ""
