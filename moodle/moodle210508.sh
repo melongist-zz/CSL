@@ -193,7 +193,7 @@ sed -i "s#moodledbuser#${DBUSER}#g" /home/${USER}/${BACKUPFILE}
 sed -i "s#moodledbuserpw#${DBPASS}#g" /home/${USER}/${BACKUPFILE}
 sed -i "s/\${SUDO_USER}/${USER}/g" /home/${USER}/${BACKUPFILE}
 
-sudo bash /home/${USER}/${BACKUPFILE} -${VER_DATE}
+#sudo bash /home/${USER}/${BACKUPFILE} -${VER_DATE}
 
 
 #clear

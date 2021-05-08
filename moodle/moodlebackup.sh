@@ -76,7 +76,7 @@ DBUSER="moodledbuser"
 DBPASS="moodledbuserpw"
 
 #current mysql backup
-mysqldump -u ${DBUSER} -p${DBPASS} moodle > /home/${SUDO_USER}/moodlebackups/${BACKUPS}/moodledb.sql
+mysqldump --no-tablespaces --single-transaction -u ${DBUSER} -p${DBPASS} moodle > /home/${SUDO_USER}/moodlebackups/${BACKUPS}/moodledb.sql
 #for restoring
 echo "DBUSER=\"\${DBUSER}\"" >> /home/${SUDO_USER}/moodlebackups/${BACKUPS}/${RESTOREFILE}
 echo "DBPASS=\"\${DBPASS}\"" >> /home/${SUDO_USER}/moodlebackups/${BACKUPS}/${RESTOREFILE}
