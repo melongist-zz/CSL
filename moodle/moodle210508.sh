@@ -24,6 +24,26 @@ if [[ ${INPUTS} != "y" ]] ; then
   exit 1
 fi
 
+echo "- moodle DB user/password set - "
+
+DBUSER="o"
+INPUTS="x"
+while [ ${DBUSER} != ${INPUTS} ]; do
+  echo -n "Enter  DBUSER name : "
+  read DBUSER
+  echo -n "Repeat DBUSER name : "
+  read INPUTS
+done
+
+DBPASS="o"
+INPUTS="x"
+while [ ${DBPASS} != ${INPUTS} ]; do
+  echo -n "Enter  DBUSER password : "
+  read DBPASS
+  echo -n "Repeat DBUSER password : "
+  read INPUTS
+done
+
 echo ""
 echo "---- Moodle3.10 installation start ----"
 echo ""
@@ -68,6 +88,8 @@ echo "- Enter ${USER} password below -"
 sudo mysql -u root -p mysql < changeplugin.sql
 #enter sudo password
 sudo rm changeplugin.sql
+
+
 sudo systemctl restart mysql
 
 sudo mysql_secure_installation
@@ -75,7 +97,21 @@ sudo mysql_secure_installation
 sudo sed -i "s|\[mysqld\]|\[client\]\ndefault-character-set = utf8mb4\n\n\[mysqld\]|g" /etc/mysql/mysql.conf.d/mysqld.cnf
 sudo sed -i "s|# pid-file|innodb_file_per_table = 1\ncharacter-set-server = utf8mb4\ncollation-server = utf8mb4_unicode_ci\nskip-character-set-client-handshake\n# pid-file|g" /etc/mysql/mysql.conf.d/mysqld.cnf
 #sudo sed -i "s|# If MySQL is running as|\[mysql\]\ndefault-character-set = utf8mb4\n\n# If MySQL is running as|g" /etc/mysql/mysql.conf.d/mysqld.cnf
+
+
+#moodledb.sql edit
+#for moodle db user
+wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodledb.sql
+sudo sed -i "s#moodledbuser#${DBUSER}#g" ./moodledb.sql
+sudo sed -i "s#moodledbuserpw#${DBPASS}#g" ./moodledb.sql
+
+echo ""
+echo "- Enter mysql root password below -"
+mysql -u root -p < ./moodledb.sql
+#sudo rm moodledb.sql
+
 sudo systemctl restart mysql
+
 
 #php
 sudo apt install -y php php-fpm php-cli php-curl php-mysql php-gd php-imagick php-tidy php-xmlrpc
@@ -84,7 +120,6 @@ sudo apt install -y graphviz aspell ghostscript clamav php7.4-pspell php7.4-gd p
 sudo sed -i "s:memory_limit = 128M:memory_limit = 256M:g" /etc/php/7.4/fpm/php.ini
 sudo sed -i "s:upload_max_filesize = 2M:upload_max_filesize = 256M:g" /etc/php/7.4/fpm/php.ini
 sudo sed -i "s:;opcache.enable=1:opcache.enable=1:g" /etc/php/7.4/fpm/php.ini
-
 
 
 #restart services
@@ -112,39 +147,6 @@ sudo mkdir /var/moodledata
 sudo chown -R www-data /var/moodledata
 sudo chmod -R 777 /var/moodledata
 sudo chmod -R 0755 /var/www/html/moodle
-
-
-#moodledb.sql edit
-#for moodle db user
-wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodledb.sql
-
-echo "- moodle DB user/password set - "
-
-DBUSER="o"
-INPUTS="x"
-while [ ${DBUSER} != ${INPUTS} ]; do
-  echo -n "Enter  DBUSER name : "
-  read DBUSER
-  echo -n "Repeat DBUSER name : "
-  read INPUTS
-done
-sudo sed -i "s#moodledbuser#${DBUSER}#g" ./moodledb.sql
-
-DBPASS="o"
-INPUTS="x"
-while [ ${DBPASS} != ${INPUTS} ]; do
-  echo -n "Enter  DBUSER password : "
-  read DBPASS
-  echo -n "Repeat DBUSER password : "
-  read INPUTS
-done
-sudo sed -i "s#moodledbuserpw#${DBPASS}#g" ./moodledb.sql
-
-
-echo ""
-echo "- Enter mysql root password below -"
-mysql -u root -p < ./moodledb.sql
-#sudo rm moodledb.sql
 
 sudo chmod -R 777 /var/www/html/moodle
 
