@@ -3,9 +3,9 @@
 #Made by melongist(what_is_computer@msn.com)
 #for Korean
 
-VER_DATE="2021.02.18"
+VER_DATE="2021.05.08"
 
-THISFILE="moodle210218.sh"
+THISFILE="moodle210508.sh"
 
 echo ""
 echo "---- CSL(Computer Science teachers's computer science Love) ----"
@@ -36,26 +36,44 @@ sudo timedatectl set-timezone 'Asia/Seoul'
 sudo apt update
 sudo apt -y upgrade
 
-
 #https://docs.moodle.org/310/en/Step-by-step_Installation_Guide_for_Ubuntu + but! with Nginx
+#nginx
 sudo apt install -y nginx
+#now working but trying~ hmm... it would be use javascript????
+#sudo sed -i "s|root /var/www/html;|root /var/www/html/moodle;|g" /etc/nginx/sites-enabled/default
 
+#for nginx's moodle css/js
+sudo sed -i "s#server_name _;#server_name _;\n\n\tlocation ~ [^/]\\.php(/|$) {\n\t\tfastcgi_split_path_info  ^(.+\\.php)(/.+)$;\n\t\tfastcgi_index            index.php;\n\t\tfastcgi_pass             unix:/var/run/php/php7.4-fpm.sock;\n\t\tinclude                  fastcgi_params;\n\t\tfastcgi_param   PATH_INFO       \$fastcgi_path_info;\n\t\tfastcgi_param   SCRIPT_FILENAME \$document_root\$fastcgi_script_name;\n\t}#g" /etc/nginx/sites-enabled/default
+sudo systemctl restart nginx
+
+
+#mysql
 sudo apt install -y mysql-client mysql-server
+wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/changeplugin.sql
+sudo mysql -u root -p mysql < changeplugin.sql
+sudo rm changeplugin.sql
+sudo systemctl restart mysql
+
 sudo mysql_secure_installation
 
+sudo sed -i "s|\[mysqld\]|\[client\]\ndefault-character-set = utf8mb4\n\n\[mysqld\]|g" /etc/mysql/mysql.conf.d/mysqld.cnf
+sudo sed -i "s|# pid-file|innodb_file_per_table = 1\ncharacter-set-server = utf8mb4\ncollation-server = utf8mb4_unicode_ci\nskip-character-set-client-handshake\n# pid-file|g" /etc/mysql/mysql.conf.d/mysqld.cnf
+sudo sed -i "s|# If MySQL is running as|\[mysql\]\ndefault-character-set = utf8mb4\n\n# If MySQL is running as|g" /etc/mysql/mysql.conf.d/mysqld.cnf
+sudo systemctl restart mysql
+
+#php
 sudo apt install -y php php-fpm php-cli php-mysql php-gd php-imagick php-tidy php-xmlrpc
 
-sudo apt install -y graphviz aspell ghostscript clamav php7.4-pspell php7.4-curl php7.4-intl php7.4-xml php7.4-ldap php7.4-zip php7.4-soap php7.4-mbstring
-
+sudo apt install -y graphviz aspell ghostscript clamav php7.4-pspell php7.4-gd php7.4-intl php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-ldap php7.4-zip php7.4-soap php7.4-mbstring
 
 sudo sed -i "s:memory_limit = 128M:memory_limit = 256M:g" /etc/php/7.4/fpm/php.ini
-sudo sed -i "s:upload_max_filesize = 2M:upload_max_filesize = 16M:g" /etc/php/7.4/fpm/php.ini
+sudo sed -i "s:upload_max_filesize = 2M:upload_max_filesize = 256M:g" /etc/php/7.4/fpm/php.ini
 sudo sed -i "s:;opcache.enable=1:opcache.enable=1:g" /etc/php/7.4/fpm/php.ini
 
 if grep "client_max_body_size" /etc/nginx/nginx.conf ; then 
   sudo echo "client_max_body_size already added" ;
 else
-  sudo sed -i "s:include /etc/nginx/mime.types;:client_max_body_size    80m;\n\tinclude /etc/nginx/mime.types;:g" /etc/nginx/nginx.conf
+  sudo sed -i "s:include /etc/nginx/mime.types;:client_max_body_size    256m;\n\tinclude /etc/nginx/mime.types;:g" /etc/nginx/nginx.conf
 fi
 
 sudo sed -i "s:index index.html:index index.php index.html:g" /etc/nginx/sites-enabled/default
@@ -64,15 +82,15 @@ sudo sed -i "s:#\tinclude snippets:\tinclude snippets:g" /etc/nginx/sites-enable
 sudo sed -i "s|#\tfastcgi_pass unix|\tfastcgi_pass unix|g" /etc/nginx/sites-enabled/default
 sudo sed -i "s|# deny access to .htaccess files|}\n\n\n\t# deny access to .htaccess files|g" /etc/nginx/sites-enabled/default
 
-#now working but trying~ hmm... it would be use javascript????
-#sudo sed -i "s|root /var/www/html;|root /var/www/html/moodle;|g" /etc/nginx/sites-enabled/default
 
-#for nginx's moodle css/js
-sudo sed -i "s#server_name _;#server_name _;\n\n\tlocation ~ [^/]\\.php(/|$) {\n\t\tfastcgi_split_path_info  ^(.+\\.php)(/.+)$;\n\t\tfastcgi_index            index.php;\n\t\tfastcgi_pass             unix:/var/run/php/php7.4-fpm.sock;\n\t\tinclude                  fastcgi_params;\n\t\tfastcgi_param   PATH_INFO       \$fastcgi_path_info;\n\t\tfastcgi_param   SCRIPT_FILENAME \$document_root\$fastcgi_script_name;\n\t}#g" /etc/nginx/sites-enabled/default
-
-sudo systemctl restart php7.4-fpm
+#restart services
 sudo systemctl restart nginx
+sudo systemctl restart mysql
+sudo systemctl restart php7.4-fpm
 sudo systemctl restart php7.4-fpm.service
+
+
+
 
 #original git
 #------
@@ -92,11 +110,6 @@ sudo mkdir /var/moodledata
 sudo chown -R www-data /var/moodledata
 sudo chmod -R 777 /var/moodledata
 sudo chmod -R 0755 /var/www/html/moodle
-
-
-sudo sed -i "s|# pid-file|innodb_file_per_table = 1\n# pid-file|g" /etc/mysql/mysql.conf.d/mysqld.cnf
-sudo service mysql restart
-
 
 
 #moodledb.sql edit
