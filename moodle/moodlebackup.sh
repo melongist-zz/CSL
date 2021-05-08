@@ -73,7 +73,7 @@ echo "echo \"\"" >> /home/${SUDO_USER}/moodlebackups/${BACKUPS}/${RESTOREFILE}
 
 
 DBUSER="moodledbuser"
-DBPASS="moodledbuserpw"
+DBPASS="moodledbpw"
 
 #current mysql backup
 mysqldump --no-tablespaces --single-transaction --add-drop-database -u ${DBUSER} -p${DBPASS} moodle > /home/${SUDO_USER}/moodlebackups/${BACKUPS}/moodledb.sql
