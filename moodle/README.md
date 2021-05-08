@@ -13,8 +13,8 @@
 #
 ## MOODLE_310_STABLE   
 #### - MOODLE_310_STABLE, nginx + mysql + php 환경으로 설치   
-#아래 명령을 실행하면,   
-#moodle 3.10 을 설치합니다.   
+#아래 명령을 우분투 터미널 명령으로 실행하면, moodle 시스템을 설치합니다.  
+#상세 프로세스는 준비중      
 
 <pre>
 wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodle210508.sh
