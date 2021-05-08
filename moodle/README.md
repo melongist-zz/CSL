@@ -11,8 +11,8 @@
    
 ***   
 #
-## moodle 3.10   
-#### - moodle 3.10, nginx + mysql + php 환경으로 설치   
+## MOODLE_310_STABLE   
+#### - MOODLE_310_STABLE, nginx + mysql + php 환경으로 설치   
 #아래 명령을 실행하면,   
 #moodle 3.10 을 설치합니다.   
 
