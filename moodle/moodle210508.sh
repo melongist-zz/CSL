@@ -107,12 +107,8 @@ sudo sed -i "s|# pid-file|innodb_file_per_table = 1\ncharacter-set-server = utf8
 #moodledb.sql edit
 #for moodle db user
 wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodledb.sql
-sudo sed -i "s#moodledbuser#${DBUSER}#g" ./moodledb.sql
-sudo sed -i "s#moodledbuserpw#${DBPASS}#g" ./moodledb.sql
-#for moodlebackup.sh
-wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodlebackup.sh
-sudo sed -i "s#moodledbuser#${DBUSER}#g" ./moodlebackup.sh
-sudo sed -i "s#moodledbuserpw#${DBPASS}#g" ./moodlebackup.sh
+sed -i "s#moodledbuser#${DBUSER}#g" ./moodledb.sql
+sed -i "s#moodledbuserpw#${DBPASS}#g" ./moodledb.sql
 
 echo ""
 echo "- Enter mysql root password below -"
@@ -193,7 +189,10 @@ sudo rm -f temp
 #for backup
 wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/${BACKUPFILE} -O /home/${USER}/${BACKUPFILE}
 chown ${USER}:${USER} /home/${USER}/${BACKUPFILE}
-sed -i "s/\${USER}/${USER}/g" /home/${USER}/${BACKUPFILE}
+sed -i "s#moodledbuser#${DBUSER}#g" /home/${USER}/${BACKUPFILE}
+sed -i "s#moodledbuserpw#${DBPASS}#g" /home/${USER}/${BACKUPFILE}
+sed -i "s/\${SUDO_USER}/${USER}/g" /home/${USER}/${BACKUPFILE}
+
 sudo bash /home/${USER}/${BACKUPFILE} -${VER_DATE}
 
 
