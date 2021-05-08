@@ -65,6 +65,7 @@ sudo systemctl restart nginx
 sudo apt install -y mysql-client mysql-server
 wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/changeplugin.sql
 sudo mysql -u root -p mysql < changeplugin.sql
+#enter sudo password
 sudo rm changeplugin.sql
 sudo systemctl restart mysql
 
@@ -76,9 +77,8 @@ sudo sed -i "s|# If MySQL is running as|\[mysql\]\ndefault-character-set = utf8m
 sudo systemctl restart mysql
 
 #php
-sudo add-apt-repository ppa:ondrej/nginx
-sudo apt install -y php php-fpm php-cli php-mysql php-gd php-imagick php-tidy php-xmlrpc
-sudo apt install -y graphviz aspell ghostscript clamav php7.4-pspell php7.4-gd php7.4-intl php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-ldap php7.4-zip php7.4-soap php7.4-mbstring
+sudo apt install -y php php-fpm php-cli php-curl php-mysql php-gd php-imagick php-tidy php-xmlrpc
+sudo apt install -y graphviz aspell ghostscript clamav php7.4-pspell php7.4-gd php7.4-intl php7.4-curl php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-ldap php7.4-zip php7.4-soap php7.4-mbstring
 
 sudo sed -i "s:memory_limit = 128M:memory_limit = 256M:g" /etc/php/7.4/fpm/php.ini
 sudo sed -i "s:upload_max_filesize = 2M:upload_max_filesize = 256M:g" /etc/php/7.4/fpm/php.ini
