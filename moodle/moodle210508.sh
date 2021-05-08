@@ -118,6 +118,8 @@ sudo chmod -R 0755 /var/www/html/moodle
 #for moodle db user
 wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodledb.sql
 
+echo "- moodle DB user/password set - "
+
 DBUSER="o"
 INPUTS="x"
 while [ ${DBUSER} != ${INPUTS} ]; do
@@ -126,7 +128,7 @@ while [ ${DBUSER} != ${INPUTS} ]; do
   echo -n "Repeat DBUSER name : "
   read INPUTS
 done
-sudo sed -i "s|moodleuser|${DBUSER}|g" ./moodledb.sql
+sudo sed -i "s#moodledbuser#${DBUSER}#g" ./moodledb.sql
 
 DBPASS="o"
 INPUTS="x"
@@ -136,7 +138,7 @@ while [ ${DBPASS} != ${INPUTS} ]; do
   echo -n "Repeat DBUSER password : "
   read INPUTS
 done
-sudo sed -i "s|moodleuserpw|${DBPASS}|g" ./moodledb.sql
+sudo sed -i "s#moodledbuserpw#${DBPASS}#g" ./moodledb.sql
 
 
 echo ""
