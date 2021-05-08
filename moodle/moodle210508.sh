@@ -39,12 +39,26 @@ sudo apt -y upgrade
 #https://docs.moodle.org/310/en/Step-by-step_Installation_Guide_for_Ubuntu + but! with Nginx
 #nginx
 sudo apt install -y nginx
+
 #now working but trying~ hmm... it would be use javascript????
 #sudo sed -i "s|root /var/www/html;|root /var/www/html/moodle;|g" /etc/nginx/sites-enabled/default
 
-#for nginx's moodle css/js
+if grep "client_max_body_size" /etc/nginx/nginx.conf ; then 
+  sudo echo "client_max_body_size already added" ;
+else
+  sudo sed -i "s:include /etc/nginx/mime.types;:client_max_body_size    256m;\n\tinclude /etc/nginx/mime.types;:g" /etc/nginx/nginx.conf
+fi
+
 sudo sed -i "s#server_name _;#server_name _;\n\n\tlocation ~ [^/]\\.php(/|$) {\n\t\tfastcgi_split_path_info  ^(.+\\.php)(/.+)$;\n\t\tfastcgi_index            index.php;\n\t\tfastcgi_pass             unix:/var/run/php/php7.4-fpm.sock;\n\t\tinclude                  fastcgi_params;\n\t\tfastcgi_param   PATH_INFO       \$fastcgi_path_info;\n\t\tfastcgi_param   SCRIPT_FILENAME \$document_root\$fastcgi_script_name;\n\t}#g" /etc/nginx/sites-enabled/default
+
+sudo sed -i "s:index index.html:index index.php index.html:g" /etc/nginx/sites-enabled/default
+sudo sed -i "s:#location ~ \\\.php\\$:location ~ \\\.php\\$:g" /etc/nginx/sites-enabled/default
+sudo sed -i "s:#\tinclude snippets:\tinclude snippets:g" /etc/nginx/sites-enabled/default
+sudo sed -i "s|#\tfastcgi_pass unix|\tfastcgi_pass unix|g" /etc/nginx/sites-enabled/default
+sudo sed -i "s|# deny access to .htaccess files|}\n\n\n\t# deny access to .htaccess files|g" /etc/nginx/sites-enabled/default
+
 sudo systemctl restart nginx
+
 
 
 #mysql
@@ -70,17 +84,6 @@ sudo sed -i "s:memory_limit = 128M:memory_limit = 256M:g" /etc/php/7.4/fpm/php.i
 sudo sed -i "s:upload_max_filesize = 2M:upload_max_filesize = 256M:g" /etc/php/7.4/fpm/php.ini
 sudo sed -i "s:;opcache.enable=1:opcache.enable=1:g" /etc/php/7.4/fpm/php.ini
 
-if grep "client_max_body_size" /etc/nginx/nginx.conf ; then 
-  sudo echo "client_max_body_size already added" ;
-else
-  sudo sed -i "s:include /etc/nginx/mime.types;:client_max_body_size    256m;\n\tinclude /etc/nginx/mime.types;:g" /etc/nginx/nginx.conf
-fi
-
-sudo sed -i "s:index index.html:index index.php index.html:g" /etc/nginx/sites-enabled/default
-sudo sed -i "s:#location ~ \\\.php\\$:location ~ \\\.php\\$:g" /etc/nginx/sites-enabled/default
-sudo sed -i "s:#\tinclude snippets:\tinclude snippets:g" /etc/nginx/sites-enabled/default
-sudo sed -i "s|#\tfastcgi_pass unix|\tfastcgi_pass unix|g" /etc/nginx/sites-enabled/default
-sudo sed -i "s|# deny access to .htaccess files|}\n\n\n\t# deny access to .htaccess files|g" /etc/nginx/sites-enabled/default
 
 
 #restart services
@@ -122,7 +125,7 @@ while [ ${DBUSER} != ${INPUTS} ]; do
   echo -n "Repeat DBUSER name : "
   read INPUTS
 done
-sudo sed -i "s|moodleuser|${DBUSER}|g" ./moodledb.sql
+sudo sed -i "s|moodledbuser|${DBUSER}|g" ./moodledb.sql
 
 DBPASS="o"
 INPUTS="x"
