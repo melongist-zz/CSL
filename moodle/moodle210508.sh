@@ -7,6 +7,8 @@ VER_DATE="2021.05.08"
 
 THISFILE="moodle210508.sh"
 
+clear
+
 echo ""
 echo "---- CSL(Computer Science teachers's computer science Love) ----"
 echo ""
