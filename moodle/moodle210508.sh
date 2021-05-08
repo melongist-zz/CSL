@@ -173,9 +173,9 @@ fi
 
 
 #for moodlemaintenance
-wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/${MAINTENANCEFILE} -O /home/${SUDO_USER}/${MAINTENANCEFILE}
-sudo chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${MAINTENANCEFILE}
-sed -i "s/\${SUDO_USER}/${SUDO_USER}/g" /home/${SUDO_USER}/${MAINTENANCEFILE}
+wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/${MAINTENANCEFILE} -O /home/${USER}/${MAINTENANCEFILE}
+chown ${USER}:${USER} /home/${USER}/${MAINTENANCEFILE}
+sed -i "s/\${USER}/${USER}/g" /home/${USER}/${MAINTENANCEFILE}
 
 if [ -e "/var/spool/cron/crontabs/root" ]
 then
@@ -185,18 +185,16 @@ then
   fi
 fi
 
-
 sudo crontab -l > temp
-sudo echo "30 4 * * * sudo bash /home/${SUDO_USER}/${MAINTENANCEFILE}" >> temp
+sudo echo "30 4 * * * sudo bash /home/${USER}/${MAINTENANCEFILE}" >> temp
 sudo crontab temp
 sudo rm -f temp
 
-
 #for backup
-wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/${BACKUPFILE} -O /home/${SUDO_USER}/${BACKUPFILE}
-sudo chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/${BACKUPFILE}
-sed -i "s/\${SUDO_USER}/${SUDO_USER}/g" /home/${SUDO_USER}/${BACKUPFILE}
-sudo bash /home/${SUDO_USER}/${BACKUPFILE} -${VER_DATE}
+wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/${BACKUPFILE} -O /home/${USER}/${BACKUPFILE}
+chown ${USER}:${USER} /home/${USER}/${BACKUPFILE}
+sed -i "s/\${USER}/${USER}/g" /home/${USER}/${BACKUPFILE}
+sudo bash /home/${USER}/${BACKUPFILE} -${VER_DATE}
 
 
 #clear

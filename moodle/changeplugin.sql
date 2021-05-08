@@ -1,3 +1,3 @@
-UPDATE user SET plugin='caching_sha2_password' WHERE user='root';
+UPDATE user SET plugin='mysql_native_password' WHERE user='root';
 FLUSH PRIVILEGES;
 exit
