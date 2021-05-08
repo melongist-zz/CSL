@@ -107,12 +107,12 @@ sudo sed -i "s|# pid-file|innodb_file_per_table = 1\ncharacter-set-server = utf8
 #moodledb.sql edit
 #for moodle db user
 wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/moodledb.sql
-sed -i "s#moodledbuser#${DBUSER}#g" ./moodledb.sql
-sed -i "s#moodledbuserpw#${DBPASS}#g" ./moodledb.sql
+sed -i "s#moodledbuser#${DBUSER}#g" /home/${USER}/moodledb.sql
+sed -i "s#moodledbuserpw#${DBPASS}#g" /home/${USER}/moodledb.sql
 
 echo ""
 echo "- Enter mysql root password below -"
-mysql -u root -p < ./moodledb.sql
+mysql -u root -p < /home/${USER}/moodledb.sql
 #sudo rm moodledb.sql
 
 sudo systemctl restart mysql
@@ -193,7 +193,7 @@ sed -i "s#moodledbuser#${DBUSER}#g" /home/${USER}/${BACKUPFILE}
 sed -i "s#moodledbuserpw#${DBPASS}#g" /home/${USER}/${BACKUPFILE}
 sed -i "s/\${SUDO_USER}/${USER}/g" /home/${USER}/${BACKUPFILE}
 
-#sudo bash /home/${USER}/${BACKUPFILE} -${VER_DATE}
+sudo bash /home/${USER}/${BACKUPFILE} -${VER_DATE}
 
 
 #clear
