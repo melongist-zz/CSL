@@ -29,7 +29,7 @@ if [[ ${INPUTS} != "y" ]] ; then
 fi
 
 echo ""
-echo "- moodle DB user/password set - "
+echo "- Enter moodle DB user/password preset before moodle installation start - "
 
 DBUSER="o"
 INPUTS="x"
