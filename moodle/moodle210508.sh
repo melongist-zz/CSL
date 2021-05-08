@@ -89,8 +89,8 @@ sudo systemctl restart nginx
 #mysql
 sudo apt install -y mysql-client mysql-server
 wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/changeplugin.sql
-echo "- Enter mysql root password below -"
-mysql -u root -p mysql < changeplugin.sql
+echo "- Enter ${USER} password below -"
+sudo mysql -u root -p mysql < changeplugin.sql
 #enter sudo password
 rm changeplugin.sql
 
