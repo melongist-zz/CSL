@@ -62,7 +62,7 @@ sudo sed -i "s|# If MySQL is running as|\[mysql\]\ndefault-character-set = utf8m
 sudo systemctl restart mysql
 
 #php
-sudo add-apt-repository ppa:ondrej/php
+sudo add-apt-repository ppa:ondrej/nginx
 sudo apt install -y php php-fpm php-cli php-mysql php-gd php-imagick php-tidy php-xmlrpc
 sudo apt install -y graphviz aspell ghostscript clamav php7.4-pspell php7.4-gd php7.4-intl php7.4-mysql php7.4-xml php7.4-xmlrpc php7.4-ldap php7.4-zip php7.4-soap php7.4-mbstring
 
