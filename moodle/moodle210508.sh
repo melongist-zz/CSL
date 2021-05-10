@@ -171,7 +171,7 @@ fi
 #for moodlemaintenance
 wget https://raw.githubusercontent.com/melongist/CSL/master/moodle/${MAINTENANCEFILE} -O /home/${USER}/${MAINTENANCEFILE}
 chown ${USER}:${USER} /home/${USER}/${MAINTENANCEFILE}
-sed -i "s/\${USER}/${USER}/g" /home/${USER}/${MAINTENANCEFILE}
+sed -i "s/\${SUDO_USER}/${USER}/g" /home/${USER}/${MAINTENANCEFILE}
 
 if [ -e "/var/spool/cron/crontabs/root" ]
 then
