@@ -50,7 +50,7 @@ mv /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${THISFILE} /home/${SUDO_USER}/csl
 
 touch /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "clear" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
-echo "if [[ -z \$USER ]]" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
+echo "if [[ -z \$SUDO_USER ]]" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "then" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "  echo \"Use 'sudo bash ${RESTOREFILE}'\"" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
 echo "  exit 1" >> /home/${SUDO_USER}/cslojbackups/${BACKUPS}/${RESTOREFILE}
