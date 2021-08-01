@@ -182,44 +182,44 @@ cd
 
 #judge.conf edit
 #time result fix ... for use_max_time : to record the max time of all results, not sum of...
-#sed -i "s/OJ_USE_MAX_TIME=0/OJ_USE_MAX_TIME=1/" /home/judge/etc/judge.conf
+sed -i "s/OJ_USE_MAX_TIME=0/OJ_USE_MAX_TIME=1/" /home/judge/etc/judge.conf
 
 #db_info.inc.php edit
-#sed -i "s/OJ_NAME=\"HUSTOJ\"/OJ_NAME=\"${OJNAME}\"/" /home/judge/src/web/include/db_info.inc.php
+sed -i "s/OJ_NAME=\"HUSTOJ\"/OJ_NAME=\"${OJNAME}\"/" /home/judge/src/web/include/db_info.inc.php
 #for south korea timezone
-#sed -i "s#//date_default_timezone_set(\"PRC\")#date_default_timezone_set(\"Asia\/Seoul\")#" /home/judge/src/web/include/db_info.inc.php
-#sed -i "s#//pdo_query(\"SET time_zone ='+8:00'\")#pdo_query(\"SET time_zone ='+9:00'\")#" /home/judge/src/web/include/db_info.inc.php
+sed -i "s#//date_default_timezone_set(\"PRC\")#date_default_timezone_set(\"Asia\/Seoul\")#" /home/judge/src/web/include/db_info.inc.php
+sed -i "s#//pdo_query(\"SET time_zone ='+8:00'\")#pdo_query(\"SET time_zone ='+9:00'\")#" /home/judge/src/web/include/db_info.inc.php
 
 #for korean kindeditor
-#sed -i "s/OJ_LANG=\"en\"/OJ_LANG=\"ko\"/" /home/judge/src/web/include/db_info.inc.php
-#sed -i "s/zh_CN.js/ko.js/" /home/judge/src/web/admin/kindeditor.php
+sed -i "s/OJ_LANG=\"en\"/OJ_LANG=\"ko\"/" /home/judge/src/web/include/db_info.inc.php
+sed -i "s/zh_CN.js/ko.js/" /home/judge/src/web/admin/kindeditor.php
 
 #Removing QR codes + CSL
-#wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/js1.php
-#mv -f ./js1.php /home/judge/src/web/template/bs3/js.php
-#chown www-data:${SUDO_USER} /home/judge/src/web/template/bs3/js.php
-#chmod 664 /home/judge/src/web/template/bs3/js.php
-#sed -i "s/release YY.MM.DD/release ${VER_DATE}/" /home/judge/src/web/template/bs3/js.php
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/js210705.php
+mv -f ./js210705.php /home/judge/src/web/template/bs3/js.php
+chown www-data:${SUDO_USER} /home/judge/src/web/template/bs3/js.php
+chmod 664 /home/judge/src/web/template/bs3/js.php
+sed -i "s/release YY.MM.DD/release ${VER_DATE}/" /home/judge/src/web/template/bs3/js.php
 
 
 #Replacing msg.txt
-#wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/msg1.txt
-#mv -f ./msg1.txt /home/judge/src/web/admin/msg.txt
-#chown www-data:${SUDO_USER} /home/judge/src/web/admin/msg.txt
-#chmod 664 /home/judge/src/web/admin/msg.txt
-#sed -i "s/release YY.MM.DD/release ${VER_DATE}/" /home/judge/src/web/admin/msg.txt
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/msg1.txt
+mv -f ./msg1.txt /home/judge/src/web/admin/msg.txt
+chown www-data:${SUDO_USER} /home/judge/src/web/admin/msg.txt
+chmod 664 /home/judge/src/web/admin/msg.txt
+sed -i "s/release YY.MM.DD/release ${VER_DATE}/" /home/judge/src/web/admin/msg.txt
 
 
 #Identifing AWS Ubuntu 20.04 LTS
-#if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]; then
-#  SERVERTYPES="AWS SERVER"
-#  IPADDRESS=($(curl http://checkip.amazonaws.com))
-#  #for python juding error fix
-#  sed -i "s/OJ_RUNNING=1/OJ_RUNNING=4/" /home/judge/etc/judge.conf
-#else
-#  SERVERTYPES="LOCAL SERVER"
-#  IPADDRESS=($(hostname -I))
-#fi
+if [ -f /etc/default/grub.d/50-cloudimg-settings.cfg ]; then
+  SERVERTYPES="AWS SERVER"
+  IPADDRESS=($(curl http://checkip.amazonaws.com))
+  #for python juding error fix
+  sed -i "s/OJ_RUNNING=1/OJ_RUNNING=4/" /home/judge/etc/judge.conf
+else
+  SERVERTYPES="LOCAL SERVER"
+  IPADDRESS=($(hostname -I))
+fi
 
 #temporary fix until next release
 #...
@@ -229,15 +229,15 @@ cd
 
 #clear
 
-#echo ""
-#echo "--- $OJNAME HUSTOJ installed!! ---"
-#echo ""
-#echo "Register admin!"
-#echo ""
-#echo "$SERVERTYPES"
-#echo "http://${IPADDRESS[0]}"
-#echo ""
-#echo ""
-#echo "Check & Edit HUSTOJ configurations"
-#echo "sudo vi /home/judge/src/web/include/db_info.inc.php"
-#echo ""
+echo ""
+echo "--- $OJNAME HUSTOJ installed!! ---"
+echo ""
+echo "Register admin!"
+echo ""
+echo "$SERVERTYPES"
+echo "http://${IPADDRESS[0]}"
+echo ""
+echo ""
+echo "Check & Edit HUSTOJ configurations"
+echo "sudo vi /home/judge/src/web/include/db_info.inc.php"
+echo ""
