@@ -37,7 +37,8 @@ RUN     useradd -m -u 1536 judge
 RUN     apt -y install zip
 RUN     apt -y install unzip
 RUN     cd /home/judge/
-RUN     wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj210626.zip 
+RUN     wget raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj210626.zip 
+RUN     unzip hustoj210626.zip
 
 #Github update
 #RUN	svn up /home/judge/src 
