@@ -7,6 +7,7 @@ VER_DATE="21.06.26"
 
 THISFILE="hustoj210626.sh"
 SRCZIP="hustoj210626.zip"
+DOCKERFILE="Dockerfile210626"
 
 if [[ -z $SUDO_USER ]] ; then
   echo "Use 'sudo bash ${THISFILE}'"
@@ -48,6 +49,12 @@ cd /home/judge/ || exit
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${SRCZIP}
 unzip ${SRCZIP}
 rm ${SRCZIP}
+
+#changing Dockerfile
+wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${DOCKERFILE}
+mv -f ./${DOCKERFILE} /home/judge/src/install/Dockerfile
+
+
 
 #------ original intallation scripts start
 
@@ -170,8 +177,8 @@ else
    sed -i "s/OJ_USE_DOCKER=0/OJ_USE_DOCKER=1/g" /home/judge/etc/judge.conf
    sed -i "s/OJ_PYTHON_FREE=0/OJ_PYTHON_FREE=1/g" /home/judge/etc/judge.conf
 fi
-cls
-reset
+#cls
+#reset
 
 
 
