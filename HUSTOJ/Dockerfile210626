@@ -26,6 +26,7 @@ RUN     apt-get -y install apt-utils \
 	dos2unix \
         openjdk-14-jdk \
 	subversion \
+        libmono-corlib4.5-cil \
         mono-devel \
 	wget \
         zip \
