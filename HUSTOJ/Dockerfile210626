@@ -4,13 +4,13 @@ FROM ubuntu:20.04
 
 #by CSL
 #RUN    sed -i 's/archive.ubuntu/mirrors.163/g' /etc/apt/sources.list &&\
-#RUN	  apt-get update && \
-#	      DEBIAN_FRONTEND=noninteractive \
+#RUN	apt-get update && \
+#	DEBIAN_FRONTEND=noninteractive \
 
 #by CSL
 ARG     DEBIAN_FRONTEND=noninteractive
 RUN     apt-get update
-RUN  	  apt-get -y install --no-install-recommends apt-utils \
+RUN  	apt-get -y install --no-install-recommends apt-utils \
         libmysqlclient-dev \
         libmysql++-dev \
         make \
@@ -20,13 +20,13 @@ RUN  	  apt-get -y install --no-install-recommends apt-utils \
         iptables \
         python \
         python3 \
-	      fp-compiler \
-	      mono-devel \
-	      busybox \
-	      dos2unix \
+	fp-compiler \
+	mono-devel \
+	busybox \
+	dos2unix \
         openjdk-14-jdk \
-	      subversion \
-	      wget
+	subversion \
+	wget
 
 
 RUN     apt-get -y install sqlite3
@@ -45,9 +45,9 @@ RUN     rm hustoj210626.zip
 
 
 #Github update
-#RUN	  svn up /home/judge/src 
+#RUN	svn up /home/judge/src 
 RUN     cd /home/judge/src/core/ && \
-	      bash make.sh 
+	bash make.sh 
 
 
 # for more compilers, remove # and run "docker build -t hustoj ."
