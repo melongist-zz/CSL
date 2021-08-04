@@ -22,11 +22,11 @@ RUN     apt-get -y install apt-utils \
         python \
         python3 \
 	fp-compiler \
-	mono-devel \
 	busybox \
 	dos2unix \
         openjdk-14-jdk \
 	subversion \
+        mono-devel \
 	wget \
         zip \
         unzip \
