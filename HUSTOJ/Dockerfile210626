@@ -39,7 +39,7 @@ RUN     useradd -m -u 1536 judge
 RUN     apt-get -y install unzip
 RUN     cd /home/judge/
 RUN     wget raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj210626.zip 
-RUN     unzip hustoj210626.zip
+RUN     unzip hustoj210626.zip -d /home/judge/
 RUN     rm hustoj210626.zip
 
 #Github update
