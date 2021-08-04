@@ -8,6 +8,8 @@ FROM ubuntu:20.04
 RUN	    apt-get update && \
 	      DEBIAN_FRONTEND=noninteractive \
     	  apt-get -y install --no-install-recommends \
+#by CSL
+				apt-utils \
         libmysqlclient-dev \
         libmysql++-dev \
         make \
@@ -21,7 +23,7 @@ RUN	    apt-get update && \
 	      mono-devel \
 	      busybox \
 	      dos2unix \
-        openjdk-14-jdk\
+        openjdk-14-jdk \
 	      subversion \
 	      wget
 
@@ -34,11 +36,11 @@ RUN     useradd -m -u 1536 judge
 #        tar xzf hustoj.tar.gz 
 
 #by CSL
-RUN     apt-get -y install zip
 RUN     apt-get -y install unzip
 RUN     cd /home/judge/
 RUN     wget raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj210626.zip 
 RUN     unzip hustoj210626.zip
+RUN     rm hustoj210626.zip
 
 #Github update
 #RUN	svn up /home/judge/src 

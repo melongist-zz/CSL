@@ -52,6 +52,8 @@ rm ${SRCZIP}
 
 #changing Dockerfile
 wget https://raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/${DOCKERFILE}
+chown root:root ./${DOCKERFILE}
+chmod 644 ./${DOCKERFILE}
 mv -f ./${DOCKERFILE} /home/judge/src/install/Dockerfile
 
 
