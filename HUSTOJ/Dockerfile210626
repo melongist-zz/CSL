@@ -10,7 +10,8 @@ FROM ubuntu:20.04
 #by CSL
 ARG     DEBIAN_FRONTEND=noninteractive
 RUN     apt-get update
-RUN  	apt-get -y install --no-install-recommends apt-utils \
+#RUN  	apt-get -y install --no-install-recommends \
+RUN     apt-utils \
         libmysqlclient-dev \
         libmysql++-dev \
         make \
@@ -26,10 +27,11 @@ RUN  	apt-get -y install --no-install-recommends apt-utils \
 	dos2unix \
         openjdk-14-jdk \
 	subversion \
-	wget
+	wget \
+        zip \
+        unzip \
+        sqlite3
 
-
-RUN     apt-get -y install sqlite3
 RUN     useradd -m -u 1536 judge
 
 
@@ -37,7 +39,6 @@ RUN     useradd -m -u 1536 judge
 #RUN    cd /home/judge/ && \ 
 #	wget dl.hustoj.com/hustoj.tar.gz && \
 #       tar xzf hustoj.tar.gz 
-RUN     apt-get -y install unzip
 RUN     cd /home/judge/
 RUN     wget raw.githubusercontent.com/melongist/CSL/master/HUSTOJ/hustoj210626.zip 
 RUN     unzip hustoj210626.zip -d /home/judge/
