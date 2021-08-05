@@ -7,7 +7,8 @@ RUN     sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list
 RUN     sed -i 's/security.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list
 ARG     DEBIAN_FRONTEND=noninteractive
 RUN     apt-get update
-RUN  	apt-get -y install --no-install-recommends \
+#RUN  	apt-get -y install --no-install-recommends \
+RUN    apt-get -y install \
         apt-utils \
         libmysqlclient-dev \
         libmysql++-dev \
