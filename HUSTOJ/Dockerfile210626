@@ -3,16 +3,10 @@
 FROM ubuntu:20.04
 
 #by CSL
-#RUN    sed -i 's/archive.ubuntu/mirrors.163/g' /etc/apt/sources.list &&\
-#RUN	apt-get update && \
-#	DEBIAN_FRONTEND=noninteractive \
-
-#by CSL
-RUN     sed -i 's/ap-northeast-2.ec2.archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list
 ARG     DEBIAN_FRONTEND=noninteractive
 RUN     apt-get update
-#RUN  	apt-get -y install --no-install-recommends \
-RUN     apt-get -y install apt-utils \
+RUN  	apt-get -y install --no-install-recommends \
+        apt-utils \
         libmysqlclient-dev \
         libmysql++-dev \
         make \
