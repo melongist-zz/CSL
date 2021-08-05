@@ -56,6 +56,9 @@ chown root:root ./${DOCKERFILE}
 chmod 644 ./${DOCKERFILE}
 mv -f ./${DOCKERFILE} /home/judge/src/install/Dockerfile
 
+#changing sources.list
+sed -i 's/archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list
+sed -i 's/security.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list
 
 
 #------ original intallation scripts start
