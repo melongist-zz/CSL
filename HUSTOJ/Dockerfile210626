@@ -8,6 +8,8 @@ FROM ubuntu:20.04
 #	DEBIAN_FRONTEND=noninteractive \
 
 #by CSL
+RUN     sudo timedatectl set-timezone 'Asia/Seoul'
+RUN     sed -i 's/ap-northeast-2.ec2.archive.ubuntu.com/mirror.kakao.com/g' /etc/apt/sources.list
 ARG     DEBIAN_FRONTEND=noninteractive
 RUN     apt-get update
 #RUN  	apt-get -y install --no-install-recommends \
