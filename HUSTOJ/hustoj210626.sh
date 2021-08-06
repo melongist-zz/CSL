@@ -31,6 +31,7 @@ done
 timedatectl set-timezone 'Asia/Seoul'
 
 apt update
+apt -y upgrade
 apt -y install subversion
 apt -y install zip
 apt -y install unzip
