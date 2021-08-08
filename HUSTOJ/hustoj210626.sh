@@ -32,15 +32,18 @@ timedatectl set-timezone 'Asia/Seoul'
 
 apt update
 apt -y upgrade
-apt -y install apt-transport-https ca-certificates curl gnupg lsb-release subversion zip unzip
 apt -y autoremove
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+apt -y install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+apt update
+apt-cache policy docker-ce
+apt -y install docker-ce
+apt -y autoremove
 
-apt -y install docker-ce docker-ce-cli containerd.io
-
-
+apt -y install subversion zip unzip
+apt -y autoremove
 
 /usr/sbin/useradd -m -u 1536 judge
 cd /home/judge/ || exit
