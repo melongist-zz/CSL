@@ -3,6 +3,7 @@
 FROM ubuntu:20.04
 
 #by CSL
+RUN     timedatectl set-timezone 'Asia/Seoul'
 RUN     sed -i 's/archive.ubuntu.com/kr.archive.ubuntu.com/g' /etc/apt/sources.list
 RUN     sed -i 's/security.ubuntu.com/kr.security.ubuntu.com/g' /etc/apt/sources.list
 ARG     DEBIAN_FRONTEND=noninteractive
