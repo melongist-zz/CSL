@@ -3,10 +3,9 @@
 #https://www.domjudge.org/
 #https://github.com/DOMjudge/domjudge
 
+#domjudge7.3.3 stable + Ubuntu 20.04.2 LTS Server
 
-#domjudge7.3.3 + Ubuntu 20.04 LTS Server
-
-#terminal commands to install
+#terminal commands to install DOMserver
 #------
 #wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/dj733dj.sh
 #bash dj733dj.sh
@@ -73,7 +72,7 @@ sudo apt -y install libjsoncpp-dev
 #tar xvf domjudge-7.3.3.tar.gz
 #cd domjudge-7.3.3
 
-#for 7.3.3.dev
+#for 7.3.3 stable
 wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/domjudge-7.3.3.tar.gz
 tar xvf domjudge-7.3.3.tar.gz
 cd domjudge-7.3.3
@@ -123,7 +122,7 @@ sudo sed -i "s/memory_limit = 128M/memory_limit = 2048M/" /etc/php/7.4/apache2/p
 
 
 
-
+#option
 #making auto direction
 cd
 #sudo rm -f /var/www/html/index.html
@@ -139,8 +138,8 @@ sudo apt -y autoremove
 PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
 echo "" | tee -a domjudge.txt
-echo "domjudge 7.3.3 DOMserver installed!!" | tee -a domjudge.txt
-echo "Ver 2021.04.05" | tee -a domjudge.txt
+echo "DOMserver installed!!" | tee -a domjudge.txt
+echo "DOMjudge 7.3.3 stable 21.04.05" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
 echo "Check below to access DOMserver's web interface!" | tee -a domjudge.txt
 echo "------" | tee -a domjudge.txt
