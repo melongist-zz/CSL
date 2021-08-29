@@ -76,7 +76,7 @@ sudo apt -y install libjsoncpp-dev
 #for 7.3.3.dev
 wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/domjudge-7.3.3.tar.gz
 tar xvf domjudge-7.3.3.tar.gz
-cd domjudge-7.3.3.tar.gz
+cd domjudge-7.3.3
 
 ./configure --with-baseurl=BASEURL
 make domserver
@@ -134,7 +134,7 @@ cd
 
 sudo apt -y autoremove
 
-clear
+#clear
 
 PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
