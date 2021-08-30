@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#by CSL
+#DOMjudge judgehosts installation script
+#Made by melongist(what_is_computer@msn.com)
+#for Korean
+
+
 #https://www.domjudge.org/
 #https://github.com/DOMjudge/domjudge
 
