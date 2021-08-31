@@ -1,7 +1,7 @@
-#20.10.19   
+#21.08.31   
 
 ---
-#DOMjudge 7.4.0.DEV installation   
+#DOMjudge 7.3.3 stable installation   
 <https://www.domjudge.org/>   
 
 #Prerequisite
@@ -9,8 +9,8 @@
 
 #Installation commands
 <pre><code>
-wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/dj740dj.sh
-bash dj740dj.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/dj733dj.sh
+bash dj733dj.sh
 </code></pre>
 
 #While installing...   
@@ -62,8 +62,8 @@ Next step : installing judgehosts
 #Installation commands to install judgehosts at the same DOMserver   
 #with default 1 judgehost + 2 more judgehosts
 <pre><code>
-wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/dj740jh.sh
-bash dj740jh.sh
+wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/dj733jh.sh
+bash dj733jh.sh
 </code></pre>
 
 #After judgehosts installed.
