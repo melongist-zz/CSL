@@ -33,9 +33,9 @@ Reload privilege tables now? [Y/n] :                  // <- y
 ...   
 ...   
 Database credentials read from '/opt/domjudge/domserver/etc/dbpasswords.secret'.   
-Enter password:                                       // <- input upper              mariadb's root password! #1   
+Enter password:                                       // <- input upper ↑↑          mariadb's root password! #1   
 DOMjudge database and user(s) created.   
-Enter password:                                       // <- input upper              mariadb's root password! #1   
+Enter password:                                       // <- input upper ↑↑          mariadb's root password! #1   
 ...   
 </code></pre>
 
