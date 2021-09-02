@@ -75,12 +75,12 @@ sudo sed -i "s/team name/팀 이름/" /opt/domjudge/domserver/webapp/templates/p
 sudo sed -i "s/>team/>팀 이름/" /opt/domjudge/domserver/webapp/templates/partials/scoreboard_table.html.twig
 sudo sed -i "s/solved \/ penalty time/맞춤 \/ 시간 패널티/" /opt/domjudge/domserver/webapp/templates/partials/scoreboard_table.html.twig
 sudo sed -i "s/>score/>점수/" /opt/domjudge/domserver/webapp/templates/partials/scoreboard_table.html.twig
-sudo sed -i "s/Solved first/처음으로 맞춤/" /opt/domjudge/domserver/webapp/templates/partials/scoreboard_table.html.twig
+sudo sed -i "s/Solved first/가장 먼저 맞춤/" /opt/domjudge/domserver/webapp/templates/partials/scoreboard_table.html.twig
 sudo sed -i "s/'Solved'/'맞춤'/" /opt/domjudge/domserver/webapp/templates/partials/scoreboard_table.html.twig
 sudo sed -i "s/Tried, incorrect/틀림/" /opt/domjudge/domserver/webapp/templates/partials/scoreboard_table.html.twig
 sudo sed -i "s/Tried, pending/채점 대기중/" /opt/domjudge/domserver/webapp/templates/partials/scoreboard_table.html.twig
-sudo sed -i "s/Untried/제출 기록 없음/" /opt/domjudge/domserver/webapp/templates/partials/scoreboard_table.html.twig
-sudo sed -i "s/Cell colours/셀 색상별 의미/" /opt/domjudge/domserver/webapp/templates/partials/scoreboard_table.html.twig
+sudo sed -i "s/Untried/미제출/" /opt/domjudge/domserver/webapp/templates/partials/scoreboard_table.html.twig
+sudo sed -i "s/Cell colours/셀 색상/" /opt/domjudge/domserver/webapp/templates/partials/scoreboard_table.html.twig
 
 #team menu
 sudo sed -i "s/DOMjudge/${OJNAME}/" /opt/domjudge/domserver/webapp/templates/team/menu.html.twig
