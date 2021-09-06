@@ -37,6 +37,11 @@ sudo apt -y install default-jre-headless
 sudo apt -y install default-jdk-headless
 sudo apt -y install ghc
 sudo apt -y install fp-compiler
+#testing: for swift
+sudo apt -y install clang libicu-dev
+wget https://swift.org/builds/swift-5.4.2-release/ubuntu2004/swift-5.4.2-RELEASE/swift-5.4.2-RELEASE-ubuntu20.04.tar.gz
+tar -zxvf swift-5.4.2-RELEASE-ubuntu20.04.tar.gz
+sudo ln -s ~/swift-5.4.2-RELEASE-ubuntu20.04/usr/bin/swiftc /usr/bin/swiftc
 
 cd domjudge-7.3.3
 ./configure --prefix=/opt/domjudge --with-baseurl=BASEURL
