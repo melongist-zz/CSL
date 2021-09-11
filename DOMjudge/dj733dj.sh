@@ -9,7 +9,7 @@
 #https://www.domjudge.org/
 #https://github.com/DOMjudge/domjudge
 
-#domjudge7.3.3 stable + Ubuntu 20.04.2 LTS Server
+#domjudge7.3.3 stable + Ubuntu 20.04.3 LTS Server
 
 #terminal commands to install DOMserver
 #------
@@ -32,6 +32,7 @@ sudo timedatectl set-timezone 'Asia/Seoul'
 sudo apt update
 sudo apt -y upgrade
 
+sudo apt -y install apt-transport-https
 sudo apt -y install acl
 sudo apt -y install zip
 
@@ -93,7 +94,7 @@ cd /opt/domjudge/domserver/bin
 
 echo ""
 echo "------"
-echo "Input!! Mariadb's root password with your own!!!"
+echo "Input your Mariadb's root password"
 echo "------"
 echo ""
 

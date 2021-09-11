@@ -33,18 +33,27 @@ sudo apt update
 sudo apt -y upgrade
 
 sudo apt -y install debootstrap
+#java
 sudo apt -y install default-jre-headless
 sudo apt -y install default-jdk-headless
+#haskell
 sudo apt -y install ghc
+#pascal
 sudo apt -y install fp-compiler
-#testing: for swift
+#swift : testing
 sudo apt -y install clang libicu-dev
 wget https://swift.org/builds/swift-5.4.2-release/ubuntu2004/swift-5.4.2-RELEASE/swift-5.4.2-RELEASE-ubuntu20.04.tar.gz
 tar -zxvf swift-5.4.2-RELEASE-ubuntu20.04.tar.gz
 sudo ln -s ~/swift-5.4.2-RELEASE-ubuntu20.04/usr/bin/swiftc /usr/bin/swiftc
+#R : testing
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
+sudo apt -y install r-base
+
 
 cd domjudge-7.3.3
 ./configure --prefix=/opt/domjudge --with-baseurl=BASEURL
+
 
 #make docs
 make docs
