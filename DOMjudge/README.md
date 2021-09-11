@@ -1,4 +1,4 @@
-#21.08.31   
+#21.09.12   
 
 ---
 #DOMjudge 7.3.3 stable installation   
@@ -20,7 +20,9 @@ Enter current password for root (enter for none) :    // <- enter
 ...   
 Switch to unix_socket autentication [Y/n] :           // <- n   
 ...   
-Change the root password? [Y/n] :                     // <- y      //you must change mariadb's root password! #1   
+Change the root password? [Y/n] :                     // <- y      //you must change mariadb's root password!    
+New password:                                         // <-- your own new password!! : #1    
+RE-enter new password:                                // <-- repeat your own new password!!    
 ...   
 Remove anonymous user? [Y/n] :                        // <- y   
 ...   
@@ -33,9 +35,9 @@ Reload privilege tables now? [Y/n] :                  // <- y
 ...   
 ...   
 Database credentials read from '/opt/domjudge/domserver/etc/dbpasswords.secret'.   
-Enter password:                                       // <- input upper ↑↑          mariadb's root password! #1   
+Enter password:                                       // <- input your own new password!! upper #1    
 DOMjudge database and user(s) created.   
-Enter password:                                       // <- input upper ↑↑          mariadb's root password! #1   
+Enter password:                                       // <- input your own new password!! upper #1    
 ...   
 </code></pre>
 
