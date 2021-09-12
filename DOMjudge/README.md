@@ -20,9 +20,9 @@ Enter current password for root (enter for none) :    // <- enter
 ...   
 Switch to unix_socket autentication [Y/n] :           // <- n   
 ...   
-Change the root password? [Y/n] :                     // <- y      //you must change mariadb's root password!    
-New password:                                         // <-- your own new password!! : #1    
-RE-enter new password:                                // <-- repeat your own new password!!    
+Change the root password? [Y/n] :                     // <- y      //You must change mariaDB's root password!    
+New password:                                         // <- #1     //Enter new password!!    
+RE-enter new password:                                // <-        //Repeat new password!!    
 ...   
 Remove anonymous user? [Y/n] :                        // <- y   
 ...   
@@ -35,9 +35,9 @@ Reload privilege tables now? [Y/n] :                  // <- y
 ...   
 ...   
 Database credentials read from '/opt/domjudge/domserver/etc/dbpasswords.secret'.   
-Enter password:                                       // <- input your own new password!! upper #1    
+Enter password:                                       // <- Enter your new (#1) password!!    
 DOMjudge database and user(s) created.   
-Enter password:                                       // <- input your own new password!! upper #1    
+Enter password:                                       // <- Enter your new (#1) password!!    
 ...   
 </code></pre>
 
