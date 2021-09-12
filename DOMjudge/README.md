@@ -53,6 +53,7 @@ Check below to access DOMserver's web interface!
 http://localhost/domjudge/    
 admin ID : admin    
 admin PW : ????????????????    
+    
 admin PW saved as domjudge.txt    
 Next step : installing judgehosts    
     
