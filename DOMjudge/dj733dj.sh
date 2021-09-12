@@ -9,7 +9,7 @@
 #https://www.domjudge.org/
 #https://github.com/DOMjudge/domjudge
 
-#domjudge7.3.3 stable + Ubuntu 20.04.3 LTS Server
+#domjudge7.3.3 stable + Ubuntu 20.04 LTS Server
 
 #terminal commands to install DOMserver
 #------
@@ -46,14 +46,14 @@ sudo apt -y install mariadb-server mariadb-client
 
 echo ""
 echo "------"
-echo "Change!! Mariadb's root password to your own!!!"
+echo "Change!! MariaDB's root password to your own!!!"
 echo "..."
 echo "Change the root password? [Y/n] y     <------ !!"
 echo "..."
 echo "------"
 echo ""
 
-#You must input mariadb's root account password! #1
+#You must input mariaDB's root account password! #1
 sudo mysql_secure_installation
 
 sudo apt -y install apache2
@@ -94,11 +94,11 @@ cd /opt/domjudge/domserver/bin
 
 echo ""
 echo "------"
-echo "Input your Mariadb's root password"
+echo "Input your MariaDB's root password"
 echo "------"
 echo ""
 
-#Use mariadbs's root password above #1
+#Use mariaDB's root password above #1
 sudo ./dj_setup_database -u root -r install
 
 
