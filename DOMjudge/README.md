@@ -45,14 +45,16 @@ Enter password:                                       // <- ????   //Enter your 
 
 #After DOMserver installed.
 <pre><code>
-Check below to access DOMserver's web interface!
-------
-http://localhost/domjudge/
-admin ID : admin
-admin PW : ????????????????
-
-admin PW saved as domjudge.txt
-Next step : installing judgehosts
+DOMserver installed!!    
+DOMjudge 7.3.3 stable 21.04.05    
+    
+Check below to access DOMserver's web interface!    
+------    
+http://localhost/domjudge/    
+admin ID : admin    
+admin PW : ????????????????    
+admin PW saved as domjudge.txt    
+Next step : installing judgehosts    
     
 </code></pre>
 
