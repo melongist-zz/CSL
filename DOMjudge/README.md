@@ -73,23 +73,28 @@ wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/dj733jh.sh
 bash dj733jh.sh
 </code></pre>
 
-#After judgehosts installed.
+#After judgehosts installed    
 <pre><code>
-run : sudo reboot
-
------- After every reboot ------
-run : sudo /opt/domjudge/judgehost/bin/create_cgroups   
-run : setsid /opt/domjudge/judgehost/bin/judgedaemon &   
-run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 0 &   
-run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 1 &   
-
-If you want to kill some judgedaemon processe?   
-ps -ef, and find pid# of judgedaemon, run : kill -15 pid#   
-
-Saved as domjudge.txt
+    
+judgehosts installed!!    
+DOMjudge 7.3.3 stable 21.04.05    
+    
+Next step : reboot, create_cgroups and run judgedaemons    
+run : sudo reboot    
+    
+------ After every reboot ------    
+run : sudo /opt/domjudge/judgehost/bin/create_cgroups    
+run : setsid /opt/domjudge/judgehost/bin/judgedaemon &    
+run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 0 &    
+run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 1 &    
+    
+If you want to kill some judgedaemon processe?    
+ps -ef, and find pid# of judgedaemon, run : kill -15 pid#    
+    
+Saved as domjudge.txt    
+    
 </code></pre>
-
-
+    
 ---
 #spotboard for domjudge   
 <https://github.com/spotboard/spotboard>
