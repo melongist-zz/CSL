@@ -44,15 +44,6 @@ sudo apt -y upgrade
 
 sudo apt -y install mariadb-server mariadb-client
 
-echo ""
-echo "------"
-echo "Change!! MariaDB's root password to your own!!!"
-echo "..."
-echo "Change the root password? [Y/n] y     <------ !!"
-echo "..."
-echo "------"
-echo ""
-
 #You must input mariaDB's root account password! #1
 sudo mysql_secure_installation
 
@@ -90,13 +81,6 @@ sudo make install-domserver
 
 cd /opt/domjudge/domserver/bin
 #./dj_setup_database genpass # it's not required..
-
-
-echo ""
-echo "------"
-echo "Input your MariaDB's root password"
-echo "------"
-echo ""
 
 #Use mariaDB's root password above #1
 sudo ./dj_setup_database -u root -r install
