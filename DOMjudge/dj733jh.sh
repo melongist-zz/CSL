@@ -9,7 +9,7 @@
 #https://www.domjudge.org/
 #https://github.com/DOMjudge/domjudge
 
-#domjudge7.3.3 stable + Ubuntu 20.04.2 LTS Server
+#domjudge7.3.3 stable + Ubuntu 20.04 LTS Server
 
 #terminal commands to install judgehosts
 #------
@@ -33,6 +33,7 @@ sudo apt update
 sudo apt -y upgrade
 
 sudo apt -y install debootstrap
+
 #java
 sudo apt -y install default-jre-headless
 sudo apt -y install default-jdk-headless
@@ -40,15 +41,17 @@ sudo apt -y install default-jdk-headless
 sudo apt -y install ghc
 #pascal
 sudo apt -y install fp-compiler
-#swift : testing
-#sudo apt -y install clang libicu-dev
-#wget https://swift.org/builds/swift-5.4.2-release/ubuntu2004/swift-5.4.2-RELEASE/swift-5.4.2-RELEASE-ubuntu20.04.tar.gz
-#tar -zxvf swift-5.4.2-RELEASE-ubuntu20.04.tar.gz
-#sudo ln -s ~/swift-5.4.2-RELEASE-ubuntu20.04/usr/bin/swiftc /usr/bin/swiftc
-#R : testing
-#sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-#sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
-#sudo apt -y install r-base
+
+#R
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
+sudo apt -y install r-base
+
+#swiftc
+sudo apt -y install clang libicu-dev
+wget https://swift.org/builds/swift-5.4.2-release/ubuntu2004/swift-5.4.2-RELEASE/swift-5.4.2-RELEASE-ubuntu20.04.tar.gz
+tar -zxvf swift-5.4.2-RELEASE-ubuntu20.04.tar.gz
+sudo ln -s ~/swift-5.4.2-RELEASE-ubuntu20.04/usr/bin/swiftc /usr/bin/swiftc
 
 
 cd domjudge-7.3.3
@@ -90,7 +93,12 @@ fi
 
 sudo update-grub
 
-sudo /opt/domjudge/judgehost/bin/dj_make_chroot
+
+#default
+#sudo /opt/domjudge/judgehost/bin/dj_make_chroot
+#default(C,C++,Python2,...) + R,swift
+echo 'y' | sudo /opt/domjudge/judgehost/bin/dj_make_chroot -i r-base,swift
+
 
 clear
 
