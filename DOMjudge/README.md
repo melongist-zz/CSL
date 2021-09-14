@@ -31,10 +31,6 @@ Disallow root login remotely? [Y/n] :                 // <- y
 Remove test database and access to it? [Y/n] :        // <- y   
 ...   
 Reload privilege tables now? [Y/n] :                  // <- y   
-...
-------    
-Input your MariaDB's root password    
-------    
 ...   
 Database credentials read from '/opt/domjudge/domserver/etc/dbpasswords.secret'.   
 Enter password:                                       // <- ????   //Enter your new (#1) password!!    
