@@ -53,6 +53,9 @@ wget https://swift.org/builds/swift-5.4.2-release/ubuntu2004/swift-5.4.2-RELEASE
 tar -zxvf swift-5.4.2-RELEASE-ubuntu20.04.tar.gz
 sudo ln -s ~/swift-5.4.2-RELEASE-ubuntu20.04/usr/bin/swiftc /usr/bin/swiftc
 
+sudo apt -y install build-essential
+
+
 
 cd domjudge-7.3.3
 ./configure --prefix=/opt/domjudge --with-baseurl=BASEURL
