@@ -46,15 +46,13 @@ sudo apt -y install fp-compiler
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
 sudo apt -y install r-base
+DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1
 
 #swiftc
 sudo apt -y install clang libicu-dev
 wget https://swift.org/builds/swift-5.4.2-release/ubuntu2004/swift-5.4.2-RELEASE/swift-5.4.2-RELEASE-ubuntu20.04.tar.gz
 tar -zxvf swift-5.4.2-RELEASE-ubuntu20.04.tar.gz
 sudo ln -s ~/swift-5.4.2-RELEASE-ubuntu20.04/usr/bin/swiftc /usr/bin/swiftc
-
-sudo apt -y install build-essential
-
 
 
 cd domjudge-7.3.3
