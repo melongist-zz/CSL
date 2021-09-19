@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #by CSL
-#DOMjudge korean patch for beginner
+#DOMjudge korean language patch for beginner
 #Made by melongist(what_is_computer@msn.com)
 #for Korean
 
@@ -103,6 +103,7 @@ sudo sed -i "s/There's no active contest for you (yet)./대회가 아직 시작�
 sudo sed -i "s/Contest {/대회 {/" /opt/domjudge/domserver/webapp/templates/team/partials/index_content.html.twig
 sudo sed -i "s/Submissions/채점 제출 기록/" /opt/domjudge/domserver/webapp/templates/team/partials/index_content.html.twig
 sudo sed -i "s/Clarifications/공지 및 안내/" /opt/domjudge/domserver/webapp/templates/team/partials/index_content.html.twig
+sudo sed -i "s/No clarifications./공지 또는 안내가 없습니다./" /opt/domjudge/domserver/webapp/templates/team/partials/index_content.html.twig
 sudo sed -i "s/Clarification Requests/질문 또는 요청/" /opt/domjudge/domserver/webapp/templates/team/partials/index_content.html.twig
 sudo sed -i "s/No clarification request./질문 또는 요청이 없습니다./" /opt/domjudge/domserver/webapp/templates/team/partials/index_content.html.twig
 sudo sed -i "s/request clarification/질문 또는 요청하기/" /opt/domjudge/domserver/webapp/templates/team/partials/index_content.html.twig

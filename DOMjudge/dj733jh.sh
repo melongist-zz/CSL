@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #by CSL
-#DOMjudge judgehosts installation script
+#DOMjudge judgehosts auto installation script
 #Made by melongist(what_is_computer@msn.com)
 #for Korean
 
@@ -41,13 +41,12 @@ sudo apt -y install default-jdk-headless
 sudo apt -y install ghc
 #pascal
 sudo apt -y install fp-compiler
-
 #R
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
 sudo apt -y install r-base
 
-#swiftc
+#trying... swift
 sudo apt -y install clang libicu-dev
 wget https://swift.org/builds/swift-5.4.2-release/ubuntu2004/swift-5.4.2-RELEASE/swift-5.4.2-RELEASE-ubuntu20.04.tar.gz
 tar -zxvf swift-5.4.2-RELEASE-ubuntu20.04.tar.gz

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #by CSL
-#DOMjudge server installation script
+#DOMjudge server auto installation script
 #Made by melongist(what_is_computer@msn.com)
 #for Korean
 
