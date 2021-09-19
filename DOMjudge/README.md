@@ -1,4 +1,4 @@
-#21.09.12   
+#21.09.19   
 
 ---
 #DOMjudge 7.3.3 stable installation   
@@ -80,9 +80,9 @@ run : sudo reboot
     
 ------ After every reboot ------    
 run : sudo /opt/domjudge/judgehost/bin/create_cgroups    
-run : setsid /opt/domjudge/judgehost/bin/judgedaemon &    
-run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 0 &    
-run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 1 &    
+run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon &    
+run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 0 &    
+run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 1 &    
     
 If you want to kill some judgedaemon processe?    
 ps -ef, and find pid# of judgedaemon, run : kill -15 pid#    
