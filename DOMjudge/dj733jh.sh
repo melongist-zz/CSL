@@ -46,7 +46,6 @@ sudo apt -y install fp-compiler
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
 sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/'
 sudo apt -y install r-base
-DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1
 
 #swiftc
 sudo apt -y install clang libicu-dev
@@ -113,14 +112,15 @@ echo "run : sudo reboot" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
 echo "------ After every reboot ------" | tee -a domjudge.txt
 echo "run : sudo /opt/domjudge/judgehost/bin/create_cgroups" | tee -a domjudge.txt
-echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon &" | tee -a domjudge.txt
-echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 0 &" | tee -a domjudge.txt
-echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 1 &" | tee -a domjudge.txt
-#echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 2 &" | tee -a domjudge.txt
-#echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 3 &" | tee -a domjudge.txt
-#echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 4 &" | tee -a domjudge.txt
-#echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 5 &" | tee -a domjudge.txt
-#echo "run : setsid /opt/domjudge/judgehost/bin/judgedaemon -n 6 &" | tee -a domjudge.txt
+# DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 added.. for R
+echo "run : DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon &" | tee -a domjudge.txt
+echo "run : DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 0 &" | tee -a domjudge.txt
+echo "run : DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 1 &" | tee -a domjudge.txt
+#echo "run : DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 2 &" | tee -a domjudge.txt
+#echo "run : DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 3 &" | tee -a domjudge.txt
+#echo "run : DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 4 &" | tee -a domjudge.txt
+#echo "run : DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 5 &" | tee -a domjudge.txt
+#echo "run : DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 6 &" | tee -a domjudge.txt
 
 echo "" | tee -a domjudge.txt
 echo "If you want to kill some judgedaemon processe?" | tee -a domjudge.txt
