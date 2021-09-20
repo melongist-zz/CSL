@@ -1,23 +1,18 @@
 #!/bin/bash
 
-#by CSL
-#DOMjudge server auto installation script
-#Made by melongist(what_is_computer@msn.com)
-#for Korean
-
-
+#origin
 #https://www.domjudge.org/
 #https://github.com/DOMjudge/domjudge
 
-#domjudge7.3.3 stable + Ubuntu 20.04 LTS Server
+#DOMjudge server installation script
+#DOMjudge7.3.3 stable + Ubuntu 20.04 LTS
+#Made by melongist(melongist@gmail.com, what_is_computer@msn.com) for CS teachers
 
-#terminal commands to install DOMserver
+#terminal commands to install DOMjudge server
 #------
 #wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/dj733dj.sh
 #bash dj733dj.sh
 
-#------
-#DOMserver
 
 if [[ $SUDO_USER ]] ; then
   echo "Just use 'bash dj733dj.sh'"
@@ -26,6 +21,7 @@ fi
 
 cd
 
+#change your timezone
 #for South Korea's timezone
 sudo timedatectl set-timezone 'Asia/Seoul'
 
@@ -66,11 +62,12 @@ sudo apt -y install libcgroup-dev
 sudo apt -y install libcurl4-openssl-dev
 sudo apt -y install libjsoncpp-dev
 
+#DOMjudge 7.3.3 stable
 #wget https://www.domjudge.org/releases/domjudge-7.3.3.tar.gz
 #tar xvf domjudge-7.3.3.tar.gz
 #cd domjudge-7.3.3
 
-#for 7.3.3 stable
+#DOMjudge 7.3.3 stable
 wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/domjudge-7.3.3.tar.gz
 tar xvf domjudge-7.3.3.tar.gz
 cd domjudge-7.3.3
