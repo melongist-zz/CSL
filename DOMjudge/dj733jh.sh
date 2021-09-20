@@ -92,7 +92,7 @@ sudo update-grub
 #sudo /opt/domjudge/judgehost/bin/dj_make_chroot
 #default(C,C++,Python,...)+R,swift
 echo 'y' | sudo /opt/domjudge/judgehost/bin/dj_make_chroot -i r-base,swift
-#for swift
+#for swift... ??????
 sudo mkdir /nonexistent
 sudo chmod 757 /nonexistent
 
