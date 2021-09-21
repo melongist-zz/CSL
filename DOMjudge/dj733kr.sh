@@ -1,10 +1,15 @@
 #!/bin/bash
 
-#by CSL
-#DOMjudge korean language patch for beginner
-#Made by melongist(what_is_computer@msn.com)
-#for Korean
+#DOMjudge server Korean language patch script
+#DOMjudge7.3.3 stable + Ubuntu 20.04 LTS
+#Made by 
+#2021.09.21 melongist(melongist@gmail.com, what_is_computer@msn.com) for CS teachers
 
+
+#terminal commands to install Korean patch 
+#------
+#wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/dj733kr.sh
+#bash dj733kr.sh
 
 
 if [[ $SUDO_USER ]] ; then

@@ -70,6 +70,7 @@ sudo apt -y install libjsoncpp-dev
 #DOMjudge 7.3.3 stable
 wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/domjudge-7.3.3.tar.gz
 tar xvf domjudge-7.3.3.tar.gz
+rm domjudge-7.3.3.tar.gz
 cd domjudge-7.3.3
 
 ./configure --with-baseurl=BASEURL
