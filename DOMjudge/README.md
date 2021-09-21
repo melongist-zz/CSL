@@ -12,7 +12,6 @@
 wget https://raw.githubusercontent.com/melongist/CSL/master/DOMjudge/dj733dj.sh
 bash dj733dj.sh
 </code></pre>
-
 #While installing...   
 <pre><code>
 ...   
@@ -38,7 +37,6 @@ DOMjudge database and user(s) created.
 Enter password:                                       // <- ????   //Enter your new (#1) password!!    
 ...   
 </code></pre>
-
 #After DOMserver installed.
 <pre><code>
 DOMserver installed!!    
@@ -54,7 +52,6 @@ admin PW saved as domjudge.txt
 Next step : installing judgehosts    
     
 </code></pre>
-
 ---
 #DOMjudge judgehosts installation   
 <https://www.domjudge.org/>   
@@ -94,8 +91,6 @@ How to domserver cache reset?
 sudo rm -rf /opt/domjudge/domserver/webapp/var/cache/prod/*.   
     
 Saved as domjudge.txt    
-    
-    
 </code></pre>    
 ---
 #spotboard for domjudge   
