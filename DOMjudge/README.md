@@ -1,4 +1,4 @@
-#21.09.19   
+#21.09.21   
 
 ---
 #DOMjudge 7.3.3 stable installation   
@@ -76,13 +76,13 @@ judgehosts installed!!
 DOMjudge 7.3.3 stable 21.04.05    
     
 Next step : reboot, create_cgroups and run judgedaemons    
-run : sudo reboot    
+sudo reboot    
     
 ------ After every reboot ------    
-run : sudo /opt/domjudge/judgehost/bin/create_cgroups    
-run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon &    
-run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 0 &    
-run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 1 &    
+sudo /opt/domjudge/judgehost/bin/create_cgroups    
+sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon &    
+sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 0 &    
+sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 1 &    
     
 If you want to kill some judgedaemon processe?    
 ps -ef, and find pid# of judgedaemon, run : kill -15 pid#    
