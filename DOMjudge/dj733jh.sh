@@ -46,14 +46,16 @@ sudo apt -y install clang libicu-dev
 wget https://swift.org/builds/swift-5.4.2-release/ubuntu2004/swift-5.4.2-RELEASE/swift-5.4.2-RELEASE-ubuntu20.04.tar.gz
 tar -zxvf swift-5.4.2-RELEASE-ubuntu20.04.tar.gz
 rm swift-5.4.2-RELEASE-ubuntu20.04.tar.gz
-sudo ln -s ~/swift-5.4.2-RELEASE-ubuntu20.04/usr/bin/swiftc /usr/bin/swiftc
+sudo mv ~/swift-5.4.2-RELEASE-ubuntu20.04 ~/swift
+sudo ln -s ~/swift/usr/bin/swiftc /usr/bin/swiftc
+
 
 #DOMjudge 7.3.3 stable
 cd domjudge-7.3.3
 ./configure --prefix=/opt/domjudge --with-baseurl=BASEURL
 
 
-#make docs
+#make docs?
 sudo apt -y install python3-sphinx python3-sphinx-rtd-theme rst2pdf fontconfig python3-yaml
 make docs
 sudo make install-docs
@@ -67,7 +69,7 @@ sudo make install-judgehost
 sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run
 sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-0
 sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-1
-sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-2
+#sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-2
 #sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-3
 #sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-4
 #sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-5
@@ -93,9 +95,13 @@ sudo update-grub
 #sudo /opt/domjudge/judgehost/bin/dj_make_chroot
 #default(C,C++,Python,...)+R,swift
 echo 'y' | sudo /opt/domjudge/judgehost/bin/dj_make_chroot -i r-base,swift
-#for swift... ????????
+
+
+#for swift... ???????? it's not working this script.. but why works with manual input??? why?
 sudo mkdir /nonexistent
 sudo chmod 757 /nonexistent
+
+
 
 sudo apt -y autoremove
 
@@ -115,7 +121,7 @@ echo "run : sudo /opt/domjudge/judgehost/bin/create_cgroups" | tee -a domjudge.t
 echo "run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon &" | tee -a domjudge.txt
 echo "run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 0 &" | tee -a domjudge.txt
 echo "run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 1 &" | tee -a domjudge.txt
-echo "run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 2 &" | tee -a domjudge.txt
+#echo "run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 2 &" | tee -a domjudge.txt
 #echo "run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 3 &" | tee -a domjudge.txt
 #echo "run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 4 &" | tee -a domjudge.txt
 #echo "run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 5 &" | tee -a domjudge.txt
