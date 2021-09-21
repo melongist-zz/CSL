@@ -83,14 +83,20 @@ sudo /opt/domjudge/judgehost/bin/create_cgroups
 sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon &    
 sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 0 &    
 sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 1 &    
+sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 2 &    
     
-If you want to kill some judgedaemon processe?    
-ps -ef, and find pid# of judgedaemon, run : kill -15 pid#    
+    
+How to kill some judgedaemon processe?    
+ps -ef    
+kill -15 pid#    
+    
+How to domserver cache reset?    
+sudo rm -rf /opt/domjudge/domserver/webapp/var/cache/prod/*.   
     
 Saved as domjudge.txt    
     
-</code></pre>
     
+</code></pre>    
 ---
 #spotboard for domjudge   
 <https://github.com/spotboard/spotboard>
