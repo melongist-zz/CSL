@@ -88,7 +88,7 @@ ps -ef
 kill -15 pid#    
     
 How to domserver cache reset?    
-sudo rm -rf /opt/domjudge/domserver/webapp/var/cache/prod/*.   
+sudo rm -rf /opt/domjudge/domserver/webapp/var/cache/prod/*    
     
 Saved as domjudge.txt    
 </code></pre>    
