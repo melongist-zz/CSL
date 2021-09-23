@@ -123,5 +123,13 @@ echo "" | tee -a domjudge.txt
 echo "How to domserver http web cache reset?" | tee -a domjudge.txt
 echo "sudo rm -rf /opt/domjudge/domserver/webapp/var/cache/prod/*" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
+chmod 660 domjudge.txt
 echo "Saved as domjudge.txt"
-echo "reboot and read domjudge.txt"
+echo ""
+echo "---- system reboot ----"
+echo ""
+echo "Waiting 60 seconds..."
+echo "After rebooted, read domjudge.txt"
+echo "cat comjudge.txt"
+sleep 60
+reboot
