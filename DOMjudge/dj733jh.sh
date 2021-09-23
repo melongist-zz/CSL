@@ -69,11 +69,7 @@ sudo make install-judgehost
 sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run
 sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-0
 sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-1
-#sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-2
-#sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-3
-#sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-4
-#sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-5
-#sudo useradd -d /nonexistent -U -M -s /bin/false domjudge-run-6
+
 
 sudo cp /opt/domjudge/judgehost/etc/sudoers-domjudge /etc/sudoers.d/
 sudo chmod 0440 /etc/sudoers.d/sudoers-domjudge
@@ -93,14 +89,9 @@ sudo update-grub
 
 #default
 #sudo /opt/domjudge/judgehost/bin/dj_make_chroot
+
 #default(C,C++,Python,...)+R,swift
 echo 'y' | sudo /opt/domjudge/judgehost/bin/dj_make_chroot -i r-base,swift
-
-
-#for swift... ???????? it's not working this script.. but why works with manual input??? why?
-sudo mkdir /nonexistent
-sudo chmod 757 /nonexistent
-
 
 
 sudo apt -y autoremove
@@ -109,31 +100,28 @@ clear
 
 cd
 echo "" | tee -a domjudge.txt
-echo "judgehosts installed!!" | tee -a domjudge.txt
 echo "DOMjudge 7.3.3 stable 21.04.05" | tee -a domjudge.txt
+echo "judgehosts installed!!" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
-echo "Next step : reboot, create_cgroups and run judgedaemons"
-echo "run : sudo reboot" | tee -a domjudge.txt
+echo "------ Run judgedamons after every reboot ------" | tee -a domjudge.txt
+echo "sudo /opt/domjudge/judgehost/bin/create_cgroups" | tee -a domjudge.txt
+#added for R    ... DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1
+echo "sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon &" | tee -a domjudge.txt
+echo "sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 0 &" | tee -a domjudge.txt
+echo "sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 1 &" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
-echo "------ After every reboot ------" | tee -a domjudge.txt
-echo "run : sudo /opt/domjudge/judgehost/bin/create_cgroups" | tee -a domjudge.txt
-#added for swift ... DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1
-echo "run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon &" | tee -a domjudge.txt
-echo "run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 0 &" | tee -a domjudge.txt
-echo "run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 1 &" | tee -a domjudge.txt
-#echo "run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 2 &" | tee -a domjudge.txt
-#echo "run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 3 &" | tee -a domjudge.txt
-#echo "run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 4 &" | tee -a domjudge.txt
-#echo "run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 5 &" | tee -a domjudge.txt
-#echo "run : sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 6 &" | tee -a domjudge.txt
-
+echo "------ etc ------" | tee -a domjudge.txt
+echo "For swift! Check/Edit comple script below at Admin page" | tee -a domjudge.txt
+echo "Admin page - Languages - swift - \"Compile script  swift\" - \"View file contents\" - Edit" | tee -a domjudge.txt
+echo "..." | tee -a domjudge.txt
+echo "swiftc -O -module-cache-path \"./\" -static-executable -static-stdlib -o \"\$DEST\" \$SOURCES\"" | tee -a domjudge.txt
+echo "..." | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
 echo "How to kill some judgedaemon processe?" | tee -a domjudge.txt
 echo "ps -ef, and find pid# of judgedaemon, run : kill -15 pid#" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
-echo "How to domserver cache reset?" | tee -a domjudge.txt
+echo "How to domserver http web cache reset?" | tee -a domjudge.txt
 echo "sudo rm -rf /opt/domjudge/domserver/webapp/var/cache/prod/*" | tee -a domjudge.txt
-echo ""
+echo "" | tee -a domjudge.txt
 echo "Saved as domjudge.txt"
-echo ""
-echo ""
+echo "reboot and read domjudge.txt"

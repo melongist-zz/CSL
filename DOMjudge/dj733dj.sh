@@ -127,8 +127,8 @@ sudo apt -y autoremove
 PASSWORD=$(cat /opt/domjudge/domserver/etc/initial_admin_password.secret)
 
 echo "" | tee -a domjudge.txt
-echo "DOMserver installed!!" | tee -a domjudge.txt
 echo "DOMjudge 7.3.3 stable 21.04.05" | tee -a domjudge.txt
+echo "DOMserver installed!!" | tee -a domjudge.txt
 echo "" | tee -a domjudge.txt
 echo "Check below to access DOMserver's web interface!" | tee -a domjudge.txt
 echo "------" | tee -a domjudge.txt
