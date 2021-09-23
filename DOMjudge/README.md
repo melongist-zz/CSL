@@ -1,4 +1,4 @@
-#21.09.21   
+#21.09.24   
 
 ---
 #DOMjudge 7.3.3 stable installation   
@@ -69,28 +69,31 @@ bash dj733jh.sh
 #After judgehosts installed    
 <pre><code>
     
-judgehosts installed!!    
 DOMjudge 7.3.3 stable 21.04.05    
+judgehosts installed!!    
     
-Next step : reboot, create_cgroups and run judgedaemons    
-sudo reboot    
-    
------- After every reboot ------    
+------ Run judgedamons after every reboot ------    
 sudo /opt/domjudge/judgehost/bin/create_cgroups    
-sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon &    
-sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 0 &    
-sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 1 &    
-sudo -u $USER DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 2 &    
+sudo -u ubuntu DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon &    
+sudo -u ubuntu DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 0 &    
+sudo -u ubuntu DOMJUDGE_CREATE_WRITABLE_TEMP_DIR=1 setsid /opt/domjudge/judgehost/bin/judgedaemon -n 1 &    
     
+------ etc ------    
+For swift! Check/Edit comple script below at Admin page    
+Admin page - Languages - swift - "Compile script  swift" - "View file contents" - Edit    
+...    
+swiftc -O -module-cache-path "./" -static-executable -static-stdlib -o "$DEST" $SOURCES"    
+...    
     
 How to kill some judgedaemon processe?    
-ps -ef    
-kill -15 pid#    
+ps -ef, and find pid# of judgedaemon, run : kill -15 pid#    
     
-How to domserver cache reset?    
+How to domserver http web cache reset?    
 sudo rm -rf /opt/domjudge/domserver/webapp/var/cache/prod/*    
-    
+
 Saved as domjudge.txt    
+reboot and read domjudge.txt    
+     
 </code></pre>    
 ---
 #spotboard for domjudge   
