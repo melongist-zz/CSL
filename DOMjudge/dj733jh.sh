@@ -128,8 +128,9 @@ echo "Saved as domjudge.txt"
 echo ""
 echo "---- system reboot ----"
 echo ""
-echo "Waiting 60 seconds..."
+echo "Waiting 10 seconds..."
 echo "After rebooted, read domjudge.txt"
 echo "cat comjudge.txt"
-sleep 60
+sleep 10
+echo "system rebooted"
 reboot
